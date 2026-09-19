@@ -3,17 +3,35 @@
 **FABRIC inverse pass: JSON inference → regenerated text**
 
 The vivify pipeline moves from language to structure: raw text enters, keywords
-and clumps emerge, the inference is filed into a category tree, and a tension score
-measures how far the felt meaning has drifted from its structural capture. reify
-runs that process in reverse. It takes a stored inference — already compressed into
-left_keywords, clumps, category_paths, and tension_score — and asks the Claude API
-to reconstruct the analog original: the felt thought the structure was built from.
+and clumps emerge, the inference is filed into a category tree, and tension is scored
+over the operator coordinates. reify runs that process in reverse. It takes a stored
+inference — already compressed into left_keywords, clumps, category_paths, and its
+tension block — and asks the Claude API to reconstruct the analog original: the felt
+thought the structure was built from.
 
 This is not summarization or paraphrase. The model is instructed to speak from
-inside the meaning, not about it. The tension_score shapes the output — a score of
-1.0 means left and right keyword sets share nothing, so the felt meaning completely
-resists its structural capture; the reconstruction leans into that gap rather than
-smoothing it over.
+inside the meaning, not about it.
+
+## What tension does to the output
+
+Tension shapes the reconstruction, but not as this file claimed until 2026-09-19.
+The old text described the score as left/right keyword divergence and said a score of 1.0 meant the two keyword sets shared nothing. That was the lexical score,
+dead since 2026-07-13. The number now means something else entirely:
+
+| field | meaning |
+|---|---|
+| `predicted` | the operators' judgment of **un-truth** — the resonance surface↔underlying gap (illusion) blended with conflict alarms. High means the text presented one thing while something else sat underneath. |
+| `confirmed` | the same distance measured against the record, from claimed-vs-actual discrepancies. Only present on calibration material, where it is established fact rather than inference. |
+| absent / `null` | **unmeasured**. Not low, not sincere. |
+
+So a high-tension reconstruction keeps the doubleness the original had — surface
+intact, the underneath showing through — instead of leaning into a keyword-overlap
+gap that no longer exists.
+
+`calibration_delta` is deliberately **not** sent to the model. It is `predicted`
+minus `confirmed`: a measure of how far the operators were off, which is a fact
+about the instrument and not about the felt thought. Sending it would invite the
+model to dramatise the pipeline's own error as something the original text carried.
 
 ---
 
@@ -22,7 +40,7 @@ smoothing it over.
 ### single
 
 Reconstructs prose from one inference. The model receives left_keywords, clumps,
-and a slice of category_paths, plus the tension score. Output is 3-6 dense
+and a slice of category_paths, plus the tension block. Output is 3-6 dense
 sentences in first person. Use this to test whether vivify actually captured
 what was meant — if the reconstruction feels foreign, the keywords drifted.
 
@@ -73,3 +91,5 @@ export ANTHROPIC_API_KEY=your_key_here
 ```
 
 Each call to reify bills against your Anthropic API account. Use `--dry-run` first.
+
+<!-- llm: claude-opus-5 | 2026-09-19 | repos/vivify-operators/README_reify.md | tension was still described as left/right keyword divergence, two months after the rewire and in the file documenting a generative prompt; replaced with predicted/confirmed and the reason calibration_delta is withheld -->

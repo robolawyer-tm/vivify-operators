@@ -2,17 +2,31 @@
 reify — FABRIC inverse pass: JSON inference → regenerated text
 
 The vivify pipeline moves from language to structure: raw text enters, keywords
-and clumps emerge, the inference is filed into a category tree, and a tension score
-measures how far the felt meaning has drifted from its structural capture. reify
-runs that process in reverse. It takes a stored inference — already compressed into
-left_keywords, clumps, category_paths, and tension_score — and asks the Claude API
-to reconstruct the analog original: the felt thought the structure was built from.
+and clumps emerge, the inference is filed into a category tree, and tension
+is scored over the operator coordinates. reify runs that process in reverse. It
+takes a stored inference — already compressed into left_keywords, clumps,
+category_paths, and its tension block — and asks the Claude API to reconstruct the
+analog original: the felt thought the structure was built from.
 
 This is not summarization or paraphrase. The model is instructed to speak from
-inside the meaning, not about it. The tension_score shapes the output — a score of
-1.0 means left and right keyword sets share nothing, so the felt meaning completely
-resists its structural capture; the reconstruction leans into that gap rather than
-smoothing it over.
+inside the meaning, not about it.
+
+Tension shapes the output, but NOT in the way this file claimed until 2026-09-19.
+The old prompt described tension_score as "how far left and right keyword sets
+diverge" and told the model to lean into that gap. That was the lexical score,
+dead since 2026-07-13, and the number now carries a different meaning entirely:
+
+  predicted   the operators' judgment of UN-TRUTH — the resonance surface vs
+              underlying gap (illusion) blended with conflict alarms. High means
+              the text presented one thing while something else sat underneath.
+  confirmed   the same un-truth measured against the record, from claimed-vs-
+              actual discrepancies. Only present on calibration material.
+  None        unmeasured. NOT low, NOT sincere. Absence of a measurement.
+
+So a high-tension reconstruction should keep the doubleness the original had —
+surface intact, the underneath showing through — rather than lean into a
+keyword-overlap gap that no longer exists. calibration_delta is deliberately NOT
+sent: it measures operator error, not anything about the felt thought.
 
 Three modes:
 
@@ -62,8 +76,8 @@ from category_index import ids_for_path, load_by_id
 REIFY_PROMPT = """You are the inverse pass of a vivify pipeline.
 
 You will receive a structured inference: left_keywords (felt semantic meaning),
-clumps (grouped keyword clusters), category_paths (emergent filing), and
-tension_score (how far left and right keyword sets diverge).
+clumps (grouped keyword clusters), category_paths (emergent filing), and a
+tension block.
 
 Your task is to reconstruct the felt thought — the analog original — from this
 structure. Do not explain the keywords. Do not describe what the pipeline did.
@@ -73,8 +87,16 @@ Rules:
 - Write in first person, direct voice
 - Do not mention keywords by name — let them shape the prose, not appear in it
 - Do not reference the pipeline, categories, or JSON
-- The tension_score tells you how much left and right diverge: high tension means
-  the felt meaning resists its own structural capture — lean into that gap
+- The tension block measures UN-TRUTH, not keyword overlap:
+  - "predicted" (0-1) is how far the text's surface stood apart from what was
+    underneath it. High means the original said one thing and meant, or was, another.
+    Reconstruct that doubleness — let the surface stand while the underneath shows
+    through it. Do not resolve the gap and do not announce it.
+  - "confirmed" (0-1) is the same distance measured against the record rather than
+    inferred. When present and high, the gap is established fact, not suspicion;
+    write with that footing.
+  - null, or a missing tension block, means UNMEASURED. It does not mean low, and
+    it does not mean the thought was sincere. Write without leaning either way.
 - Output format: a series of sentence+bullets constructs. Each block is one
   direct claim sentence (active voice, 25 words max), followed by 3-5 bullet
   points that each expand a distinct angle — evidence, example, or constraint.
@@ -129,6 +151,24 @@ Inferences:
 """
 
 
+def _tension_for_prompt(inference):
+    """The tension the model should see: predicted and confirmed only.
+
+    - calibration_delta is withheld deliberately. It is predicted minus confirmed,
+      a measure of how far the OPERATORS were off — a fact about the instrument,
+      not about the felt thought. Sending it invites the model to dramatise the
+      pipeline's own error as if it were something the original text contained.
+    - Absent stays absent. A missing block reads as unmeasured in the prompt, which
+      is what it is; filling it with 0.0 would tell the model the thought was plain.
+    """
+    t = inference.get("tension")
+    if isinstance(t, dict):
+        out = {k: t.get(k) for k in ("predicted", "confirmed") if t.get(k) is not None}
+        return out or None
+    legacy = inference.get("tension_score")
+    return {"predicted": legacy} if legacy is not None else None
+
+
 def call_api(prompt, dry_run=False):
     if dry_run:
         print("[dry-run] prompt:\n")
@@ -149,7 +189,7 @@ def reify_single(inference, dry_run=False):
         "left_keywords": inference.get("left_keywords", []),
         "clumps": inference.get("clumps", {}),
         "category_paths": inference.get("category_paths", [])[:4],
-        "tension_score": inference.get("tension_score")
+        "tension": _tension_for_prompt(inference)
     }
     prompt = REIFY_PROMPT + json.dumps(payload, indent=2)
     return call_api(prompt, dry_run=dry_run)
@@ -161,7 +201,7 @@ def reify_synthesize(inf_a, inf_b, dry_run=False):
         return {
             "left_keywords": inf.get("left_keywords", []),
             "clumps": inf.get("clumps", {}),
-            "tension_score": inf.get("tension_score")
+            "tension": _tension_for_prompt(inf)
         }
     prompt = SYNTHESIZE_PROMPT.format(
         inf_a=json.dumps(slim(inf_a), indent=2),
@@ -185,7 +225,7 @@ def reify_voice(category, inferences_dir="inferences", dry_run=False):
                 "id": inf["id"],
                 "left_keywords": inf.get("left_keywords", []),
                 "clumps": inf.get("clumps", {}),
-                "tension_score": inf.get("tension_score")
+                "tension": _tension_for_prompt(inf)
             })
 
     if not inferences:
@@ -221,7 +261,7 @@ def reify_domain_voice(inferences_dir, domain_name=None, dry_run=False):
                 "id": inf["id"],
                 "left_keywords": inf.get("left_keywords", []),
                 "clumps": inf.get("clumps", {}),
-                "tension_score": inf.get("tension_score")
+                "tension": _tension_for_prompt(inf)
             })
 
     if not inferences:
@@ -280,7 +320,7 @@ def main():
             print(f"Error: could not read {args.paths[0]}")
             sys.exit(1)
         text = reify_single(inf, dry_run=dry_run)
-        print(f"[reify: {inf['id']}  tension: {inf.get('tension_score', 'unscored')}]\n")
+        print(f"[reify: {inf['id']}  tension: {_tension_for_prompt(inf) or 'unmeasured'}]\n")
         print(text)
         return
 
@@ -298,3 +338,5 @@ if __name__ == "__main__":
 # llm: claude-opus-5 | 2026-09-15 | repos/vivify-operators/reify.py | reify_domain_voice rglobs the domain: a direct-children glob raised "No inferences found" for every nested domain (logos, pillars, claude_code_sessions), so --voices could only ever work for flat `field`
 
 # llm: claude-opus-5 | 2026-09-15 | repos/vivify-operators/reify.py | call_api goes through llm_call (claude CLI + privacy gate) instead of the anthropic SDK, which could not authenticate on this box and bypassed the gate — the last caller left on that path
+
+# llm: claude-opus-5 | 2026-09-19 | repos/vivify-operators/reify.py | the prompt described tension as left/right keyword divergence and told the model to lean into that gap — dead since the 2026-07-13 rewire, and this is an executable instruction, not a doc; now sends predicted/confirmed with their real meaning, withholds calibration_delta as an instrument fact, and makes unmeasured explicit instead of readable as low

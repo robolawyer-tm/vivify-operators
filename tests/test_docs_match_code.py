@@ -54,6 +54,23 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SELF = Path(__file__).resolve()
 
+# The dead SEMANTICS, separate from the dead formula. reify.py and
+# README_reify.md carried no formula at all — they described tension as left/right
+# keyword divergence in prose, and reify's copy was an executable instruction to a
+# generating model, not a doc. The formula check could never have caught either.
+# "left and right keyword sets" on its own is a TRUE statement — README.md states
+# the duality invariant that way, and that invariant is exactly WHY the lexical
+# score carried no information. What is dead is tying those sets to tension. So the
+# phrase only counts when a tension word sits near it, and "near" has to span lines
+# because the original wording wrapped: "The tension_score shapes the output — a
+# score of\n1.0 means left and right keyword sets share nothing".
+SEM_PHRASE = re.compile(
+    r"(left[ -]and[ -]right|left/right)\s+keyword\s+(sets?|divergence|overlap)",
+    re.IGNORECASE,
+)
+SEM_NEARBY = re.compile(r"tension|diverg|share nothing|resists its", re.IGNORECASE)
+SEM_WINDOW = 220
+
 # The formula in every spelling it has actually appeared in: with and without
 # the _keywords suffix, with and without parens, spaces or underscores as the
 # word separator. Anchored on "1.0 -" followed by a shared/total ratio.
@@ -64,10 +81,22 @@ DEAD_FORMULA = re.compile(
 
 # The only sanctioned mentions: file -> marker that must sit on the same line.
 # Anywhere else, in any file, is a regression.
+# file -> markers that may sit on a line naming the dead formula or semantics.
+# A line carrying any of its file's markers is a deliberate historical reference.
 SANCTIONED = {
-    "README.md": "Superseded — do not reintroduce",
-    "AUTHORING_BRIEF.md": "the formula it replaced",
+    "README.md":          ("Superseded — do not reintroduce",),
+    "AUTHORING_BRIEF.md": ("the formula it replaced",),
+    "reify.py":           ("The old prompt described",),
+    "README_reify.md":    ("The old text described",),
+    # The authoritative statement of what was replaced. If this stops naming the
+    # thing it superseded, the repo has lost its own record of the change.
+    "tension_score.py":   ("replacing the dead lexical",),
 }
+
+# A provenance footer's entire job is to say what changed, so it will name the
+# thing that was removed. Excluding them by shape rather than listing each one
+# keeps the exemption from needing maintenance every time a file is signed.
+PROVENANCE = re.compile(r"^\s*(#|<!--)\s*llm:\s")
 
 # Files that carry the formula as a TEST FIXTURE rather than as a claim. A test
 # needs the real strings — test_claim_check's whole point is that U+2212 MINUS
@@ -122,23 +151,46 @@ for path in scan_files():
     for n, line in enumerate(lines, 1):
         if not DEAD_FORMULA.search(line):
             continue
-        if marker and marker in line:
+        if PROVENANCE.match(line):
+            continue          # a signing footer describing its own change
+        if marker and any(m in line for m in marker):
             sanctioned_hits[rel] += 1
         elif rel in FIXTURE_FILES:
             continue          # a fixture is not a document making a claim
         else:
             offenders.append(f"{rel}:{n}")
 
-check("formula absent outside its sanctioned lines",
+    # Semantics: whole-file with a proximity window, because the dead wording wraps.
+    # Provenance footers are blanked first, keeping line numbers intact: they name
+    # the superseded tension by design, and a footer sitting within the window of an
+    # innocent sentence would otherwise convict it. That is not hypothetical — the
+    # duality invariant near the end of a signed file reads as an offence without this.
+    whole = "\n".join("" if PROVENANCE.match(ln) else ln for ln in lines)
+    for m in SEM_PHRASE.finditer(whole):
+        lo = max(0, m.start() - SEM_WINDOW)
+        window = whole[lo:m.end() + SEM_WINDOW]
+        if not SEM_NEARBY.search(window):
+            continue          # the duality invariant, stated truthfully
+        n = whole.count("\n", 0, m.start()) + 1
+        if PROVENANCE.match(lines[n - 1]):
+            continue
+        if marker and any(m2 in window for m2 in marker):
+            sanctioned_hits[rel] += 1
+        elif rel in FIXTURE_FILES:
+            continue
+        else:
+            offenders.append(f"{rel}:{n}")
+
+check("dead formula and semantics absent outside sanctioned lines",
       not offenders,
       f"found in {', '.join(offenders)}" if offenders else "")
 
 # 2. each sanctioned mention is still there, exactly once. A repo that passed
 #    check 1 by quietly deleting the "why it died" notes is worse, not better.
-for name, marker in SANCTIONED.items():
-    check(f"{name} still carries the dead formula with its marker",
-          sanctioned_hits[name] == 1,
-          f"expected 1 marked mention, found {sanctioned_hits[name]}")
+for name in SANCTIONED:
+    check(f"{name} still records what the dead tension meant",
+          sanctioned_hits[name] >= 1,
+          f"expected a marked historical mention, found {sanctioned_hits[name]}")
 
 # 2b. every fixture exemption still declares its reason. An exemption whose
 #     justification has been deleted is how a guard quietly stops guarding.
@@ -212,3 +264,7 @@ print("All docs-match-code checks passed.")
 # llm: claude-opus-5 | 2026-09-16 | repos/vivify-operators/tests/test_docs_match_code.py | created — regression guard: the superseded lexical tension formula must not reappear in any document, and no second tension implementation may be defined
 # llm: claude-opus-5 | 2026-09-16 | repos/vivify-operators/tests/test_docs_match_code.py | two sanctioned formula mentions (README + AUTHORING_BRIEF), each marker-gated; added check 5 — every repo-local path the brief cites must resolve and cited line numbers must be in range
 # llm: claude-opus-5 | 2026-09-16 | repos/vivify-operators/tests/test_docs_match_code.py | added FIXTURE_FILES — a test may hold the formula as a known-false fixture, but the exemption must be named here and the file must declare why
+# llm: claude-opus-5 | 2026-09-19 | repos/vivify-operators/tests/test_docs_match_code.py | added DEAD_SEMANTICS — reify.py and README_reify.md described tension as left/right keyword divergence with no formula present, so the formula check could never have caught them, and reify's copy was a live prompt rather than a doc
+# llm: claude-opus-5 | 2026-09-19 | repos/vivify-operators/tests/test_docs_match_code.py | exempt llm: provenance footers by shape and sanction tension_score.py's own docstring — both name the superseded tension because that is precisely their job
+# llm: claude-opus-5 | 2026-09-19 | repos/vivify-operators/tests/test_docs_match_code.py | the semantics check now needs a tension word near the phrase, matched across lines — 'left and right keyword sets stay separate' is the duality invariant and true, and flagging it would have taught the next reader to ignore this test
+# llm: claude-opus-5 | 2026-09-19 | repos/vivify-operators/tests/test_docs_match_code.py | blank provenance footers before proximity matching — a footer inside the window made a true statement of the duality invariant read as a reintroduction
