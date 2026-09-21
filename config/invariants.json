@@ -1,4 +1,5 @@
 {
+  "_doc": "Duality invariants the pipeline must not violate. Each names a rule and the action taken when it is breached.",
   "invariants": {
     "no_external_taxonomies": {
       "description": "Block any import of foreign ontologies or predefined category trees",
@@ -6,11 +7,15 @@
     },
     "logos_analog_priority": {
       "description": "Prioritize analogical/emotional keyword clumps over purely analytical ones",
-      "priority_clumps": ["emotional_truth", "analogic_logic", "therapeutic_potential"],
+      "priority_clumps": [
+        "emotional_truth",
+        "analogic_logic",
+        "therapeutic_potential"
+      ],
       "action": "boost"
     },
     "strict_duality": {
-      "description": "Maintain left/right separation in processing — synthesis only at the merge point",
+      "description": "Maintain left/right separation in processing \u2014 synthesis only at the merge point",
       "action": "enforce_split"
     },
     "no_digital_reduction_of_analog": {
@@ -18,7 +23,7 @@
       "action": "block"
     },
     "synthesis_without_antithesis": {
-      "description": "Right side supports the left — never opposes it. Output is always analogical.",
+      "description": "Right side supports the left \u2014 never opposes it. Output is always analogical.",
       "action": "enforce"
     }
   }

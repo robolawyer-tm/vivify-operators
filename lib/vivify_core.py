@@ -338,6 +338,12 @@ def _load_providers():
     if not cfg_path.exists():
         return
     for name, cfg in read_json(cfg_path).items():
+        # Underscore-prefixed keys are metadata, not providers — the convention
+        # coordinates.json already uses for _doc and _max_string_len. Without this
+        # guard, documenting this file crashes the import: cfg["base_url"] on a
+        # string raises TypeError before any transport is registered.
+        if name.startswith("_"):
+            continue
         if name in TRANSPORTS:
             # a bespoke transport already owns this backend (e.g. gemini's native
             # grounding transport) — don't silently clobber it with the generic shim
@@ -809,3 +815,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5 | 2026-08-13 | repos/vivify-operators/lib/vivify_core.py | VIVIFY_MODEL_OVERRIDE (bare = all capabilities, scoped = capability=model pairs) via model_override(); call_and_validate resolves the model once, calls llm_call_model directly, stamps result["_model"]
 # llm: claude-opus-5 | 2026-08-27 | repos/vivify-operators/lib/vivify_core.py | _config_path(): relative config_dir now anchors to the repo root, not the cwd — fixes silent model downgrade to the hardcoded default AND a silently disabled coordinate enum gate when run from any other directory
 # llm: claude-opus-5 | 2026-09-03 | repos/vivify-operators/lib/vivify_core.py | repeat-and-vote: call_and_vote() takes VIVIFY_VOTES draws (default 3) and stores the MODAL one plus its per-field spread in _votes; modal-signature not field-wise assembly, so the stored block is always a draw that really occurred; call_and_validate unchanged underneath (it still owns retry-on-invalid)
+# llm: claude-opus-5 | 2026-09-21 | repos/vivify-operators/lib/vivify_core.py | _load_providers skips _-prefixed metadata keys — adding a _doc to providers.json would otherwise raise TypeError at import and take the whole library with it
