@@ -17,7 +17,12 @@ sys.path.insert(0, str(Path(__file__).parent / "lib"))
 
 from inference import new_inference, save_inference, update_inference
 from vivify_core import (write_json, read_json, resolve_model, llm_call_model,
-                         extract_json)
+                         extract_json, split_backend)
+
+# Sources whose text was already exchanged with the claude backend. Sending it back
+# to claude exposes nothing new, so the privacy gate does not apply to that pairing.
+# Any other backend still gets the gated, sensitive call.
+CLAUDE_ORIGIN_SOURCES = {"claude_session"}
 
 
 KEYWORDS_PROMPT = """You are the left-semantic pass of a vivify pipeline.
@@ -78,7 +83,7 @@ def anchored_prompt(raw_text, vocab):
     return KEYWORDS_PROMPT + anchor + "\nInference text:\n" + raw_text
 
 
-def extract_keywords_via_api(raw_text, vocab=None):
+def extract_keywords_via_api(raw_text, vocab=None, source="manual"):
     """Run the left-semantic keyword pass through the shared LLM transport.
 
     - Model resolved from config/model_map.json via 'semantic_extraction' capability
@@ -88,12 +93,16 @@ def extract_keywords_via_api(raw_text, vocab=None):
       privacy gate like every other pass. The former path called the anthropic SDK
       directly, which needed an API key the box does not have AND bypassed the gate
       entirely — raw field text off-box with no enforcement point.
+    - Exception: a CLAUDE_ORIGIN_SOURCES source routed to the claude backend is not
+      sensitive — the text came from claude, so returning it there leaks nothing
     - Returns (dict with left_keywords and clumps, model id)
     - Raises LLMUnavailable / json.JSONDecodeError upward
     """
     model = resolve_model("semantic_extraction")
+    sensitive = not (source in CLAUDE_ORIGIN_SOURCES
+                     and split_backend(model)[0] == "claude")
     raw = llm_call_model(anchored_prompt(raw_text, vocab or []), model, None,
-                         sensitive=True)
+                         sensitive=sensitive)
     return extract_json(raw), model
 
 
@@ -126,7 +135,7 @@ def vivify(raw_text, keywords=None, source="manual", inferences_dir="inferences"
         inf = update_inference(inf, keywords)
     else:
         vocab = established_vocabulary(inferences_dir)
-        kw, model = extract_keywords_via_api(raw_text, vocab=vocab)
+        kw, model = extract_keywords_via_api(raw_text, vocab=vocab, source=source)
         inf = update_inference(inf, kw)
         inf["left_pass"] = {"_model": model, "_operator": "vivify.py"}
 
@@ -200,3 +209,4 @@ if __name__ == "__main__":
 # llm: claude-fable-5 | 2026-07-14 | repos/vivify-operators/vivify.py | vocabulary anchoring: established_vocabulary() from index.json (count>=2, cap 150) injected into extraction prompt as reuse-if-apt/mint-if-needed
 # llm: claude-opus-5 | 2026-08-13 | repos/vivify-operators/vivify.py | case_id passthrough + --case CLI flag
 # llm: claude-opus-5 | 2026-08-13 | repos/vivify-operators/vivify.py | left pass ported from the anthropic SDK to the shared llm_call_model transport (no API key on the box; the SDK path also bypassed the privacy gate); returns + records left_pass._model
+# llm: claude-opus-5-5 | 2026-09-29 | repos/vivify-operators/vivify.py | privacy-gate exemption: CLAUDE_ORIGIN_SOURCES (claude_session) is non-sensitive only when routed to the claude backend

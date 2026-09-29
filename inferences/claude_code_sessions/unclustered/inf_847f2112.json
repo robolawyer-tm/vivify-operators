@@ -1,0 +1,50 @@
+{
+  "id": "inf_847f2112",
+  "version": "1.0",
+  "timestamp": "2026-09-29T22:26:39.290939+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "The handling of input artifacts was refined by separating out a Gemini-originated item and relocating it, alongside adding accumulated idea inputs to the tracked set. This distinguishes provenance among input sources and organizes them deliberately, keeping externally-sourced material sorted apart from the project's own idea inputs as they are committed and pushed.",
+  "left_keywords": [
+    "artifact_provenance",
+    "provenance_distinction",
+    "source_attribution",
+    "external_origin_isolation",
+    "input_classification",
+    "boundary_preservation",
+    "internal_accumulation",
+    "tracked_set_expansion",
+    "deliberate_curation",
+    "commit_discipline",
+    "organizational_intent"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "provenance_tracking": [
+      "artifact_provenance",
+      "provenance_distinction",
+      "source_attribution"
+    ],
+    "source_separation": [
+      "external_origin_isolation",
+      "input_classification",
+      "boundary_preservation"
+    ],
+    "input_management": [
+      "internal_accumulation",
+      "tracked_set_expansion",
+      "deliberate_curation"
+    ],
+    "version_control_hygiene": [
+      "commit_discipline",
+      "organizational_intent"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-sonnet-4-6",
+    "_operator": "vivify.py"
+  }
+}

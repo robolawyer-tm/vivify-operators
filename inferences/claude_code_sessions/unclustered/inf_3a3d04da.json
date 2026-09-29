@@ -1,0 +1,50 @@
+{
+  "id": "inf_3a3d04da",
+  "version": "1.0",
+  "timestamp": "2026-09-29T22:24:21.653530+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "The make_ingest bundle format was reworked so its header records exactly what is actually contained in the bundle rather than whatever git status happens to report, with both directions verified \u2014 a clean tracked file no longer falsely warns, and a modified tracked file that is genuinely in the bundle still triggers the warning. The bundle structure itself was specified as a single self-describing file with per-file entries carrying start_line, end_line, byte count, sha256, and description, relying on Drive's revision history for versioning instead of dated copies or a separate index file. Speculative chat-session ideas (a sparse JSON construct, field profiles, a parked-mechanism registry, an entanglement test) must be marked PROPOSED rather than measured, keeping honest provenance about what has been demonstrated versus merely imagined.",
+  "left_keywords": [
+    "bundle_header_accuracy",
+    "bidirectional_verification",
+    "false_positive_elimination",
+    "self_describing_format",
+    "per_file_provenance",
+    "structural_integrity",
+    "revision_history_reliance",
+    "single_file_architecture",
+    "provenance_distinction",
+    "speculative_marking",
+    "demonstrated_vs_imagined"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "header_truthfulness": [
+      "bundle_header_accuracy",
+      "bidirectional_verification",
+      "false_positive_elimination"
+    ],
+    "self_describing_structure": [
+      "self_describing_format",
+      "per_file_provenance",
+      "structural_integrity"
+    ],
+    "versioning_simplification": [
+      "revision_history_reliance",
+      "single_file_architecture"
+    ],
+    "epistemic_honesty": [
+      "provenance_distinction",
+      "speculative_marking",
+      "demonstrated_vs_imagined"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-sonnet-4-6",
+    "_operator": "vivify.py"
+  }
+}

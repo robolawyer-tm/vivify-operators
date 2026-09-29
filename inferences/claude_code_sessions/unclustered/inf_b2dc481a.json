@@ -1,0 +1,54 @@
+{
+  "id": "inf_b2dc481a",
+  "version": "1.0",
+  "timestamp": "2026-09-29T22:23:56.816544+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "To get the digest bundle reliably into Google Drive cloud storage, the inline MCP upload tool was rejected because it re-sends the full content as tokens on every upload \u2014 the wrong economic shape for something done on every bundle. Instead rclone was installed locally with a one-time OAuth authorization, wrapped in a single publish_drive command. A practical constraint surfaced: rclone can only reach \"My Drive,\" not the Drive \"Computers\" section, so the digest is synced there and verified against local copies to confirm nothing was actually lost.",
+  "left_keywords": [
+    "token_resend_cost",
+    "per_bundle_overhead",
+    "wrong_economic_shape",
+    "rclone_adoption",
+    "local_tool_preference",
+    "command_abstraction",
+    "oauth_authorization",
+    "one_time_setup",
+    "drive_section_limitation",
+    "my_drive_boundary",
+    "sync_verification",
+    "data_loss_prevention"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "upload_cost_shape": [
+      "token_resend_cost",
+      "per_bundle_overhead",
+      "wrong_economic_shape"
+    ],
+    "tool_architecture": [
+      "rclone_adoption",
+      "local_tool_preference",
+      "command_abstraction"
+    ],
+    "authorization_setup": [
+      "oauth_authorization",
+      "one_time_setup"
+    ],
+    "storage_topology": [
+      "drive_section_limitation",
+      "my_drive_boundary"
+    ],
+    "integrity_verification": [
+      "sync_verification",
+      "data_loss_prevention"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-sonnet-4-6",
+    "_operator": "vivify.py"
+  }
+}

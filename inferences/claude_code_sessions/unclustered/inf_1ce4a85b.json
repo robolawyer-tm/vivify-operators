@@ -1,0 +1,50 @@
+{
+  "id": "inf_1ce4a85b",
+  "version": "1.0",
+  "timestamp": "2026-09-29T22:23:39.267955+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "A reliability issue was raised about the claude_terminal capture mechanism: when a session crashes or is suspended (for example by ctrl-Z), the raw script-command output from the terminal never gets digested into a normal file, leaving orphaned undigested transcripts. The proposed direction was to detect undigested script output and process it, either as a check performed on exit or as a background sweep process \u2014 the choice between the two left open. Related sweep logic was hardened so that a retry ceiling holds, a --retry-failed flag can override it, junk is not mistaken for real sessions, and past attempts are reported and dropped from pending.",
+  "left_keywords": [
+    "orphaned_transcript",
+    "undigested_output",
+    "capture_reliability",
+    "session_interruption",
+    "process_suspension",
+    "background_sweep",
+    "exit_check",
+    "deferred_processing",
+    "retry_ceiling",
+    "junk_discrimination",
+    "pending_queue_management"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "transcript_failure": [
+      "orphaned_transcript",
+      "undigested_output",
+      "capture_reliability"
+    ],
+    "session_disruption": [
+      "session_interruption",
+      "process_suspension"
+    ],
+    "recovery_pathway": [
+      "background_sweep",
+      "exit_check",
+      "deferred_processing"
+    ],
+    "sweep_robustness": [
+      "retry_ceiling",
+      "junk_discrimination",
+      "pending_queue_management"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-sonnet-4-6",
+    "_operator": "vivify.py"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "inf_81870a97",
+  "version": "1.0",
+  "timestamp": "2026-09-29T22:26:00.239523+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "The question of whether to bring in a Claude Cowork bundle or transcript was raised as a candidate input source. The disposition was that if a Cowork write-up is to be incorporated, it should be handled under the same raw-ingestion discipline rather than being summarized or reshaped first, keeping consistency with the principle that the pipeline, not the human, performs the meaningful extraction.",
+  "left_keywords": [
+    "cowork_bundle_as_input",
+    "transcript_incorporation",
+    "input_source_candidacy",
+    "raw_ingestion_discipline",
+    "preprocessing_prohibition",
+    "source_fidelity",
+    "pipeline_extraction_authority",
+    "human_mediation_bypass",
+    "extraction_ownership",
+    "methodological_consistency",
+    "discipline_uniformity",
+    "cross_source_parity"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "source_candidacy": [
+      "cowork_bundle_as_input",
+      "transcript_incorporation",
+      "input_source_candidacy"
+    ],
+    "ingestion_integrity": [
+      "raw_ingestion_discipline",
+      "preprocessing_prohibition",
+      "source_fidelity"
+    ],
+    "pipeline_authority": [
+      "pipeline_extraction_authority",
+      "human_mediation_bypass",
+      "extraction_ownership"
+    ],
+    "methodological_consistency": [
+      "methodological_consistency",
+      "discipline_uniformity",
+      "cross_source_parity"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-sonnet-4-6",
+    "_operator": "vivify.py"
+  }
+}

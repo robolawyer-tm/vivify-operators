@@ -1,0 +1,55 @@
+{
+  "id": "inf_a0e25c04",
+  "version": "1.0",
+  "timestamp": "2026-09-29T22:19:40.424993+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "A new operator, claim_check, was built to adjudicate the claimed-versus-actual discrepancies produced by the right_pass against a NAMED external baseline \u2014 a comparison that no existing channel in the pipeline performed. The operator is deliberately constrained: it is report-only, never writes to the store, and never feeds confirmed tension back into the system. It uses repeated draws with modal voting to decide a verdict, and any verdict falling outside the sanctioned enum is coerced to \"unverifiable\" rather than allowed to become a guess. The team recognized this must be defense in depth \u2014 the enum invariant is enforced inside check_claim, the function that actually decides the reported verdict, not only in the lower adjudicate_once layer where the guard originally sat.",
+  "left_keywords": [
+    "discrepancy_adjudication",
+    "external_baseline_comparison",
+    "claimed_versus_actual_gap",
+    "modal_voting",
+    "repeated_draws",
+    "verdict_coercion",
+    "enum_invariant",
+    "defense_in_depth",
+    "report_only_constraint",
+    "pipeline_isolation",
+    "unverifiable_fallback",
+    "layer_placement_discipline"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "adjudication_mechanics": [
+      "discrepancy_adjudication",
+      "external_baseline_comparison",
+      "claimed_versus_actual_gap"
+    ],
+    "verdict_process": [
+      "modal_voting",
+      "repeated_draws",
+      "verdict_coercion"
+    ],
+    "containment_design": [
+      "report_only_constraint",
+      "pipeline_isolation"
+    ],
+    "invariant_defense": [
+      "enum_invariant",
+      "defense_in_depth",
+      "unverifiable_fallback"
+    ],
+    "layer_placement_discipline": [
+      "layer_placement_discipline",
+      "check_versus_adjudicate_separation"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-sonnet-4-6",
+    "_operator": "vivify.py"
+  }
+}

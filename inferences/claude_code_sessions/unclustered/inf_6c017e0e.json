@@ -1,0 +1,52 @@
+{
+  "id": "inf_6c017e0e",
+  "version": "1.0",
+  "timestamp": "2026-09-29T22:19:13.513598+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "An outside-view experiment was run in which a separate model (a Gemini reception specimen) read a cleaned inference and extracted facts from it. The revealing result was that the instrument faithfully extracted a superseded lexical \"tension score\" formula as a clean, well-quoted fact \u2014 the dead formula had outlived the code that used it and was still propagating through documentation into every bundle. This exposed a core weakness: an extraction pipeline will confidently record a retired claim as current truth unless something external checks it, which motivated building an adjudication layer that compares extracted claims against a named baseline outside the text itself.",
+  "left_keywords": [
+    "outside_view_experiment",
+    "cross_model_extraction",
+    "faithful_extraction",
+    "extraction_overconfidence",
+    "dead_formula_propagation",
+    "superseded_claim_persistence",
+    "documentation_residue",
+    "stale_truth_capture",
+    "adjudication_layer",
+    "external_baseline_comparison",
+    "out_of_text_verification",
+    "claim_currency"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "experimental_method": [
+      "outside_view_experiment",
+      "cross_model_extraction"
+    ],
+    "extraction_fidelity": [
+      "faithful_extraction",
+      "extraction_overconfidence",
+      "stale_truth_capture"
+    ],
+    "documentation_residue": [
+      "dead_formula_propagation",
+      "superseded_claim_persistence",
+      "documentation_residue"
+    ],
+    "adjudication_response": [
+      "adjudication_layer",
+      "external_baseline_comparison",
+      "out_of_text_verification",
+      "claim_currency"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-sonnet-4-6",
+    "_operator": "vivify.py"
+  }
+}

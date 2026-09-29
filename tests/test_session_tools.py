@@ -113,12 +113,28 @@ def test_all_tools_importable():
     print(f"  ok   all {len(EXTRACT_TOOLS + STDLIB_TOOLS)} migrated tools import")
 
 
+def test_empty_session_guards():
+    """A transcript with nothing in it must produce zero inferences, not a refusal."""
+    se = importlib.import_module("session_extract")
+    header_only = "# Claude session — claude-session.20260929-190901\n"
+    assert not se.has_conversation(header_only)
+    assert not se.has_conversation(header_only + "**You:**   \n")
+    assert se.has_conversation(header_only + "**You:** rename the repo\n")
+    assert se.parse_blocks("NO_INFERENCES") == []
+    assert se.parse_blocks("There is nothing here.\nNO_INFERENCES\n") == []
+    assert se.parse_blocks(FAKE_RESPONSE) == ["First development.", "Second development."]
+    assert se.NO_INFERENCES in se.EXTRACT_PROMPT
+    print("  ok   no user turn skips extraction; NO_INFERENCES yields nothing")
+
+
 if __name__ == "__main__":
     test_capability_is_mapped()
     test_all_tools_importable()
     test_extract_tools_use_shared_transport()
     test_llm_unavailable_propagates()
     test_vivify_subprocess_contract()
+    test_empty_session_guards()
     print("\nAll session-tool migration checks passed.")
 
 # llm: claude-opus-5 | 2026-08-31 | repos/vivify-operators/tests/test_session_tools.py | created — regression guard for the session-tool migration: extract tools must use the gated llm_call under session_extraction, not their own claude -p subprocess
+# llm: claude-opus-5-5 | 2026-09-29 | repos/vivify-operators/tests/test_session_tools.py | added test_empty_session_guards: no-user-turn skip and NO_INFERENCES sentinel

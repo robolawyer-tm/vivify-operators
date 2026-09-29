@@ -34,6 +34,14 @@ MAX_CHARS = 100_000
 
 SEPARATOR = "---INFERENCE---"
 
+# The model's way to decline. Without it, a transcript with nothing in it came back
+# as one prose "there is nothing here" paragraph, which was saved as an inference.
+NO_INFERENCES = "NO_INFERENCES"
+
+# session_to_chat marks each user turn this way; a transcript without one is a
+# header or pure terminal chrome, with no conversation to extract from.
+USER_TURN = "**You:**"
+
 EXTRACT_PROMPT = f"""You are reading a cleaned terminal session transcript from a Claude Code development session.
 
 Extract 3-8 discrete inference units from this session.
@@ -53,6 +61,10 @@ Output each inference as a plain paragraph. Separate each one with a line contai
 
 No JSON, no bullet points, no numbering. Just paragraphs separated by the marker.
 
+If the transcript holds no real conversation to extract from (only headers, environment
+blocks, or garbled terminal chrome), output only this line and nothing else:
+{NO_INFERENCES}
+
 Session transcript:
 """
 
@@ -61,6 +73,23 @@ SYSTEM_FRAME = """You extract inference paragraphs from session transcripts. Out
 text paragraphs separated by the marker the user specifies. No JSON, no markdown.
 
 """
+
+
+def has_conversation(session_text):
+    """True when the transcript contains at least one non-empty user turn."""
+    return any(line.startswith(USER_TURN) and line[len(USER_TURN):].strip()
+               for line in session_text.splitlines())
+
+
+def parse_blocks(text):
+    """Split the model's reply into inference paragraphs.
+
+    - A reply carrying NO_INFERENCES yields nothing, whatever else it says
+    """
+    if NO_INFERENCES in text:
+        return []
+    blocks = [b.strip() for b in text.split(SEPARATOR)]
+    return [b for b in blocks if b]
 
 
 def extract_inferences(session_text):
@@ -87,8 +116,7 @@ def extract_inferences(session_text):
 
     text = llm_call(SYSTEM_FRAME + EXTRACT_PROMPT + truncated,
                     capability="session_extraction")
-    blocks = [b.strip() for b in text.split(SEPARATOR)]
-    return [b for b in blocks if b]
+    return parse_blocks(text)
 
 
 def vivify_block(text, source, inferences_dir):
@@ -136,6 +164,10 @@ def main():
         print("Error: empty input", file=sys.stderr)
         sys.exit(1)
 
+    if not has_conversation(session_text):
+        print("Extracted 0 inference(s) — no user turn in transcript", file=sys.stderr)
+        return
+
     try:
         inferences = extract_inferences(session_text)
     except LLMUnavailable as e:
@@ -158,3 +190,4 @@ if __name__ == "__main__":
 # llm: claude-sonnet-4-6 | 2026-06-07 | repos/vivify-inferences/session_extract.py | created — session transcript → discrete inferences via LLM extraction pass
 # llm: claude-sonnet-4-6 | 2026-06-07 | repos/vivify-inferences/session_extract.py | switched from anthropic.Anthropic() to claude -p subprocess — no API key needed
 # llm: claude-opus-5 | 2026-08-31 | repos/vivify-operators/session_extract.py | migrated from vivify-inferences; extraction ported off its own `claude -p` subprocess onto vivify_core.llm_call (capability session_extraction) — the direct call bypassed the privacy gate AND model_map; system prompt folded into the prompt head, LLMUnavailable handled in main()
+# llm: claude-opus-5-5 | 2026-09-29 | repos/vivify-operators/session_extract.py | empty-session guards: skip transcripts with no user turn before any LLM call; NO_INFERENCES sentinel lets the model decline, so a 'nothing here' reply is no longer saved as an inference

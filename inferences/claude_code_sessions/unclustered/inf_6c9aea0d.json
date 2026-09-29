@@ -1,0 +1,52 @@
+{
+  "id": "inf_6c9aea0d",
+  "version": "1.0",
+  "timestamp": "2026-09-29T22:25:34.221282+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "The session reaffirmed a conceptual pivot in how the operator suite is framed: operators are to be treated as a general-purpose instrument rather than a legal-domain-specific tool. This reframes the project's scope away from its family-court origins toward a broader analytical apparatus, positioning the operators as reusable machinery that can be applied to any body of source material rather than being bound to a single vertical.",
+  "left_keywords": [
+    "conceptual_pivot",
+    "scope_reframing",
+    "domain_independence",
+    "general_purpose_framing",
+    "reusable_machinery",
+    "analytical_apparatus",
+    "family_court_origins",
+    "legal_domain_specificity",
+    "vertical_binding",
+    "source_agnosticism",
+    "instrument_generality",
+    "operational_scope"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "reframing_event": [
+      "conceptual_pivot",
+      "scope_reframing",
+      "domain_independence"
+    ],
+    "instrument_nature": [
+      "general_purpose_framing",
+      "instrument_generality",
+      "reusable_machinery",
+      "analytical_apparatus"
+    ],
+    "origin_context": [
+      "family_court_origins",
+      "legal_domain_specificity",
+      "vertical_binding"
+    ],
+    "applicability_claim": [
+      "source_agnosticism",
+      "operational_scope"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-sonnet-4-6",
+    "_operator": "vivify.py"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "inf_3e0c856f",
+  "version": "1.0",
+  "timestamp": "2026-09-29T22:20:16.271704+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "While building the claim_check tests, the project's own documentation guard (test_docs_match_code) correctly flagged the new test file, because that test deliberately uses the real superseded formula strings as fixtures \u2014 it must prove that a Unicode minus sign and an ASCII hyphen normalize together. Rather than weaken the regex or obfuscate the fixtures, the chosen solution was an explicit per-file exemption list that is itself guarded: each exempt file must continue to declare a stated reason, so the exemption cannot silently outlive its justification the way the dead formula outlived its code. This established a principle that an exemption whose rationale has been deleted is exactly how a guard quietly stops guarding.",
+  "left_keywords": [
+    "guard_integrity",
+    "reflexive_accountability",
+    "exemption_governance",
+    "normalization_equivalence",
+    "fixture_fidelity",
+    "self_referential_testing",
+    "supervision_decay",
+    "silent_degradation",
+    "dead_code_persistence",
+    "rationale_anchoring",
+    "integrity_through_constraint"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "guard_architecture": [
+      "guard_integrity",
+      "reflexive_accountability",
+      "exemption_governance"
+    ],
+    "normalization_fidelity": [
+      "normalization_equivalence",
+      "fixture_fidelity",
+      "self_referential_testing"
+    ],
+    "rationale_decay": [
+      "supervision_decay",
+      "silent_degradation",
+      "dead_code_persistence"
+    ],
+    "design_constraint": [
+      "integrity_through_constraint",
+      "rationale_anchoring"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-sonnet-4-6",
+    "_operator": "vivify.py"
+  }
+}

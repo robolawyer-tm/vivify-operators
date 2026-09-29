@@ -1,0 +1,52 @@
+{
+  "id": "inf_f4f8fe90",
+  "version": "1.0",
+  "timestamp": "2026-09-29T22:26:17.759658+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "A decision was made to persist the session's ideas into project memory before losing working context, with an explicit request to repair or correct the existing memory state. This reflects a workflow value of durable idea capture across sessions, treating memory as the mechanism that lets conceptual developments survive interruptions rather than being lost when a session ends abruptly.",
+  "left_keywords": [
+    "session_persistence",
+    "context_preservation",
+    "durable_capture",
+    "memory_correction",
+    "state_repair",
+    "explicit_remediation",
+    "session_boundary",
+    "context_loss",
+    "abrupt_termination",
+    "continuity_as_value",
+    "cross_session_continuity",
+    "conceptual_survival"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "memory_persistence": [
+      "session_persistence",
+      "context_preservation",
+      "durable_capture"
+    ],
+    "repair_intent": [
+      "memory_correction",
+      "state_repair",
+      "explicit_remediation"
+    ],
+    "interruption_risk": [
+      "session_boundary",
+      "context_loss",
+      "abrupt_termination"
+    ],
+    "workflow_continuity": [
+      "continuity_as_value",
+      "cross_session_continuity",
+      "conceptual_survival"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-sonnet-4-6",
+    "_operator": "vivify.py"
+  }
+}

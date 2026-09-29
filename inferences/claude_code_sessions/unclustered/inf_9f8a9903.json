@@ -1,0 +1,45 @@
+{
+  "id": "inf_9f8a9903",
+  "version": "1.0",
+  "timestamp": "2026-09-29T22:26:26.398149+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "A repository restructuring decision emerged: creating a new GitHub repository, performing a rename, and systematically checking for and updating old URL references throughout the codebase. This signals a housekeeping and identity-consolidation effort where the project's naming and remote presence are brought into alignment, with attention to stale references that a rename would otherwise leave broken.",
+  "left_keywords": [
+    "repo_rename",
+    "identity_consolidation",
+    "naming_alignment",
+    "remote_presence_alignment",
+    "stale_reference_cleanup",
+    "url_propagation",
+    "broken_reference_risk",
+    "housekeeping_effort",
+    "codebase_hygiene",
+    "systematic_audit"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "identity_consolidation": [
+      "repo_rename",
+      "naming_alignment",
+      "remote_presence_alignment"
+    ],
+    "reference_integrity": [
+      "stale_reference_cleanup",
+      "url_propagation",
+      "broken_reference_risk"
+    ],
+    "maintenance_posture": [
+      "housekeeping_effort",
+      "codebase_hygiene",
+      "systematic_audit"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-sonnet-4-6",
+    "_operator": "vivify.py"
+  }
+}

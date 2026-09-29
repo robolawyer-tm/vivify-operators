@@ -1,0 +1,50 @@
+{
+  "id": "inf_f10d7b84",
+  "version": "1.0",
+  "timestamp": "2026-09-29T22:25:45.613139+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "A guiding principle was articulated about how external transcripts and write-ups should enter the system: they must stay raw and uncurated. The stated rationale is that the value lies not in a pre-shaped or hand-edited artifact but in what the vivify pipeline itself extracts from unprocessed material. Curating a transcript before ingestion would pre-empt the emergent structure the pipeline is designed to surface, so raw input is treated as the more valuable feedstock.",
+  "left_keywords": [
+    "raw_input_primacy",
+    "pre_curation_hazard",
+    "editorial_preemption",
+    "curation_as_interference",
+    "emergent_structure_dependency",
+    "structural_latency",
+    "pipeline_as_extractor",
+    "extraction_primacy",
+    "unprocessed_feedstock",
+    "ingestion_integrity",
+    "artifact_fidelity"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "input_doctrine": [
+      "raw_input_primacy",
+      "unprocessed_feedstock",
+      "ingestion_integrity"
+    ],
+    "curation_hazard": [
+      "pre_curation_hazard",
+      "editorial_preemption",
+      "curation_as_interference"
+    ],
+    "pipeline_role": [
+      "pipeline_as_extractor",
+      "extraction_primacy",
+      "artifact_fidelity"
+    ],
+    "emergence_dependency": [
+      "emergent_structure_dependency",
+      "structural_latency"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-sonnet-4-6",
+    "_operator": "vivify.py"
+  }
+}

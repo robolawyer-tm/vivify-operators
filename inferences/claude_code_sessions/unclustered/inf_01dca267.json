@@ -1,0 +1,50 @@
+{
+  "id": "inf_01dca267",
+  "version": "1.0",
+  "timestamp": "2026-09-29T22:24:09.489889+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "For the round-trip coordinate experiment, the correct null hypothesis was identified as a permutation test rather than random noise: keep every individual coordinate value real and plausible and scramble only the combination. The reasoning is that if scrambled coordinates still decode as coherent wisdom, then the apparent coherence was manufactured by the decoder rather than carried by the coordinates \u2014 a direct test of whether meaning lives in the data or is imposed by the reader.",
+  "left_keywords": [
+    "permutation_test",
+    "combination_scrambling",
+    "plausibility_preservation",
+    "data_carried_meaning",
+    "reader_imposed_meaning",
+    "coherence_source",
+    "decoder_imposition",
+    "coherence_as_artifact",
+    "round_trip_validity",
+    "semantic_discrimination",
+    "interpretive_inflation"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "null_hypothesis_design": [
+      "permutation_test",
+      "combination_scrambling",
+      "plausibility_preservation"
+    ],
+    "meaning_origin": [
+      "data_carried_meaning",
+      "reader_imposed_meaning",
+      "coherence_source"
+    ],
+    "decoder_validity": [
+      "decoder_imposition",
+      "coherence_as_artifact",
+      "interpretive_inflation"
+    ],
+    "experimental_integrity": [
+      "round_trip_validity",
+      "semantic_discrimination"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-sonnet-4-6",
+    "_operator": "vivify.py"
+  }
+}
