@@ -33,6 +33,10 @@ import vivify_core
 from vivify_core import (read_json, resolve_model, validate_coordinates,
                          CoordinateValidationError)
 
+# No real LLM calls: a family alias in the map would otherwise be pinned by a live
+# claude -p probe. Stub it; what is checked is that the MAPPED entry is resolved.
+vivify_core._probe_alias = lambda alias: f"claude-{alias}-stub"
+
 failures = []
 
 
@@ -62,7 +66,7 @@ for cwd in (ROOT, Path(foreign), Path("/")):
 
     # 1. the mapped model survives, rather than falling through to the default
     for capability in ("logos_operator", "conflict_operator", "semantic_extraction"):
-        expected = MAP[capability]
+        expected = vivify_core.pin_model(MAP[capability])
         got = resolve_model(capability)
         check(f"resolve_model({capability}) -> {expected}", got == expected,
               f"got {got}")
@@ -105,3 +109,4 @@ if failures:
 print("All cwd-independence checks passed.")
 
 # llm: claude-opus-5 | 2026-08-27 | repos/vivify-operators/tests/test_config_cwd_independence.py | created — regression guard: model_map + coordinates spec must resolve from any cwd (silent model downgrade + disabled enum gate)
+# llm: claude-opus-5-5 | 2026-09-29 | repos/vivify-operators/tests/test_config_cwd_independence.py | alias probe stubbed (no live claude -p); expected model is the pinned map entry now that model_map names the opus alias

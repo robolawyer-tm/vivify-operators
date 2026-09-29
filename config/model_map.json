@@ -1,12 +1,12 @@
 {
-  "_doc": "Capability to model id. Every LLM call resolves its model here; an unmapped capability falls back to 'default'. VIVIFY_MODEL_OVERRIDE wins over this map.",
-  "default": "claude-sonnet-4-6",
-  "prose_reconstruction": "claude-opus-4-8",
-  "semantic_extraction": "claude-sonnet-4-6",
-  "session_extraction": "claude-opus-4-8",
-  "keyword_normalization": "claude-sonnet-4-6",
-  "fact_extraction": "claude-opus-4-8",
-  "logos_operator": "claude-opus-4-8",
-  "conflict_operator": "claude-opus-4-8",
+  "_doc": "Capability to model id. Every LLM call resolves its model here; an unmapped capability falls back to 'default'. VIVIFY_MODEL_OVERRIDE wins over this map. A family alias (opus/sonnet/haiku/fable) tracks the newest release and is pinned to its concrete id once per run (vivify_core.pin_model) - the concrete id, not the alias, is what _model records.",
+  "default": "opus",
+  "prose_reconstruction": "opus",
+  "semantic_extraction": "opus",
+  "session_extraction": "opus",
+  "keyword_normalization": "opus",
+  "fact_extraction": "opus",
+  "logos_operator": "opus",
+  "conflict_operator": "opus",
   "web_research": "groq:llama-3.3-70b-versatile"
 }

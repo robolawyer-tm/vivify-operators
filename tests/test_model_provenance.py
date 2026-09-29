@@ -33,6 +33,18 @@ import right_pass
 OVERRIDE_ENV = "VIVIFY_MODEL_OVERRIDE"
 SPEC = vivify_core.read_json(ROOT / "config" / "coordinates.json")["operators"]
 
+# The map names family aliases; pinning one normally costs a live claude -p probe.
+# Stub it and count calls, so the pin-once-per-run contract is checkable offline.
+PROBES = []
+
+
+def fake_probe(alias):
+    PROBES.append(alias)
+    return f"claude-{alias}-9-9"
+
+
+vivify_core._probe_alias = fake_probe
+
 failures = []
 
 
@@ -100,8 +112,30 @@ print("\nresolve_model():")
 set_override(None)
 mapped = resolve_model("logos_operator")
 check("falls through to the map when unset",
-      mapped == vivify_core.read_json(ROOT / "config" / "model_map.json")["logos_operator"],
+      mapped == vivify_core.pin_model(
+          vivify_core.read_json(ROOT / "config" / "model_map.json")["logos_operator"]),
       mapped)
+
+# --- alias pinning: the map may track the newest release, the stamp may not -----
+
+print("\npin_model():")
+
+vivify_core._PINNED.clear()
+PROBES.clear()
+check("alias pins to a concrete id", vivify_core.pin_model("opus") == "claude-opus-9-9")
+vivify_core.pin_model("opus")
+check("alias probed once per run, then cached", PROBES == ["opus"], PROBES)
+check("concrete id passes through unprobed",
+      vivify_core.pin_model("claude-opus-4-8") == "claude-opus-4-8" and PROBES == ["opus"])
+check("backend-prefixed id passes through",
+      vivify_core.pin_model("groq:llama-3.3-70b-versatile") == "groq:llama-3.3-70b-versatile")
+set_override("fable")
+check("an alias given as override is pinned too", resolve_model("logos_operator") == "claude-fable-9-9")
+set_override(None)
+check("no resolved model is ever a bare alias",
+      all(resolve_model(c) not in vivify_core.CLAUDE_ALIASES
+          for c in vivify_core.read_json(ROOT / "config" / "model_map.json")
+          if not c.startswith("_")))
 
 set_override("logos_operator=claude-fable-5")
 check("override wins over the map", resolve_model("logos_operator") == "claude-fable-5")
@@ -197,3 +231,4 @@ print("All model-provenance checks passed.")
 
 # llm: claude-opus-5 | 2026-08-13 | repos/vivify-operators/tests/test_model_provenance.py | created — VIVIFY_MODEL_OVERRIDE bare/scoped/malformed forms, _model stamp through call_and_validate + operator parse + fused path + right_pass
 # llm: claude-opus-5 | 2026-09-05 | repos/vivify-operators/tests/test_model_provenance.py | fused assertion updated for repeat-and-vote: every draw must use the overridden model, and the draw count must equal VIVIFY_VOTES (was: exactly one call)
+# llm: claude-opus-5-5 | 2026-09-29 | repos/vivify-operators/tests/test_model_provenance.py | alias pinning checks: opus pins to a concrete id once per run, concrete and backend ids pass through, override aliases pinned, no resolved model is ever a bare alias (probe stubbed, no live calls)

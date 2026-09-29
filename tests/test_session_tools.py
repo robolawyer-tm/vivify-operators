@@ -27,6 +27,9 @@ sys.path.insert(0, str(ROOT / "lib"))
 import vivify_core
 from vivify_core import LLMUnavailable, resolve_model
 
+# model_map names a family alias; pinning it would cost a live claude -p probe.
+vivify_core._probe_alias = lambda alias: f"claude-{alias}-stub"
+
 EXTRACT_TOOLS = ("session_extract", "session_extract_op")
 STDLIB_TOOLS = ("session_to_chat", "inf_to_md", "jsonl_to_md")
 
@@ -45,7 +48,7 @@ def test_capability_is_mapped():
         "config/model_map.json has no session_extraction entry — the tools would " \
         "silently fall back to 'default'"
     model = resolve_model("session_extraction")
-    assert model == model_map["session_extraction"], \
+    assert model == vivify_core.pin_model(model_map["session_extraction"]), \
         f"resolve_model gave {model!r}, map says {model_map['session_extraction']!r}"
     print(f"  ok   session_extraction is a mapped entry -> {model}")
 
@@ -138,3 +141,4 @@ if __name__ == "__main__":
 
 # llm: claude-opus-5 | 2026-08-31 | repos/vivify-operators/tests/test_session_tools.py | created — regression guard for the session-tool migration: extract tools must use the gated llm_call under session_extraction, not their own claude -p subprocess
 # llm: claude-opus-5-5 | 2026-09-29 | repos/vivify-operators/tests/test_session_tools.py | added test_empty_session_guards: no-user-turn skip and NO_INFERENCES sentinel
+# llm: claude-opus-5-5 | 2026-09-29 | repos/vivify-operators/tests/test_session_tools.py | alias probe stubbed; mapped-entry check compares against the pinned map entry now that model_map names the opus alias

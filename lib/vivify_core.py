@@ -762,21 +762,71 @@ def model_override(capability):
     return None
 
 
+# Family aliases the claude CLI resolves to the newest model of that family.
+# model_map names these so the pipeline tracks the current release without edits;
+# pin_model() turns one into the concrete id before anything is recorded.
+CLAUDE_ALIASES = {"opus", "sonnet", "haiku", "fable"}
+_PINNED = {}
+
+
+def _probe_alias(alias):
+    """Ask the claude CLI which concrete model an alias resolves to right now.
+
+    One tiny call; its JSON output names the model that answered in modelUsage.
+    Background helper models (e.g. haiku) can appear there too, so the key that
+    contains the alias family wins. Raises LLMUnavailable if the CLI is down or
+    the answer names no model of that family — the real call would fail anyway.
+    """
+    import subprocess
+    result = subprocess.run(
+        ["claude", "-p", "Reply with the single word ok", "--model", alias,
+         "--output-format", "json"],
+        capture_output=True, text=True
+    )
+    if result.returncode != 0:
+        raise LLMUnavailable(result.stderr.strip() or f"claude exited {result.returncode}")
+    try:
+        used = list(json.loads(result.stdout).get("modelUsage", {}))
+    except json.JSONDecodeError as e:
+        raise LLMUnavailable(f"alias probe for {alias!r}: unreadable output: {e}")
+    matches = [m for m in used if alias in m]
+    if not matches:
+        raise LLMUnavailable(f"alias probe for {alias!r} named no {alias} model: {used}")
+    return matches[0]
+
+
+def pin_model(model_id):
+    """Return the concrete model id for a family alias; any other id unchanged.
+
+    - 'opus' -> e.g. 'claude-opus-5-5', resolved once per process and cached, so
+      every call in a run uses (and stamps) the same model
+    - Concrete ids and backend-prefixed ids ('groq:...') pass through untouched
+    - The pinned id, never the alias, is what reaches _model: an alias stamp would
+      make runs before and after a release indistinguishable in the store
+    """
+    if model_id not in CLAUDE_ALIASES:
+        return model_id
+    if model_id not in _PINNED:
+        _PINNED[model_id] = _probe_alias(model_id)
+    return _PINNED[model_id]
+
+
 def resolve_model(capability, config_dir="config"):
-    """Return the model ID for a named capability from config/model_map.json.
+    """Return the concrete model ID for a named capability from config/model_map.json.
 
     - VIVIFY_MODEL_OVERRIDE wins over the map when it names this capability
       (see model_override) — the experiment switch, never a config edit
     - Falls back to 'default' if capability not found
-    - Falls back to claude-sonnet-4-6 if config missing. A relative config_dir is
-      anchored to the repo root (see _config_path), so this fallback now means the
-      map is genuinely absent — not merely that the caller ran from elsewhere.
+    - Falls back to 'opus' if config missing. A relative config_dir is anchored to
+      the repo root (see _config_path), so this fallback now means the map is
+      genuinely absent — not merely that the caller ran from elsewhere.
+    - A family alias ('opus') is pinned to the current concrete id (see pin_model)
     """
     override = model_override(capability)
     if override:
-        return override
+        return pin_model(override)
     model_map = read_json(_config_path(config_dir, "model_map.json"))
-    return model_map.get(capability) or model_map.get("default", "claude-sonnet-4-6")
+    return pin_model(model_map.get(capability) or model_map.get("default", "opus"))
 
 
 if __name__ == "__main__":
@@ -816,3 +866,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5 | 2026-08-27 | repos/vivify-operators/lib/vivify_core.py | _config_path(): relative config_dir now anchors to the repo root, not the cwd — fixes silent model downgrade to the hardcoded default AND a silently disabled coordinate enum gate when run from any other directory
 # llm: claude-opus-5 | 2026-09-03 | repos/vivify-operators/lib/vivify_core.py | repeat-and-vote: call_and_vote() takes VIVIFY_VOTES draws (default 3) and stores the MODAL one plus its per-field spread in _votes; modal-signature not field-wise assembly, so the stored block is always a draw that really occurred; call_and_validate unchanged underneath (it still owns retry-on-invalid)
 # llm: claude-opus-5 | 2026-09-21 | repos/vivify-operators/lib/vivify_core.py | _load_providers skips _-prefixed metadata keys — adding a _doc to providers.json would otherwise raise TypeError at import and take the whole library with it
+# llm: claude-opus-5-5 | 2026-09-29 | repos/vivify-operators/lib/vivify_core.py | pin_model(): model_map may name a family alias (opus) that tracks the newest release; resolve_model pins it to the concrete id once per run via a claude -p JSON probe, so _model never records a bare alias; fallback default sonnet-4-6 -> opus
