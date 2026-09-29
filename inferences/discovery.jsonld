@@ -3,7 +3,7 @@
   "@type": "DataCatalog",
   "@id": "https://robolawyer-tm.github.io/#catalog",
   "name": "robolawyer-tm inference store",
-  "description": "Emergent inference store \u2014 beneficial-outcome inferences organized by self-arising categories with no external taxonomy. 104 public inferences across emergent domains.",
+  "description": "Emergent inference store \u2014 beneficial-outcome inferences organized by self-arising categories with no external taxonomy. 115 public inferences across emergent domains.",
   "url": "https://robolawyer-tm.github.io",
   "isAccessibleForFree": true,
   "publisher": {
@@ -27,13 +27,14 @@
         "breadth_before_depth",
         "capture_fidelity",
         "contamination_avoidance",
+        "context_preservation",
         "convention_collapse_risk",
         "cross_platform_access",
         "diagnosable_transformation",
         "distributed_detection",
         "domain_openness",
         "emerged_vocabulary_purity",
-        "empty_transcript",
+        "external_baseline_comparison",
         "fail_fast_on_transport_down",
         "false_completeness_trap",
         "fragile_discipline_enforcement",
@@ -55,7 +56,6 @@
         "reframing_insight",
         "replicated_signature",
         "self_referential_corpus",
-        "silent_failure",
         "single_key_secrecy",
         "source_deployment_gap",
         "taxonomy_ossification_risk",
@@ -85,6 +85,10 @@
           },
           {
             "@type": "DefinedTerm",
+            "name": "context_preservation"
+          },
+          {
+            "@type": "DefinedTerm",
             "name": "convention_collapse_risk"
           },
           {
@@ -109,7 +113,7 @@
           },
           {
             "@type": "DefinedTerm",
-            "name": "empty_transcript"
+            "name": "external_baseline_comparison"
           },
           {
             "@type": "DefinedTerm",
@@ -194,10 +198,6 @@
           {
             "@type": "DefinedTerm",
             "name": "self_referential_corpus"
-          },
-          {
-            "@type": "DefinedTerm",
-            "name": "silent_failure"
           },
           {
             "@type": "DefinedTerm",

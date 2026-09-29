@@ -3439,117 +3439,229 @@
         ],
         "graceful_degradation": []
       },
-      "empty_transcript": {
-        "fabrication_refusal": [
-          "corpus_integrity",
-          "grounded_emission_only",
-          "connection_retry_loop",
-          "auth_expiry_interruption"
+      "context_preservation": {
+        "session_persistence": [
+          "durable_capture",
+          "memory_correction",
+          "state_repair",
+          "explicit_remediation"
         ],
-        "corpus_integrity": [
-          "grounded_emission_only",
-          "connection_retry_loop",
-          "auth_expiry_interruption",
-          "unanswered_question"
+        "durable_capture": [
+          "memory_correction",
+          "state_repair",
+          "explicit_remediation",
+          "session_boundary"
         ],
-        "grounded_emission_only": [
-          "connection_retry_loop",
-          "auth_expiry_interruption",
-          "unanswered_question",
-          "remote_filesystem_mounting"
+        "memory_correction": [
+          "state_repair",
+          "explicit_remediation",
+          "session_boundary",
+          "context_loss"
         ],
-        "connection_retry_loop": [
-          "auth_expiry_interruption",
-          "unanswered_question",
-          "remote_filesystem_mounting",
-          "ssh_tunnel_transport"
+        "state_repair": [
+          "explicit_remediation",
+          "session_boundary",
+          "context_loss",
+          "abrupt_termination"
         ],
-        "auth_expiry_interruption": [
-          "unanswered_question",
-          "remote_filesystem_mounting",
-          "ssh_tunnel_transport",
-          "local_network_containment"
+        "explicit_remediation": [
+          "session_boundary",
+          "context_loss",
+          "abrupt_termination",
+          "continuity_as_value"
         ],
-        "unanswered_question": [
-          "remote_filesystem_mounting",
-          "ssh_tunnel_transport",
-          "local_network_containment",
-          "transparent_filesystem_operations"
+        "session_boundary": [
+          "context_loss",
+          "abrupt_termination",
+          "continuity_as_value",
+          "cross_session_continuity"
         ],
-        "remote_filesystem_mounting": [
-          "ssh_tunnel_transport",
-          "local_network_containment",
-          "transparent_filesystem_operations",
-          "sync_service_avoidance"
+        "context_loss": [
+          "abrupt_termination",
+          "continuity_as_value",
+          "cross_session_continuity",
+          "conceptual_survival"
         ],
-        "ssh_tunnel_transport": [
-          "local_network_containment",
-          "transparent_filesystem_operations",
-          "sync_service_avoidance"
+        "abrupt_termination": [
+          "continuity_as_value",
+          "cross_session_continuity",
+          "conceptual_survival"
         ],
-        "local_network_containment": [
-          "transparent_filesystem_operations",
-          "sync_service_avoidance"
+        "continuity_as_value": [
+          "cross_session_continuity",
+          "conceptual_survival"
         ],
-        "transparent_filesystem_operations": [
-          "sync_service_avoidance"
+        "cross_session_continuity": [
+          "conceptual_survival"
         ],
-        "sync_service_avoidance": [],
-        "harness_chrome": [
-          "extraction_refusal",
-          "fabrication_risk",
-          "corpus_poisoning",
-          "data_emergence_principle"
+        "conceptual_survival": [],
+        "session_continuity": [
+          "resumable_artifact",
+          "ephemeral_rejection",
+          "session_identity",
+          "deliberate_workflow"
         ],
-        "extraction_refusal": [
-          "fabrication_risk",
-          "corpus_poisoning",
-          "data_emergence_principle",
-          "cleaning_step_failure"
+        "resumable_artifact": [
+          "ephemeral_rejection",
+          "session_identity",
+          "deliberate_workflow",
+          "persistence_preference"
         ],
-        "fabrication_risk": [
-          "corpus_poisoning",
-          "data_emergence_principle",
-          "cleaning_step_failure",
-          "content_stripping"
+        "ephemeral_rejection": [
+          "session_identity",
+          "deliberate_workflow",
+          "persistence_preference",
+          "cross_session_memory"
         ],
-        "corpus_poisoning": [
-          "data_emergence_principle",
-          "cleaning_step_failure",
-          "content_stripping",
-          "source_recovery"
+        "session_identity": [
+          "deliberate_workflow",
+          "persistence_preference",
+          "cross_session_memory",
+          "terminal_invocation"
         ],
-        "data_emergence_principle": [
-          "cleaning_step_failure",
-          "content_stripping",
-          "source_recovery",
-          "reprocessing_path"
+        "deliberate_workflow": [
+          "persistence_preference",
+          "cross_session_memory",
+          "terminal_invocation",
+          "development_continuity"
         ],
-        "cleaning_step_failure": [
-          "content_stripping",
-          "source_recovery",
-          "reprocessing_path",
-          "session_capture_timing"
+        "persistence_preference": [
+          "cross_session_memory",
+          "terminal_invocation",
+          "development_continuity",
+          "session_as_artifact"
         ],
-        "content_stripping": [
-          "source_recovery",
-          "reprocessing_path",
-          "session_capture_timing",
-          "inference_unit_absence"
+        "cross_session_memory": [
+          "terminal_invocation",
+          "development_continuity",
+          "session_as_artifact",
+          "working_pattern"
         ],
-        "source_recovery": [
-          "reprocessing_path",
-          "session_capture_timing",
-          "inference_unit_absence"
+        "terminal_invocation": [
+          "development_continuity",
+          "session_as_artifact",
+          "working_pattern"
         ],
-        "reprocessing_path": [
-          "session_capture_timing",
-          "inference_unit_absence"
+        "development_continuity": [
+          "session_as_artifact",
+          "working_pattern"
         ],
-        "session_capture_timing": [
-          "inference_unit_absence"
+        "session_as_artifact": [
+          "working_pattern"
         ],
-        "inference_unit_absence": []
+        "working_pattern": []
+      },
+      "external_baseline_comparison": {
+        "discrepancy_adjudication": [
+          "claimed_versus_actual_gap",
+          "modal_voting",
+          "repeated_draws",
+          "verdict_coercion"
+        ],
+        "claimed_versus_actual_gap": [
+          "modal_voting",
+          "repeated_draws",
+          "verdict_coercion",
+          "enum_invariant"
+        ],
+        "modal_voting": [
+          "repeated_draws",
+          "verdict_coercion",
+          "enum_invariant",
+          "defense_in_depth"
+        ],
+        "repeated_draws": [
+          "verdict_coercion",
+          "enum_invariant",
+          "defense_in_depth",
+          "report_only_constraint"
+        ],
+        "verdict_coercion": [
+          "enum_invariant",
+          "defense_in_depth",
+          "report_only_constraint",
+          "pipeline_isolation"
+        ],
+        "enum_invariant": [
+          "defense_in_depth",
+          "report_only_constraint",
+          "pipeline_isolation",
+          "unverifiable_fallback"
+        ],
+        "defense_in_depth": [
+          "report_only_constraint",
+          "pipeline_isolation",
+          "unverifiable_fallback",
+          "layer_placement_discipline"
+        ],
+        "report_only_constraint": [
+          "pipeline_isolation",
+          "unverifiable_fallback",
+          "layer_placement_discipline"
+        ],
+        "pipeline_isolation": [
+          "unverifiable_fallback",
+          "layer_placement_discipline"
+        ],
+        "unverifiable_fallback": [
+          "layer_placement_discipline"
+        ],
+        "layer_placement_discipline": [],
+        "outside_view_experiment": [
+          "cross_model_extraction",
+          "faithful_extraction",
+          "extraction_overconfidence",
+          "dead_formula_propagation"
+        ],
+        "cross_model_extraction": [
+          "faithful_extraction",
+          "extraction_overconfidence",
+          "dead_formula_propagation",
+          "superseded_claim_persistence"
+        ],
+        "faithful_extraction": [
+          "extraction_overconfidence",
+          "dead_formula_propagation",
+          "superseded_claim_persistence",
+          "documentation_residue"
+        ],
+        "extraction_overconfidence": [
+          "dead_formula_propagation",
+          "superseded_claim_persistence",
+          "documentation_residue",
+          "stale_truth_capture"
+        ],
+        "dead_formula_propagation": [
+          "superseded_claim_persistence",
+          "documentation_residue",
+          "stale_truth_capture",
+          "adjudication_layer"
+        ],
+        "superseded_claim_persistence": [
+          "documentation_residue",
+          "stale_truth_capture",
+          "adjudication_layer",
+          "out_of_text_verification"
+        ],
+        "documentation_residue": [
+          "stale_truth_capture",
+          "adjudication_layer",
+          "out_of_text_verification",
+          "claim_currency"
+        ],
+        "stale_truth_capture": [
+          "adjudication_layer",
+          "out_of_text_verification",
+          "claim_currency"
+        ],
+        "adjudication_layer": [
+          "out_of_text_verification",
+          "claim_currency"
+        ],
+        "out_of_text_verification": [
+          "claim_currency"
+        ],
+        "claim_currency": []
       },
       "privacy_preservation": {
         "meta_analysis_object": [
@@ -3650,141 +3762,41 @@
           "agent_autonomy_limit"
         ],
         "agent_autonomy_limit": []
-      },
-      "silent_failure": {
-        "missing_dependency": [
-          "prerequisite_enforcement",
-          "proactive_setup",
-          "self_provisioning",
-          "pre_configuration_assumption"
-        ],
-        "prerequisite_enforcement": [
-          "proactive_setup",
-          "self_provisioning",
-          "pre_configuration_assumption",
-          "error_reframing"
-        ],
-        "proactive_setup": [
-          "self_provisioning",
-          "pre_configuration_assumption",
-          "error_reframing",
-          "script_resilience"
-        ],
-        "self_provisioning": [
-          "pre_configuration_assumption",
-          "error_reframing",
-          "script_resilience",
-          "directory_bootstrapping"
-        ],
-        "pre_configuration_assumption": [
-          "error_reframing",
-          "script_resilience",
-          "directory_bootstrapping",
-          "environment_dependency"
-        ],
-        "error_reframing": [
-          "script_resilience",
-          "directory_bootstrapping",
-          "environment_dependency"
-        ],
-        "script_resilience": [
-          "directory_bootstrapping",
-          "environment_dependency"
-        ],
-        "directory_bootstrapping": [
-          "environment_dependency"
-        ],
-        "environment_dependency": [],
-        "plausible_emptiness": [
-          "false_confidence",
-          "unfailable_check",
-          "shallow_traversal",
-          "hidden_domains"
-        ],
-        "false_confidence": [
-          "unfailable_check",
-          "shallow_traversal",
-          "hidden_domains",
-          "zero_cost_recovery"
-        ],
-        "unfailable_check": [
-          "shallow_traversal",
-          "hidden_domains",
-          "zero_cost_recovery",
-          "stale_reference"
-        ],
-        "shallow_traversal": [
-          "hidden_domains",
-          "zero_cost_recovery",
-          "stale_reference",
-          "missing_as_skipped"
-        ],
-        "hidden_domains": [
-          "zero_cost_recovery",
-          "stale_reference",
-          "missing_as_skipped",
-          "path_divergence"
-        ],
-        "zero_cost_recovery": [
-          "stale_reference",
-          "missing_as_skipped",
-          "path_divergence",
-          "classification_drift"
-        ],
-        "stale_reference": [
-          "missing_as_skipped",
-          "path_divergence",
-          "classification_drift",
-          "verified_pass"
-        ],
-        "missing_as_skipped": [
-          "path_divergence",
-          "classification_drift",
-          "verified_pass",
-          "loud_failure"
-        ],
-        "path_divergence": [
-          "classification_drift",
-          "verified_pass",
-          "loud_failure"
-        ],
-        "classification_drift": [
-          "verified_pass",
-          "loud_failure"
-        ],
-        "verified_pass": [
-          "loud_failure"
-        ],
-        "loud_failure": []
       }
     },
     "paths": {
-      "silent_failure/directory_bootstrapping": [
-        "inf_2b2eeaa8"
+      "context_preservation/abrupt_termination": [
+        "inf_f4f8fe90"
       ],
-      "silent_failure/environment_dependency": [
-        "inf_2b2eeaa8"
+      "context_preservation/conceptual_survival": [
+        "inf_f4f8fe90"
       ],
-      "silent_failure/error_reframing": [
-        "inf_2b2eeaa8"
+      "context_preservation/context_loss": [
+        "inf_f4f8fe90"
       ],
-      "silent_failure/missing_dependency": [
-        "inf_2b2eeaa8"
+      "context_preservation/continuity_as_value": [
+        "inf_f4f8fe90"
       ],
-      "silent_failure/pre_configuration_assumption": [
-        "inf_2b2eeaa8"
+      "context_preservation/cross_session_continuity": [
+        "inf_f4f8fe90"
       ],
-      "silent_failure/prerequisite_enforcement": [
-        "inf_2b2eeaa8"
+      "context_preservation/durable_capture": [
+        "inf_f4f8fe90"
       ],
-      "silent_failure/proactive_setup": [
-        "inf_2b2eeaa8"
+      "context_preservation/explicit_remediation": [
+        "inf_f4f8fe90"
       ],
-      "silent_failure/script_resilience": [
-        "inf_2b2eeaa8"
+      "context_preservation/memory_correction": [
+        "inf_f4f8fe90"
       ],
-      "silent_failure/self_provisioning": [
-        "inf_2b2eeaa8"
+      "context_preservation/session_boundary": [
+        "inf_f4f8fe90"
+      ],
+      "context_preservation/session_persistence": [
+        "inf_f4f8fe90"
+      ],
+      "context_preservation/state_repair": [
+        "inf_f4f8fe90"
       ],
       "aspirational_overclaim/breadth_before_depth": [
         "inf_c6ad00ec"
@@ -4794,41 +4806,71 @@
       "capture_fidelity/waystation_function": [
         "inf_cfcc4d94"
       ],
-      "silent_failure/classification_drift": [
-        "inf_0514a1aa"
+      "context_preservation/cross_session_memory": [
+        "inf_4a7a62b8"
       ],
-      "silent_failure/false_confidence": [
-        "inf_0514a1aa"
+      "context_preservation/deliberate_workflow": [
+        "inf_4a7a62b8"
       ],
-      "silent_failure/hidden_domains": [
-        "inf_0514a1aa"
+      "context_preservation/development_continuity": [
+        "inf_4a7a62b8"
       ],
-      "silent_failure/loud_failure": [
-        "inf_0514a1aa"
+      "context_preservation/ephemeral_rejection": [
+        "inf_4a7a62b8"
       ],
-      "silent_failure/missing_as_skipped": [
-        "inf_0514a1aa"
+      "context_preservation/persistence_preference": [
+        "inf_4a7a62b8"
       ],
-      "silent_failure/path_divergence": [
-        "inf_0514a1aa"
+      "context_preservation/resumable_artifact": [
+        "inf_4a7a62b8"
       ],
-      "silent_failure/plausible_emptiness": [
-        "inf_0514a1aa"
+      "context_preservation/session_as_artifact": [
+        "inf_4a7a62b8"
       ],
-      "silent_failure/shallow_traversal": [
-        "inf_0514a1aa"
+      "context_preservation/session_continuity": [
+        "inf_4a7a62b8"
       ],
-      "silent_failure/stale_reference": [
-        "inf_0514a1aa"
+      "context_preservation/session_identity": [
+        "inf_4a7a62b8"
       ],
-      "silent_failure/unfailable_check": [
-        "inf_0514a1aa"
+      "context_preservation/terminal_invocation": [
+        "inf_4a7a62b8"
       ],
-      "silent_failure/verified_pass": [
-        "inf_0514a1aa"
+      "context_preservation/working_pattern": [
+        "inf_4a7a62b8"
       ],
-      "silent_failure/zero_cost_recovery": [
-        "inf_0514a1aa"
+      "external_baseline_comparison/claimed_versus_actual_gap": [
+        "inf_a0e25c04"
+      ],
+      "external_baseline_comparison/defense_in_depth": [
+        "inf_a0e25c04"
+      ],
+      "external_baseline_comparison/discrepancy_adjudication": [
+        "inf_a0e25c04"
+      ],
+      "external_baseline_comparison/enum_invariant": [
+        "inf_a0e25c04"
+      ],
+      "external_baseline_comparison/layer_placement_discipline": [
+        "inf_a0e25c04"
+      ],
+      "external_baseline_comparison/modal_voting": [
+        "inf_a0e25c04"
+      ],
+      "external_baseline_comparison/pipeline_isolation": [
+        "inf_a0e25c04"
+      ],
+      "external_baseline_comparison/repeated_draws": [
+        "inf_a0e25c04"
+      ],
+      "external_baseline_comparison/report_only_constraint": [
+        "inf_a0e25c04"
+      ],
+      "external_baseline_comparison/unverifiable_fallback": [
+        "inf_a0e25c04"
+      ],
+      "external_baseline_comparison/verdict_coercion": [
+        "inf_a0e25c04"
       ],
       "source_deployment_gap/claude_code_sessions": [
         "inf_e7f88704"
@@ -4863,71 +4905,38 @@
       "source_deployment_gap/source_repository": [
         "inf_e7f88704"
       ],
-      "empty_transcript/auth_expiry_interruption": [
-        "inf_03e6c941"
+      "external_baseline_comparison/adjudication_layer": [
+        "inf_6c017e0e"
       ],
-      "empty_transcript/connection_retry_loop": [
-        "inf_03e6c941"
+      "external_baseline_comparison/claim_currency": [
+        "inf_6c017e0e"
       ],
-      "empty_transcript/corpus_integrity": [
-        "inf_03e6c941"
+      "external_baseline_comparison/cross_model_extraction": [
+        "inf_6c017e0e"
       ],
-      "empty_transcript/fabrication_refusal": [
-        "inf_03e6c941"
+      "external_baseline_comparison/dead_formula_propagation": [
+        "inf_6c017e0e"
       ],
-      "empty_transcript/grounded_emission_only": [
-        "inf_03e6c941"
+      "external_baseline_comparison/documentation_residue": [
+        "inf_6c017e0e"
       ],
-      "empty_transcript/local_network_containment": [
-        "inf_03e6c941"
+      "external_baseline_comparison/extraction_overconfidence": [
+        "inf_6c017e0e"
       ],
-      "empty_transcript/remote_filesystem_mounting": [
-        "inf_03e6c941"
+      "external_baseline_comparison/faithful_extraction": [
+        "inf_6c017e0e"
       ],
-      "empty_transcript/ssh_tunnel_transport": [
-        "inf_03e6c941"
+      "external_baseline_comparison/out_of_text_verification": [
+        "inf_6c017e0e"
       ],
-      "empty_transcript/sync_service_avoidance": [
-        "inf_03e6c941"
+      "external_baseline_comparison/outside_view_experiment": [
+        "inf_6c017e0e"
       ],
-      "empty_transcript/transparent_filesystem_operations": [
-        "inf_03e6c941"
+      "external_baseline_comparison/stale_truth_capture": [
+        "inf_6c017e0e"
       ],
-      "empty_transcript/unanswered_question": [
-        "inf_03e6c941"
-      ],
-      "empty_transcript/cleaning_step_failure": [
-        "inf_1ef89d68"
-      ],
-      "empty_transcript/content_stripping": [
-        "inf_1ef89d68"
-      ],
-      "empty_transcript/corpus_poisoning": [
-        "inf_1ef89d68"
-      ],
-      "empty_transcript/data_emergence_principle": [
-        "inf_1ef89d68"
-      ],
-      "empty_transcript/extraction_refusal": [
-        "inf_1ef89d68"
-      ],
-      "empty_transcript/fabrication_risk": [
-        "inf_1ef89d68"
-      ],
-      "empty_transcript/harness_chrome": [
-        "inf_1ef89d68"
-      ],
-      "empty_transcript/inference_unit_absence": [
-        "inf_1ef89d68"
-      ],
-      "empty_transcript/reprocessing_path": [
-        "inf_1ef89d68"
-      ],
-      "empty_transcript/session_capture_timing": [
-        "inf_1ef89d68"
-      ],
-      "empty_transcript/source_recovery": [
-        "inf_1ef89d68"
+      "external_baseline_comparison/superseded_claim_persistence": [
+        "inf_6c017e0e"
       ],
       "raw_data_distinction/clean_storage": [
         "inf_3b5e5cff"

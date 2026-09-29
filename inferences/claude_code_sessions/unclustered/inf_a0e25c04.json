@@ -45,7 +45,19 @@
       "check_versus_adjudicate_separation"
     ]
   },
-  "category_paths": [],
+  "category_paths": [
+    "external_baseline_comparison/claimed_versus_actual_gap",
+    "external_baseline_comparison/defense_in_depth",
+    "external_baseline_comparison/discrepancy_adjudication",
+    "external_baseline_comparison/enum_invariant",
+    "external_baseline_comparison/layer_placement_discipline",
+    "external_baseline_comparison/modal_voting",
+    "external_baseline_comparison/pipeline_isolation",
+    "external_baseline_comparison/repeated_draws",
+    "external_baseline_comparison/report_only_constraint",
+    "external_baseline_comparison/unverifiable_fallback",
+    "external_baseline_comparison/verdict_coercion"
+  ],
   "tension_score": null,
   "guardrail_actions": {},
   "left_pass": {

@@ -42,7 +42,19 @@
       "conceptual_survival"
     ]
   },
-  "category_paths": [],
+  "category_paths": [
+    "context_preservation/abrupt_termination",
+    "context_preservation/conceptual_survival",
+    "context_preservation/context_loss",
+    "context_preservation/continuity_as_value",
+    "context_preservation/cross_session_continuity",
+    "context_preservation/durable_capture",
+    "context_preservation/explicit_remediation",
+    "context_preservation/memory_correction",
+    "context_preservation/session_boundary",
+    "context_preservation/session_persistence",
+    "context_preservation/state_repair"
+  ],
   "tension_score": null,
   "guardrail_actions": {},
   "left_pass": {

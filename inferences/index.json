@@ -1,6 +1,6 @@
 {
   "version": "4.0",
-  "total_inferences": 104,
+  "total_inferences": 115,
   "keywords": {
     "eyewitness_misidentification": 4,
     "lineup_suggestibility": 1,
@@ -52,6 +52,29 @@
     "cross_racial_identification_error": 1,
     "confession_exclusion": 1,
     "victim_perpetrator_alliance": 1,
+    "orphaned_transcript": 1,
+    "undigested_output": 1,
+    "capture_reliability": 1,
+    "session_interruption": 1,
+    "process_suspension": 1,
+    "background_sweep": 1,
+    "exit_check": 1,
+    "deferred_processing": 1,
+    "retry_ceiling": 1,
+    "junk_discrimination": 1,
+    "pending_queue_management": 1,
+    "conceptual_pivot": 1,
+    "scope_reframing": 1,
+    "domain_independence": 1,
+    "general_purpose_framing": 1,
+    "reusable_machinery": 1,
+    "analytical_apparatus": 1,
+    "family_court_origins": 1,
+    "legal_domain_specificity": 1,
+    "vertical_binding": 1,
+    "source_agnosticism": 1,
+    "instrument_generality": 1,
+    "operational_scope": 1,
     "silent_failure": 2,
     "missing_dependency": 1,
     "prerequisite_enforcement": 1,
@@ -108,6 +131,18 @@
     "work_continuity_break": 1,
     "developer_optimism": 1,
     "temporal_framing": 1,
+    "session_persistence": 1,
+    "context_preservation": 2,
+    "durable_capture": 1,
+    "memory_correction": 1,
+    "state_repair": 1,
+    "explicit_remediation": 1,
+    "session_boundary": 1,
+    "context_loss": 1,
+    "abrupt_termination": 1,
+    "continuity_as_value": 1,
+    "cross_session_continuity": 1,
+    "conceptual_survival": 1,
     "vernacular_override": 1,
     "label_theory_conflict": 1,
     "grid_group_misreading": 1,
@@ -144,6 +179,49 @@
     "circumstantial_context": 1,
     "personal_life_primacy": 1,
     "work_health_signal": 1,
+    "raw_input_primacy": 1,
+    "pre_curation_hazard": 1,
+    "editorial_preemption": 1,
+    "curation_as_interference": 1,
+    "emergent_structure_dependency": 1,
+    "structural_latency": 1,
+    "pipeline_as_extractor": 1,
+    "extraction_primacy": 1,
+    "unprocessed_feedstock": 1,
+    "ingestion_integrity": 1,
+    "artifact_fidelity": 1,
+    "repo_rename": 1,
+    "identity_consolidation": 1,
+    "naming_alignment": 1,
+    "remote_presence_alignment": 1,
+    "stale_reference_cleanup": 1,
+    "url_propagation": 1,
+    "broken_reference_risk": 1,
+    "housekeeping_effort": 1,
+    "codebase_hygiene": 1,
+    "systematic_audit": 1,
+    "permutation_test": 1,
+    "combination_scrambling": 1,
+    "plausibility_preservation": 1,
+    "data_carried_meaning": 1,
+    "reader_imposed_meaning": 1,
+    "coherence_source": 1,
+    "decoder_imposition": 1,
+    "coherence_as_artifact": 1,
+    "round_trip_validity": 1,
+    "semantic_discrimination": 1,
+    "interpretive_inflation": 1,
+    "guard_integrity": 1,
+    "reflexive_accountability": 1,
+    "exemption_governance": 1,
+    "normalization_equivalence": 1,
+    "fixture_fidelity": 1,
+    "self_referential_testing": 1,
+    "supervision_decay": 1,
+    "silent_degradation": 1,
+    "dead_code_persistence": 1,
+    "rationale_anchoring": 1,
+    "integrity_through_constraint": 1,
     "evidence_gated_promotion": 1,
     "sequential_gating": 1,
     "cross_session_voting": 1,
@@ -212,6 +290,18 @@
     "gate_integrity": 1,
     "consent_before_substantive_change": 1,
     "withdrawn_result_contamination": 1,
+    "token_resend_cost": 1,
+    "per_bundle_overhead": 1,
+    "wrong_economic_shape": 1,
+    "rclone_adoption": 1,
+    "local_tool_preference": 1,
+    "command_abstraction": 1,
+    "oauth_authorization": 1,
+    "one_time_setup": 1,
+    "drive_section_limitation": 1,
+    "my_drive_boundary": 1,
+    "sync_verification": 1,
+    "data_loss_prevention": 1,
     "in_session_capture": 1,
     "temporal_capture_advantage": 1,
     "deferred_review_contrast": 1,
@@ -272,7 +362,6 @@
     "map_for_later": 1,
     "session_continuity": 1,
     "resumable_artifact": 1,
-    "context_preservation": 1,
     "ephemeral_rejection": 1,
     "session_identity": 1,
     "deliberate_workflow": 1,
@@ -282,6 +371,18 @@
     "development_continuity": 1,
     "session_as_artifact": 1,
     "working_pattern": 1,
+    "discrepancy_adjudication": 1,
+    "external_baseline_comparison": 2,
+    "claimed_versus_actual_gap": 1,
+    "modal_voting": 1,
+    "repeated_draws": 1,
+    "verdict_coercion": 1,
+    "enum_invariant": 1,
+    "defense_in_depth": 1,
+    "report_only_constraint": 1,
+    "pipeline_isolation": 1,
+    "unverifiable_fallback": 1,
+    "layer_placement_discipline": 1,
     "fusion_parity_gap": 1,
     "per_operator_baseline": 1,
     "wholesale_dropin_risk": 1,
@@ -335,6 +436,17 @@
     "tag_only_derivation": 1,
     "corpus_wide_structure": 1,
     "emergent_revelation": 1,
+    "artifact_provenance": 1,
+    "provenance_distinction": 2,
+    "source_attribution": 1,
+    "external_origin_isolation": 1,
+    "input_classification": 1,
+    "boundary_preservation": 1,
+    "internal_accumulation": 1,
+    "tracked_set_expansion": 1,
+    "deliberate_curation": 1,
+    "commit_discipline": 1,
+    "organizational_intent": 1,
     "new_model_announcement": 1,
     "product_lineup_expansion": 1,
     "sustained_computation": 1,
@@ -383,18 +495,6 @@
     "diagnosis_narrowing": 1,
     "structural_dimension_integrity": 1,
     "genuine_case_ambiguity": 1,
-    "empty_transcript": 2,
-    "fabrication_refusal": 1,
-    "corpus_integrity": 1,
-    "grounded_emission_only": 1,
-    "connection_retry_loop": 1,
-    "auth_expiry_interruption": 1,
-    "unanswered_question": 1,
-    "remote_filesystem_mounting": 1,
-    "ssh_tunnel_transport": 1,
-    "local_network_containment": 1,
-    "transparent_filesystem_operations": 1,
-    "sync_service_avoidance": 1,
     "continuous_coordinate": 1,
     "derived_category": 1,
     "bin_edge_derivation": 1,
@@ -407,6 +507,27 @@
     "reasonable_motion": 1,
     "threshold_misalignment": 1,
     "baseline_sacrifice": 1,
+    "bundle_header_accuracy": 1,
+    "bidirectional_verification": 1,
+    "false_positive_elimination": 1,
+    "self_describing_format": 1,
+    "per_file_provenance": 1,
+    "structural_integrity": 1,
+    "revision_history_reliance": 1,
+    "single_file_architecture": 1,
+    "speculative_marking": 1,
+    "demonstrated_vs_imagined": 1,
+    "outside_view_experiment": 1,
+    "cross_model_extraction": 1,
+    "faithful_extraction": 1,
+    "extraction_overconfidence": 1,
+    "dead_formula_propagation": 1,
+    "superseded_claim_persistence": 1,
+    "documentation_residue": 1,
+    "stale_truth_capture": 1,
+    "adjudication_layer": 1,
+    "out_of_text_verification": 1,
+    "claim_currency": 1,
     "selective_promotion": 1,
     "block_granularity": 1,
     "proof_threshold": 1,
@@ -419,17 +540,18 @@
     "risk_containment": 1,
     "path_assumption_bug": 1,
     "preemptive_catch": 1,
-    "harness_chrome": 1,
-    "extraction_refusal": 1,
-    "fabrication_risk": 1,
-    "corpus_poisoning": 1,
-    "data_emergence_principle": 1,
-    "cleaning_step_failure": 1,
-    "content_stripping": 1,
-    "source_recovery": 1,
-    "reprocessing_path": 1,
-    "session_capture_timing": 1,
-    "inference_unit_absence": 1,
+    "cowork_bundle_as_input": 1,
+    "transcript_incorporation": 1,
+    "input_source_candidacy": 1,
+    "raw_ingestion_discipline": 1,
+    "preprocessing_prohibition": 1,
+    "source_fidelity": 1,
+    "pipeline_extraction_authority": 1,
+    "human_mediation_bypass": 1,
+    "extraction_ownership": 1,
+    "methodological_consistency": 1,
+    "discipline_uniformity": 1,
+    "cross_source_parity": 1,
     "authentication_failure": 1,
     "session_expiry": 1,
     "message_loss": 1,
@@ -1473,6 +1595,127 @@
     "cross_racial_identification_error::confession_exclusion": 1,
     "cross_racial_identification_error::victim_perpetrator_alliance": 1,
     "confession_exclusion::victim_perpetrator_alliance": 1,
+    "orphaned_transcript::undigested_output": 1,
+    "orphaned_transcript::capture_reliability": 1,
+    "orphaned_transcript::session_interruption": 1,
+    "orphaned_transcript::process_suspension": 1,
+    "orphaned_transcript::background_sweep": 1,
+    "orphaned_transcript::exit_check": 1,
+    "orphaned_transcript::deferred_processing": 1,
+    "orphaned_transcript::retry_ceiling": 1,
+    "orphaned_transcript::junk_discrimination": 1,
+    "orphaned_transcript::pending_queue_management": 1,
+    "undigested_output::capture_reliability": 1,
+    "undigested_output::session_interruption": 1,
+    "undigested_output::process_suspension": 1,
+    "undigested_output::background_sweep": 1,
+    "undigested_output::exit_check": 1,
+    "undigested_output::deferred_processing": 1,
+    "undigested_output::retry_ceiling": 1,
+    "undigested_output::junk_discrimination": 1,
+    "undigested_output::pending_queue_management": 1,
+    "capture_reliability::session_interruption": 1,
+    "capture_reliability::process_suspension": 1,
+    "capture_reliability::background_sweep": 1,
+    "capture_reliability::exit_check": 1,
+    "capture_reliability::deferred_processing": 1,
+    "capture_reliability::retry_ceiling": 1,
+    "capture_reliability::junk_discrimination": 1,
+    "capture_reliability::pending_queue_management": 1,
+    "session_interruption::process_suspension": 1,
+    "session_interruption::background_sweep": 1,
+    "session_interruption::exit_check": 1,
+    "session_interruption::deferred_processing": 1,
+    "session_interruption::retry_ceiling": 1,
+    "session_interruption::junk_discrimination": 1,
+    "session_interruption::pending_queue_management": 1,
+    "process_suspension::background_sweep": 1,
+    "process_suspension::exit_check": 1,
+    "process_suspension::deferred_processing": 1,
+    "process_suspension::retry_ceiling": 1,
+    "process_suspension::junk_discrimination": 1,
+    "process_suspension::pending_queue_management": 1,
+    "background_sweep::exit_check": 1,
+    "background_sweep::deferred_processing": 1,
+    "background_sweep::retry_ceiling": 1,
+    "background_sweep::junk_discrimination": 1,
+    "background_sweep::pending_queue_management": 1,
+    "exit_check::deferred_processing": 1,
+    "exit_check::retry_ceiling": 1,
+    "exit_check::junk_discrimination": 1,
+    "exit_check::pending_queue_management": 1,
+    "deferred_processing::retry_ceiling": 1,
+    "deferred_processing::junk_discrimination": 1,
+    "deferred_processing::pending_queue_management": 1,
+    "retry_ceiling::junk_discrimination": 1,
+    "retry_ceiling::pending_queue_management": 1,
+    "junk_discrimination::pending_queue_management": 1,
+    "conceptual_pivot::scope_reframing": 1,
+    "conceptual_pivot::domain_independence": 1,
+    "conceptual_pivot::general_purpose_framing": 1,
+    "conceptual_pivot::reusable_machinery": 1,
+    "conceptual_pivot::analytical_apparatus": 1,
+    "conceptual_pivot::family_court_origins": 1,
+    "conceptual_pivot::legal_domain_specificity": 1,
+    "conceptual_pivot::vertical_binding": 1,
+    "conceptual_pivot::source_agnosticism": 1,
+    "conceptual_pivot::instrument_generality": 1,
+    "conceptual_pivot::operational_scope": 1,
+    "scope_reframing::domain_independence": 1,
+    "scope_reframing::general_purpose_framing": 1,
+    "scope_reframing::reusable_machinery": 1,
+    "scope_reframing::analytical_apparatus": 1,
+    "scope_reframing::family_court_origins": 1,
+    "scope_reframing::legal_domain_specificity": 1,
+    "scope_reframing::vertical_binding": 1,
+    "scope_reframing::source_agnosticism": 1,
+    "scope_reframing::instrument_generality": 1,
+    "scope_reframing::operational_scope": 1,
+    "domain_independence::general_purpose_framing": 1,
+    "domain_independence::reusable_machinery": 1,
+    "domain_independence::analytical_apparatus": 1,
+    "domain_independence::family_court_origins": 1,
+    "domain_independence::legal_domain_specificity": 1,
+    "domain_independence::vertical_binding": 1,
+    "domain_independence::source_agnosticism": 1,
+    "domain_independence::instrument_generality": 1,
+    "domain_independence::operational_scope": 1,
+    "general_purpose_framing::reusable_machinery": 1,
+    "general_purpose_framing::analytical_apparatus": 1,
+    "general_purpose_framing::family_court_origins": 1,
+    "general_purpose_framing::legal_domain_specificity": 1,
+    "general_purpose_framing::vertical_binding": 1,
+    "general_purpose_framing::source_agnosticism": 1,
+    "general_purpose_framing::instrument_generality": 1,
+    "general_purpose_framing::operational_scope": 1,
+    "reusable_machinery::analytical_apparatus": 1,
+    "reusable_machinery::family_court_origins": 1,
+    "reusable_machinery::legal_domain_specificity": 1,
+    "reusable_machinery::vertical_binding": 1,
+    "reusable_machinery::source_agnosticism": 1,
+    "reusable_machinery::instrument_generality": 1,
+    "reusable_machinery::operational_scope": 1,
+    "analytical_apparatus::family_court_origins": 1,
+    "analytical_apparatus::legal_domain_specificity": 1,
+    "analytical_apparatus::vertical_binding": 1,
+    "analytical_apparatus::source_agnosticism": 1,
+    "analytical_apparatus::instrument_generality": 1,
+    "analytical_apparatus::operational_scope": 1,
+    "family_court_origins::legal_domain_specificity": 1,
+    "family_court_origins::vertical_binding": 1,
+    "family_court_origins::source_agnosticism": 1,
+    "family_court_origins::instrument_generality": 1,
+    "family_court_origins::operational_scope": 1,
+    "legal_domain_specificity::vertical_binding": 1,
+    "legal_domain_specificity::source_agnosticism": 1,
+    "legal_domain_specificity::instrument_generality": 1,
+    "legal_domain_specificity::operational_scope": 1,
+    "vertical_binding::source_agnosticism": 1,
+    "vertical_binding::instrument_generality": 1,
+    "vertical_binding::operational_scope": 1,
+    "source_agnosticism::instrument_generality": 1,
+    "source_agnosticism::operational_scope": 1,
+    "instrument_generality::operational_scope": 1,
     "silent_failure::missing_dependency": 1,
     "silent_failure::prerequisite_enforcement": 1,
     "silent_failure::proactive_setup": 1,
@@ -1761,6 +2004,72 @@
     "work_continuity_break::developer_optimism": 1,
     "work_continuity_break::temporal_framing": 1,
     "developer_optimism::temporal_framing": 1,
+    "session_persistence::context_preservation": 1,
+    "session_persistence::durable_capture": 1,
+    "session_persistence::memory_correction": 1,
+    "session_persistence::state_repair": 1,
+    "session_persistence::explicit_remediation": 1,
+    "session_persistence::session_boundary": 1,
+    "session_persistence::context_loss": 1,
+    "session_persistence::abrupt_termination": 1,
+    "session_persistence::continuity_as_value": 1,
+    "session_persistence::cross_session_continuity": 1,
+    "session_persistence::conceptual_survival": 1,
+    "context_preservation::durable_capture": 1,
+    "context_preservation::memory_correction": 1,
+    "context_preservation::state_repair": 1,
+    "context_preservation::explicit_remediation": 1,
+    "context_preservation::session_boundary": 1,
+    "context_preservation::context_loss": 1,
+    "context_preservation::abrupt_termination": 1,
+    "context_preservation::continuity_as_value": 1,
+    "context_preservation::cross_session_continuity": 1,
+    "context_preservation::conceptual_survival": 1,
+    "durable_capture::memory_correction": 1,
+    "durable_capture::state_repair": 1,
+    "durable_capture::explicit_remediation": 1,
+    "durable_capture::session_boundary": 1,
+    "durable_capture::context_loss": 1,
+    "durable_capture::abrupt_termination": 1,
+    "durable_capture::continuity_as_value": 1,
+    "durable_capture::cross_session_continuity": 1,
+    "durable_capture::conceptual_survival": 1,
+    "memory_correction::state_repair": 1,
+    "memory_correction::explicit_remediation": 1,
+    "memory_correction::session_boundary": 1,
+    "memory_correction::context_loss": 1,
+    "memory_correction::abrupt_termination": 1,
+    "memory_correction::continuity_as_value": 1,
+    "memory_correction::cross_session_continuity": 1,
+    "memory_correction::conceptual_survival": 1,
+    "state_repair::explicit_remediation": 1,
+    "state_repair::session_boundary": 1,
+    "state_repair::context_loss": 1,
+    "state_repair::abrupt_termination": 1,
+    "state_repair::continuity_as_value": 1,
+    "state_repair::cross_session_continuity": 1,
+    "state_repair::conceptual_survival": 1,
+    "explicit_remediation::session_boundary": 1,
+    "explicit_remediation::context_loss": 1,
+    "explicit_remediation::abrupt_termination": 1,
+    "explicit_remediation::continuity_as_value": 1,
+    "explicit_remediation::cross_session_continuity": 1,
+    "explicit_remediation::conceptual_survival": 1,
+    "session_boundary::context_loss": 1,
+    "session_boundary::abrupt_termination": 1,
+    "session_boundary::continuity_as_value": 1,
+    "session_boundary::cross_session_continuity": 1,
+    "session_boundary::conceptual_survival": 1,
+    "context_loss::abrupt_termination": 1,
+    "context_loss::continuity_as_value": 1,
+    "context_loss::cross_session_continuity": 1,
+    "context_loss::conceptual_survival": 1,
+    "abrupt_termination::continuity_as_value": 1,
+    "abrupt_termination::cross_session_continuity": 1,
+    "abrupt_termination::conceptual_survival": 1,
+    "continuity_as_value::cross_session_continuity": 1,
+    "continuity_as_value::conceptual_survival": 1,
+    "cross_session_continuity::conceptual_survival": 1,
     "vernacular_override::label_theory_conflict": 1,
     "vernacular_override::grid_group_misreading": 1,
     "vernacular_override::isolate_hierarchy_confusion": 1,
@@ -1959,6 +2268,216 @@
     "circumstantial_context::personal_life_primacy": 1,
     "circumstantial_context::work_health_signal": 1,
     "personal_life_primacy::work_health_signal": 1,
+    "raw_input_primacy::pre_curation_hazard": 1,
+    "raw_input_primacy::editorial_preemption": 1,
+    "raw_input_primacy::curation_as_interference": 1,
+    "raw_input_primacy::emergent_structure_dependency": 1,
+    "raw_input_primacy::structural_latency": 1,
+    "raw_input_primacy::pipeline_as_extractor": 1,
+    "raw_input_primacy::extraction_primacy": 1,
+    "raw_input_primacy::unprocessed_feedstock": 1,
+    "raw_input_primacy::ingestion_integrity": 1,
+    "raw_input_primacy::artifact_fidelity": 1,
+    "pre_curation_hazard::editorial_preemption": 1,
+    "pre_curation_hazard::curation_as_interference": 1,
+    "pre_curation_hazard::emergent_structure_dependency": 1,
+    "pre_curation_hazard::structural_latency": 1,
+    "pre_curation_hazard::pipeline_as_extractor": 1,
+    "pre_curation_hazard::extraction_primacy": 1,
+    "pre_curation_hazard::unprocessed_feedstock": 1,
+    "pre_curation_hazard::ingestion_integrity": 1,
+    "pre_curation_hazard::artifact_fidelity": 1,
+    "editorial_preemption::curation_as_interference": 1,
+    "editorial_preemption::emergent_structure_dependency": 1,
+    "editorial_preemption::structural_latency": 1,
+    "editorial_preemption::pipeline_as_extractor": 1,
+    "editorial_preemption::extraction_primacy": 1,
+    "editorial_preemption::unprocessed_feedstock": 1,
+    "editorial_preemption::ingestion_integrity": 1,
+    "editorial_preemption::artifact_fidelity": 1,
+    "curation_as_interference::emergent_structure_dependency": 1,
+    "curation_as_interference::structural_latency": 1,
+    "curation_as_interference::pipeline_as_extractor": 1,
+    "curation_as_interference::extraction_primacy": 1,
+    "curation_as_interference::unprocessed_feedstock": 1,
+    "curation_as_interference::ingestion_integrity": 1,
+    "curation_as_interference::artifact_fidelity": 1,
+    "emergent_structure_dependency::structural_latency": 1,
+    "emergent_structure_dependency::pipeline_as_extractor": 1,
+    "emergent_structure_dependency::extraction_primacy": 1,
+    "emergent_structure_dependency::unprocessed_feedstock": 1,
+    "emergent_structure_dependency::ingestion_integrity": 1,
+    "emergent_structure_dependency::artifact_fidelity": 1,
+    "structural_latency::pipeline_as_extractor": 1,
+    "structural_latency::extraction_primacy": 1,
+    "structural_latency::unprocessed_feedstock": 1,
+    "structural_latency::ingestion_integrity": 1,
+    "structural_latency::artifact_fidelity": 1,
+    "pipeline_as_extractor::extraction_primacy": 1,
+    "pipeline_as_extractor::unprocessed_feedstock": 1,
+    "pipeline_as_extractor::ingestion_integrity": 1,
+    "pipeline_as_extractor::artifact_fidelity": 1,
+    "extraction_primacy::unprocessed_feedstock": 1,
+    "extraction_primacy::ingestion_integrity": 1,
+    "extraction_primacy::artifact_fidelity": 1,
+    "unprocessed_feedstock::ingestion_integrity": 1,
+    "unprocessed_feedstock::artifact_fidelity": 1,
+    "ingestion_integrity::artifact_fidelity": 1,
+    "repo_rename::identity_consolidation": 1,
+    "repo_rename::naming_alignment": 1,
+    "repo_rename::remote_presence_alignment": 1,
+    "repo_rename::stale_reference_cleanup": 1,
+    "repo_rename::url_propagation": 1,
+    "repo_rename::broken_reference_risk": 1,
+    "repo_rename::housekeeping_effort": 1,
+    "repo_rename::codebase_hygiene": 1,
+    "repo_rename::systematic_audit": 1,
+    "identity_consolidation::naming_alignment": 1,
+    "identity_consolidation::remote_presence_alignment": 1,
+    "identity_consolidation::stale_reference_cleanup": 1,
+    "identity_consolidation::url_propagation": 1,
+    "identity_consolidation::broken_reference_risk": 1,
+    "identity_consolidation::housekeeping_effort": 1,
+    "identity_consolidation::codebase_hygiene": 1,
+    "identity_consolidation::systematic_audit": 1,
+    "naming_alignment::remote_presence_alignment": 1,
+    "naming_alignment::stale_reference_cleanup": 1,
+    "naming_alignment::url_propagation": 1,
+    "naming_alignment::broken_reference_risk": 1,
+    "naming_alignment::housekeeping_effort": 1,
+    "naming_alignment::codebase_hygiene": 1,
+    "naming_alignment::systematic_audit": 1,
+    "remote_presence_alignment::stale_reference_cleanup": 1,
+    "remote_presence_alignment::url_propagation": 1,
+    "remote_presence_alignment::broken_reference_risk": 1,
+    "remote_presence_alignment::housekeeping_effort": 1,
+    "remote_presence_alignment::codebase_hygiene": 1,
+    "remote_presence_alignment::systematic_audit": 1,
+    "stale_reference_cleanup::url_propagation": 1,
+    "stale_reference_cleanup::broken_reference_risk": 1,
+    "stale_reference_cleanup::housekeeping_effort": 1,
+    "stale_reference_cleanup::codebase_hygiene": 1,
+    "stale_reference_cleanup::systematic_audit": 1,
+    "url_propagation::broken_reference_risk": 1,
+    "url_propagation::housekeeping_effort": 1,
+    "url_propagation::codebase_hygiene": 1,
+    "url_propagation::systematic_audit": 1,
+    "broken_reference_risk::housekeeping_effort": 1,
+    "broken_reference_risk::codebase_hygiene": 1,
+    "broken_reference_risk::systematic_audit": 1,
+    "housekeeping_effort::codebase_hygiene": 1,
+    "housekeeping_effort::systematic_audit": 1,
+    "codebase_hygiene::systematic_audit": 1,
+    "permutation_test::combination_scrambling": 1,
+    "permutation_test::plausibility_preservation": 1,
+    "permutation_test::data_carried_meaning": 1,
+    "permutation_test::reader_imposed_meaning": 1,
+    "permutation_test::coherence_source": 1,
+    "permutation_test::decoder_imposition": 1,
+    "permutation_test::coherence_as_artifact": 1,
+    "permutation_test::round_trip_validity": 1,
+    "permutation_test::semantic_discrimination": 1,
+    "permutation_test::interpretive_inflation": 1,
+    "combination_scrambling::plausibility_preservation": 1,
+    "combination_scrambling::data_carried_meaning": 1,
+    "combination_scrambling::reader_imposed_meaning": 1,
+    "combination_scrambling::coherence_source": 1,
+    "combination_scrambling::decoder_imposition": 1,
+    "combination_scrambling::coherence_as_artifact": 1,
+    "combination_scrambling::round_trip_validity": 1,
+    "combination_scrambling::semantic_discrimination": 1,
+    "combination_scrambling::interpretive_inflation": 1,
+    "plausibility_preservation::data_carried_meaning": 1,
+    "plausibility_preservation::reader_imposed_meaning": 1,
+    "plausibility_preservation::coherence_source": 1,
+    "plausibility_preservation::decoder_imposition": 1,
+    "plausibility_preservation::coherence_as_artifact": 1,
+    "plausibility_preservation::round_trip_validity": 1,
+    "plausibility_preservation::semantic_discrimination": 1,
+    "plausibility_preservation::interpretive_inflation": 1,
+    "data_carried_meaning::reader_imposed_meaning": 1,
+    "data_carried_meaning::coherence_source": 1,
+    "data_carried_meaning::decoder_imposition": 1,
+    "data_carried_meaning::coherence_as_artifact": 1,
+    "data_carried_meaning::round_trip_validity": 1,
+    "data_carried_meaning::semantic_discrimination": 1,
+    "data_carried_meaning::interpretive_inflation": 1,
+    "reader_imposed_meaning::coherence_source": 1,
+    "reader_imposed_meaning::decoder_imposition": 1,
+    "reader_imposed_meaning::coherence_as_artifact": 1,
+    "reader_imposed_meaning::round_trip_validity": 1,
+    "reader_imposed_meaning::semantic_discrimination": 1,
+    "reader_imposed_meaning::interpretive_inflation": 1,
+    "coherence_source::decoder_imposition": 1,
+    "coherence_source::coherence_as_artifact": 1,
+    "coherence_source::round_trip_validity": 1,
+    "coherence_source::semantic_discrimination": 1,
+    "coherence_source::interpretive_inflation": 1,
+    "decoder_imposition::coherence_as_artifact": 1,
+    "decoder_imposition::round_trip_validity": 1,
+    "decoder_imposition::semantic_discrimination": 1,
+    "decoder_imposition::interpretive_inflation": 1,
+    "coherence_as_artifact::round_trip_validity": 1,
+    "coherence_as_artifact::semantic_discrimination": 1,
+    "coherence_as_artifact::interpretive_inflation": 1,
+    "round_trip_validity::semantic_discrimination": 1,
+    "round_trip_validity::interpretive_inflation": 1,
+    "semantic_discrimination::interpretive_inflation": 1,
+    "guard_integrity::reflexive_accountability": 1,
+    "guard_integrity::exemption_governance": 1,
+    "guard_integrity::normalization_equivalence": 1,
+    "guard_integrity::fixture_fidelity": 1,
+    "guard_integrity::self_referential_testing": 1,
+    "guard_integrity::supervision_decay": 1,
+    "guard_integrity::silent_degradation": 1,
+    "guard_integrity::dead_code_persistence": 1,
+    "guard_integrity::rationale_anchoring": 1,
+    "guard_integrity::integrity_through_constraint": 1,
+    "reflexive_accountability::exemption_governance": 1,
+    "reflexive_accountability::normalization_equivalence": 1,
+    "reflexive_accountability::fixture_fidelity": 1,
+    "reflexive_accountability::self_referential_testing": 1,
+    "reflexive_accountability::supervision_decay": 1,
+    "reflexive_accountability::silent_degradation": 1,
+    "reflexive_accountability::dead_code_persistence": 1,
+    "reflexive_accountability::rationale_anchoring": 1,
+    "reflexive_accountability::integrity_through_constraint": 1,
+    "exemption_governance::normalization_equivalence": 1,
+    "exemption_governance::fixture_fidelity": 1,
+    "exemption_governance::self_referential_testing": 1,
+    "exemption_governance::supervision_decay": 1,
+    "exemption_governance::silent_degradation": 1,
+    "exemption_governance::dead_code_persistence": 1,
+    "exemption_governance::rationale_anchoring": 1,
+    "exemption_governance::integrity_through_constraint": 1,
+    "normalization_equivalence::fixture_fidelity": 1,
+    "normalization_equivalence::self_referential_testing": 1,
+    "normalization_equivalence::supervision_decay": 1,
+    "normalization_equivalence::silent_degradation": 1,
+    "normalization_equivalence::dead_code_persistence": 1,
+    "normalization_equivalence::rationale_anchoring": 1,
+    "normalization_equivalence::integrity_through_constraint": 1,
+    "fixture_fidelity::self_referential_testing": 1,
+    "fixture_fidelity::supervision_decay": 1,
+    "fixture_fidelity::silent_degradation": 1,
+    "fixture_fidelity::dead_code_persistence": 1,
+    "fixture_fidelity::rationale_anchoring": 1,
+    "fixture_fidelity::integrity_through_constraint": 1,
+    "self_referential_testing::supervision_decay": 1,
+    "self_referential_testing::silent_degradation": 1,
+    "self_referential_testing::dead_code_persistence": 1,
+    "self_referential_testing::rationale_anchoring": 1,
+    "self_referential_testing::integrity_through_constraint": 1,
+    "supervision_decay::silent_degradation": 1,
+    "supervision_decay::dead_code_persistence": 1,
+    "supervision_decay::rationale_anchoring": 1,
+    "supervision_decay::integrity_through_constraint": 1,
+    "silent_degradation::dead_code_persistence": 1,
+    "silent_degradation::rationale_anchoring": 1,
+    "silent_degradation::integrity_through_constraint": 1,
+    "dead_code_persistence::rationale_anchoring": 1,
+    "dead_code_persistence::integrity_through_constraint": 1,
+    "rationale_anchoring::integrity_through_constraint": 1,
     "evidence_gated_promotion::sequential_gating": 1,
     "evidence_gated_promotion::cross_session_voting": 1,
     "evidence_gated_promotion::noise_neutralization": 1,
@@ -2561,6 +3080,72 @@
     "gate_integrity::consent_before_substantive_change": 1,
     "gate_integrity::withdrawn_result_contamination": 1,
     "consent_before_substantive_change::withdrawn_result_contamination": 1,
+    "token_resend_cost::per_bundle_overhead": 1,
+    "token_resend_cost::wrong_economic_shape": 1,
+    "token_resend_cost::rclone_adoption": 1,
+    "token_resend_cost::local_tool_preference": 1,
+    "token_resend_cost::command_abstraction": 1,
+    "token_resend_cost::oauth_authorization": 1,
+    "token_resend_cost::one_time_setup": 1,
+    "token_resend_cost::drive_section_limitation": 1,
+    "token_resend_cost::my_drive_boundary": 1,
+    "token_resend_cost::sync_verification": 1,
+    "token_resend_cost::data_loss_prevention": 1,
+    "per_bundle_overhead::wrong_economic_shape": 1,
+    "per_bundle_overhead::rclone_adoption": 1,
+    "per_bundle_overhead::local_tool_preference": 1,
+    "per_bundle_overhead::command_abstraction": 1,
+    "per_bundle_overhead::oauth_authorization": 1,
+    "per_bundle_overhead::one_time_setup": 1,
+    "per_bundle_overhead::drive_section_limitation": 1,
+    "per_bundle_overhead::my_drive_boundary": 1,
+    "per_bundle_overhead::sync_verification": 1,
+    "per_bundle_overhead::data_loss_prevention": 1,
+    "wrong_economic_shape::rclone_adoption": 1,
+    "wrong_economic_shape::local_tool_preference": 1,
+    "wrong_economic_shape::command_abstraction": 1,
+    "wrong_economic_shape::oauth_authorization": 1,
+    "wrong_economic_shape::one_time_setup": 1,
+    "wrong_economic_shape::drive_section_limitation": 1,
+    "wrong_economic_shape::my_drive_boundary": 1,
+    "wrong_economic_shape::sync_verification": 1,
+    "wrong_economic_shape::data_loss_prevention": 1,
+    "rclone_adoption::local_tool_preference": 1,
+    "rclone_adoption::command_abstraction": 1,
+    "rclone_adoption::oauth_authorization": 1,
+    "rclone_adoption::one_time_setup": 1,
+    "rclone_adoption::drive_section_limitation": 1,
+    "rclone_adoption::my_drive_boundary": 1,
+    "rclone_adoption::sync_verification": 1,
+    "rclone_adoption::data_loss_prevention": 1,
+    "local_tool_preference::command_abstraction": 1,
+    "local_tool_preference::oauth_authorization": 1,
+    "local_tool_preference::one_time_setup": 1,
+    "local_tool_preference::drive_section_limitation": 1,
+    "local_tool_preference::my_drive_boundary": 1,
+    "local_tool_preference::sync_verification": 1,
+    "local_tool_preference::data_loss_prevention": 1,
+    "command_abstraction::oauth_authorization": 1,
+    "command_abstraction::one_time_setup": 1,
+    "command_abstraction::drive_section_limitation": 1,
+    "command_abstraction::my_drive_boundary": 1,
+    "command_abstraction::sync_verification": 1,
+    "command_abstraction::data_loss_prevention": 1,
+    "oauth_authorization::one_time_setup": 1,
+    "oauth_authorization::drive_section_limitation": 1,
+    "oauth_authorization::my_drive_boundary": 1,
+    "oauth_authorization::sync_verification": 1,
+    "oauth_authorization::data_loss_prevention": 1,
+    "one_time_setup::drive_section_limitation": 1,
+    "one_time_setup::my_drive_boundary": 1,
+    "one_time_setup::sync_verification": 1,
+    "one_time_setup::data_loss_prevention": 1,
+    "drive_section_limitation::my_drive_boundary": 1,
+    "drive_section_limitation::sync_verification": 1,
+    "drive_section_limitation::data_loss_prevention": 1,
+    "my_drive_boundary::sync_verification": 1,
+    "my_drive_boundary::data_loss_prevention": 1,
+    "sync_verification::data_loss_prevention": 1,
     "in_session_capture::temporal_capture_advantage": 1,
     "in_session_capture::deferred_review_contrast": 1,
     "in_session_capture::context_completeness": 1,
@@ -2936,6 +3521,72 @@
     "development_continuity::session_as_artifact": 1,
     "development_continuity::working_pattern": 1,
     "session_as_artifact::working_pattern": 1,
+    "discrepancy_adjudication::external_baseline_comparison": 1,
+    "discrepancy_adjudication::claimed_versus_actual_gap": 1,
+    "discrepancy_adjudication::modal_voting": 1,
+    "discrepancy_adjudication::repeated_draws": 1,
+    "discrepancy_adjudication::verdict_coercion": 1,
+    "discrepancy_adjudication::enum_invariant": 1,
+    "discrepancy_adjudication::defense_in_depth": 1,
+    "discrepancy_adjudication::report_only_constraint": 1,
+    "discrepancy_adjudication::pipeline_isolation": 1,
+    "discrepancy_adjudication::unverifiable_fallback": 1,
+    "discrepancy_adjudication::layer_placement_discipline": 1,
+    "external_baseline_comparison::claimed_versus_actual_gap": 1,
+    "external_baseline_comparison::modal_voting": 1,
+    "external_baseline_comparison::repeated_draws": 1,
+    "external_baseline_comparison::verdict_coercion": 1,
+    "external_baseline_comparison::enum_invariant": 1,
+    "external_baseline_comparison::defense_in_depth": 1,
+    "external_baseline_comparison::report_only_constraint": 1,
+    "external_baseline_comparison::pipeline_isolation": 1,
+    "external_baseline_comparison::unverifiable_fallback": 1,
+    "external_baseline_comparison::layer_placement_discipline": 1,
+    "claimed_versus_actual_gap::modal_voting": 1,
+    "claimed_versus_actual_gap::repeated_draws": 1,
+    "claimed_versus_actual_gap::verdict_coercion": 1,
+    "claimed_versus_actual_gap::enum_invariant": 1,
+    "claimed_versus_actual_gap::defense_in_depth": 1,
+    "claimed_versus_actual_gap::report_only_constraint": 1,
+    "claimed_versus_actual_gap::pipeline_isolation": 1,
+    "claimed_versus_actual_gap::unverifiable_fallback": 1,
+    "claimed_versus_actual_gap::layer_placement_discipline": 1,
+    "modal_voting::repeated_draws": 1,
+    "modal_voting::verdict_coercion": 1,
+    "modal_voting::enum_invariant": 1,
+    "modal_voting::defense_in_depth": 1,
+    "modal_voting::report_only_constraint": 1,
+    "modal_voting::pipeline_isolation": 1,
+    "modal_voting::unverifiable_fallback": 1,
+    "modal_voting::layer_placement_discipline": 1,
+    "repeated_draws::verdict_coercion": 1,
+    "repeated_draws::enum_invariant": 1,
+    "repeated_draws::defense_in_depth": 1,
+    "repeated_draws::report_only_constraint": 1,
+    "repeated_draws::pipeline_isolation": 1,
+    "repeated_draws::unverifiable_fallback": 1,
+    "repeated_draws::layer_placement_discipline": 1,
+    "verdict_coercion::enum_invariant": 1,
+    "verdict_coercion::defense_in_depth": 1,
+    "verdict_coercion::report_only_constraint": 1,
+    "verdict_coercion::pipeline_isolation": 1,
+    "verdict_coercion::unverifiable_fallback": 1,
+    "verdict_coercion::layer_placement_discipline": 1,
+    "enum_invariant::defense_in_depth": 1,
+    "enum_invariant::report_only_constraint": 1,
+    "enum_invariant::pipeline_isolation": 1,
+    "enum_invariant::unverifiable_fallback": 1,
+    "enum_invariant::layer_placement_discipline": 1,
+    "defense_in_depth::report_only_constraint": 1,
+    "defense_in_depth::pipeline_isolation": 1,
+    "defense_in_depth::unverifiable_fallback": 1,
+    "defense_in_depth::layer_placement_discipline": 1,
+    "report_only_constraint::pipeline_isolation": 1,
+    "report_only_constraint::unverifiable_fallback": 1,
+    "report_only_constraint::layer_placement_discipline": 1,
+    "pipeline_isolation::unverifiable_fallback": 1,
+    "pipeline_isolation::layer_placement_discipline": 1,
+    "unverifiable_fallback::layer_placement_discipline": 1,
     "fusion_parity_gap::per_operator_baseline": 1,
     "fusion_parity_gap::wholesale_dropin_risk": 1,
     "fusion_parity_gap::dimensional_agreement": 1,
@@ -3276,6 +3927,61 @@
     "tag_only_derivation::corpus_wide_structure": 1,
     "tag_only_derivation::emergent_revelation": 1,
     "corpus_wide_structure::emergent_revelation": 1,
+    "artifact_provenance::provenance_distinction": 1,
+    "artifact_provenance::source_attribution": 1,
+    "artifact_provenance::external_origin_isolation": 1,
+    "artifact_provenance::input_classification": 1,
+    "artifact_provenance::boundary_preservation": 1,
+    "artifact_provenance::internal_accumulation": 1,
+    "artifact_provenance::tracked_set_expansion": 1,
+    "artifact_provenance::deliberate_curation": 1,
+    "artifact_provenance::commit_discipline": 1,
+    "artifact_provenance::organizational_intent": 1,
+    "provenance_distinction::source_attribution": 1,
+    "provenance_distinction::external_origin_isolation": 1,
+    "provenance_distinction::input_classification": 1,
+    "provenance_distinction::boundary_preservation": 1,
+    "provenance_distinction::internal_accumulation": 1,
+    "provenance_distinction::tracked_set_expansion": 1,
+    "provenance_distinction::deliberate_curation": 1,
+    "provenance_distinction::commit_discipline": 1,
+    "provenance_distinction::organizational_intent": 1,
+    "source_attribution::external_origin_isolation": 1,
+    "source_attribution::input_classification": 1,
+    "source_attribution::boundary_preservation": 1,
+    "source_attribution::internal_accumulation": 1,
+    "source_attribution::tracked_set_expansion": 1,
+    "source_attribution::deliberate_curation": 1,
+    "source_attribution::commit_discipline": 1,
+    "source_attribution::organizational_intent": 1,
+    "external_origin_isolation::input_classification": 1,
+    "external_origin_isolation::boundary_preservation": 1,
+    "external_origin_isolation::internal_accumulation": 1,
+    "external_origin_isolation::tracked_set_expansion": 1,
+    "external_origin_isolation::deliberate_curation": 1,
+    "external_origin_isolation::commit_discipline": 1,
+    "external_origin_isolation::organizational_intent": 1,
+    "input_classification::boundary_preservation": 1,
+    "input_classification::internal_accumulation": 1,
+    "input_classification::tracked_set_expansion": 1,
+    "input_classification::deliberate_curation": 1,
+    "input_classification::commit_discipline": 1,
+    "input_classification::organizational_intent": 1,
+    "boundary_preservation::internal_accumulation": 1,
+    "boundary_preservation::tracked_set_expansion": 1,
+    "boundary_preservation::deliberate_curation": 1,
+    "boundary_preservation::commit_discipline": 1,
+    "boundary_preservation::organizational_intent": 1,
+    "internal_accumulation::tracked_set_expansion": 1,
+    "internal_accumulation::deliberate_curation": 1,
+    "internal_accumulation::commit_discipline": 1,
+    "internal_accumulation::organizational_intent": 1,
+    "tracked_set_expansion::deliberate_curation": 1,
+    "tracked_set_expansion::commit_discipline": 1,
+    "tracked_set_expansion::organizational_intent": 1,
+    "deliberate_curation::commit_discipline": 1,
+    "deliberate_curation::organizational_intent": 1,
+    "commit_discipline::organizational_intent": 1,
     "new_model_announcement::product_lineup_expansion": 1,
     "new_model_announcement::sustained_computation": 1,
     "new_model_announcement::complex_task_affinity": 1,
@@ -3543,72 +4249,6 @@
     "diagnosis_narrowing::structural_dimension_integrity": 1,
     "diagnosis_narrowing::genuine_case_ambiguity": 1,
     "structural_dimension_integrity::genuine_case_ambiguity": 1,
-    "empty_transcript::fabrication_refusal": 1,
-    "empty_transcript::corpus_integrity": 1,
-    "empty_transcript::grounded_emission_only": 1,
-    "empty_transcript::connection_retry_loop": 1,
-    "empty_transcript::auth_expiry_interruption": 1,
-    "empty_transcript::unanswered_question": 1,
-    "empty_transcript::remote_filesystem_mounting": 1,
-    "empty_transcript::ssh_tunnel_transport": 1,
-    "empty_transcript::local_network_containment": 1,
-    "empty_transcript::transparent_filesystem_operations": 1,
-    "empty_transcript::sync_service_avoidance": 1,
-    "fabrication_refusal::corpus_integrity": 1,
-    "fabrication_refusal::grounded_emission_only": 1,
-    "fabrication_refusal::connection_retry_loop": 1,
-    "fabrication_refusal::auth_expiry_interruption": 1,
-    "fabrication_refusal::unanswered_question": 1,
-    "fabrication_refusal::remote_filesystem_mounting": 1,
-    "fabrication_refusal::ssh_tunnel_transport": 1,
-    "fabrication_refusal::local_network_containment": 1,
-    "fabrication_refusal::transparent_filesystem_operations": 1,
-    "fabrication_refusal::sync_service_avoidance": 1,
-    "corpus_integrity::grounded_emission_only": 1,
-    "corpus_integrity::connection_retry_loop": 1,
-    "corpus_integrity::auth_expiry_interruption": 1,
-    "corpus_integrity::unanswered_question": 1,
-    "corpus_integrity::remote_filesystem_mounting": 1,
-    "corpus_integrity::ssh_tunnel_transport": 1,
-    "corpus_integrity::local_network_containment": 1,
-    "corpus_integrity::transparent_filesystem_operations": 1,
-    "corpus_integrity::sync_service_avoidance": 1,
-    "grounded_emission_only::connection_retry_loop": 1,
-    "grounded_emission_only::auth_expiry_interruption": 1,
-    "grounded_emission_only::unanswered_question": 1,
-    "grounded_emission_only::remote_filesystem_mounting": 1,
-    "grounded_emission_only::ssh_tunnel_transport": 1,
-    "grounded_emission_only::local_network_containment": 1,
-    "grounded_emission_only::transparent_filesystem_operations": 1,
-    "grounded_emission_only::sync_service_avoidance": 1,
-    "connection_retry_loop::auth_expiry_interruption": 1,
-    "connection_retry_loop::unanswered_question": 1,
-    "connection_retry_loop::remote_filesystem_mounting": 1,
-    "connection_retry_loop::ssh_tunnel_transport": 1,
-    "connection_retry_loop::local_network_containment": 1,
-    "connection_retry_loop::transparent_filesystem_operations": 1,
-    "connection_retry_loop::sync_service_avoidance": 1,
-    "auth_expiry_interruption::unanswered_question": 1,
-    "auth_expiry_interruption::remote_filesystem_mounting": 1,
-    "auth_expiry_interruption::ssh_tunnel_transport": 1,
-    "auth_expiry_interruption::local_network_containment": 1,
-    "auth_expiry_interruption::transparent_filesystem_operations": 1,
-    "auth_expiry_interruption::sync_service_avoidance": 1,
-    "unanswered_question::remote_filesystem_mounting": 1,
-    "unanswered_question::ssh_tunnel_transport": 1,
-    "unanswered_question::local_network_containment": 1,
-    "unanswered_question::transparent_filesystem_operations": 1,
-    "unanswered_question::sync_service_avoidance": 1,
-    "remote_filesystem_mounting::ssh_tunnel_transport": 1,
-    "remote_filesystem_mounting::local_network_containment": 1,
-    "remote_filesystem_mounting::transparent_filesystem_operations": 1,
-    "remote_filesystem_mounting::sync_service_avoidance": 1,
-    "ssh_tunnel_transport::local_network_containment": 1,
-    "ssh_tunnel_transport::transparent_filesystem_operations": 1,
-    "ssh_tunnel_transport::sync_service_avoidance": 1,
-    "local_network_containment::transparent_filesystem_operations": 1,
-    "local_network_containment::sync_service_avoidance": 1,
-    "transparent_filesystem_operations::sync_service_avoidance": 1,
     "continuous_coordinate::derived_category": 1,
     "continuous_coordinate::bin_edge_derivation": 1,
     "continuous_coordinate::label_distrust": 1,
@@ -3675,6 +4315,127 @@
     "reasonable_motion::threshold_misalignment": 1,
     "reasonable_motion::baseline_sacrifice": 1,
     "threshold_misalignment::baseline_sacrifice": 1,
+    "bundle_header_accuracy::bidirectional_verification": 1,
+    "bundle_header_accuracy::false_positive_elimination": 1,
+    "bundle_header_accuracy::self_describing_format": 1,
+    "bundle_header_accuracy::per_file_provenance": 1,
+    "bundle_header_accuracy::structural_integrity": 1,
+    "bundle_header_accuracy::revision_history_reliance": 1,
+    "bundle_header_accuracy::single_file_architecture": 1,
+    "bundle_header_accuracy::provenance_distinction": 1,
+    "bundle_header_accuracy::speculative_marking": 1,
+    "bundle_header_accuracy::demonstrated_vs_imagined": 1,
+    "bidirectional_verification::false_positive_elimination": 1,
+    "bidirectional_verification::self_describing_format": 1,
+    "bidirectional_verification::per_file_provenance": 1,
+    "bidirectional_verification::structural_integrity": 1,
+    "bidirectional_verification::revision_history_reliance": 1,
+    "bidirectional_verification::single_file_architecture": 1,
+    "bidirectional_verification::provenance_distinction": 1,
+    "bidirectional_verification::speculative_marking": 1,
+    "bidirectional_verification::demonstrated_vs_imagined": 1,
+    "false_positive_elimination::self_describing_format": 1,
+    "false_positive_elimination::per_file_provenance": 1,
+    "false_positive_elimination::structural_integrity": 1,
+    "false_positive_elimination::revision_history_reliance": 1,
+    "false_positive_elimination::single_file_architecture": 1,
+    "false_positive_elimination::provenance_distinction": 1,
+    "false_positive_elimination::speculative_marking": 1,
+    "false_positive_elimination::demonstrated_vs_imagined": 1,
+    "self_describing_format::per_file_provenance": 1,
+    "self_describing_format::structural_integrity": 1,
+    "self_describing_format::revision_history_reliance": 1,
+    "self_describing_format::single_file_architecture": 1,
+    "self_describing_format::provenance_distinction": 1,
+    "self_describing_format::speculative_marking": 1,
+    "self_describing_format::demonstrated_vs_imagined": 1,
+    "per_file_provenance::structural_integrity": 1,
+    "per_file_provenance::revision_history_reliance": 1,
+    "per_file_provenance::single_file_architecture": 1,
+    "per_file_provenance::provenance_distinction": 1,
+    "per_file_provenance::speculative_marking": 1,
+    "per_file_provenance::demonstrated_vs_imagined": 1,
+    "structural_integrity::revision_history_reliance": 1,
+    "structural_integrity::single_file_architecture": 1,
+    "structural_integrity::provenance_distinction": 1,
+    "structural_integrity::speculative_marking": 1,
+    "structural_integrity::demonstrated_vs_imagined": 1,
+    "revision_history_reliance::single_file_architecture": 1,
+    "revision_history_reliance::provenance_distinction": 1,
+    "revision_history_reliance::speculative_marking": 1,
+    "revision_history_reliance::demonstrated_vs_imagined": 1,
+    "single_file_architecture::provenance_distinction": 1,
+    "single_file_architecture::speculative_marking": 1,
+    "single_file_architecture::demonstrated_vs_imagined": 1,
+    "provenance_distinction::speculative_marking": 1,
+    "provenance_distinction::demonstrated_vs_imagined": 1,
+    "speculative_marking::demonstrated_vs_imagined": 1,
+    "outside_view_experiment::cross_model_extraction": 1,
+    "outside_view_experiment::faithful_extraction": 1,
+    "outside_view_experiment::extraction_overconfidence": 1,
+    "outside_view_experiment::dead_formula_propagation": 1,
+    "outside_view_experiment::superseded_claim_persistence": 1,
+    "outside_view_experiment::documentation_residue": 1,
+    "outside_view_experiment::stale_truth_capture": 1,
+    "outside_view_experiment::adjudication_layer": 1,
+    "outside_view_experiment::external_baseline_comparison": 1,
+    "outside_view_experiment::out_of_text_verification": 1,
+    "outside_view_experiment::claim_currency": 1,
+    "cross_model_extraction::faithful_extraction": 1,
+    "cross_model_extraction::extraction_overconfidence": 1,
+    "cross_model_extraction::dead_formula_propagation": 1,
+    "cross_model_extraction::superseded_claim_persistence": 1,
+    "cross_model_extraction::documentation_residue": 1,
+    "cross_model_extraction::stale_truth_capture": 1,
+    "cross_model_extraction::adjudication_layer": 1,
+    "cross_model_extraction::external_baseline_comparison": 1,
+    "cross_model_extraction::out_of_text_verification": 1,
+    "cross_model_extraction::claim_currency": 1,
+    "faithful_extraction::extraction_overconfidence": 1,
+    "faithful_extraction::dead_formula_propagation": 1,
+    "faithful_extraction::superseded_claim_persistence": 1,
+    "faithful_extraction::documentation_residue": 1,
+    "faithful_extraction::stale_truth_capture": 1,
+    "faithful_extraction::adjudication_layer": 1,
+    "faithful_extraction::external_baseline_comparison": 1,
+    "faithful_extraction::out_of_text_verification": 1,
+    "faithful_extraction::claim_currency": 1,
+    "extraction_overconfidence::dead_formula_propagation": 1,
+    "extraction_overconfidence::superseded_claim_persistence": 1,
+    "extraction_overconfidence::documentation_residue": 1,
+    "extraction_overconfidence::stale_truth_capture": 1,
+    "extraction_overconfidence::adjudication_layer": 1,
+    "extraction_overconfidence::external_baseline_comparison": 1,
+    "extraction_overconfidence::out_of_text_verification": 1,
+    "extraction_overconfidence::claim_currency": 1,
+    "dead_formula_propagation::superseded_claim_persistence": 1,
+    "dead_formula_propagation::documentation_residue": 1,
+    "dead_formula_propagation::stale_truth_capture": 1,
+    "dead_formula_propagation::adjudication_layer": 1,
+    "dead_formula_propagation::external_baseline_comparison": 1,
+    "dead_formula_propagation::out_of_text_verification": 1,
+    "dead_formula_propagation::claim_currency": 1,
+    "superseded_claim_persistence::documentation_residue": 1,
+    "superseded_claim_persistence::stale_truth_capture": 1,
+    "superseded_claim_persistence::adjudication_layer": 1,
+    "superseded_claim_persistence::external_baseline_comparison": 1,
+    "superseded_claim_persistence::out_of_text_verification": 1,
+    "superseded_claim_persistence::claim_currency": 1,
+    "documentation_residue::stale_truth_capture": 1,
+    "documentation_residue::adjudication_layer": 1,
+    "documentation_residue::external_baseline_comparison": 1,
+    "documentation_residue::out_of_text_verification": 1,
+    "documentation_residue::claim_currency": 1,
+    "stale_truth_capture::adjudication_layer": 1,
+    "stale_truth_capture::external_baseline_comparison": 1,
+    "stale_truth_capture::out_of_text_verification": 1,
+    "stale_truth_capture::claim_currency": 1,
+    "adjudication_layer::external_baseline_comparison": 1,
+    "adjudication_layer::out_of_text_verification": 1,
+    "adjudication_layer::claim_currency": 1,
+    "external_baseline_comparison::out_of_text_verification": 1,
+    "external_baseline_comparison::claim_currency": 1,
+    "out_of_text_verification::claim_currency": 1,
     "selective_promotion::block_granularity": 1,
     "selective_promotion::proof_threshold": 1,
     "selective_promotion::unproven_preservation": 1,
@@ -3741,72 +4502,72 @@
     "risk_containment::path_assumption_bug": 1,
     "risk_containment::preemptive_catch": 1,
     "path_assumption_bug::preemptive_catch": 1,
-    "empty_transcript::harness_chrome": 1,
-    "empty_transcript::extraction_refusal": 1,
-    "empty_transcript::fabrication_risk": 1,
-    "empty_transcript::corpus_poisoning": 1,
-    "empty_transcript::data_emergence_principle": 1,
-    "empty_transcript::cleaning_step_failure": 1,
-    "empty_transcript::content_stripping": 1,
-    "empty_transcript::source_recovery": 1,
-    "empty_transcript::reprocessing_path": 1,
-    "empty_transcript::session_capture_timing": 1,
-    "empty_transcript::inference_unit_absence": 1,
-    "harness_chrome::extraction_refusal": 1,
-    "harness_chrome::fabrication_risk": 1,
-    "harness_chrome::corpus_poisoning": 1,
-    "harness_chrome::data_emergence_principle": 1,
-    "harness_chrome::cleaning_step_failure": 1,
-    "harness_chrome::content_stripping": 1,
-    "harness_chrome::source_recovery": 1,
-    "harness_chrome::reprocessing_path": 1,
-    "harness_chrome::session_capture_timing": 1,
-    "harness_chrome::inference_unit_absence": 1,
-    "extraction_refusal::fabrication_risk": 1,
-    "extraction_refusal::corpus_poisoning": 1,
-    "extraction_refusal::data_emergence_principle": 1,
-    "extraction_refusal::cleaning_step_failure": 1,
-    "extraction_refusal::content_stripping": 1,
-    "extraction_refusal::source_recovery": 1,
-    "extraction_refusal::reprocessing_path": 1,
-    "extraction_refusal::session_capture_timing": 1,
-    "extraction_refusal::inference_unit_absence": 1,
-    "fabrication_risk::corpus_poisoning": 1,
-    "fabrication_risk::data_emergence_principle": 1,
-    "fabrication_risk::cleaning_step_failure": 1,
-    "fabrication_risk::content_stripping": 1,
-    "fabrication_risk::source_recovery": 1,
-    "fabrication_risk::reprocessing_path": 1,
-    "fabrication_risk::session_capture_timing": 1,
-    "fabrication_risk::inference_unit_absence": 1,
-    "corpus_poisoning::data_emergence_principle": 1,
-    "corpus_poisoning::cleaning_step_failure": 1,
-    "corpus_poisoning::content_stripping": 1,
-    "corpus_poisoning::source_recovery": 1,
-    "corpus_poisoning::reprocessing_path": 1,
-    "corpus_poisoning::session_capture_timing": 1,
-    "corpus_poisoning::inference_unit_absence": 1,
-    "data_emergence_principle::cleaning_step_failure": 1,
-    "data_emergence_principle::content_stripping": 1,
-    "data_emergence_principle::source_recovery": 1,
-    "data_emergence_principle::reprocessing_path": 1,
-    "data_emergence_principle::session_capture_timing": 1,
-    "data_emergence_principle::inference_unit_absence": 1,
-    "cleaning_step_failure::content_stripping": 1,
-    "cleaning_step_failure::source_recovery": 1,
-    "cleaning_step_failure::reprocessing_path": 1,
-    "cleaning_step_failure::session_capture_timing": 1,
-    "cleaning_step_failure::inference_unit_absence": 1,
-    "content_stripping::source_recovery": 1,
-    "content_stripping::reprocessing_path": 1,
-    "content_stripping::session_capture_timing": 1,
-    "content_stripping::inference_unit_absence": 1,
-    "source_recovery::reprocessing_path": 1,
-    "source_recovery::session_capture_timing": 1,
-    "source_recovery::inference_unit_absence": 1,
-    "reprocessing_path::session_capture_timing": 1,
-    "reprocessing_path::inference_unit_absence": 1,
-    "session_capture_timing::inference_unit_absence": 1,
+    "cowork_bundle_as_input::transcript_incorporation": 1,
+    "cowork_bundle_as_input::input_source_candidacy": 1,
+    "cowork_bundle_as_input::raw_ingestion_discipline": 1,
+    "cowork_bundle_as_input::preprocessing_prohibition": 1,
+    "cowork_bundle_as_input::source_fidelity": 1,
+    "cowork_bundle_as_input::pipeline_extraction_authority": 1,
+    "cowork_bundle_as_input::human_mediation_bypass": 1,
+    "cowork_bundle_as_input::extraction_ownership": 1,
+    "cowork_bundle_as_input::methodological_consistency": 1,
+    "cowork_bundle_as_input::discipline_uniformity": 1,
+    "cowork_bundle_as_input::cross_source_parity": 1,
+    "transcript_incorporation::input_source_candidacy": 1,
+    "transcript_incorporation::raw_ingestion_discipline": 1,
+    "transcript_incorporation::preprocessing_prohibition": 1,
+    "transcript_incorporation::source_fidelity": 1,
+    "transcript_incorporation::pipeline_extraction_authority": 1,
+    "transcript_incorporation::human_mediation_bypass": 1,
+    "transcript_incorporation::extraction_ownership": 1,
+    "transcript_incorporation::methodological_consistency": 1,
+    "transcript_incorporation::discipline_uniformity": 1,
+    "transcript_incorporation::cross_source_parity": 1,
+    "input_source_candidacy::raw_ingestion_discipline": 1,
+    "input_source_candidacy::preprocessing_prohibition": 1,
+    "input_source_candidacy::source_fidelity": 1,
+    "input_source_candidacy::pipeline_extraction_authority": 1,
+    "input_source_candidacy::human_mediation_bypass": 1,
+    "input_source_candidacy::extraction_ownership": 1,
+    "input_source_candidacy::methodological_consistency": 1,
+    "input_source_candidacy::discipline_uniformity": 1,
+    "input_source_candidacy::cross_source_parity": 1,
+    "raw_ingestion_discipline::preprocessing_prohibition": 1,
+    "raw_ingestion_discipline::source_fidelity": 1,
+    "raw_ingestion_discipline::pipeline_extraction_authority": 1,
+    "raw_ingestion_discipline::human_mediation_bypass": 1,
+    "raw_ingestion_discipline::extraction_ownership": 1,
+    "raw_ingestion_discipline::methodological_consistency": 1,
+    "raw_ingestion_discipline::discipline_uniformity": 1,
+    "raw_ingestion_discipline::cross_source_parity": 1,
+    "preprocessing_prohibition::source_fidelity": 1,
+    "preprocessing_prohibition::pipeline_extraction_authority": 1,
+    "preprocessing_prohibition::human_mediation_bypass": 1,
+    "preprocessing_prohibition::extraction_ownership": 1,
+    "preprocessing_prohibition::methodological_consistency": 1,
+    "preprocessing_prohibition::discipline_uniformity": 1,
+    "preprocessing_prohibition::cross_source_parity": 1,
+    "source_fidelity::pipeline_extraction_authority": 1,
+    "source_fidelity::human_mediation_bypass": 1,
+    "source_fidelity::extraction_ownership": 1,
+    "source_fidelity::methodological_consistency": 1,
+    "source_fidelity::discipline_uniformity": 1,
+    "source_fidelity::cross_source_parity": 1,
+    "pipeline_extraction_authority::human_mediation_bypass": 1,
+    "pipeline_extraction_authority::extraction_ownership": 1,
+    "pipeline_extraction_authority::methodological_consistency": 1,
+    "pipeline_extraction_authority::discipline_uniformity": 1,
+    "pipeline_extraction_authority::cross_source_parity": 1,
+    "human_mediation_bypass::extraction_ownership": 1,
+    "human_mediation_bypass::methodological_consistency": 1,
+    "human_mediation_bypass::discipline_uniformity": 1,
+    "human_mediation_bypass::cross_source_parity": 1,
+    "extraction_ownership::methodological_consistency": 1,
+    "extraction_ownership::discipline_uniformity": 1,
+    "extraction_ownership::cross_source_parity": 1,
+    "methodological_consistency::discipline_uniformity": 1,
+    "methodological_consistency::cross_source_parity": 1,
+    "discipline_uniformity::cross_source_parity": 1,
     "authentication_failure::session_expiry": 1,
     "authentication_failure::message_loss": 1,
     "authentication_failure::repeated_retry": 1,
@@ -8374,7 +9135,7 @@
   },
   "domains": {
     "claude_code_sessions": {
-      "count": 68,
+      "count": 79,
       "tree": {
         "harmony_restoration": {
           "latent_friction_state": [
@@ -11810,117 +12571,229 @@
           ],
           "graceful_degradation": []
         },
-        "empty_transcript": {
-          "fabrication_refusal": [
-            "corpus_integrity",
-            "grounded_emission_only",
-            "connection_retry_loop",
-            "auth_expiry_interruption"
+        "context_preservation": {
+          "session_persistence": [
+            "durable_capture",
+            "memory_correction",
+            "state_repair",
+            "explicit_remediation"
           ],
-          "corpus_integrity": [
-            "grounded_emission_only",
-            "connection_retry_loop",
-            "auth_expiry_interruption",
-            "unanswered_question"
+          "durable_capture": [
+            "memory_correction",
+            "state_repair",
+            "explicit_remediation",
+            "session_boundary"
           ],
-          "grounded_emission_only": [
-            "connection_retry_loop",
-            "auth_expiry_interruption",
-            "unanswered_question",
-            "remote_filesystem_mounting"
+          "memory_correction": [
+            "state_repair",
+            "explicit_remediation",
+            "session_boundary",
+            "context_loss"
           ],
-          "connection_retry_loop": [
-            "auth_expiry_interruption",
-            "unanswered_question",
-            "remote_filesystem_mounting",
-            "ssh_tunnel_transport"
+          "state_repair": [
+            "explicit_remediation",
+            "session_boundary",
+            "context_loss",
+            "abrupt_termination"
           ],
-          "auth_expiry_interruption": [
-            "unanswered_question",
-            "remote_filesystem_mounting",
-            "ssh_tunnel_transport",
-            "local_network_containment"
+          "explicit_remediation": [
+            "session_boundary",
+            "context_loss",
+            "abrupt_termination",
+            "continuity_as_value"
           ],
-          "unanswered_question": [
-            "remote_filesystem_mounting",
-            "ssh_tunnel_transport",
-            "local_network_containment",
-            "transparent_filesystem_operations"
+          "session_boundary": [
+            "context_loss",
+            "abrupt_termination",
+            "continuity_as_value",
+            "cross_session_continuity"
           ],
-          "remote_filesystem_mounting": [
-            "ssh_tunnel_transport",
-            "local_network_containment",
-            "transparent_filesystem_operations",
-            "sync_service_avoidance"
+          "context_loss": [
+            "abrupt_termination",
+            "continuity_as_value",
+            "cross_session_continuity",
+            "conceptual_survival"
           ],
-          "ssh_tunnel_transport": [
-            "local_network_containment",
-            "transparent_filesystem_operations",
-            "sync_service_avoidance"
+          "abrupt_termination": [
+            "continuity_as_value",
+            "cross_session_continuity",
+            "conceptual_survival"
           ],
-          "local_network_containment": [
-            "transparent_filesystem_operations",
-            "sync_service_avoidance"
+          "continuity_as_value": [
+            "cross_session_continuity",
+            "conceptual_survival"
           ],
-          "transparent_filesystem_operations": [
-            "sync_service_avoidance"
+          "cross_session_continuity": [
+            "conceptual_survival"
           ],
-          "sync_service_avoidance": [],
-          "harness_chrome": [
-            "extraction_refusal",
-            "fabrication_risk",
-            "corpus_poisoning",
-            "data_emergence_principle"
+          "conceptual_survival": [],
+          "session_continuity": [
+            "resumable_artifact",
+            "ephemeral_rejection",
+            "session_identity",
+            "deliberate_workflow"
           ],
-          "extraction_refusal": [
-            "fabrication_risk",
-            "corpus_poisoning",
-            "data_emergence_principle",
-            "cleaning_step_failure"
+          "resumable_artifact": [
+            "ephemeral_rejection",
+            "session_identity",
+            "deliberate_workflow",
+            "persistence_preference"
           ],
-          "fabrication_risk": [
-            "corpus_poisoning",
-            "data_emergence_principle",
-            "cleaning_step_failure",
-            "content_stripping"
+          "ephemeral_rejection": [
+            "session_identity",
+            "deliberate_workflow",
+            "persistence_preference",
+            "cross_session_memory"
           ],
-          "corpus_poisoning": [
-            "data_emergence_principle",
-            "cleaning_step_failure",
-            "content_stripping",
-            "source_recovery"
+          "session_identity": [
+            "deliberate_workflow",
+            "persistence_preference",
+            "cross_session_memory",
+            "terminal_invocation"
           ],
-          "data_emergence_principle": [
-            "cleaning_step_failure",
-            "content_stripping",
-            "source_recovery",
-            "reprocessing_path"
+          "deliberate_workflow": [
+            "persistence_preference",
+            "cross_session_memory",
+            "terminal_invocation",
+            "development_continuity"
           ],
-          "cleaning_step_failure": [
-            "content_stripping",
-            "source_recovery",
-            "reprocessing_path",
-            "session_capture_timing"
+          "persistence_preference": [
+            "cross_session_memory",
+            "terminal_invocation",
+            "development_continuity",
+            "session_as_artifact"
           ],
-          "content_stripping": [
-            "source_recovery",
-            "reprocessing_path",
-            "session_capture_timing",
-            "inference_unit_absence"
+          "cross_session_memory": [
+            "terminal_invocation",
+            "development_continuity",
+            "session_as_artifact",
+            "working_pattern"
           ],
-          "source_recovery": [
-            "reprocessing_path",
-            "session_capture_timing",
-            "inference_unit_absence"
+          "terminal_invocation": [
+            "development_continuity",
+            "session_as_artifact",
+            "working_pattern"
           ],
-          "reprocessing_path": [
-            "session_capture_timing",
-            "inference_unit_absence"
+          "development_continuity": [
+            "session_as_artifact",
+            "working_pattern"
           ],
-          "session_capture_timing": [
-            "inference_unit_absence"
+          "session_as_artifact": [
+            "working_pattern"
           ],
-          "inference_unit_absence": []
+          "working_pattern": []
+        },
+        "external_baseline_comparison": {
+          "discrepancy_adjudication": [
+            "claimed_versus_actual_gap",
+            "modal_voting",
+            "repeated_draws",
+            "verdict_coercion"
+          ],
+          "claimed_versus_actual_gap": [
+            "modal_voting",
+            "repeated_draws",
+            "verdict_coercion",
+            "enum_invariant"
+          ],
+          "modal_voting": [
+            "repeated_draws",
+            "verdict_coercion",
+            "enum_invariant",
+            "defense_in_depth"
+          ],
+          "repeated_draws": [
+            "verdict_coercion",
+            "enum_invariant",
+            "defense_in_depth",
+            "report_only_constraint"
+          ],
+          "verdict_coercion": [
+            "enum_invariant",
+            "defense_in_depth",
+            "report_only_constraint",
+            "pipeline_isolation"
+          ],
+          "enum_invariant": [
+            "defense_in_depth",
+            "report_only_constraint",
+            "pipeline_isolation",
+            "unverifiable_fallback"
+          ],
+          "defense_in_depth": [
+            "report_only_constraint",
+            "pipeline_isolation",
+            "unverifiable_fallback",
+            "layer_placement_discipline"
+          ],
+          "report_only_constraint": [
+            "pipeline_isolation",
+            "unverifiable_fallback",
+            "layer_placement_discipline"
+          ],
+          "pipeline_isolation": [
+            "unverifiable_fallback",
+            "layer_placement_discipline"
+          ],
+          "unverifiable_fallback": [
+            "layer_placement_discipline"
+          ],
+          "layer_placement_discipline": [],
+          "outside_view_experiment": [
+            "cross_model_extraction",
+            "faithful_extraction",
+            "extraction_overconfidence",
+            "dead_formula_propagation"
+          ],
+          "cross_model_extraction": [
+            "faithful_extraction",
+            "extraction_overconfidence",
+            "dead_formula_propagation",
+            "superseded_claim_persistence"
+          ],
+          "faithful_extraction": [
+            "extraction_overconfidence",
+            "dead_formula_propagation",
+            "superseded_claim_persistence",
+            "documentation_residue"
+          ],
+          "extraction_overconfidence": [
+            "dead_formula_propagation",
+            "superseded_claim_persistence",
+            "documentation_residue",
+            "stale_truth_capture"
+          ],
+          "dead_formula_propagation": [
+            "superseded_claim_persistence",
+            "documentation_residue",
+            "stale_truth_capture",
+            "adjudication_layer"
+          ],
+          "superseded_claim_persistence": [
+            "documentation_residue",
+            "stale_truth_capture",
+            "adjudication_layer",
+            "out_of_text_verification"
+          ],
+          "documentation_residue": [
+            "stale_truth_capture",
+            "adjudication_layer",
+            "out_of_text_verification",
+            "claim_currency"
+          ],
+          "stale_truth_capture": [
+            "adjudication_layer",
+            "out_of_text_verification",
+            "claim_currency"
+          ],
+          "adjudication_layer": [
+            "out_of_text_verification",
+            "claim_currency"
+          ],
+          "out_of_text_verification": [
+            "claim_currency"
+          ],
+          "claim_currency": []
         },
         "privacy_preservation": {
           "meta_analysis_object": [
@@ -12021,141 +12894,41 @@
             "agent_autonomy_limit"
           ],
           "agent_autonomy_limit": []
-        },
-        "silent_failure": {
-          "missing_dependency": [
-            "prerequisite_enforcement",
-            "proactive_setup",
-            "self_provisioning",
-            "pre_configuration_assumption"
-          ],
-          "prerequisite_enforcement": [
-            "proactive_setup",
-            "self_provisioning",
-            "pre_configuration_assumption",
-            "error_reframing"
-          ],
-          "proactive_setup": [
-            "self_provisioning",
-            "pre_configuration_assumption",
-            "error_reframing",
-            "script_resilience"
-          ],
-          "self_provisioning": [
-            "pre_configuration_assumption",
-            "error_reframing",
-            "script_resilience",
-            "directory_bootstrapping"
-          ],
-          "pre_configuration_assumption": [
-            "error_reframing",
-            "script_resilience",
-            "directory_bootstrapping",
-            "environment_dependency"
-          ],
-          "error_reframing": [
-            "script_resilience",
-            "directory_bootstrapping",
-            "environment_dependency"
-          ],
-          "script_resilience": [
-            "directory_bootstrapping",
-            "environment_dependency"
-          ],
-          "directory_bootstrapping": [
-            "environment_dependency"
-          ],
-          "environment_dependency": [],
-          "plausible_emptiness": [
-            "false_confidence",
-            "unfailable_check",
-            "shallow_traversal",
-            "hidden_domains"
-          ],
-          "false_confidence": [
-            "unfailable_check",
-            "shallow_traversal",
-            "hidden_domains",
-            "zero_cost_recovery"
-          ],
-          "unfailable_check": [
-            "shallow_traversal",
-            "hidden_domains",
-            "zero_cost_recovery",
-            "stale_reference"
-          ],
-          "shallow_traversal": [
-            "hidden_domains",
-            "zero_cost_recovery",
-            "stale_reference",
-            "missing_as_skipped"
-          ],
-          "hidden_domains": [
-            "zero_cost_recovery",
-            "stale_reference",
-            "missing_as_skipped",
-            "path_divergence"
-          ],
-          "zero_cost_recovery": [
-            "stale_reference",
-            "missing_as_skipped",
-            "path_divergence",
-            "classification_drift"
-          ],
-          "stale_reference": [
-            "missing_as_skipped",
-            "path_divergence",
-            "classification_drift",
-            "verified_pass"
-          ],
-          "missing_as_skipped": [
-            "path_divergence",
-            "classification_drift",
-            "verified_pass",
-            "loud_failure"
-          ],
-          "path_divergence": [
-            "classification_drift",
-            "verified_pass",
-            "loud_failure"
-          ],
-          "classification_drift": [
-            "verified_pass",
-            "loud_failure"
-          ],
-          "verified_pass": [
-            "loud_failure"
-          ],
-          "loud_failure": []
         }
       },
       "paths": {
-        "silent_failure/directory_bootstrapping": [
-          "inf_2b2eeaa8"
+        "context_preservation/abrupt_termination": [
+          "inf_f4f8fe90"
         ],
-        "silent_failure/environment_dependency": [
-          "inf_2b2eeaa8"
+        "context_preservation/conceptual_survival": [
+          "inf_f4f8fe90"
         ],
-        "silent_failure/error_reframing": [
-          "inf_2b2eeaa8"
+        "context_preservation/context_loss": [
+          "inf_f4f8fe90"
         ],
-        "silent_failure/missing_dependency": [
-          "inf_2b2eeaa8"
+        "context_preservation/continuity_as_value": [
+          "inf_f4f8fe90"
         ],
-        "silent_failure/pre_configuration_assumption": [
-          "inf_2b2eeaa8"
+        "context_preservation/cross_session_continuity": [
+          "inf_f4f8fe90"
         ],
-        "silent_failure/prerequisite_enforcement": [
-          "inf_2b2eeaa8"
+        "context_preservation/durable_capture": [
+          "inf_f4f8fe90"
         ],
-        "silent_failure/proactive_setup": [
-          "inf_2b2eeaa8"
+        "context_preservation/explicit_remediation": [
+          "inf_f4f8fe90"
         ],
-        "silent_failure/script_resilience": [
-          "inf_2b2eeaa8"
+        "context_preservation/memory_correction": [
+          "inf_f4f8fe90"
         ],
-        "silent_failure/self_provisioning": [
-          "inf_2b2eeaa8"
+        "context_preservation/session_boundary": [
+          "inf_f4f8fe90"
+        ],
+        "context_preservation/session_persistence": [
+          "inf_f4f8fe90"
+        ],
+        "context_preservation/state_repair": [
+          "inf_f4f8fe90"
         ],
         "aspirational_overclaim/breadth_before_depth": [
           "inf_c6ad00ec"
@@ -13165,41 +13938,71 @@
         "capture_fidelity/waystation_function": [
           "inf_cfcc4d94"
         ],
-        "silent_failure/classification_drift": [
-          "inf_0514a1aa"
+        "context_preservation/cross_session_memory": [
+          "inf_4a7a62b8"
         ],
-        "silent_failure/false_confidence": [
-          "inf_0514a1aa"
+        "context_preservation/deliberate_workflow": [
+          "inf_4a7a62b8"
         ],
-        "silent_failure/hidden_domains": [
-          "inf_0514a1aa"
+        "context_preservation/development_continuity": [
+          "inf_4a7a62b8"
         ],
-        "silent_failure/loud_failure": [
-          "inf_0514a1aa"
+        "context_preservation/ephemeral_rejection": [
+          "inf_4a7a62b8"
         ],
-        "silent_failure/missing_as_skipped": [
-          "inf_0514a1aa"
+        "context_preservation/persistence_preference": [
+          "inf_4a7a62b8"
         ],
-        "silent_failure/path_divergence": [
-          "inf_0514a1aa"
+        "context_preservation/resumable_artifact": [
+          "inf_4a7a62b8"
         ],
-        "silent_failure/plausible_emptiness": [
-          "inf_0514a1aa"
+        "context_preservation/session_as_artifact": [
+          "inf_4a7a62b8"
         ],
-        "silent_failure/shallow_traversal": [
-          "inf_0514a1aa"
+        "context_preservation/session_continuity": [
+          "inf_4a7a62b8"
         ],
-        "silent_failure/stale_reference": [
-          "inf_0514a1aa"
+        "context_preservation/session_identity": [
+          "inf_4a7a62b8"
         ],
-        "silent_failure/unfailable_check": [
-          "inf_0514a1aa"
+        "context_preservation/terminal_invocation": [
+          "inf_4a7a62b8"
         ],
-        "silent_failure/verified_pass": [
-          "inf_0514a1aa"
+        "context_preservation/working_pattern": [
+          "inf_4a7a62b8"
         ],
-        "silent_failure/zero_cost_recovery": [
-          "inf_0514a1aa"
+        "external_baseline_comparison/claimed_versus_actual_gap": [
+          "inf_a0e25c04"
+        ],
+        "external_baseline_comparison/defense_in_depth": [
+          "inf_a0e25c04"
+        ],
+        "external_baseline_comparison/discrepancy_adjudication": [
+          "inf_a0e25c04"
+        ],
+        "external_baseline_comparison/enum_invariant": [
+          "inf_a0e25c04"
+        ],
+        "external_baseline_comparison/layer_placement_discipline": [
+          "inf_a0e25c04"
+        ],
+        "external_baseline_comparison/modal_voting": [
+          "inf_a0e25c04"
+        ],
+        "external_baseline_comparison/pipeline_isolation": [
+          "inf_a0e25c04"
+        ],
+        "external_baseline_comparison/repeated_draws": [
+          "inf_a0e25c04"
+        ],
+        "external_baseline_comparison/report_only_constraint": [
+          "inf_a0e25c04"
+        ],
+        "external_baseline_comparison/unverifiable_fallback": [
+          "inf_a0e25c04"
+        ],
+        "external_baseline_comparison/verdict_coercion": [
+          "inf_a0e25c04"
         ],
         "source_deployment_gap/claude_code_sessions": [
           "inf_e7f88704"
@@ -13234,71 +14037,38 @@
         "source_deployment_gap/source_repository": [
           "inf_e7f88704"
         ],
-        "empty_transcript/auth_expiry_interruption": [
-          "inf_03e6c941"
+        "external_baseline_comparison/adjudication_layer": [
+          "inf_6c017e0e"
         ],
-        "empty_transcript/connection_retry_loop": [
-          "inf_03e6c941"
+        "external_baseline_comparison/claim_currency": [
+          "inf_6c017e0e"
         ],
-        "empty_transcript/corpus_integrity": [
-          "inf_03e6c941"
+        "external_baseline_comparison/cross_model_extraction": [
+          "inf_6c017e0e"
         ],
-        "empty_transcript/fabrication_refusal": [
-          "inf_03e6c941"
+        "external_baseline_comparison/dead_formula_propagation": [
+          "inf_6c017e0e"
         ],
-        "empty_transcript/grounded_emission_only": [
-          "inf_03e6c941"
+        "external_baseline_comparison/documentation_residue": [
+          "inf_6c017e0e"
         ],
-        "empty_transcript/local_network_containment": [
-          "inf_03e6c941"
+        "external_baseline_comparison/extraction_overconfidence": [
+          "inf_6c017e0e"
         ],
-        "empty_transcript/remote_filesystem_mounting": [
-          "inf_03e6c941"
+        "external_baseline_comparison/faithful_extraction": [
+          "inf_6c017e0e"
         ],
-        "empty_transcript/ssh_tunnel_transport": [
-          "inf_03e6c941"
+        "external_baseline_comparison/out_of_text_verification": [
+          "inf_6c017e0e"
         ],
-        "empty_transcript/sync_service_avoidance": [
-          "inf_03e6c941"
+        "external_baseline_comparison/outside_view_experiment": [
+          "inf_6c017e0e"
         ],
-        "empty_transcript/transparent_filesystem_operations": [
-          "inf_03e6c941"
+        "external_baseline_comparison/stale_truth_capture": [
+          "inf_6c017e0e"
         ],
-        "empty_transcript/unanswered_question": [
-          "inf_03e6c941"
-        ],
-        "empty_transcript/cleaning_step_failure": [
-          "inf_1ef89d68"
-        ],
-        "empty_transcript/content_stripping": [
-          "inf_1ef89d68"
-        ],
-        "empty_transcript/corpus_poisoning": [
-          "inf_1ef89d68"
-        ],
-        "empty_transcript/data_emergence_principle": [
-          "inf_1ef89d68"
-        ],
-        "empty_transcript/extraction_refusal": [
-          "inf_1ef89d68"
-        ],
-        "empty_transcript/fabrication_risk": [
-          "inf_1ef89d68"
-        ],
-        "empty_transcript/harness_chrome": [
-          "inf_1ef89d68"
-        ],
-        "empty_transcript/inference_unit_absence": [
-          "inf_1ef89d68"
-        ],
-        "empty_transcript/reprocessing_path": [
-          "inf_1ef89d68"
-        ],
-        "empty_transcript/session_capture_timing": [
-          "inf_1ef89d68"
-        ],
-        "empty_transcript/source_recovery": [
-          "inf_1ef89d68"
+        "external_baseline_comparison/superseded_claim_persistence": [
+          "inf_6c017e0e"
         ],
         "raw_data_distinction/clean_storage": [
           "inf_3b5e5cff"

@@ -44,7 +44,19 @@
   "tension_score": null,
   "guardrail_actions": {},
   "domain": "claude_code_sessions",
-  "category_paths": [],
+  "category_paths": [
+    "context_preservation/cross_session_memory",
+    "context_preservation/deliberate_workflow",
+    "context_preservation/development_continuity",
+    "context_preservation/ephemeral_rejection",
+    "context_preservation/persistence_preference",
+    "context_preservation/resumable_artifact",
+    "context_preservation/session_as_artifact",
+    "context_preservation/session_continuity",
+    "context_preservation/session_identity",
+    "context_preservation/terminal_invocation",
+    "context_preservation/working_pattern"
+  ],
   "tension": {
     "predicted": null,
     "confirmed": null,

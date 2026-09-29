@@ -45,20 +45,7 @@
       "loud_failure"
     ]
   },
-  "category_paths": [
-    "silent_failure/classification_drift",
-    "silent_failure/false_confidence",
-    "silent_failure/hidden_domains",
-    "silent_failure/loud_failure",
-    "silent_failure/missing_as_skipped",
-    "silent_failure/path_divergence",
-    "silent_failure/plausible_emptiness",
-    "silent_failure/shallow_traversal",
-    "silent_failure/stale_reference",
-    "silent_failure/unfailable_check",
-    "silent_failure/verified_pass",
-    "silent_failure/zero_cost_recovery"
-  ],
+  "category_paths": [],
   "tension_score": null,
   "guardrail_actions": {}
 }

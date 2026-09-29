@@ -42,7 +42,19 @@
       "claim_currency"
     ]
   },
-  "category_paths": [],
+  "category_paths": [
+    "external_baseline_comparison/adjudication_layer",
+    "external_baseline_comparison/claim_currency",
+    "external_baseline_comparison/cross_model_extraction",
+    "external_baseline_comparison/dead_formula_propagation",
+    "external_baseline_comparison/documentation_residue",
+    "external_baseline_comparison/extraction_overconfidence",
+    "external_baseline_comparison/faithful_extraction",
+    "external_baseline_comparison/out_of_text_verification",
+    "external_baseline_comparison/outside_view_experiment",
+    "external_baseline_comparison/stale_truth_capture",
+    "external_baseline_comparison/superseded_claim_persistence"
+  ],
   "tension_score": null,
   "guardrail_actions": {},
   "left_pass": {
