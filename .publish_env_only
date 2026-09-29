@@ -5,3 +5,11 @@ inferences/private/
 inferences/cross_scale.json
 .claude/
 .env
+# blind round-trip test, still unjudged — the key and the blind texts must not be
+# readable by a judge who can browse; untracked, so absent from GitHub too
+experiments/round_trip/blind_*
+experiments/round_trip/shuffled_*
+experiments/round_trip/regen_shuffled.md
+experiments/round_trip/control_real_input.json
+experiments/round_trip/regen_control_real.md
+# llm: claude-opus-5-5 | 2026-09-29 | repos/vivify-operators/.publish_env_only | excluded the untracked blind round-trip files (key, blind texts, shuffled/control inputs) from publish_repos
