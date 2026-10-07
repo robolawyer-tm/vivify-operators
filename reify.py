@@ -32,9 +32,18 @@ Three modes:
 
   single
     Reconstructs prose from one inference. The model receives left_keywords, clumps,
-    and a slice of category_paths, plus the tension score. Output is 3-6 dense
-    sentences in first person. Use this to test whether vivify actually captured
-    what was meant — if the reconstruction feels foreign, the keywords drifted.
+    and a slice of category_paths, plus the tension score. Output is a short
+    preamble, then 3-5 first-person blocks of one claim sentence plus supporting
+    bullets. Use this to test whether vivify actually captured what was meant — if
+    the reconstruction feels foreign, the keywords drifted.
+
+All three modes keep their blocks at the level of the record (GROUNDING_RULE: no
+invented names, numbers, places or scenes) and open with a preamble (PREAMBLE_RULE)
+written for a reader who
+knows the subject but not this process: what the passage is and how it was made,
+in plain words. The blocks after it still speak from inside the meaning. The
+domain voice therefore carries a preamble into discovery.jsonld when
+build_index.py --voices runs.
 
   synthesize
     Takes two inference files and generates a single passage that holds both
@@ -73,6 +82,40 @@ from vivify_core import read_json, resolve_model, llm_call
 from category_index import ids_for_path, load_by_id
 
 
+# Shared by all three prompts. The output is read by people who know the subject
+# but not this process, so it opens by saying what the passage is and how it was
+# made. The blocks still speak from inside the meaning; only the preamble may
+# describe the process, and only in plain words.
+PREAMBLE_RULE = """- Begin with a PREAMBLE: one short paragraph of 2-4 sentences, before the first
+  block, separated from it by a blank line. Write it for a reader who knows the
+  subject well but has never seen this process.
+  - Say what the passage is: a reconstruction of {what}, not the original words.
+  - Say plainly how it was made: the original text was reduced to a structured
+    record of its meaning, and this passage was regenerated from that record
+    alone, without access to the text.
+  - It may say what such a reconstruction is useful for and what it cannot show.
+  - Use a neutral voice; the blocks that follow stay in first person.
+  - Do not add claims the blocks do not make, do not summarize or conclude, and do
+    not use internal terms (keywords, clumps, categories, coordinates, tension,
+    pipeline, JSON).
+"""
+
+# Shared by all three prompts. The record holds abstract meanings, not scenes, and
+# a first live run (Sutton, 2026-10-07) showed the model filling the gap with
+# confident inventions — a beard, a one-man show-up "under headlights", a lone
+# reporter — several contradicting the case. Readers who know the subject catch
+# those at once and stop trusting the rest, so the blocks stay at the record's level.
+GROUNDING_RULE = """- Stay at the level of the record. Do not invent concrete particulars it does
+  not contain: no physical descriptions, numbers, names, dates, documents, places,
+  or specific scenes and events. Say what happened in kind ("the identification
+  was made under suggestive conditions"), never as an invented scene.
+"""
+
+
+def _shared_rules(what):
+    """The grounding rule plus a preamble rule naming what the passage reconstructs."""
+    return GROUNDING_RULE + PREAMBLE_RULE.format(what=what)
+
 REIFY_PROMPT = """You are the inverse pass of a vivify pipeline.
 
 You will receive a structured inference: left_keywords (felt semantic meaning),
@@ -102,7 +145,7 @@ Rules:
   points that each expand a distinct angle — evidence, example, or constraint.
   No concluding statements. No bullets that restate the opener.
 - Produce 3-5 such blocks. Each block covers a distinct facet of the felt meaning.
-
+{preamble}
 Inference:
 """
 
@@ -121,7 +164,7 @@ Rules:
 - Output format: a series of sentence+bullets constructs. Each block is one direct
   claim sentence (active voice, 25 words max) followed by 3-5 bullets expanding
   distinct angles. Produce 3-5 blocks. The synthesis should feel inevitable, not constructed.
-
+{preamble}
 Inference A:
 {inf_a}
 
@@ -143,7 +186,7 @@ Rules:
 - Output format: a series of sentence+bullets constructs. Each block is one direct
   claim sentence (active voice, 25 words max) followed by 3-5 bullets expanding
   distinct angles. Produce 3-5 blocks.
-
+{preamble}
 Category: {category}
 
 Inferences:
@@ -191,7 +234,8 @@ def reify_single(inference, dry_run=False):
         "category_paths": inference.get("category_paths", [])[:4],
         "tension": _tension_for_prompt(inference)
     }
-    prompt = REIFY_PROMPT + json.dumps(payload, indent=2)
+    prompt = (REIFY_PROMPT.replace("{preamble}", _shared_rules("one thought"))
+              + json.dumps(payload, indent=2))
     return call_api(prompt, dry_run=dry_run)
 
 
@@ -204,6 +248,7 @@ def reify_synthesize(inf_a, inf_b, dry_run=False):
             "tension": _tension_for_prompt(inf)
         }
     prompt = SYNTHESIZE_PROMPT.format(
+        preamble=_shared_rules("two related thoughts read together"),
         inf_a=json.dumps(slim(inf_a), indent=2),
         inf_b=json.dumps(slim(inf_b), indent=2)
     )
@@ -232,6 +277,7 @@ def reify_voice(category, inferences_dir="inferences", dry_run=False):
         raise ValueError(f"Indexed ids for {category} not found in storage")
 
     prompt = VOICE_PROMPT.format(
+        preamble=_shared_rules("what a group of related thoughts share"),
         category=category,
         inferences=json.dumps(inferences, indent=2)
     )
@@ -268,6 +314,7 @@ def reify_domain_voice(inferences_dir, domain_name=None, dry_run=False):
         raise ValueError(f"No inferences found in {d}")
 
     prompt = VOICE_PROMPT.format(
+        preamble=_shared_rules("what a whole body of related thoughts share"),
         category=domain_name,
         inferences=json.dumps(inferences, indent=2)
     )
@@ -340,3 +387,5 @@ if __name__ == "__main__":
 # llm: claude-opus-5 | 2026-09-15 | repos/vivify-operators/reify.py | call_api goes through llm_call (claude CLI + privacy gate) instead of the anthropic SDK, which could not authenticate on this box and bypassed the gate — the last caller left on that path
 
 # llm: claude-opus-5 | 2026-09-19 | repos/vivify-operators/reify.py | the prompt described tension as left/right keyword divergence and told the model to lean into that gap — dead since the 2026-07-13 rewire, and this is an executable instruction, not a doc; now sends predicted/confirmed with their real meaning, withholds calibration_delta as an instrument fact, and makes unmeasured explicit instead of readable as low
+# llm: claude-opus-5-5 | 2026-10-07 | repos/vivify-operators/reify.py | PREAMBLE_RULE added to all three prompts (single, synthesize, voice + domain voice): a 2-4 sentence plain-language opener for a subject expert new to the process, saying what the passage is and how it was made; blocks unchanged; docstring updated
+# llm: claude-opus-5-5 | 2026-10-07 | repos/vivify-operators/reify.py | GROUNDING_RULE added to all three prompts via _shared_rules(): blocks may not invent particulars (descriptions, numbers, names, dates, documents, places, scenes) the record lacks — first live Sutton run invented several that contradicted the case
