@@ -37,6 +37,11 @@ Rules:
 - Normalize: lowercase, underscores for spaces, strip punctuation
 - Merge near-duplicates locally
 - Never use external taxonomies — all grouping must emerge from this text only
+- A keyword may interpret what the text says, but it must not assert a fact the
+  text does not contain: no attribute of a person (race, age, sex, relationship,
+  motive) and no event that the text does not state. Example: a keyword about
+  cross-racial identification needs the text to give both people's race. When the
+  text is silent on something, leave it out rather than infer it
 - Group related keywords into named clumps (3-6 clumps, 2-4 keywords each)
 
 Return ONLY valid JSON in this exact shape:
@@ -210,3 +215,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5 | 2026-08-13 | repos/vivify-operators/vivify.py | case_id passthrough + --case CLI flag
 # llm: claude-opus-5 | 2026-08-13 | repos/vivify-operators/vivify.py | left pass ported from the anthropic SDK to the shared llm_call_model transport (no API key on the box; the SDK path also bypassed the privacy gate); returns + records left_pass._model
 # llm: claude-opus-5-5 | 2026-09-29 | repos/vivify-operators/vivify.py | privacy-gate exemption: CLAUDE_ORIGIN_SOURCES (claude_session) is non-sensitive only when routed to the claude backend
+# llm: claude-opus-5-5 | 2026-10-11 | repos/vivify-operators/vivify.py | grounding rule in KEYWORDS_PROMPT: keywords may interpret but must not assert facts the text lacks (person attributes, unstated events) — the Sutton replay left pass minted racial_identification_risk though the record never gives the witness's race, and reify then asserted it
