@@ -64,6 +64,12 @@
      "early",
      "threshold",
      "exponential"
+    ],
+    "counter_force": [
+     "none",
+     "declining",
+     "contesting",
+     "taken_up"
     ]
    },
    "floats": {
@@ -78,13 +84,17 @@
    },
    "lists": [
     "schema_signals",
-    "behavior_signals"
+    "behavior_signals",
+    "counter_force_signals"
    ],
    "free_text": [
     "rationale"
    ],
    "bools": [
     "terrain_hook"
+   ],
+   "nullable": [
+    "counter_force"
    ]
   },
   "cooperative": {

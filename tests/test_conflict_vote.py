@@ -83,6 +83,27 @@ def test_run_stores_derived_terrain_with_derived_agreement():
     assert c["_votes"]["by_dim"]["terrain"]["agreed"] == 2
 
 
+def test_counter_force_votes_with_its_own_signals():
+    draws = [_draw("activated", "drifting", 0.5) for _ in range(3)]
+    for d, cf in zip(draws, ("contesting", "contesting", "none")):
+        d["counter_force"] = cf
+        d["counter_force_signals"] = [f"who-{cf}"] if cf != "none" else []
+    co.call_and_validate = _script(draws)
+    inf = {"id": "inf_test", "raw_text": "x", "logos": {"act_type": {"value": "assertive"}}}
+    c = co.run(inf)["conflict"]
+    assert c["counter_force"] == "contesting"
+    assert c["counter_force_signals"] == ["who-contesting"]   # from the same draw
+    assert c["_votes"]["by_dim"]["counter_force"]["agreed"] == 2
+
+
+def test_draw_without_counter_force_still_stores_the_rest():
+    co.call_and_validate = _script([_draw("activated", "drifting", 0.5)] * 3)
+    inf = {"id": "inf_test", "raw_text": "x", "logos": {"act_type": {"value": "assertive"}}}
+    c = co.run(inf)["conflict"]
+    assert c["counter_force"] is None and c["counter_force_signals"] == []
+    assert c["schema"] == "activated"
+
+
 if __name__ == "__main__":
     tests = [v for k, v in dict(globals()).items() if k.startswith("test_")]
     for t in tests:
@@ -91,3 +112,4 @@ if __name__ == "__main__":
     print(f"{len(tests)} passed")
 
 # llm: claude-opus-5 | 2026-09-11 | repos/vivify-operators/tests/test_conflict_vote.py | created — per-coordinate conflict voting, terrain voted on its derived bin, per-draw positions recorded
+# llm: claude-opus-5-5 | 2026-10-16 | repos/vivify-operators/tests/test_conflict_vote.py | counter_force: voted with its own signals; a draw that omits it still stores the other coordinates

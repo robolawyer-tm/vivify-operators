@@ -36,6 +36,7 @@ CONFLICT_DIMS = (
     ("terrain",          ("terrain",),          ("terrain_distance", "terrain_hook")),
     ("window",           ("window",),           ()),
     ("escalation_phase", ("escalation_phase",), ()),
+    ("counter_force",    ("counter_force",),    ("counter_force_signals",)),
 )
 
 
@@ -124,7 +125,7 @@ Logos coordinates to read:
 Raw text: {raw_text}
 Context: {context}
 
-Assess the five conflict dimensions:
+Assess the six conflict dimensions:
 
   schema — societal structural conditions present:
     none         — no conflict-relevant structural conditions detected
@@ -170,6 +171,27 @@ Assess the five conflict dimensions:
     threshold    — at the tipping point; cascade possible
     exponential  — self-reinforcing, threshold crossed, restoration requires structural shift
 
+  counter_force — the counter-force named in the window note above, recorded as its own
+  coordinate and READ IN REVERSE. First find the FORCE in the text pushing the case
+  toward harm: enforcement, prosecution or other lawyers extracting, coercing or
+  twisting information (a pressed confession, a prompted identification, a report
+  reshaped to fit). The counter-force is that force running backwards. A party's own
+  denial, with no such force named, is positioning (behavior), not counter-force. A
+  position in the terrain, not a judgment of anyone's character; read only what the
+  text shows, never what an actor might do:
+    none         — no force in the text, or a force with nothing reversing it
+    declining    — an actor placed to apply or carry the force declines it (a witness
+                   who will not take the prompt, an examiner who will not stretch a match)
+    contesting   — an actor outside the institution that holds the window reverses the
+                   force: exposes it, retests, corrects the record
+    taken_up     — the institution that holds the window reverses its own force:
+                   reopens, concedes, consents, acknowledges
+  counter_force_signals — one entry per reversal, written
+    "<force> (by <who applies it>) <- <who reverses it>: <words from the text>",
+    using only names and words the text contains. Name both actors as the text does,
+    even when they are the same actor or the same institution — record it, do not
+    leave it out. An empty list when counter_force is none.
+
 Return ONLY valid JSON:
 {{
   "schema":           "<none|latent|activated|entangled>",
@@ -181,6 +203,8 @@ Return ONLY valid JSON:
   "terrain_hook":     <true|false>,
   "window":           "<closed|forming|open|rationalizing>",
   "escalation_phase": "<none|early|threshold|exponential>",
+  "counter_force":    "<none|declining|contesting|taken_up>",
+  "counter_force_signals": ["<force> (by <who applies it>) <- <who reverses it>: <words from the text>"],
   "confidence":       <0.0-1.0>,
   "rationale":        "<one sentence — what structural conditions this communication reveals>"
 }}
@@ -278,6 +302,10 @@ def run(inference: dict) -> dict:
         "terrain_hook":     hook,
         "window":           result["window"],
         "escalation_phase": result["escalation_phase"],
+        # .get, not []: a draw from a model that omits it must not crash the five
+        # coordinates that came back; the validator still checks it when present
+        "counter_force":    result.get("counter_force"),
+        "counter_force_signals": result.get("counter_force_signals", []),
         "confidence":       result.get("confidence"),
         "rationale":        result.get("rationale"),
         "_model":           result.get("_model"),
@@ -311,7 +339,7 @@ if __name__ == "__main__":
     else:
         write_json(path, tagged)
         c = tagged["conflict"]
-        print(f"conflict: schema={c['schema']} behavior={c['behavior']} terrain={c['terrain']} window={c['window']} phase={c['escalation_phase']}")
+        print(f"conflict: schema={c['schema']} behavior={c['behavior']} terrain={c['terrain']} window={c['window']} phase={c['escalation_phase']} counter={c['counter_force']}")
         if c.get("rationale"):
             print(f"  → {c['rationale']}")
 # llm: claude-sonnet-4-6 | 2026-05-26 | repos/vivify-operators/conflict_operator.py | created — structural conflict tagging operator reading logos coordinates
@@ -326,3 +354,6 @@ if __name__ == "__main__":
 # llm: claude-opus-5 | 2026-09-10 | repos/vivify-operators/conflict_operator.py | vote PER COORDINATE not per whole block, matching logos_fused: each coordinate plus its dependent fields comes from one real draw, so one unstable field no longer decides the other four
 
 # llm: claude-opus-5 | 2026-09-11 | repos/vivify-operators/conflict_operator.py | terrain votes on its DERIVED bin (it voted on the drawn label it had replaced); drawn spread kept as terrain_drawn, every draw position kept in by_dim.terrain.distances; derive_terrain docstring no longer claims derivation prevents flips
+# llm: claude-opus-5-5 | 2026-10-16 | repos/vivify-operators/conflict_operator.py | counter_force added as a sixth coordinate (none|declining|contesting|taken_up + signals), voted per dimension; it records the counter-force the window note already named
+# llm: claude-opus-5-5 | 2026-10-16 | repos/vivify-operators/conflict_operator.py | counter_force read IN REVERSE (John): find the force (coercion, extraction, twisting) first; a bare denial is positioning; signals name force <- reverser
+# llm: claude-opus-5-5 | 2026-10-16 | repos/vivify-operators/conflict_operator.py | counter_force_signals name who applies the force as well as who reverses it; self-reversal is recorded, not forbidden
