@@ -186,11 +186,15 @@ Assess the six conflict dimensions:
                    force: exposes it, retests, corrects the record
     taken_up     — the institution that holds the window reverses its own force:
                    reopens, concedes, consents, acknowledges
+  ON WHOM: a force falls on someone. Set counter_force only from reversals for the
+  person or group the window currently bears on. A reversal that helps someone else
+  (a co-defendant cleared by the same result that implicates another) is recorded in
+  the signals but does not set the value.
   counter_force_signals — one entry per reversal, written
-    "<force> (by <who applies it>) <- <who reverses it>: <words from the text>",
-    using only names and words the text contains. Name both actors as the text does,
-    even when they are the same actor or the same institution — record it, do not
-    leave it out. An empty list when counter_force is none.
+    "<force> (by <who applies it>, on <who it falls on>) <- <who reverses it>: <words from the text>",
+    using only names and words the text contains. Name every actor as the text does,
+    even when two are the same actor or the same institution — record it, do not
+    leave it out. An empty list when no reversal appears in the text.
 
 Return ONLY valid JSON:
 {{
@@ -204,7 +208,7 @@ Return ONLY valid JSON:
   "window":           "<closed|forming|open|rationalizing>",
   "escalation_phase": "<none|early|threshold|exponential>",
   "counter_force":    "<none|declining|contesting|taken_up>",
-  "counter_force_signals": ["<force> (by <who applies it>) <- <who reverses it>: <words from the text>"],
+  "counter_force_signals": ["<force> (by <who applies it>, on <who it falls on>) <- <who reverses it>: <words from the text>"],
   "confidence":       <0.0-1.0>,
   "rationale":        "<one sentence — what structural conditions this communication reveals>"
 }}
@@ -357,3 +361,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-16 | repos/vivify-operators/conflict_operator.py | counter_force added as a sixth coordinate (none|declining|contesting|taken_up + signals), voted per dimension; it records the counter-force the window note already named
 # llm: claude-opus-5-5 | 2026-10-16 | repos/vivify-operators/conflict_operator.py | counter_force read IN REVERSE (John): find the force (coercion, extraction, twisting) first; a bare denial is positioning; signals name force <- reverser
 # llm: claude-opus-5-5 | 2026-10-16 | repos/vivify-operators/conflict_operator.py | counter_force_signals name who applies the force as well as who reverses it; self-reversal is recorded, not forbidden
+# llm: claude-opus-5-5 | 2026-10-16 | repos/vivify-operators/conflict_operator.py | counter_force records ON WHOM a force falls; only reversals for whoever the window bears on set the value (Sutton 3-4 read a co-defendant's clearance as taken_up)
