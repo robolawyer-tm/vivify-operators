@@ -1,0 +1,307 @@
+{
+  "items": [
+    {
+      "id": "brown-01",
+      "match": "NONE",
+      "why": "Identifying the case domain is basic classification, and no candidate addresses it."
+    },
+    {
+      "id": "brown-02",
+      "match": "NONE",
+      "why": "Eyewitness unreliability is a memory mechanism; C-01's order effects fit it only loosely."
+    },
+    {
+      "id": "brown-03",
+      "match": "NONE",
+      "why": "A false procedural claim in a forensic report is not specifically captured by C-08's materiality vocabulary."
+    },
+    {
+      "id": "brown-04",
+      "match": "NONE",
+      "why": "Finding an alternative suspect through a database search is a factual turn that no candidate addresses."
+    },
+    {
+      "id": "brown-05",
+      "match": "NONE",
+      "why": "The physical mismatch with witness descriptions is evidentiary content, not a structural dimension in any candidate."
+    },
+    {
+      "id": "brown-06",
+      "match": "NONE",
+      "why": "A dissenting witness and suggestive police conduct are not directly modeled by any candidate."
+    },
+    {
+      "id": "brown-07",
+      "match": "C-07",
+      "why": "The Allen charge forcing a divided jury toward unanimity is a case of suppressing disagreement into consensus."
+    },
+    {
+      "id": "brown-08",
+      "match": "NONE",
+      "why": "Destroyed evidence and a bad-faith legal standard have no clear counterpart among the candidates."
+    },
+    {
+      "id": "brown-09",
+      "match": "C-05",
+      "why": "A long sequence of failed challenges followed by a breakthrough is captured by sequencing, timing and duration."
+    },
+    {
+      "id": "brown-10",
+      "match": "C-09",
+      "why": "The police's strategic non-answer until a court order is institutionally incentivized silence, not mere absent voice."
+    },
+    {
+      "id": "brown-11",
+      "match": "NONE",
+      "why": "The examiner's error pattern across other cases is not addressed by any candidate."
+    },
+    {
+      "id": "brown-12",
+      "match": "NONE",
+      "why": "Conceding exoneration while denying counsel's fault fits C-02 or C-03 only loosely."
+    },
+    {
+      "id": "brown-13",
+      "match": "NONE",
+      "why": "Inadequate defence counsel is not specifically captured by any candidate."
+    },
+    {
+      "id": "brown-14",
+      "match": "NONE",
+      "why": "Individual imprisonment harm is not a dimension any candidate supplies."
+    },
+    {
+      "id": "brown-15",
+      "match": "NONE",
+      "why": "Scientifically unsupported testimony is not specifically captured by any candidate."
+    },
+    {
+      "id": "cotton-01",
+      "match": "NONE",
+      "why": "Basic domain identification is not covered by any candidate."
+    },
+    {
+      "id": "cotton-02",
+      "match": "NONE",
+      "why": "Document genre and purpose are not addressed by any candidate."
+    },
+    {
+      "id": "cotton-03",
+      "match": "NONE",
+      "why": "The number and identity of affected parties are not a candidate dimension."
+    },
+    {
+      "id": "cotton-04",
+      "match": "NONE",
+      "why": "Fallible memory reinforced by procedure fits C-01's update-order idea only loosely."
+    },
+    {
+      "id": "cotton-05",
+      "match": "NONE",
+      "why": "Certainty hardening through repeated identification is suggestive of C-01 but not a tight fit."
+    },
+    {
+      "id": "cotton-06",
+      "match": "NONE",
+      "why": "A witness account shifting to fit the prosecution is not specifically modeled by any candidate."
+    },
+    {
+      "id": "cotton-07",
+      "match": "C-05",
+      "why": "The back-and-forth of appeal, reversal and retrial is a sequencing structure."
+    },
+    {
+      "id": "cotton-08",
+      "match": "NONE",
+      "why": "The true culprit being shown and rejected is not captured by any candidate."
+    },
+    {
+      "id": "cotton-09",
+      "match": "NONE",
+      "why": "Stacking weak evidence into support for a conviction has no clear candidate counterpart."
+    },
+    {
+      "id": "cotton-10",
+      "match": "NONE",
+      "why": "The DNA test, database match and confession as a reversal trigger are not specifically modeled."
+    },
+    {
+      "id": "cotton-11",
+      "match": "NONE",
+      "why": "A cooperative joint dismissal and pardon is not captured by any candidate."
+    },
+    {
+      "id": "cotton-12",
+      "match": "NONE",
+      "why": "Reconciliation between the two parties is not a candidate dimension."
+    },
+    {
+      "id": "cotton-13",
+      "match": "C-10",
+      "why": "The exoneree and victim reshaping identification procedures through advocacy is a looping effect of the wrongfully-convicted kind on institutions."
+    },
+    {
+      "id": "cotton-14",
+      "match": "NONE",
+      "why": "Personal aftermath and compensation are not addressed by any candidate."
+    },
+    {
+      "id": "cotton-15",
+      "match": "NONE",
+      "why": "A serial crime pattern is factual content, not a candidate dimension."
+    },
+    {
+      "id": "sutton-01",
+      "match": "NONE",
+      "why": "Basic domain identification is not covered by any candidate."
+    },
+    {
+      "id": "sutton-02",
+      "match": "NONE",
+      "why": "Authorship and the writer's side of the dispute are not a candidate dimension."
+    },
+    {
+      "id": "sutton-03",
+      "match": "NONE",
+      "why": "Show-up identification despite physical mismatch is not specifically captured by any candidate."
+    },
+    {
+      "id": "sutton-04",
+      "match": "NONE",
+      "why": "Factual lab errors versus narrow framing are not addressed by any candidate."
+    },
+    {
+      "id": "sutton-05",
+      "match": "NONE",
+      "why": "Misleading statistics are not specifically modeled by any candidate."
+    },
+    {
+      "id": "sutton-06",
+      "match": "NONE",
+      "why": "Defence counsel failure is not specifically captured by any candidate."
+    },
+    {
+      "id": "sutton-07",
+      "match": "NONE",
+      "why": "The prosecutor actively cutting off testimony is suppression of others' voice, not the actor's own silence as in C-09."
+    },
+    {
+      "id": "sutton-08",
+      "match": "C-02",
+      "why": "The appeals court relying on the flawed evidence to reject review matches Luhmann's self-referential blind spot."
+    },
+    {
+      "id": "sutton-09",
+      "match": "C-06",
+      "why": "Outsiders in the media and among independent experts triggering change in the justice field matches interdependent fields and challenger action."
+    },
+    {
+      "id": "sutton-10",
+      "match": "NONE",
+      "why": "The prisoner's own agency through a self-drafted motion is not specifically modeled by any candidate."
+    },
+    {
+      "id": "sutton-11",
+      "match": "NONE",
+      "why": "Outcome and vindication are not a candidate dimension."
+    },
+    {
+      "id": "sutton-12",
+      "match": "NONE",
+      "why": "Continued resistance with stated grounds fits C-03's justification logics only loosely."
+    },
+    {
+      "id": "sutton-13",
+      "match": "NONE",
+      "why": "Racial and youth vulnerability is a classification, but C-10's looping effect is not shown here."
+    },
+    {
+      "id": "sutton-14",
+      "match": "NONE",
+      "why": "The co-accused's exclusion strengthening the case against the other is not captured by any candidate."
+    },
+    {
+      "id": "washington-01",
+      "match": "NONE",
+      "why": "Basic domain identification is not covered by any candidate."
+    },
+    {
+      "id": "washington-02",
+      "match": "NONE",
+      "why": "A single vulnerable target is not a candidate dimension."
+    },
+    {
+      "id": "washington-03",
+      "match": "NONE",
+      "why": "A confession built through coaching and repeated takes is not specifically modeled by any candidate."
+    },
+    {
+      "id": "washington-04",
+      "match": "NONE",
+      "why": "An internally false authoritative narrative is not clearly captured by any candidate."
+    },
+    {
+      "id": "washington-05",
+      "match": "NONE",
+      "why": "Police physically steering the suspect to the scene is not specifically modeled by any candidate."
+    },
+    {
+      "id": "washington-06",
+      "match": "NONE",
+      "why": "Selectively accepting an unreliable method is only loosely related to C-02's decision premises."
+    },
+    {
+      "id": "washington-07",
+      "match": "NONE",
+      "why": "Rewriting a forensic report without new testing is not specifically captured by any candidate."
+    },
+    {
+      "id": "washington-08",
+      "match": "C-07",
+      "why": "The collapse of the defence removing all opposition is the loss of agonistic conflict that C-07 centres."
+    },
+    {
+      "id": "washington-09",
+      "match": "C-06",
+      "why": "An informal outsider network reaching into the legal field to win a stay fits interdependent strategic action fields and social skill."
+    },
+    {
+      "id": "washington-10",
+      "match": "C-05",
+      "why": "The time bar that blocked correction despite proof of innocence is a timing constraint on the institution."
+    },
+    {
+      "id": "washington-11",
+      "match": "C-05",
+      "why": "Stepwise correction by successive governors over years is captured by sequencing and duration."
+    },
+    {
+      "id": "washington-12",
+      "match": "NONE",
+      "why": "Identifying the true offender is factual resolution, not a candidate dimension."
+    },
+    {
+      "id": "washington-13",
+      "match": "NONE",
+      "why": "The harmed person's emotional response is not addressed by any candidate."
+    },
+    {
+      "id": "washington-14",
+      "match": "NONE",
+      "why": "The life-or-death scale of the harm is not a candidate dimension."
+    }
+  ],
+  "by_candidate": {
+    "C-01": 0,
+    "C-02": 1,
+    "C-03": 0,
+    "C-04": 0,
+    "C-05": 4,
+    "C-06": 2,
+    "C-07": 2,
+    "C-08": 0,
+    "C-09": 1,
+    "C-10": 1,
+    "NONE": 47
+  }
+}

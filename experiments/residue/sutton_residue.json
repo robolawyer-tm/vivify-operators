@@ -1,0 +1,89 @@
+{
+  "particulars": "All names (victim initials, the two teenagers, analyst, defense and appellate lawyers, reporters, experts, DA, governor, the actual perpetrators), the Houston/Harris and Fort Bend County setting, the 1998\u20132007 dates, the ages, heights and weights, the 1-in-694,000 and 1-in-15/1-in-8 statistics, the 25-year sentence, the $600 fee and the $118,000 compensation plus $1,700 annuity are absent.",
+  "items": [
+    {
+      "record": "The case is a criminal prosecution for rape: a teenager was convicted, imprisoned and later exonerated: \"Josiah Sutton was convicted on July 9, 1999, and sentenced to 25 years in prison.\"",
+      "reading": "Guesses at scattered complaints about health effects, benefit denials or safety, handled by a regulator or ministry.",
+      "loss": "The basic kind of event and the domain it belongs to.",
+      "id": "sutton-01"
+    },
+    {
+      "record": "The text is a narrative account of a wrongful conviction, not a document produced by the institution in question: \"Separately, two reporters with KHOU-TV... had begun investigating the Houston crime lab.\"",
+      "reading": "An official findings report written by the implicated state body for its own archive, framing matters as closed.",
+      "loss": "Who wrote the text and from which side of the dispute.",
+      "id": "sutton-02"
+    },
+    {
+      "record": "The harm came from an eyewitness identification at a show-up despite clear physical mismatch: \"Josiah was about 6 inches taller and 60 pounds heavier than P.S.' description.\"",
+      "reading": "absent",
+      "loss": "The first mechanism that produced the wrongful accusation.",
+      "id": "sutton-03"
+    },
+    {
+      "record": "A crime lab produced flawed DNA analysis, mistyped the victim's sample and misreported an exculpatory sample: \"The lab report had erroneously stated that DNA types consistent with Mr. Sutton were found on this sample, when in fact, he had been excluded.\"",
+      "reading": "Statements are 'probably accurate, relevant and properly sourced'; the illusion comes only from framing, 'not from any lie.'",
+      "loss": "Whether the institutional record contained real factual errors or was merely narrowly framed.",
+      "id": "sutton-04"
+    },
+    {
+      "record": "The statistic given to the jury hugely overstated the match. With two suspects the real chance was better than 1 in 8: \"this is the statistic that the jury needed in order to assign proper meaning to the DNA 'match.'\"",
+      "reading": "absent",
+      "loss": "How misleading numbers turned weak evidence into apparent certainty.",
+      "id": "sutton-05"
+    },
+    {
+      "record": "Defense counsel failed the accused. He never authorized the paid independent test, hired no expert and opened the door to past convictions: \"Well, I'm sorry, man, but that's what they came up with.\"",
+      "reading": "absent",
+      "loss": "The failure of the person who was supposed to protect the accused.",
+      "id": "sutton-06"
+    },
+    {
+      "record": "The prosecutor actively cut off testimony about the exculpatory sample: \"I don't want to talk about the unknown sample, okay?\"",
+      "reading": "Suppression by passive procedural narrowing in an after-the-fact report.",
+      "loss": "Where and how suppression happened: live, in court, by a specific actor at trial.",
+      "id": "sutton-07"
+    },
+    {
+      "record": "The appeals court relied on the flawed evidence itself to reject the appeal: \"The State's DNA evidence... is not seriously challenged.\"",
+      "reading": "absent",
+      "loss": "The circular step where the error shielded itself from review.",
+      "id": "sutton-08"
+    },
+    {
+      "record": "The breakthrough came through a chain of outsiders: defense attorneys' tip, reporters, independent experts, and the mother who saw the broadcast and called the station: \"Mr. Sutton's mother, Carol Batie, caught the story on television and called the station.\"",
+      "reading": "Vaguely suggests 'media attention, litigation or online organizing' as escalation, and leaves the driver unknown.",
+      "loss": "The specific sequence of people and links that reopened the case.",
+      "id": "sutton-09"
+    },
+    {
+      "record": "The convicted man acted for himself from prison by drafting his own motion under a statute that did not strictly apply, which led to appointed counsel.",
+      "reading": "Affected people are isolated, doubting themselves and possibly erased.",
+      "loss": "The individual's own agency in starting his exoneration.",
+      "id": "sutton-10"
+    },
+    {
+      "record": "The case was resolved. Retesting excluded him, he was released and pardoned for innocence, compensated, and the true perpetrator was later identified through CODIS and pleaded guilty.",
+      "reading": "'It probably does not resolve'; the record later becomes evidence in a reckoning.",
+      "loss": "The actual outcome and the vindication of the accused.",
+      "id": "sutton-11"
+    },
+    {
+      "record": "Even after exclusion the prosecution resisted, demanding further testing, declining to back an innocence pardon because the victim had not recanted, and opposing habeas: \"The prosecution still declined to support a pardon based on innocence.\"",
+      "reading": "absent",
+      "loss": "The institution's continued resistance after its error was exposed, and the grounds it gave.",
+      "id": "sutton-12"
+    },
+    {
+      "record": "Race and youth shaped the case. Young Black teenagers were picked up on the street, and the match statistics were framed by racial population: \"1 in 694,000 Black persons.\"",
+      "reading": "A scattered 'marginal group' with no collective voice, demographics unknown.",
+      "loss": "Who the affected people were and why they were vulnerable.",
+      "id": "sutton-13"
+    },
+    {
+      "record": "The co-accused was released after DNA excluded him, which made the remaining defendant look more surely guilty to the court.",
+      "reading": "absent",
+      "loss": "How the outcome for one accused person shaped the case against the other.",
+      "id": "sutton-14"
+    }
+  ]
+}

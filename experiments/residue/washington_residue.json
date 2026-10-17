@@ -1,0 +1,89 @@
+{
+  "particulars": "All names, dates, places, ages, sentence lengths, stab-wound counts, the 21-day deadline and the governors' names are absent; the reading is set in a different domain entirely (a platform or agency notice about a fringe group).",
+  "items": [
+    {
+      "record": "The case is a wrongful criminal conviction for rape and murder: \"Rebecca Lynn Williams... was raped and stabbed over thirty times\" and Washington was sentenced to death.",
+      "reading": "A platform company or regulator issues a policy enforcement notice about a diffuse fringe movement.",
+      "loss": "The basic nature of the event and of the institution (criminal justice, a capital prosecution) is misidentified.",
+      "id": "washington-01"
+    },
+    {
+      "record": "The opposing party is one intellectually disabled man who \"would politely defer to any authority figure,\" not a group.",
+      "reading": "A diffuse, loosely organized fringe of scattered individuals sharing a grievance.",
+      "loss": "The target is a single vulnerable person, and his particular vulnerability is what drives the outcome; the reading misdescribes this.",
+      "id": "washington-02"
+    },
+    {
+      "record": "Police extracted a confession over two days of questioning, and only \"on the fourth attempt at a rehearsed confession did authorities accept Washington's statement.\"",
+      "reading": "absent",
+      "loss": "The mechanism by which the authorities built the account, through coaching and repeated takes, is missing.",
+      "id": "washington-03"
+    },
+    {
+      "record": "The confession contradicted known facts: he did not know \"the race of his victim, the address... or that he had raped her.\"",
+      "reading": "The statement is described as cooperative, clear and \"not obviously deceptive.\"",
+      "loss": "The record shows an authoritative narrative that was internally false and visibly contradicted by the evidence.",
+      "id": "washington-04"
+    },
+    {
+      "record": "Police took him to the scene three times and \"in the end had to help him pick out Williams' apartment.\"",
+      "reading": "absent",
+      "loss": "The sequence of authorities physically steering the suspect to produce corroboration is lost.",
+      "id": "washington-05"
+    },
+    {
+      "record": "Four other confessions were dismissed \"because of the inconsistencies,\" yet the fifth was kept.",
+      "reading": "absent",
+      "loss": "The selective acceptance of the same unreliable method when it suited one case is missing.",
+      "id": "washington-06"
+    },
+    {
+      "record": "Evidence was altered: after he became a suspect, \"an amended forensic report was prepared (without additional testing being conducted)\" calling the result \"inconclusive.\"",
+      "reading": "The \"rationalizing\" stance is read as justifying enforcement already decided.",
+      "loss": "The concrete mechanism of rationalization, rewriting exculpatory evidence to fit a chosen suspect, is not recovered.",
+      "id": "washington-07"
+    },
+    {
+      "record": "The adversarial process failed: \"only the State's psychologist testified,\" and at the penalty phase \"the defense did not offer any counter argument.\"",
+      "reading": "absent",
+      "loss": "The collapse of the defense side, which left the institution unopposed, is missing.",
+      "id": "washington-08"
+    },
+    {
+      "record": "Rescue came through an informal network of outsiders: another death row inmate alerted \"Marie Deans (a non-lawyer...)\" and a visiting lawyer, whose firm won a stay \"nine days before he was scheduled to die.\"",
+      "reading": "Eventual resolution through attrition, migration of the fringe, or external pressure.",
+      "loss": "The specific route of rescue, through peers and volunteers outside the system reaching inside it at the last moment, is missing.",
+      "id": "washington-09"
+    },
+    {
+      "record": "DNA excluded him in 1993, but he \"was time barred by Virginia law\" and received only a commutation to life.",
+      "reading": "absent",
+      "loss": "The procedural rule that kept the institution from correcting itself despite proof of innocence is not recovered.",
+      "id": "washington-10"
+    },
+    {
+      "record": "Correction came slowly, in steps from successive governors: commutation, then a pardon \"on limited grounds,\" then years later \"an absolute pardon\" acknowledging he was wrongfully convicted.",
+      "reading": "The institution issues further clarifications, each more rationalizing than the last; the matter likely never resolves.",
+      "loss": "The record shows partial, reluctant retreat by executive discretion ending in a full admission, which is the opposite of the escalation the reading predicts.",
+      "id": "washington-11"
+    },
+    {
+      "record": "The real offender was later identified: \"Kenneth Tinsley... pleaded guilty to Rebecca Lynn Williams' rape and murder.\"",
+      "reading": "absent",
+      "loss": "The final resolution of the underlying question of truth is missing.",
+      "id": "washington-12"
+    },
+    {
+      "record": "The person wronged reacted mildly: \"This was a whole lot better than I expected.\"",
+      "reading": "The target experiences the action as cold, faceless, and proof of persecution, and becomes more mobilized.",
+      "loss": "The emotional response of the person harmed is misdescribed: he shows modest gratitude, not grievance or radicalization.",
+      "id": "washington-13"
+    },
+    {
+      "record": "The stakes were life and death: a death sentence with \"a September execution date imminent.\"",
+      "reading": "Stakes are listed as unknown, with restriction of accounts as the likely penalty.",
+      "loss": "The scale of the harm at stake, execution of an innocent person, is not recovered.",
+      "id": "washington-14"
+    }
+  ]
+}

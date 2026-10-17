@@ -1,0 +1,95 @@
+{
+  "particulars": "All names, dates, ages, places, court names, charges, sentence lengths, compensation amounts, and the book title were dropped.",
+  "items": [
+    {
+      "record": "The case is a criminal one. A man was convicted of rape on eyewitness identification and later exonerated: \"Mr. Cotton was convicted by a jury of one count of rape and one count of burglary.\"",
+      "reading": "The reading guesses an administrative or regulatory matter such as welfare determinations, a safety failure, or automated harm.",
+      "loss": "This is the basic domain and the kind of harm involved.",
+      "id": "cotton-01"
+    },
+    {
+      "record": "The text is a narrative case summary written after exoneration, not an institution issuing guidance: \"The results indicated that Mr. Cotton was not the source of the DNA.\"",
+      "reading": "The reading calls it an official state document that gives procedural guidance and directs affected people into channels.",
+      "loss": "This is the genre and purpose of the document.",
+      "id": "cotton-02"
+    },
+    {
+      "record": "The central harm is one wrongly convicted individual and one misled victim, not a dispersed mass of isolated claimants: \"Mr. Cotton was released after spending more than 10 years in prison.\"",
+      "reading": "The reading describes many isolated individuals who cannot see that their case is one of many.",
+      "loss": "This is who the affected parties are and how many there are.",
+      "id": "cotton-03"
+    },
+    {
+      "record": "The error came from a sincere but mistaken eyewitness who hesitated at first: \"it is between number four and number five\". She settled on a choice after a second viewing and voice repetition.",
+      "reading": "The reading treats the illusion as bureaucratic framing that the institution produces.",
+      "loss": "This is the actual mechanism of error, which was fallible human memory reinforced by procedure.",
+      "id": "cotton-04"
+    },
+    {
+      "record": "Repeated identification hardened the witness's certainty. She went from photo array to live lineup to courtroom testimony: \"She again identified Mr. Cotton as her attacker.\"",
+      "reading": "absent",
+      "loss": "This is the sequence by which a tentative belief became fixed testimony.",
+      "id": "cotton-05"
+    },
+    {
+      "record": "The second victim first could not identify anyone. At retrial she named Cotton: \"saying she had been too afraid to identify him right after the crime.\"",
+      "reading": "absent",
+      "loss": "This shows how witness accounts shifted over time to fit the prosecution.",
+      "id": "cotton-06"
+    },
+    {
+      "record": "The courts swung back and forth. A conviction was reversed because exculpatory evidence had been excluded: \"the defense should have been allowed to present the evidence of the other victim's identification of someone else\". A retrial followed with more charges, and the conviction was affirmed.",
+      "reading": "The reading says conflict was absorbed into procedure, with the record holding until a later rupture.",
+      "loss": "This is the actual back-and-forth sequence of appeal, reversal, and retrial.",
+      "id": "cotton-07"
+    },
+    {
+      "record": "The real perpetrator was put in front of the victims and both rejected him, which blocked the alternate-suspect defense: \"Ms. Thompson-Cannino and the other woman both contended that he was not their attacker.\"",
+      "reading": "absent",
+      "loss": "This is the moment where the true culprit was directly visible and still excluded.",
+      "id": "cotton-08"
+    },
+    {
+      "record": "Circumstantial physical evidence, a foam insole and a flashlight, corroborated a wrong identification. The alibi came only from relatives.",
+      "reading": "absent",
+      "loss": "This is how weak evidence was stacked to support the conviction.",
+      "id": "cotton-09"
+    },
+    {
+      "record": "Resolution came through scientific testing that the defense requested, plus a database match and a confession: \"confirmed a match with Bobbie Poole... he had admitted to other inmates.\"",
+      "reading": "The reading expects rupture through aggregation of cases, journalism, litigation, or an inquiry.",
+      "loss": "This is the specific trigger and mechanism of the reversal.",
+      "id": "cotton-10"
+    },
+    {
+      "record": "The resolution was clean and cooperative. Prosecution and defense jointly moved to dismiss, the real offender pleaded guilty, and the governor pardoned Cotton: \"The district attorney and the defense filed a motion to dismiss all charges.\"",
+      "reading": "The reading describes an entangled conflict with institutional rationalizing and possible burial.",
+      "loss": "This is the actual outcome and the institution's response.",
+      "id": "cotton-11"
+    },
+    {
+      "record": "The wrongly convicted man and the victim who misidentified him reconciled and became partners in advocacy: \"They became good friends and began to travel around the country to speak about wrongful convictions.\"",
+      "reading": "absent",
+      "loss": "This is the relationship between the two central parties after the case.",
+      "id": "cotton-12"
+    },
+    {
+      "record": "The case was turned into a push for reform of eyewitness identification procedures, and the two co-wrote a memoir.",
+      "reading": "absent",
+      "loss": "This is the case's downstream reform role and its public afterlife.",
+      "id": "cotton-13"
+    },
+    {
+      "record": "The man rebuilt his life after release, including work at the lab that cleared him and a modest state payment: \"got a job in the warehouse of LabCorp, the company that tested the DNA evidence.\"",
+      "reading": "absent",
+      "loss": "This is the personal aftermath and the remedy he received.",
+      "id": "cotton-14"
+    },
+    {
+      "record": "A serial pattern of linked attacks with a shared method was known at trial: \"entered the house's back door after smashing a porch light.\"",
+      "reading": "absent",
+      "loss": "This is the factual crime pattern that linked the cases.",
+      "id": "cotton-15"
+    }
+  ]
+}

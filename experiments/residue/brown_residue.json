@@ -1,0 +1,95 @@
+{
+  "particulars": "All names, dates, places (Durham, North Carolina), sums, heights, weights, sentence lengths, print-point counts, statutes and court names were dropped.",
+  "items": [
+    {
+      "record": "The case is a criminal wrongful conviction: a man was 'charged him with two counts of armed robbery' and convicted of one.",
+      "reading": "A child-welfare or family-benefits agency publishing a review of a contested programme.",
+      "loss": "The basic nature of the case, a criminal prosecution and wrongful conviction, is misidentified.",
+      "id": "brown-01"
+    },
+    {
+      "record": "The conviction rested on cross-racial eyewitness picks made on a second viewing with partial certainty: 'I think it was him... It's his eyes. 80 percent.'",
+      "reading": "absent",
+      "loss": "The mechanism of unreliable eyewitness identification that produced the conviction is missing.",
+      "id": "brown-02"
+    },
+    {
+      "record": "The examiner said a palm print matched the accused and reported searching the state database, but the prints 'were loaded but never searched, although his report said they had been.'",
+      "reading": "absent",
+      "loss": "The forensic error and false procedural claim at the core of the case are not recovered.",
+      "id": "brown-03"
+    },
+    {
+      "record": "A later database search tied one print to another man who was 'taller and heavier than Brown', with stronger identification points than the print attributed to Brown.",
+      "reading": "absent",
+      "loss": "The discovery of an alternative suspect, which overturned the case, is missing.",
+      "id": "brown-04"
+    },
+    {
+      "record": "The accused did not fit the descriptions: medical records showed '5 feet 9 inches and 150 pounds' against a described '200 to 220 pounds' robber.",
+      "reading": "absent",
+      "loss": "The physical mismatch between the accused and the witness descriptions, ignored at trial, is lost.",
+      "id": "brown-05"
+    },
+    {
+      "record": "A Black witness who knew the accused as a customer testified for the defence that an officer pointed to his photo and she insisted 'I know it's not him.'",
+      "reading": "absent",
+      "loss": "The dissenting witness and the suggestive police conduct are not captured.",
+      "id": "brown-06"
+    },
+    {
+      "record": "The jury split on the counts and was given an Allen charge urging unanimity, then convicted on one count and acquitted on the other.",
+      "reading": "absent",
+      "loss": "The divided jury and the judicial pressure that produced the verdict are missing.",
+      "id": "brown-07"
+    },
+    {
+      "record": "Trial exhibits were destroyed, and the destruction claim failed because there was 'no proof the clerk had acted in bad faith.'",
+      "reading": "absent",
+      "loss": "The loss of evidence and the high legal bar that blocked relief are not recovered.",
+      "id": "brown-08"
+    },
+    {
+      "record": "The case unfolded over a long sequence: affirmed appeal, innocence-centre representation, failed motions, release from prison, and new motions, across about twelve years.",
+      "reading": "The reading describes 'drifting' accumulation of small decisions with no single rupture.",
+      "loss": "The actual sequence of repeated failed challenges, then a breakthrough through new discovery, is replaced by vague drift.",
+      "id": "brown-09"
+    },
+    {
+      "record": "Key evidence surfaced only after defence lawyers pushed: the police 'had no records of the database searches and did not answer the SAFIS question' until a court order forced discovery.",
+      "reading": "absent",
+      "loss": "The institution's resistance to disclosure, overcome only by the defence's own inquiry and court orders, is missing.",
+      "id": "brown-10"
+    },
+    {
+      "record": "An internal review found the examiner had wrongly called prints of no value in other cases: 'another analyst determined the same print did have evidentiary value.'",
+      "reading": "absent",
+      "loss": "The examiner's pattern of errors beyond this case is not recovered.",
+      "id": "brown-11"
+    },
+    {
+      "record": "The state consented to a new trial and dismissed the charge, while 'maintaining that Brown's trial lawyer had been effective.'",
+      "reading": "The reading says the agency absorbs critics without yielding authority, and predicts an uneasy formal resolution where escalation stays at the threshold.",
+      "loss": "The real outcome, full exoneration conceded by the state while it denied fault on counsel, is misdescribed as held-off escalation.",
+      "id": "brown-12"
+    },
+    {
+      "record": "The defence lawyer failed to show the mismatch with the descriptions and surveillance video, or to seek an eyewitness-reform jury instruction.",
+      "reading": "absent",
+      "loss": "The role of inadequate defence counsel in the conviction is missing.",
+      "id": "brown-13"
+    },
+    {
+      "record": "The accused, a full-time worker with 'custody of my son', denied guilt throughout and served years in prison before release.",
+      "reading": "The reading says families feel described accurately in particulars but wrongly as a whole.",
+      "loss": "The specific harm, an innocent man imprisoned for years, is replaced with a generic sense of families misdescribed.",
+      "id": "brown-14"
+    },
+    {
+      "record": "The examiner testified that no usable print could survive Windex cleaning, but an expert noted research 'as early as 2012 showed latent prints routinely survive commercial cleaning products.'",
+      "reading": "absent",
+      "loss": "The scientifically unsupported testimony used to explain away missing prints is not recovered.",
+      "id": "brown-15"
+    }
+  ]
+}
