@@ -8,5 +8,5 @@
   "fact_extraction": "opus",
   "logos_operator": "opus",
   "conflict_operator": "opus",
-  "web_research": "groq:llama-3.3-70b-versatile"
+  "web_research": "groq:openai/gpt-oss-120b"
 }

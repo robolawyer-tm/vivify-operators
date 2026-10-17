@@ -10,7 +10,7 @@ Two stages, deliberately decoupled (RAG-as-memory):
   1. RETRIEVE — Tavily (purpose-built for LLM/RAG, 1,000 searches/mo free, no card)
      returns ranked, LLM-ready source snippets. Needs TAVILY_API_KEY.
   2. GENERATE — a free synthesis model (the `web_research` capability in model_map,
-     e.g. groq:llama-3.3-70b-versatile) answers using ONLY those snippets, then we
+     e.g. groq:openai/gpt-oss-120b) answers using ONLY those snippets, then we
      append the source URLs so the output is citable.
 
 Why not a provider's bundled web search? Empirically (2026-06-21) the free bundled
@@ -93,7 +93,7 @@ def _synthesis_prompt(query: str, sources: list) -> str:
 
 def research(query: str, model: str = None, max_results: int = 5) -> str:
     """Retrieve via Tavily, synthesize via a free LLM, return the answer with sources
-    appended. `model`: optional backend-prefixed id (e.g. 'groq:llama-3.3-70b-versatile')
+    appended. `model`: optional backend-prefixed id (e.g. 'groq:openai/gpt-oss-120b')
     to override the routed `web_research` synthesis model. sensitive stays False — a
     grounded web query is public by definition. Raises SearchUnavailable / LLMUnavailable."""
     sources = tavily_search(query, max_results=max_results)
@@ -128,3 +128,4 @@ if __name__ == "__main__":
         sys.exit(1)
 
 # llm: claude-opus-4-8 | 2026-06-21 | repos/vivify-operators/web_research.py | rebuilt as retrieve-then-generate: Tavily search (no-card free) + free-LLM synthesis; bundled provider search was walled (Gemini billing-gated, Groq free 413s)
+# llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/web_research.py | docstring example points at groq:openai/gpt-oss-120b (llama-3.3-70b-versatile was retired by Groq)
