@@ -1,5 +1,5 @@
 {
-  "probed": "2026-10-17T20:46:26+00:00",
+  "probed": "2026-10-17T20:50:30+00:00",
   "prompt": "Reply with the single word ok",
   "providers": {
     "cerebras": {
@@ -72,14 +72,14 @@
         "gemini:gemini-flash-latest": {
           "ok": false,
           "error": "LLMUnavailable: gemini request failed: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usa quota=GenerateRequestsPerDayPerProjectPerModel-FreeTier:20",
-          "seconds": 0.6,
+          "seconds": 0.3,
           "quota": {
             "quota_id": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
             "limit": "20"
           }
         }
       },
-      "probed": "2026-10-17T20:46:26+00:00"
+      "probed": "2026-10-17T20:50:30+00:00"
     },
     "groq": {
       "key": "GROQ_API_KEY present",
