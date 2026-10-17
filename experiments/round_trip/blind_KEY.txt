@@ -1,0 +1,3 @@
+# DO NOT READ before judging. Which blind reading came from which encoding.
+X = real
+Y = shuffled

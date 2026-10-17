@@ -1,0 +1,23 @@
+# Permutation control, seed 20260919. Every value below is a REAL value for that
+# field, taken from a different inference. Marginals preserved; joint structure
+# destroyed. If the decoder reads this as coherently as the real encoding, the
+# coherence was the decoder's, not the coordinates'.
+
+logos.transmission.value: archive -> broadcast  (inf_a3d99808)
+logos.resonance.value: illusion -> harmony  (inf_a06769b1)
+logos.authority.value: sovereign -> occult  (inf_c17433c3)
+logos.social_field.grid: 0.85 -> 0.35  (inf_c17433c3)
+logos.social_field.group: 0.4 -> 0.25  (inf_1d767cb6)
+logos.social_field.quadrant: hierarchical -> individualist  (inf_03b9a985)
+logos.structural.layer: institution -> small_group  (inf_44592bee)
+logos.structural.scale: institution -> small_group  (inf_0801b607)
+logos.structural.persistence: institutional -> durable  (inf_0f31de7a)
+logos.structural.authority: system -> group  (inf_03b9a985)
+logos.structural.transmission: archive -> broadcast  (inf_44592bee)
+logos.structural.memory_channel: institutional -> episodic  (inf_1d767cb6)
+logos.structural.language_mode: formalized -> contractual  (inf_910ee0e9)
+conflict.schema: entangled -> latent  (inf_0801b607)
+conflict.behavior: suppression -> positioning  (inf_a06769b1)
+conflict.terrain: fringe -> center  (inf_72711662)
+conflict.window: rationalizing -> forming  (inf_72711662)
+conflict.escalation_phase: exponential -> early  (inf_a636d323)
