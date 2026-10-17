@@ -285,16 +285,77 @@ def _ollama_transport(prompt, model, params=None):
         raise LLMUnavailable(f"ollama response malformed: {e}")
 
 
-def _gemini_transport(prompt, model, params=None):
-    """Transport for the gemini: backend — Google Gemini's NATIVE generateContent API
-    with Google Search grounding ALWAYS ON. This is the freshness channel: a query
-    here is answered against live web results, covering for any model's training cutoff
-    (e.g. 'which free LLM tiers exist / got cancelled now?').
+GEMINI_RETRIES = 3          # extra attempts after a 429 / 503
+GEMINI_MAX_WAIT = 120       # seconds; never sleep longer than this for one retry
+
+
+def _gemini_wait_seconds(status, body, attempt):
+    """How long to wait before retrying a refused Gemini call, or None to give up.
+
+    429 = too many requests this minute; 503 = Google's servers busy. Both pass, so
+    the call waits and tries again instead of stopping the run. A 429 that names a
+    per-day quota will not pass within a run, so it gives up at once. The wait is
+    Google's own retryDelay when the error carries one, else 30s, 60s, 90s.
+    """
+    if status not in (429, 503) or attempt >= GEMINI_RETRIES:
+        return None
+    try:
+        details = json.loads(body).get("error", {}).get("details", [])
+    except (json.JSONDecodeError, AttributeError):
+        details = []
+    for d in details:
+        for v in d.get("violations", []):
+            if "PerDay" in v.get("quotaId", ""):
+                return None
+    for d in details:
+        delay = d.get("retryDelay")             # e.g. "27s"
+        if isinstance(delay, str) and delay.endswith("s"):
+            try:
+                return min(GEMINI_MAX_WAIT, float(delay[:-1]) + 1)
+            except ValueError:
+                pass
+    return min(GEMINI_MAX_WAIT, 30 * (attempt + 1))
+
+
+def _gemini_request_with_wait(req, sleep=None):
+    """Send a Gemini request, waiting and retrying on 429 / 503 (_gemini_wait_seconds).
+    Any other failure, or running out of retries, raises LLMUnavailable as before."""
+    import time
+    import urllib.error
+    import urllib.request
+    sleep = sleep or time.sleep
+    attempt = 0
+    while True:
+        try:
+            with urllib.request.urlopen(req, timeout=120) as resp:
+                return json.loads(resp.read())
+        except urllib.error.HTTPError as e:
+            body = e.read().decode("utf-8", "replace")
+            wait = _gemini_wait_seconds(e.code, body, attempt)
+            if wait is None:
+                raise LLMUnavailable(f"gemini request failed: HTTP {e.code}: {body[:200]}")
+            sleep(wait)
+            attempt += 1
+        except OSError as e:  # URLError / TimeoutError / socket errors are all OSError
+            raise LLMUnavailable(f"gemini request failed: {e}")
+
+
+def _gemini_transport(prompt, model, params=None, grounded=False):
+    """Transport for the gemini: and gemini_search: backends — Google Gemini's NATIVE
+    generateContent API.
+
+    - gemini: is a PLAIN worker, no tools. It is the one an operator may route to: a
+      replay reads steps 1..N only, and a search-enabled reader could look up how the
+      case ended.
+    - gemini_search: turns Google Search grounding ON (grounded=True). This is the
+      freshness channel: a query is answered against live web results, covering for
+      any model's training cutoff (e.g. 'which free LLM tiers exist / got cancelled
+      now?'). Never route an operator here.
 
     - Native API (not the OpenAI-compat shim): the shim rejects the grounding tool
       ('Unknown name google_search') and drops the source URLs. Native returns
       groundingMetadata, so we can hand back the citations — the valuable part.
-    - Grounding needs Gemini 3+ (route model_map at e.g. gemini-3-flash). Free tier
+    - Grounding needs Gemini 3+ (e.g. gemini_search:gemini-3.8-flash). Free tier
       gives 5,000 grounded prompts/month, so keep this for occasional research, not bulk.
     - REMOTE backend (not in LOCAL_BACKENDS): the privacy gate blocks sensitivity-tagged
       data from reaching it when PRIVACY_GATE is on. A freshness probe is public info —
@@ -306,10 +367,9 @@ def _gemini_transport(prompt, model, params=None):
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
         raise LLMUnavailable("GEMINI_API_KEY not set — source the sealed keys.env first")
-    body_obj = {
-        "contents": [{"parts": [{"text": prompt}]}],
-        "tools": [{"google_search": {}}],
-    }
+    body_obj = {"contents": [{"parts": [{"text": prompt}]}]}
+    if grounded:
+        body_obj["tools"] = [{"google_search": {}}]
     gen = {}
     if params:
         if params.get("temperature") is not None:
@@ -330,11 +390,7 @@ def _gemini_transport(prompt, model, params=None):
                  "User-Agent": "vivify-operators/1.0"},
         method="POST",
     )
-    try:
-        with urllib.request.urlopen(req, timeout=120) as resp:
-            payload = json.loads(resp.read())
-    except OSError as e:  # URLError / TimeoutError / socket errors are all OSError
-        raise LLMUnavailable(f"gemini request failed: {e}")
+    payload = _gemini_request_with_wait(req)
     try:
         cand = payload["candidates"][0]
         text = "".join(p.get("text", "") for p in cand["content"]["parts"]).strip()
@@ -356,13 +412,15 @@ def _gemini_transport(prompt, model, params=None):
 
 
 # Transport registry: backend prefix -> callable(prompt, model) -> response text.
-# claude (CLI), ollama (local, no key) and gemini (native grounding) are bespoke —
+# claude (CLI), ollama (local, no key) and gemini (native API, plain or grounded) are bespoke —
 # each has its own auth and response shape. Every hosted OpenAI-compatible provider is
 # added from config/providers.json by _load_providers() below — a JSON line, no code.
 TRANSPORTS = {
     "claude": _claude_transport,
     "ollama": _ollama_transport,
     "gemini": _gemini_transport,
+    "gemini_search": lambda prompt, model, params=None: _gemini_transport(
+        prompt, model, params, grounded=True),
 }
 
 
@@ -904,3 +962,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5 | 2026-09-21 | repos/vivify-operators/lib/vivify_core.py | _load_providers skips _-prefixed metadata keys — adding a _doc to providers.json would otherwise raise TypeError at import and take the whole library with it
 # llm: claude-opus-5-5 | 2026-09-29 | repos/vivify-operators/lib/vivify_core.py | pin_model(): model_map may name a family alias (opus) that tracks the newest release; resolve_model pins it to the concrete id once per run via a claude -p JSON probe, so _model never records a bare alias; fallback default sonnet-4-6 -> opus
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/lib/vivify_core.py | lean worker — claude -p calls drop the Claude Code harness (no tools, own system prompt, no settings/memory/MCP/skills/session file); VIVIFY_CLAUDE_WORKER=full restores the old call; alias probe routes through claude_cmd too
+# llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/lib/vivify_core.py | gemini: is now a plain worker (no tools) and gemini_search: the grounded route; Gemini calls wait and retry on 429/503 (Google's retryDelay, else 30/60/90s, cap 120s, per-day quota gives up)
