@@ -124,17 +124,54 @@ class CoordinateValidationError(ValueError):
     """
 
 
+# The lean worker: a claude -p call stripped of the Claude Code harness. Without
+# these flags every call carried ~24K tokens of agent system prompt, tool
+# definitions and project memory around a ~1-2K classification, and the memory
+# primed the instrument with the project's own notes. `--bare` would go further
+# but needs ANTHROPIC_API_KEY, and these calls run on Claude Code's OAuth login.
+WORKER_SYSTEM_PROMPT = ("You read texts and answer exactly in the format the "
+                        "user's message asks for. Use only what the message contains.")
+LEAN_WORKER_FLAGS = [
+    "--tools", "",                                   # no tools at all
+    "--system-prompt", WORKER_SYSTEM_PROMPT,         # replaces the agent prompt
+    "--setting-sources", "",                         # no user/project/local settings
+    "--settings", '{"autoMemoryEnabled": false}',    # no MEMORY.md in context
+    "--strict-mcp-config",                           # no MCP servers
+    "--disable-slash-commands",                      # no skills
+    "--no-session-persistence",                      # no session file per call
+]
+
+
+def claude_worker_mode():
+    """'lean' (default) or 'full' — VIVIFY_CLAUDE_WORKER=full restores the old
+    harnessed call, kept for parity checks against readings made before the switch."""
+    import os
+    mode = os.environ.get("VIVIFY_CLAUDE_WORKER", "lean").strip().lower()
+    if mode not in ("lean", "full"):
+        raise ValueError(f"VIVIFY_CLAUDE_WORKER must be 'lean' or 'full', not {mode!r}")
+    return mode
+
+
+def claude_cmd(prompt, model, *extra):
+    """The claude CLI argv for one call, lean unless VIVIFY_CLAUDE_WORKER=full."""
+    cmd = ["claude", "-p", prompt, "--model", model, *extra]
+    if claude_worker_mode() == "lean":
+        cmd += LEAN_WORKER_FLAGS
+    return cmd
+
+
 def _claude_transport(prompt, model, params=None):
     """Transport for the claude: backend — the claude CLI subprocess.
 
     No API key — uses Claude Code's own authentication. The original (and default)
     transport; bare model ids with no backend prefix route here. `params` (sampling
     knobs like temperature) are ignored — the `claude -p` CLI exposes no per-call
-    sampling, so claude is not used as a diversity source in the quorum.
+    sampling, so claude is not used as a diversity source in the quorum. Runs as
+    the lean worker (claude_cmd) unless VIVIFY_CLAUDE_WORKER=full.
     """
     import subprocess
     result = subprocess.run(
-        ["claude", "-p", prompt, "--model", model],
+        claude_cmd(prompt, model),
         capture_output=True,
         text=True
     )
@@ -779,8 +816,7 @@ def _probe_alias(alias):
     """
     import subprocess
     result = subprocess.run(
-        ["claude", "-p", "Reply with the single word ok", "--model", alias,
-         "--output-format", "json"],
+        claude_cmd("Reply with the single word ok", alias, "--output-format", "json"),
         capture_output=True, text=True
     )
     if result.returncode != 0:
@@ -867,3 +903,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5 | 2026-09-03 | repos/vivify-operators/lib/vivify_core.py | repeat-and-vote: call_and_vote() takes VIVIFY_VOTES draws (default 3) and stores the MODAL one plus its per-field spread in _votes; modal-signature not field-wise assembly, so the stored block is always a draw that really occurred; call_and_validate unchanged underneath (it still owns retry-on-invalid)
 # llm: claude-opus-5 | 2026-09-21 | repos/vivify-operators/lib/vivify_core.py | _load_providers skips _-prefixed metadata keys — adding a _doc to providers.json would otherwise raise TypeError at import and take the whole library with it
 # llm: claude-opus-5-5 | 2026-09-29 | repos/vivify-operators/lib/vivify_core.py | pin_model(): model_map may name a family alias (opus) that tracks the newest release; resolve_model pins it to the concrete id once per run via a claude -p JSON probe, so _model never records a bare alias; fallback default sonnet-4-6 -> opus
+# llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/lib/vivify_core.py | lean worker — claude -p calls drop the Claude Code harness (no tools, own system prompt, no settings/memory/MCP/skills/session file); VIVIFY_CLAUDE_WORKER=full restores the old call; alias probe routes through claude_cmd too
