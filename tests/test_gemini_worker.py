@@ -95,8 +95,10 @@ try:
     try:
         _gemini_request_with_wait("REQ", sleep=waits.append)
         check("per-day quota stops without waiting", False, "no error")
-    except LLMUnavailable:
+    except LLMUnavailable as e:
         check("per-day quota stops without waiting", waits == [], waits)
+        check("the error names the quota it hit",
+              "quota=GenerateRequestsPerDayPerProjectPerModel-FreeTier" in str(e), str(e))
 
     # --- plain vs search route ------------------------------------------------
     os.environ.setdefault("GEMINI_API_KEY", "test-key")
@@ -117,3 +119,4 @@ if failures:
 print("All gemini-worker checks passed.")
 
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/tests/test_gemini_worker.py | created — gemini: plain vs gemini_search: grounded, wait-and-retry on 429/503 (retryDelay, per-day quota, cap, give-up), urlopen and sleep stubbed
+# llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/tests/test_gemini_worker.py | per-day refusal must name its quota in the error

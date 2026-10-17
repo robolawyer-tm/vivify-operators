@@ -317,6 +317,20 @@ def _gemini_wait_seconds(status, body, attempt):
     return min(GEMINI_MAX_WAIT, 30 * (attempt + 1))
 
 
+def _gemini_error_summary(body):
+    """One line from a Gemini error body: its message, plus the quota it hit
+    (quota=<quotaId>:<quotaValue>) — the part a 200-character cut used to lose."""
+    try:
+        err = json.loads(body).get("error", {})
+    except (json.JSONDecodeError, AttributeError):
+        return " ".join(body.split())[:200]
+    text = " ".join(str(err.get("message", "")).split())[:200]
+    for d in err.get("details", []):
+        for v in d.get("violations", []):
+            text += f" quota={v.get('quotaId')}:{v.get('quotaValue')}"
+    return text
+
+
 def _gemini_request_with_wait(req, sleep=None):
     """Send a Gemini request, waiting and retrying on 429 / 503 (_gemini_wait_seconds).
     Any other failure, or running out of retries, raises LLMUnavailable as before."""
@@ -333,7 +347,8 @@ def _gemini_request_with_wait(req, sleep=None):
             body = e.read().decode("utf-8", "replace")
             wait = _gemini_wait_seconds(e.code, body, attempt)
             if wait is None:
-                raise LLMUnavailable(f"gemini request failed: HTTP {e.code}: {body[:200]}")
+                raise LLMUnavailable(f"gemini request failed: HTTP {e.code}: "
+                                     f"{_gemini_error_summary(body)}")
             sleep(wait)
             attempt += 1
         except OSError as e:  # URLError / TimeoutError / socket errors are all OSError
@@ -963,3 +978,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-09-29 | repos/vivify-operators/lib/vivify_core.py | pin_model(): model_map may name a family alias (opus) that tracks the newest release; resolve_model pins it to the concrete id once per run via a claude -p JSON probe, so _model never records a bare alias; fallback default sonnet-4-6 -> opus
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/lib/vivify_core.py | lean worker — claude -p calls drop the Claude Code harness (no tools, own system prompt, no settings/memory/MCP/skills/session file); VIVIFY_CLAUDE_WORKER=full restores the old call; alias probe routes through claude_cmd too
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/lib/vivify_core.py | gemini: is now a plain worker (no tools) and gemini_search: the grounded route; Gemini calls wait and retry on 429/503 (Google's retryDelay, else 30/60/90s, cap 120s, per-day quota gives up)
+# llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/lib/vivify_core.py | Gemini give-up errors are one line and keep the quota hit (quota=<id>:<value>) instead of a 200-char cut of pretty-printed JSON
