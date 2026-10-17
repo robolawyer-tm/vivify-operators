@@ -1,0 +1,60 @@
+{
+  "logos": {
+    "act_type": {
+      "value": "assertive",
+      "authority_mismatch": false,
+      "confidence": 0.95
+    },
+    "cooperative": {
+      "status": "honored",
+      "maxim_violated": null,
+      "confidence": 0.85
+    },
+    "transmission": {
+      "value": "broadcast",
+      "confidence": 0.8
+    },
+    "resonance": {
+      "value": "harmony",
+      "confidence": 0.82
+    },
+    "authority": {
+      "value": "occult",
+      "confidence": 0.85
+    },
+    "utility": {
+      "value": "narrative",
+      "secondary": "instruction",
+      "confidence": 0.85
+    },
+    "social_field": {
+      "grid": 0.35,
+      "group": 0.25,
+      "quadrant": "individualist",
+      "confidence": 0.8
+    },
+    "structural": {
+      "layer": "small_group",
+      "scale": "small_group",
+      "_coerced": null,
+      "density": "bureaucratic",
+      "persistence": "durable",
+      "authority": "group",
+      "transmission": "broadcast",
+      "memory_channel": "episodic",
+      "language_mode": "contractual",
+      "overlays": [
+        "society"
+      ],
+      "confidence": 0.82
+    }
+  },
+  "conflict": {
+    "schema": "latent",
+    "behavior": "positioning",
+    "terrain": "center",
+    "window": "forming",
+    "escalation_phase": "early",
+    "confidence": 0.86
+  }
+}

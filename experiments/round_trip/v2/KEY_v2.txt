@@ -1,0 +1,3 @@
+# DO NOT READ before every judge has answered.
+P = real
+Q = shuffled
