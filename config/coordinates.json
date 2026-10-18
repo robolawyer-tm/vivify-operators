@@ -277,6 +277,17 @@
      "mistaken",
      "inflated",
      "manufactured"
+    ],
+    "supplied_by": [
+     "none",
+     "outside_party",
+     "the_target",
+     "institution"
+    ],
+    "shaped_by": [
+     "none",
+     "nobody",
+     "institution"
     ]
    },
    "floats": {

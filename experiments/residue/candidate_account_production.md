@@ -66,6 +66,16 @@ A new coordinate, `account_production`, would record how the account the institu
 - Without that, the reader fills the kind into a bureaucracy (registries, metrics, curated data). This is the July finding again: coordinates carry dynamics, not the actors' places.
 - Reading: the mode word is necessary but not sufficient. The positions in the signals, who supplied the account and who shaped it, are the part the field is asking for.
 
+## Try 3 (2026-10-17): positions added, structure carried, count flat
+
+- Added `supplied_by` (outside_party | the_target | institution) and `shaped_by` (nobody | institution) for the main element. Tagging was 3/3 everywhere: Sutton institution/nobody, Washington the_target/institution, Cotton outside_party/nobody, Brown institution/institution, and the controls none/none.
+- Losses about how the account was made: baseline 15/53, positions 15/48. The count is flat.
+- The readings now carry the structure. Washington: "rests on a document the target signed. The authority drafted that document, and the target signed it under pressure". Cotton: "the falsehood came from someone else's honest mistake".
+- The remaining losses are about domain. Cotton-01: "a criminal conviction from a mistaken human memory, not an administrative finding from a faulty data feed". Sutton-03: "forensic match statistics, not optimism about the institution's own performance".
+- So the residue count cannot tell structure from domain: once the structure is recovered, the reader places it in tax, benefits or a regulator, and the loss is written as "not X but Y".
+- Fair test, not yet run: give BOTH arms the domain (for example "criminal case"), as the keywords would in the real instrument (July finding: coordinates carry dynamics, keywords carry domain).
+
 <!-- llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/candidate_account_production.md | created — sketch of the first demand-led dimension candidate: mode (mistaken/inflated/manufactured/unmarked), hardening (repetition/endorsement/none), signals, replay reading, placement, acceptance via re-run residue test -->
 <!-- llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/candidate_account_production.md | open questions replaced by John's three decisions (one dominant value, mode first, shielding goes with reopening); built files listed -->
 <!-- llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/candidate_account_production.md | acceptance section: failed with bare and named labels; remaining losses ask who supplied and shaped the account -->
+<!-- llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/candidate_account_production.md | try 3: positions carried in the reading, count flat, remaining losses are domain; domain-held test proposed -->

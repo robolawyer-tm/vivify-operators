@@ -1,0 +1,1191 @@
+{
+  "marks": {
+    "L001": {
+      "arm": "baseline",
+      "id": "cotton-05",
+      "mark": "other"
+    },
+    "L002": {
+      "arm": "baseline",
+      "id": "brown-11",
+      "mark": "other"
+    },
+    "L003": {
+      "arm": "baseline",
+      "id": "washington-14",
+      "mark": "other"
+    },
+    "L004": {
+      "arm": "with_ap",
+      "id": "washington-07",
+      "mark": "other"
+    },
+    "L005": {
+      "arm": "baseline",
+      "id": "sutton-03",
+      "mark": "production"
+    },
+    "L006": {
+      "arm": "with_ap",
+      "id": "cotton-12",
+      "mark": "other"
+    },
+    "L007": {
+      "arm": "baseline",
+      "id": "brown-05",
+      "mark": "other"
+    },
+    "L008": {
+      "arm": "baseline",
+      "id": "brown-06",
+      "mark": "production"
+    },
+    "L009": {
+      "arm": "baseline",
+      "id": "brown-09",
+      "mark": "other"
+    },
+    "L010": {
+      "arm": "with_ap",
+      "id": "cotton-08",
+      "mark": "other"
+    },
+    "L011": {
+      "arm": "with_positions",
+      "id": "washington-04",
+      "mark": "production"
+    },
+    "L012": {
+      "arm": "with_ap",
+      "id": "brown-02",
+      "mark": "production"
+    },
+    "L013": {
+      "arm": "with_ap_named",
+      "id": "brown-07",
+      "mark": "other"
+    },
+    "L014": {
+      "arm": "with_positions",
+      "id": "sutton-08",
+      "mark": "other"
+    },
+    "L015": {
+      "arm": "baseline",
+      "id": "sutton-13",
+      "mark": "other"
+    },
+    "L016": {
+      "arm": "baseline",
+      "id": "cotton-11",
+      "mark": "other"
+    },
+    "L017": {
+      "arm": "with_ap_named",
+      "id": "washington-13",
+      "mark": "other"
+    },
+    "L018": {
+      "arm": "baseline",
+      "id": "sutton-10",
+      "mark": "other"
+    },
+    "L019": {
+      "arm": "with_positions",
+      "id": "cotton-01",
+      "mark": "production"
+    },
+    "L020": {
+      "arm": "baseline",
+      "id": "sutton-09",
+      "mark": "other"
+    },
+    "L021": {
+      "arm": "with_positions",
+      "id": "brown-04",
+      "mark": "production"
+    },
+    "L022": {
+      "arm": "with_ap",
+      "id": "sutton-08",
+      "mark": "other"
+    },
+    "L023": {
+      "arm": "with_positions",
+      "id": "washington-07",
+      "mark": "other"
+    },
+    "L024": {
+      "arm": "with_ap",
+      "id": "sutton-07",
+      "mark": "other"
+    },
+    "L025": {
+      "arm": "with_positions",
+      "id": "brown-07",
+      "mark": "other"
+    },
+    "L026": {
+      "arm": "with_ap_named",
+      "id": "brown-10",
+      "mark": "other"
+    },
+    "L027": {
+      "arm": "with_ap_named",
+      "id": "cotton-01",
+      "mark": "production"
+    },
+    "L028": {
+      "arm": "with_ap_named",
+      "id": "cotton-07",
+      "mark": "other"
+    },
+    "L029": {
+      "arm": "with_ap",
+      "id": "sutton-03",
+      "mark": "production"
+    },
+    "L030": {
+      "arm": "with_ap_named",
+      "id": "washington-05",
+      "mark": "production"
+    },
+    "L031": {
+      "arm": "with_ap_named",
+      "id": "sutton-10",
+      "mark": "other"
+    },
+    "L032": {
+      "arm": "with_ap",
+      "id": "brown-07",
+      "mark": "other"
+    },
+    "L033": {
+      "arm": "baseline",
+      "id": "sutton-07",
+      "mark": "other"
+    },
+    "L034": {
+      "arm": "with_ap_named",
+      "id": "cotton-11",
+      "mark": "production"
+    },
+    "L035": {
+      "arm": "baseline",
+      "id": "sutton-01",
+      "mark": "other"
+    },
+    "L036": {
+      "arm": "with_ap",
+      "id": "cotton-03",
+      "mark": "production"
+    },
+    "L037": {
+      "arm": "with_ap",
+      "id": "washington-08",
+      "mark": "other"
+    },
+    "L038": {
+      "arm": "with_ap",
+      "id": "cotton-02",
+      "mark": "production"
+    },
+    "L039": {
+      "arm": "with_ap_named",
+      "id": "brown-06",
+      "mark": "other"
+    },
+    "L040": {
+      "arm": "with_positions",
+      "id": "brown-05",
+      "mark": "other"
+    },
+    "L041": {
+      "arm": "with_positions",
+      "id": "washington-13",
+      "mark": "other"
+    },
+    "L042": {
+      "arm": "with_ap_named",
+      "id": "cotton-03",
+      "mark": "production"
+    },
+    "L043": {
+      "arm": "with_ap",
+      "id": "brown-01",
+      "mark": "other"
+    },
+    "L044": {
+      "arm": "with_ap",
+      "id": "brown-03",
+      "mark": "production"
+    },
+    "L045": {
+      "arm": "with_ap_named",
+      "id": "washington-01",
+      "mark": "other"
+    },
+    "L046": {
+      "arm": "with_positions",
+      "id": "cotton-08",
+      "mark": "other"
+    },
+    "L047": {
+      "arm": "with_ap",
+      "id": "washington-11",
+      "mark": "other"
+    },
+    "L048": {
+      "arm": "with_ap",
+      "id": "sutton-11",
+      "mark": "other"
+    },
+    "L049": {
+      "arm": "with_ap",
+      "id": "cotton-05",
+      "mark": "production"
+    },
+    "L050": {
+      "arm": "with_ap_named",
+      "id": "washington-15",
+      "mark": "other"
+    },
+    "L051": {
+      "arm": "with_ap_named",
+      "id": "washington-11",
+      "mark": "other"
+    },
+    "L052": {
+      "arm": "with_ap_named",
+      "id": "brown-01",
+      "mark": "other"
+    },
+    "L053": {
+      "arm": "with_positions",
+      "id": "sutton-01",
+      "mark": "other"
+    },
+    "L054": {
+      "arm": "with_ap",
+      "id": "washington-02",
+      "mark": "production"
+    },
+    "L055": {
+      "arm": "with_positions",
+      "id": "sutton-12",
+      "mark": "other"
+    },
+    "L056": {
+      "arm": "with_ap_named",
+      "id": "washington-10",
+      "mark": "other"
+    },
+    "L057": {
+      "arm": "with_positions",
+      "id": "brown-12",
+      "mark": "other"
+    },
+    "L058": {
+      "arm": "with_positions",
+      "id": "sutton-11",
+      "mark": "other"
+    },
+    "L059": {
+      "arm": "with_positions",
+      "id": "cotton-02",
+      "mark": "production"
+    },
+    "L060": {
+      "arm": "with_positions",
+      "id": "brown-08",
+      "mark": "other"
+    },
+    "L061": {
+      "arm": "with_ap_named",
+      "id": "sutton-02",
+      "mark": "other"
+    },
+    "L062": {
+      "arm": "with_positions",
+      "id": "washington-08",
+      "mark": "other"
+    },
+    "L063": {
+      "arm": "with_positions",
+      "id": "cotton-07",
+      "mark": "other"
+    },
+    "L064": {
+      "arm": "with_positions",
+      "id": "cotton-09",
+      "mark": "other"
+    },
+    "L065": {
+      "arm": "with_ap",
+      "id": "washington-03",
+      "mark": "production"
+    },
+    "L066": {
+      "arm": "baseline",
+      "id": "washington-01",
+      "mark": "other"
+    },
+    "L067": {
+      "arm": "baseline",
+      "id": "washington-15",
+      "mark": "production"
+    },
+    "L068": {
+      "arm": "with_positions",
+      "id": "sutton-02",
+      "mark": "production"
+    },
+    "L069": {
+      "arm": "with_ap",
+      "id": "brown-08",
+      "mark": "other"
+    },
+    "L070": {
+      "arm": "with_positions",
+      "id": "washington-05",
+      "mark": "production"
+    },
+    "L071": {
+      "arm": "baseline",
+      "id": "brown-03",
+      "mark": "production"
+    },
+    "L072": {
+      "arm": "with_ap_named",
+      "id": "cotton-05",
+      "mark": "other"
+    },
+    "L073": {
+      "arm": "with_positions",
+      "id": "washington-10",
+      "mark": "other"
+    },
+    "L074": {
+      "arm": "with_ap_named",
+      "id": "brown-09",
+      "mark": "other"
+    },
+    "L075": {
+      "arm": "with_ap_named",
+      "id": "washington-09",
+      "mark": "other"
+    },
+    "L076": {
+      "arm": "with_positions",
+      "id": "brown-06",
+      "mark": "other"
+    },
+    "L077": {
+      "arm": "baseline",
+      "id": "sutton-06",
+      "mark": "other"
+    },
+    "L078": {
+      "arm": "with_ap_named",
+      "id": "sutton-05",
+      "mark": "other"
+    },
+    "L079": {
+      "arm": "with_ap",
+      "id": "brown-06",
+      "mark": "other"
+    },
+    "L080": {
+      "arm": "with_ap",
+      "id": "brown-04",
+      "mark": "production"
+    },
+    "L081": {
+      "arm": "with_ap",
+      "id": "sutton-13",
+      "mark": "other"
+    },
+    "L082": {
+      "arm": "with_ap_named",
+      "id": "cotton-04",
+      "mark": "production"
+    },
+    "L083": {
+      "arm": "with_positions",
+      "id": "sutton-06",
+      "mark": "other"
+    },
+    "L084": {
+      "arm": "with_positions",
+      "id": "brown-09",
+      "mark": "other"
+    },
+    "L085": {
+      "arm": "baseline",
+      "id": "brown-13",
+      "mark": "other"
+    },
+    "L086": {
+      "arm": "baseline",
+      "id": "sutton-04",
+      "mark": "production"
+    },
+    "L087": {
+      "arm": "baseline",
+      "id": "cotton-01",
+      "mark": "production"
+    },
+    "L088": {
+      "arm": "with_positions",
+      "id": "cotton-10",
+      "mark": "other"
+    },
+    "L089": {
+      "arm": "baseline",
+      "id": "brown-01",
+      "mark": "other"
+    },
+    "L090": {
+      "arm": "with_positions",
+      "id": "washington-09",
+      "mark": "other"
+    },
+    "L091": {
+      "arm": "with_ap",
+      "id": "cotton-04",
+      "mark": "production"
+    },
+    "L092": {
+      "arm": "with_positions",
+      "id": "cotton-11",
+      "mark": "other"
+    },
+    "L093": {
+      "arm": "baseline",
+      "id": "sutton-14",
+      "mark": "other"
+    },
+    "L094": {
+      "arm": "with_ap_named",
+      "id": "sutton-09",
+      "mark": "other"
+    },
+    "L095": {
+      "arm": "baseline",
+      "id": "sutton-05",
+      "mark": "other"
+    },
+    "L096": {
+      "arm": "baseline",
+      "id": "cotton-02",
+      "mark": "production"
+    },
+    "L097": {
+      "arm": "with_ap_named",
+      "id": "washington-16",
+      "mark": "other"
+    },
+    "L098": {
+      "arm": "with_ap",
+      "id": "cotton-01",
+      "mark": "production"
+    },
+    "L099": {
+      "arm": "baseline",
+      "id": "washington-13",
+      "mark": "other"
+    },
+    "L100": {
+      "arm": "with_ap",
+      "id": "sutton-10",
+      "mark": "other"
+    },
+    "L101": {
+      "arm": "with_ap",
+      "id": "brown-05",
+      "mark": "other"
+    },
+    "L102": {
+      "arm": "with_positions",
+      "id": "washington-06",
+      "mark": "production"
+    },
+    "L103": {
+      "arm": "with_ap",
+      "id": "washington-12",
+      "mark": "production"
+    },
+    "L104": {
+      "arm": "with_ap",
+      "id": "cotton-06",
+      "mark": "production"
+    },
+    "L105": {
+      "arm": "with_positions",
+      "id": "washington-01",
+      "mark": "other"
+    },
+    "L106": {
+      "arm": "baseline",
+      "id": "washington-11",
+      "mark": "other"
+    },
+    "L107": {
+      "arm": "baseline",
+      "id": "brown-07",
+      "mark": "other"
+    },
+    "L108": {
+      "arm": "with_positions",
+      "id": "washington-11",
+      "mark": "other"
+    },
+    "L109": {
+      "arm": "with_ap",
+      "id": "brown-11",
+      "mark": "other"
+    },
+    "L110": {
+      "arm": "with_ap",
+      "id": "sutton-01",
+      "mark": "other"
+    },
+    "L111": {
+      "arm": "baseline",
+      "id": "sutton-02",
+      "mark": "other"
+    },
+    "L112": {
+      "arm": "with_positions",
+      "id": "washington-12",
+      "mark": "production"
+    },
+    "L113": {
+      "arm": "baseline",
+      "id": "cotton-07",
+      "mark": "other"
+    },
+    "L114": {
+      "arm": "with_ap_named",
+      "id": "brown-04",
+      "mark": "production"
+    },
+    "L115": {
+      "arm": "with_ap",
+      "id": "brown-10",
+      "mark": "other"
+    },
+    "L116": {
+      "arm": "with_positions",
+      "id": "cotton-05",
+      "mark": "other"
+    },
+    "L117": {
+      "arm": "with_positions",
+      "id": "sutton-09",
+      "mark": "other"
+    },
+    "L118": {
+      "arm": "baseline",
+      "id": "washington-06",
+      "mark": "production"
+    },
+    "L119": {
+      "arm": "with_positions",
+      "id": "sutton-04",
+      "mark": "other"
+    },
+    "L120": {
+      "arm": "baseline",
+      "id": "washington-12",
+      "mark": "other"
+    },
+    "L121": {
+      "arm": "baseline",
+      "id": "cotton-03",
+      "mark": "other"
+    },
+    "L122": {
+      "arm": "with_ap",
+      "id": "washington-06",
+      "mark": "other"
+    },
+    "L123": {
+      "arm": "baseline",
+      "id": "brown-12",
+      "mark": "other"
+    },
+    "L124": {
+      "arm": "baseline",
+      "id": "cotton-04",
+      "mark": "other"
+    },
+    "L125": {
+      "arm": "with_positions",
+      "id": "cotton-04",
+      "mark": "production"
+    },
+    "L126": {
+      "arm": "with_positions",
+      "id": "sutton-07",
+      "mark": "other"
+    },
+    "L127": {
+      "arm": "with_ap_named",
+      "id": "brown-12",
+      "mark": "other"
+    },
+    "L128": {
+      "arm": "with_ap_named",
+      "id": "sutton-01",
+      "mark": "production"
+    },
+    "L129": {
+      "arm": "with_ap_named",
+      "id": "cotton-09",
+      "mark": "other"
+    },
+    "L130": {
+      "arm": "with_ap",
+      "id": "cotton-10",
+      "mark": "other"
+    },
+    "L131": {
+      "arm": "with_positions",
+      "id": "cotton-06",
+      "mark": "other"
+    },
+    "L132": {
+      "arm": "with_ap_named",
+      "id": "brown-03",
+      "mark": "production"
+    },
+    "L133": {
+      "arm": "baseline",
+      "id": "washington-02",
+      "mark": "production"
+    },
+    "L134": {
+      "arm": "baseline",
+      "id": "cotton-08",
+      "mark": "other"
+    },
+    "L135": {
+      "arm": "with_ap_named",
+      "id": "cotton-02",
+      "mark": "production"
+    },
+    "L136": {
+      "arm": "with_ap_named",
+      "id": "washington-14",
+      "mark": "production"
+    },
+    "L137": {
+      "arm": "with_ap_named",
+      "id": "sutton-11",
+      "mark": "other"
+    },
+    "L138": {
+      "arm": "baseline",
+      "id": "washington-03",
+      "mark": "production"
+    },
+    "L139": {
+      "arm": "with_positions",
+      "id": "brown-03",
+      "mark": "production"
+    },
+    "L140": {
+      "arm": "with_ap",
+      "id": "cotton-11",
+      "mark": "other"
+    },
+    "L141": {
+      "arm": "with_ap",
+      "id": "cotton-09",
+      "mark": "other"
+    },
+    "L142": {
+      "arm": "baseline",
+      "id": "brown-10",
+      "mark": "other"
+    },
+    "L143": {
+      "arm": "with_ap",
+      "id": "washington-04",
+      "mark": "production"
+    },
+    "L144": {
+      "arm": "with_ap_named",
+      "id": "brown-02",
+      "mark": "production"
+    },
+    "L145": {
+      "arm": "with_positions",
+      "id": "brown-01",
+      "mark": "other"
+    },
+    "L146": {
+      "arm": "with_ap_named",
+      "id": "washington-07",
+      "mark": "other"
+    },
+    "L147": {
+      "arm": "baseline",
+      "id": "washington-07",
+      "mark": "production"
+    },
+    "L148": {
+      "arm": "with_ap_named",
+      "id": "washington-08",
+      "mark": "production"
+    },
+    "L149": {
+      "arm": "baseline",
+      "id": "sutton-12",
+      "mark": "other"
+    },
+    "L150": {
+      "arm": "baseline",
+      "id": "cotton-06",
+      "mark": "other"
+    },
+    "L151": {
+      "arm": "with_ap",
+      "id": "washington-01",
+      "mark": "other"
+    },
+    "L152": {
+      "arm": "with_ap",
+      "id": "cotton-13",
+      "mark": "other"
+    },
+    "L153": {
+      "arm": "with_ap_named",
+      "id": "brown-05",
+      "mark": "production"
+    },
+    "L154": {
+      "arm": "with_positions",
+      "id": "brown-02",
+      "mark": "production"
+    },
+    "L155": {
+      "arm": "with_ap",
+      "id": "washington-10",
+      "mark": "other"
+    },
+    "L156": {
+      "arm": "with_ap",
+      "id": "sutton-12",
+      "mark": "other"
+    },
+    "L157": {
+      "arm": "with_positions",
+      "id": "brown-11",
+      "mark": "other"
+    },
+    "L158": {
+      "arm": "with_ap",
+      "id": "cotton-14",
+      "mark": "other"
+    },
+    "L159": {
+      "arm": "with_ap",
+      "id": "brown-09",
+      "mark": "other"
+    },
+    "L160": {
+      "arm": "baseline",
+      "id": "washington-05",
+      "mark": "production"
+    },
+    "L161": {
+      "arm": "with_positions",
+      "id": "brown-10",
+      "mark": "other"
+    },
+    "L162": {
+      "arm": "with_ap_named",
+      "id": "cotton-10",
+      "mark": "other"
+    },
+    "L163": {
+      "arm": "with_ap",
+      "id": "sutton-09",
+      "mark": "other"
+    },
+    "L164": {
+      "arm": "with_ap_named",
+      "id": "sutton-03",
+      "mark": "production"
+    },
+    "L165": {
+      "arm": "with_ap",
+      "id": "washington-05",
+      "mark": "production"
+    },
+    "L166": {
+      "arm": "with_ap",
+      "id": "sutton-04",
+      "mark": "production"
+    },
+    "L167": {
+      "arm": "with_ap",
+      "id": "sutton-14",
+      "mark": "other"
+    },
+    "L168": {
+      "arm": "baseline",
+      "id": "cotton-09",
+      "mark": "other"
+    },
+    "L169": {
+      "arm": "with_positions",
+      "id": "washington-02",
+      "mark": "production"
+    },
+    "L170": {
+      "arm": "baseline",
+      "id": "brown-04",
+      "mark": "production"
+    },
+    "L171": {
+      "arm": "with_positions",
+      "id": "sutton-03",
+      "mark": "production"
+    },
+    "L172": {
+      "arm": "with_ap",
+      "id": "sutton-05",
+      "mark": "other"
+    },
+    "L173": {
+      "arm": "baseline",
+      "id": "brown-02",
+      "mark": "production"
+    },
+    "L174": {
+      "arm": "baseline",
+      "id": "sutton-11",
+      "mark": "other"
+    },
+    "L175": {
+      "arm": "with_positions",
+      "id": "sutton-05",
+      "mark": "other"
+    },
+    "L176": {
+      "arm": "with_ap_named",
+      "id": "brown-11",
+      "mark": "other"
+    },
+    "L177": {
+      "arm": "with_ap",
+      "id": "sutton-02",
+      "mark": "production"
+    },
+    "L178": {
+      "arm": "with_ap",
+      "id": "brown-12",
+      "mark": "other"
+    },
+    "L179": {
+      "arm": "baseline",
+      "id": "washington-04",
+      "mark": "production"
+    },
+    "L180": {
+      "arm": "baseline",
+      "id": "washington-10",
+      "mark": "other"
+    },
+    "L181": {
+      "arm": "with_positions",
+      "id": "sutton-10",
+      "mark": "other"
+    },
+    "L182": {
+      "arm": "baseline",
+      "id": "cotton-10",
+      "mark": "other"
+    },
+    "L183": {
+      "arm": "with_ap_named",
+      "id": "washington-06",
+      "mark": "production"
+    },
+    "L184": {
+      "arm": "with_ap_named",
+      "id": "washington-02",
+      "mark": "production"
+    },
+    "L185": {
+      "arm": "with_ap",
+      "id": "washington-09",
+      "mark": "other"
+    },
+    "L186": {
+      "arm": "with_ap_named",
+      "id": "sutton-04",
+      "mark": "production"
+    },
+    "L187": {
+      "arm": "with_ap_named",
+      "id": "cotton-06",
+      "mark": "other"
+    },
+    "L188": {
+      "arm": "baseline",
+      "id": "washington-08",
+      "mark": "other"
+    },
+    "L189": {
+      "arm": "with_ap_named",
+      "id": "washington-12",
+      "mark": "other"
+    },
+    "L190": {
+      "arm": "with_ap",
+      "id": "sutton-06",
+      "mark": "other"
+    },
+    "L191": {
+      "arm": "with_ap_named",
+      "id": "washington-03",
+      "mark": "production"
+    },
+    "L192": {
+      "arm": "with_ap_named",
+      "id": "washington-04",
+      "mark": "production"
+    },
+    "L193": {
+      "arm": "with_positions",
+      "id": "washington-03",
+      "mark": "production"
+    },
+    "L194": {
+      "arm": "with_ap_named",
+      "id": "sutton-06",
+      "mark": "other"
+    },
+    "L195": {
+      "arm": "with_ap_named",
+      "id": "sutton-08",
+      "mark": "other"
+    },
+    "L196": {
+      "arm": "with_ap_named",
+      "id": "sutton-07",
+      "mark": "other"
+    },
+    "L197": {
+      "arm": "with_ap_named",
+      "id": "cotton-08",
+      "mark": "other"
+    },
+    "L198": {
+      "arm": "baseline",
+      "id": "sutton-08",
+      "mark": "other"
+    },
+    "L199": {
+      "arm": "with_positions",
+      "id": "cotton-03",
+      "mark": "production"
+    },
+    "L200": {
+      "arm": "baseline",
+      "id": "washington-09",
+      "mark": "other"
+    },
+    "L201": {
+      "arm": "with_ap_named",
+      "id": "brown-08",
+      "mark": "other"
+    },
+    "L202": {
+      "arm": "baseline",
+      "id": "brown-08",
+      "mark": "other"
+    },
+    "L203": {
+      "arm": "with_ap",
+      "id": "cotton-07",
+      "mark": "other"
+    }
+  },
+  "table": {
+    "cotton": {
+      "baseline": {
+        "items": 11,
+        "production": 2,
+        "ids": [
+          "cotton-01",
+          "cotton-02"
+        ]
+      },
+      "with_ap": {
+        "items": 14,
+        "production": 6,
+        "ids": [
+          "cotton-03",
+          "cotton-02",
+          "cotton-05",
+          "cotton-04",
+          "cotton-01",
+          "cotton-06"
+        ]
+      },
+      "with_positions": {
+        "items": 11,
+        "production": 4,
+        "ids": [
+          "cotton-01",
+          "cotton-02",
+          "cotton-04",
+          "cotton-03"
+        ]
+      },
+      "with_ap_named": {
+        "items": 11,
+        "production": 5,
+        "ids": [
+          "cotton-01",
+          "cotton-11",
+          "cotton-03",
+          "cotton-04",
+          "cotton-02"
+        ]
+      }
+    },
+    "brown": {
+      "baseline": {
+        "items": 13,
+        "production": 4,
+        "ids": [
+          "brown-06",
+          "brown-03",
+          "brown-04",
+          "brown-02"
+        ]
+      },
+      "with_ap": {
+        "items": 12,
+        "production": 3,
+        "ids": [
+          "brown-02",
+          "brown-03",
+          "brown-04"
+        ]
+      },
+      "with_ap_named": {
+        "items": 12,
+        "production": 4,
+        "ids": [
+          "brown-04",
+          "brown-03",
+          "brown-02",
+          "brown-05"
+        ]
+      },
+      "with_positions": {
+        "items": 12,
+        "production": 3,
+        "ids": [
+          "brown-04",
+          "brown-03",
+          "brown-02"
+        ]
+      }
+    },
+    "washington": {
+      "baseline": {
+        "items": 15,
+        "production": 7,
+        "ids": [
+          "washington-15",
+          "washington-06",
+          "washington-02",
+          "washington-03",
+          "washington-07",
+          "washington-05",
+          "washington-04"
+        ]
+      },
+      "with_ap": {
+        "items": 12,
+        "production": 5,
+        "ids": [
+          "washington-02",
+          "washington-03",
+          "washington-12",
+          "washington-04",
+          "washington-05"
+        ]
+      },
+      "with_positions": {
+        "items": 13,
+        "production": 6,
+        "ids": [
+          "washington-04",
+          "washington-05",
+          "washington-06",
+          "washington-12",
+          "washington-02",
+          "washington-03"
+        ]
+      },
+      "with_ap_named": {
+        "items": 16,
+        "production": 7,
+        "ids": [
+          "washington-05",
+          "washington-14",
+          "washington-08",
+          "washington-06",
+          "washington-02",
+          "washington-03",
+          "washington-04"
+        ]
+      }
+    },
+    "sutton": {
+      "baseline": {
+        "items": 14,
+        "production": 2,
+        "ids": [
+          "sutton-03",
+          "sutton-04"
+        ]
+      },
+      "with_positions": {
+        "items": 12,
+        "production": 2,
+        "ids": [
+          "sutton-02",
+          "sutton-03"
+        ]
+      },
+      "with_ap": {
+        "items": 14,
+        "production": 3,
+        "ids": [
+          "sutton-03",
+          "sutton-04",
+          "sutton-02"
+        ]
+      },
+      "with_ap_named": {
+        "items": 11,
+        "production": 3,
+        "ids": [
+          "sutton-01",
+          "sutton-03",
+          "sutton-04"
+        ]
+      }
+    }
+  }
+}

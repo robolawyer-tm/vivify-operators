@@ -1,0 +1,77 @@
+{
+  "particulars": "All names, dates, ages, heights and weights, places, courts, the lab and its techniques, statistics (1 in 694,000, 1 in 15, 1 in 8), sentence lengths, compensation sums and the TV station were dropped.",
+  "items": [
+    {
+      "record": "The case centres on a wrongful criminal conviction of a teenager for rape, secured on eyewitness identification and lab DNA evidence: \"The prosecution's case was based on P.S.' identification and the DNA evidence.\"",
+      "reading": "A public body such as an agency, regulator, hospital or utility files a report saying a known issue is under control.",
+      "loss": "This is the basic nature of the case: a criminal prosecution and wrongful imprisonment, not an administrative report on an ongoing issue.",
+      "id": "sutton-01"
+    },
+    {
+      "record": "The victim picked out the suspects in a street show-up by their hats, even though one did not fit her own description: \"Josiah was about 6 inches taller and 60 pounds heavier than P.S.' description.\"",
+      "reading": "absent",
+      "loss": "The reading misses the second, non-institutional source of error: a mistaken eyewitness identification made by suggestion.",
+      "id": "sutton-02"
+    },
+    {
+      "record": "The lab's analysis was technically unreliable and its statistics were overstated. The jury heard \"1 in 694,000,\" while the proper figure was \"better than 1 chance in 8.\"",
+      "reading": "The institution's numbers were 'self-flattering', such as overstated capacity or a risk called contained.",
+      "loss": "This is the concrete mechanism of inflation: forensic match statistics that overstated guilt, not optimism about the institution's own performance.",
+      "id": "sutton-03"
+    },
+    {
+      "record": "The lab report wrongly said a sample matched the accused, and the prosecutor shut down testimony about it: \"I don't want to talk about the unknown sample, okay?\"",
+      "reading": "Suppression is quiet, through filing concerns and routing them back into process.",
+      "loss": "This is a specific act of steering evidence away from the jury in open court by an adversarial actor, not bureaucratic rerouting.",
+      "id": "sutton-04"
+    },
+    {
+      "record": "The defence lawyer failed the accused. He let independent testing lapse, hired no expert, and opened the door to the client's prior record: \"Well, I'm sorry, man, but that's what they came up with.\"",
+      "reading": "absent",
+      "loss": "The reading misses that the accused's own advocate failed him, which is a central reason the error was never challenged.",
+      "id": "sutton-05"
+    },
+    {
+      "record": "The appeal court relied on the flawed DNA evidence itself to reject the appeal: \"The State's DNA evidence ... is not seriously challenged.\"",
+      "reading": "Rationalizing: contrary evidence is explained away as anomalous or out of scope.",
+      "loss": "This shows how the error compounded: a higher court treated the unchallenged lab finding as settled, so the defence's failure became the reason relief was denied.",
+      "id": "sutton-06"
+    },
+    {
+      "record": "The case began as an adversarial dispute between the state and the accused, decided by a jury and a series of courts.",
+      "reading": "The institution measured itself and wrote its own narrative, shaped by no outside party or adversary.",
+      "loss": "The reading misdescribes the structure: there were several actors (police, lab, prosecutor, defence, jury, courts), not a single closed loop of self-reporting.",
+      "id": "sutton-07"
+    },
+    {
+      "record": "Exposure came through a chain of events. Reporters got a tip from defence attorneys about the lab, hired independent experts, and broadcast a story. The prisoner's mother saw it and asked them to take his case: \"Mr. Sutton's mother, Carol Batie, caught the story on television and called the station.\"",
+      "reading": "A rupture from outside, such as press exposure, makes the problem visible.",
+      "loss": "The reading misses the sequence: a family member's initiative linked one person's case to a wider media investigation of the lab.",
+      "id": "sutton-08"
+    },
+    {
+      "record": "The dissenter was the prisoner himself, together with his family. He drafted his own motion for testing, and a public defender was then appointed: \"Josiah Sutton drafted a motion to request DNA testing.\"",
+      "reading": "Isolated dissenters such as a line worker or junior analyst, who depend on the institution for a job or benefit.",
+      "loss": "The reading misidentifies who resisted: an incarcerated person and his kin, whose dependence on the institution was custody, not employment.",
+      "id": "sutton-09"
+    },
+    {
+      "record": "After the lab's retest excluded him, the prosecution still resisted. It made a pardon conditional on further testing, then refused to back innocence, citing the unrecanted identification: \"The prosecution still declined to support a pardon based on innocence.\"",
+      "reading": "Vindication arrives late, after the damage.",
+      "loss": "The reading misses that prosecutors kept resisting after scientific exoneration, falling back on the eyewitness account.",
+      "id": "sutton-10"
+    },
+    {
+      "record": "The case was resolved. He received a gubernatorial pardon and state compensation, and a database match later identified the real attacker, who pleaded guilty and named an accomplice.",
+      "reading": "Internally it probably doesn't resolve, and the problem keeps worsening exponentially.",
+      "loss": "The reading gets the outcome wrong: the case ended in formal exoneration, compensation and the conviction of the true perpetrator.",
+      "id": "sutton-11"
+    },
+    {
+      "record": "The co-accused was excluded by the same flawed test and released, while Sutton was implicated: \"implicated Josiah but excluded Gregory, who was then released.\"",
+      "reading": "absent",
+      "loss": "The reading misses the divergent fates of two people caught by the same identification, decided by a single unreliable test.",
+      "id": "sutton-12"
+    }
+  ]
+}

@@ -56,12 +56,26 @@ If several modes appear, choose the one the institution's account rests on most,
 and list every element in mode_signals. When the account comes from one person but
 is shaped by another, the shaper decides the mode.
 
+Then, for that same main element, say where its makers stand:
+  supplied_by — whose words or findings the element is:
+    outside_party — someone outside the institution who is not its target: a
+                    witness, a victim, an informant, a member of the public.
+    the_target    — the person or group the account is acted on against.
+    institution   — the institution's own staff, officials or experts.
+    none          — mode is unmarked.
+  shaped_by   — who formed or steered it into the version relied on:
+    nobody        — it was relied on much as its supplier gave it.
+    institution   — the institution's own agents formed, steered or altered it.
+    none          — mode is unmarked.
+
 Text:
 {text}
 
 Return ONLY valid JSON:
 {{
   "mode": "<unmarked|mistaken|inflated|manufactured>",
+  "supplied_by": "<none|outside_party|the_target|institution>",
+  "shaped_by": "<none|nobody|institution>",
   "mode_signals": ["<element> (from <whom>, shaped by <whom or nobody>): <words from the text>"],
   "rationale": "<one sentence: why this mode is the one the account rests on most>",
   "confidence": <0.0-1.0>
@@ -88,6 +102,8 @@ def parse(result: dict, inference: dict) -> dict:
     logos = inference.setdefault("logos", {})
     logos["account_production"] = {
         "mode":         result["mode"],
+        "supplied_by":  result.get("supplied_by"),
+        "shaped_by":    result.get("shaped_by"),
         "mode_signals": result.get("mode_signals", []),
         "rationale":    result.get("rationale"),
         "confidence":   result.get("confidence"),
@@ -119,3 +135,4 @@ if __name__ == "__main__":
         print(f"logos.account_production tagged: {tagged['logos']['account_production']['mode']}")
 
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/account_production_operator.py | created — mode coordinate (unmarked|mistaken|inflated|manufactured + signals), forced by the residue test; one dominant value, hardening deferred
+# llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/account_production_operator.py | supplied_by (outside_party|the_target|institution) and shaped_by (nobody|institution) for the main element: acceptance showed the field asks WHO made the account, not only its kind

@@ -1,0 +1,77 @@
+{
+  "particulars": "All names, dates, places, sums, heights, weights, print counts, point counts, sentence lengths and court names were dropped.",
+  "items": [
+    {
+      "record": "The case is a criminal prosecution of one man for armed robbery: \"charged him with two counts of armed robbery\".",
+      "reading": "A state body publishes an official review of harm to families in a child-welfare or institutional-care setting.",
+      "loss": "The basic nature of the matter is wrong: it is an individual wrongful conviction, not an institution reviewing its own past conduct.",
+      "id": "brown-01"
+    },
+    {
+      "record": "The contested account is a forensic report by one police examiner that falsely claimed a search had been done: \"Babb had never run the prints through SAFIS in 2014: they were loaded but never searched, although his report said they had been.\"",
+      "reading": "A self-authored institutional report that is accurate sentence by sentence but curated to look closed.",
+      "loss": "The reading misses that the official record contained a specific false statement of procedure, not only a selective framing.",
+      "id": "brown-02"
+    },
+    {
+      "record": "The conviction rested on two cross-racial eyewitness picks made on a second look, explained by the eyes, against descriptions that did not fit him: \"I think it was him... It's his eyes. 80 percent.\"",
+      "reading": "absent",
+      "loss": "The mechanism of the error, uncertain eyewitness identification reinforced by a single partial print, is missing.",
+      "id": "brown-03"
+    },
+    {
+      "record": "A witness said police steered her toward his photo, and she insisted he was innocent: \"an officer pointed to Brown's photo and asked whether she was sure it wasn't him\"; \"I know it's not him.\"",
+      "reading": "absent",
+      "loss": "The reading misses police suggestion in the identification process and a witness who contradicted the prosecution.",
+      "id": "brown-04"
+    },
+    {
+      "record": "The jury split the verdict under pressure: \"Judge Henry Hight gave an Allen charge urging a unanimous verdict\"; acquitted on one count, convicted on the other.",
+      "reading": "absent",
+      "loss": "The reading misses a divided jury pushed to unanimity and an inconsistent outcome on two linked charges.",
+      "id": "brown-05"
+    },
+    {
+      "record": "The physical evidence was destroyed and the claim failed for lack of proof of bad faith: \"no due-process violation because there was no proof the clerk had acted in bad faith\".",
+      "reading": "The dispute drifts from what happened to who knew, to independence, to what recommendations bind.",
+      "loss": "The reading misses the real sequence: evidence destroyed, a legal challenge lost on the standard of intent, then a shift to other routes.",
+      "id": "brown-06"
+    },
+    {
+      "record": "The person challenging the record is a single prisoner, joined by an innocence project years after his appeal failed: \"The North Carolina Center on Actual Innocence began representing him in 2016.\"",
+      "reading": "Organized families, survivors, journalists, a parliamentary committee or lawyers contest the account.",
+      "loss": "The reading gets the opposing party wrong: one convicted individual backed by specialist post-conviction lawyers, not a collective of affected families.",
+      "id": "brown-07"
+    },
+    {
+      "record": "Brown's lawyers had to go around the police to get the facts: \"The police department said it had no records... Brown's lawyers confirmed with the State Bureau of Investigation\"; \"The court ordered the review disclosed.\"",
+      "reading": "Litigation forcing disclosure is named as one possible path.",
+      "loss": "The reading misses how disclosure actually happened, through court orders, a separate state agency and an internal audit of the examiner.",
+      "id": "brown-08"
+    },
+    {
+      "record": "The rerun database search pointed to another man: \"one of the three prints came from a man identified as Daris J.... who was taller and heavier than Brown\".",
+      "reading": "absent",
+      "loss": "The reading misses that new forensic searching identified an alternative suspect, which is what decided the case.",
+      "id": "brown-09"
+    },
+    {
+      "record": "The case ended in full relief: \"The state consented to a new trial\"; \"the state dismissed the charge against Brown.\"",
+      "reading": "Full resolution is unlikely; partial resolution such as a second review, an apology or a settlement is likely, and the original report keeps its weight.",
+      "loss": "The outcome is wrong: the conviction was vacated and the charge dropped, although the state still denied that the trial lawyer was at fault.",
+      "id": "brown-10"
+    },
+    {
+      "record": "Brown had already served his time and been released before he was cleared: \"While his motions were being heard, Brown was released from prison.\"",
+      "reading": "absent",
+      "loss": "The reading misses the order of events: punishment was completed years before exoneration.",
+      "id": "brown-11"
+    },
+    {
+      "record": "The family aspect is a single father with custody of his son: \"I had a full-time job and custody of my son.\"",
+      "reading": "\"Family overlay\" is read as families harmed collectively by an institution.",
+      "loss": "The reading misdescribes the family dimension as collective institutional harm rather than one parent's personal situation offered in his own defence.",
+      "id": "brown-12"
+    }
+  ]
+}

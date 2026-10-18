@@ -1,25 +1,32 @@
 {
   "sutton": {
     "mode": "inflated",
+    "supplied_by": "institution",
+    "shaped_by": "nobody",
     "mode_signals": [
-      "DNA match statistic (from analyst Christy Kim, shaped by nobody shown): \"1 in 694,000 Black persons could be expected to have these alleles\", whereas the independent review found \"about a 1 in 15 chance that any Black man in Texas could be included\" and \"better than 1 chance in 8 that at least one man would be 'included'\"",
-      "Unreliable lab typing stated as a match (from the HPD crime lab, shaped by nobody shown): \"the lab had obtained two different results when typing P.S.' sample\"",
-      "Erroneous lab report on Sample #1 (from the HPD crime lab, shaped by nobody shown): \"The lab report had erroneously stated that DNA types consistent with Mr. Sutton were found on this sample, when in fact, he had been excluded\"",
-      "Prosecutor cutting off exculpatory testimony (from Ms. Kim, shaped by the prosecutor): \"I don't want to talk about the unknown sample, okay?\" It was never brought up again",
-      "Eyewitness identification (from P.S., shaped by police show-up procedure): \"Houston police picked up the men and took them to the police station parking lot, where P.S. was parked in her car. From a distance of about 10 feet, she told police she was positive\"",
-      "Description mismatch in the identification (from P.S., shaped by nobody): \"Josiah was about 6 inches taller and 60 pounds heavier than P.S.' description\"",
-      "Appellate reliance on the DNA evidence (from the appellate court, shaped by nobody): \"The State's DNA evidence which implicated appellant ... is not seriously challenged\""
+      "DNA match statistic (from crime lab analyst Christy Kim, shaped by nobody): \"1 in 694,000 Black persons could be expected to have these alleles\" vs. independent expert finding \"better than 1 chance in 8 that at least one man would be 'included'\"",
+      "Inconsistent lab typing (from HPD crime lab, shaped by nobody): \"the lab had obtained two different results when typing P.S.' sample\"",
+      "Erroneous lab report on Sample #1 (from HPD crime lab, shaped by nobody): \"The lab report had erroneously stated that DNA types consistent with Mr. Sutton were found on this sample, when in fact, he had been excluded\"",
+      "Suppression of Sample #1 testimony at trial (from prosecutor, shaped by institution): \"I don't want to talk about the unknown sample, okay?\" It was never brought up again.",
+      "Eyewitness show-up identification (from victim P.S., shaped by institution via police show-up): \"Houston police picked up the men and took them to the police station parking lot... From a distance of about 10 feet, she told police she was positive\"; Josiah \"was about 6 inches taller and 60 pounds heavier than P.S.' description\"",
+      "Appellate reliance on DNA (from appellate court, shaped by nobody): \"The State's DNA evidence which implicated appellant... is not seriously challenged\""
     ],
-    "rationale": "The conviction and the appellate ruling rested mainly on a weak, non-discriminating DNA inclusion that was presented to the jury as a 1-in-694,000 match, a real but weak element stated as far stronger than it was, with the sincere but mistaken show-up identification as a secondary support.",
-    "confidence": 0.72,
+    "rationale": "The conviction and the appellate ruling rested chiefly on the crime lab's DNA evidence, where a weak partial inclusion (about 1 in 8 for a pair of men) was presented to the jury as a 1-in-694,000 match, which overstated a real but weak element.",
+    "confidence": 0.65,
     "_model": "claude-opus-5-5",
     "_votes": {
       "n": 3,
       "agreed": 3,
       "unanimous": true,
       "distribution": {
+        "supplied_by": {
+          "institution": 3
+        },
         "mode": {
           "inflated": 3
+        },
+        "shaped_by": {
+          "nobody": 3
         }
       },
       "quarantined": 0
@@ -31,25 +38,31 @@
   },
   "washington": {
     "mode": "manufactured",
+    "supplied_by": "the_target",
+    "shaped_by": "institution",
     "mode_signals": [
-      "confession (from Washington, shaped by police): \"Only on the fourth attempt at a rehearsed confession did authorities accept Washington's statement and have it recorded in writing with Washington's signature\"",
-      "confession obtained under questioning (from Washington, shaped by police): \"After two days of questioning, police claimed he had 'confessed' to a total of five different crimes\"",
-      "crime-scene identification (from Washington, shaped by police): \"taken there three times in one afternoon by the police, who in the end had to help him pick out Williams' apartment\"",
-      "suggestibility of suspect (from psychological analyses, shaped by nobody): \"Washington would politely defer to any authority figure with whom he came into contact\"",
-      "amended forensic report (from forensic analyst, shaped by the state's forensic process): \"an amended forensic report was prepared (without additional testing being conducted) that said testing for the rare protein was 'inconclusive'\"",
-      "competency testimony (from State's psychologist, shaped by nobody shown): \"only the State's psychologist testified, claiming that Washington was competent when his statement was given\"",
-      "confession content contradicting the facts (from Washington, shaped by police): \"Washington did not know the race of his victim, the address of the apartment where she was killed, or that he had raped her\""
+      "Confession (from Washington, shaped by police): \"Only on the fourth attempt at a rehearsed confession did authorities accept Washington's statement and have it recorded in writing with Washington's signature\"",
+      "Crime scene identification (from Washington, shaped by police): \"after being taken there three times in one afternoon by the police, who in the end had to help him pick out Williams' apartment\"",
+      "Amended forensic report (from forensic analyst, shaped by institution): \"an amended forensic report was prepared (without additional testing being conducted) that said testing for the rare protein was 'inconclusive.'\"",
+      "Competency testimony (from State's psychologist, shaped by nobody): \"only the State's psychologist testified, claiming that Washington was competent when his statement was given\"",
+      "Confessions after questioning (from Washington, shaped by police): \"After two days of questioning, police claimed he had 'confessed' to a total of five different crimes\""
     ],
-    "rationale": "The conviction rests on a confession that police rehearsed until they accepted it and on a crime-scene identification they helped produce, and it was supported by a forensic report altered without new testing, so the institution's own agents built the account.",
-    "confidence": 0.95,
+    "rationale": "The conviction rests mainly on Washington's confession, which police rehearsed over four attempts and backed by helping him pick out the apartment, while a forensic report was also changed with no new testing.",
+    "confidence": 0.9,
     "_model": "claude-opus-5-5",
     "_votes": {
       "n": 3,
       "agreed": 3,
       "unanimous": true,
       "distribution": {
+        "supplied_by": {
+          "the_target": 3
+        },
         "mode": {
           "manufactured": 3
+        },
+        "shaped_by": {
+          "institution": 3
         }
       },
       "quarantined": 0
@@ -61,14 +74,16 @@
   },
   "cotton": {
     "mode": "mistaken",
+    "supplied_by": "outside_party",
+    "shaped_by": "nobody",
     "mode_signals": [
-      "eyewitness identification (from Jennifer Thompson-Cannino, shaped by nobody): \"it is between number four and number five.\" After viewing the lineup a second time and asking the participants to repeat certain phrases, she identified number five \u2014 Mr. Cotton \u2014 as her attacker",
-      "repeated identification (from Jennifer Thompson-Cannino, shaped by nobody): \"She again identified Mr. Cotton as her attacker\" and \"Ms. Thompson-Cannino testified and identified him as her attacker\"",
-      "late identification (from second victim, shaped by nobody): \"This time, the second woman also identified Mr. Cotton as her attacker, saying she had been too afraid to identify him right after the crime\"",
-      "similarity physical evidence (from police/prosecution, shaped by prosecution): \"a flashlight found in Mr. Cotton's home that resembled the one used by the assailant, and rubber from his shoe that was similar to the piece of foam rubber\"",
-      "non-identification of real perpetrator (from both victims, shaped by nobody): \"Ms. Thompson-Cannino and the other woman both contended that he was not their attacker\""
+      "Victim's eyewitness identification (from Jennifer Thompson-Cannino, shaped by nobody): \"At first glance, Ms. Thompson-Cannino said that 'it is between number four and number five.' After viewing the lineup a second time and asking the participants to repeat certain phrases, she identified number five \u2014 Mr. Cotton \u2014 as her attacker.\"",
+      "Repeated identification at live lineup and trial (from Jennifer Thompson-Cannino, shaped by nobody): \"She again identified Mr. Cotton as her attacker\"; \"Ms. Thompson-Cannino testified and identified him as her attacker.\"",
+      "Second victim's later identification (from the second victim, shaped by nobody as far as the text shows): \"This time, the second woman also identified Mr. Cotton as her attacker, saying she had been too afraid to identify him right after the crime.\"",
+      "Rejection of the alternate suspect (from both victims, shaped by nobody): \"Ms. Thompson-Cannino and the other woman both contended that he was not their attacker.\"",
+      "Physical items presented as corroboration (from the prosecution/police, shaped by the institution): \"a flashlight found in Mr. Cotton's home that resembled the one used by the assailant, and rubber from his shoe that was similar to the piece of foam rubber\""
     ],
-    "rationale": "The convictions rested mainly on Thompson-Cannino's sincere but wrong eyewitness identification, which began as uncertain and became firm through repetition; the text shows no police coaching or steering, and the 'similar' shoe foam and flashlight were only weak supporting evidence added on top.",
+    "rationale": "The convictions rested mainly on Thompson-Cannino's sincere but erroneous eyewitness identification, and the text shows no police steering of it; the weak 'similar' physical evidence only added support.",
     "confidence": 0.75,
     "_model": "claude-opus-5-5",
     "_votes": {
@@ -76,8 +91,14 @@
       "agreed": 3,
       "unanimous": true,
       "distribution": {
+        "supplied_by": {
+          "outside_party": 3
+        },
         "mode": {
           "mistaken": 3
+        },
+        "shaped_by": {
+          "nobody": 3
         }
       },
       "quarantined": 0
@@ -89,26 +110,33 @@
   },
   "brown": {
     "mode": "manufactured",
+    "supplied_by": "institution",
+    "shaped_by": "institution",
     "mode_signals": [
-      "False claim that a database search was done (from Babb, the police print examiner, shaped by Babb): 'The report said he had searched both the local database and North Carolina's Statewide Automated Fingerprint Identification Services (SAFIS)' / 'Babb had never run the prints through SAFIS in 2014: they were loaded but never searched, although his report said they had been'",
-      "Print match stated as stronger than it was (from Babb, shaped by nobody shown): 'the palm print from the door matched Brown on 12 points of identification' vs later rating 'medium-low' quality with 8 to 10 points",
-      "Expert claim explaining away the missing prints (from Babb, shaped by nobody shown): 'no usable print could be lifted from a surface wiped with Windex' vs 'research published as early as 2012 showed latent prints routinely survive commercial cleaning products'",
-      "Excluding print rated as no value (from Babb, shaped by nobody shown): 'the print from the gum wrapper, which Babb called of no value, did have value and appeared to be a whorl, a pattern Brown does not have'",
-      "Witness steered toward the suspect's photo (from Evans, shaped by a police officer): 'an officer pointed to Brown's photo and asked whether she was sure it wasn't him'",
-      "Hesitant eyewitness identification (from Hunt, shaped by nobody shown): 'made no identification on her first look... asked to see the photos again and selected Brown... 80 percent', and at trial Brown looked 'lighter' and 'smaller' and 'skinny' compared with the robber",
-      "Hesitant eyewitness identification (from Green, shaped by nobody shown): 'selected no one on her first look and Brown on her second, saying she was 90 percent certain'",
-      "Weak pieces stacked against contrary physical evidence (from police and prosecution): descriptions of a man '6 feet to 6 feet 2 inches tall, 200 to 220 pounds' vs Brown's records showing '5 feet 9 inches and 150 pounds'"
+      "Fingerprint report claiming a statewide search (from police examiner Babb, shaped by institution): 'The report said he had searched both the local database and North Carolina's Statewide Automated Fingerprint Identification Services (SAFIS)' / 'Babb had never run the prints through SAFIS in 2014: they were loaded but never searched, although his report said they had been'",
+      "Palm print match presented as strong (from Babb, shaped by nobody): 'the palm print from the door matched Brown on 12 points of identification' vs. later 'medium-low' quality with 8 to 10 points",
+      "Gum-wrapper print dismissed (from Babb, shaped by nobody): 'the print from the gum wrapper, which Babb called of no value, did have value and appeared to be a whorl, a pattern Brown does not have'",
+      "Expert claim about cleaning products (from Babb, shaped by nobody): 'no usable print could be lifted from a surface wiped with Windex' vs. 'research published as early as 2012 showed latent prints routinely survive commercial cleaning products'",
+      "Hesitant eyewitness identification (from Kristin Hunt, shaped by nobody): 'made no identification on her first look... asked to see the photos again and selected Brown... 80 percent'",
+      "Steering of a witness at a photo array (from Brittany Evans, shaped by institution): 'an officer pointed to Brown's photo and asked whether she was sure it wasn't him'",
+      "Mismatch with descriptions (from Dollar Tree employees and the police report, shaped by nobody): 'stocky' and 'pudgy', 6 feet to 6 feet 2 inches, 200 to 220 pounds vs. Brown's records showing 5 feet 9 inches and 150 pounds"
     ],
-    "rationale": "The state's case rested on Babb's report that Brown was the print source, and that report claimed a SAFIS search that was never run; the unrun search hid another man's 16-point print, so an institutional agent's false claim that a step was done is what the account most depends on, while the overstated print testimony and the weak eyewitness identifications are secondary inflation and error.",
-    "confidence": 0.55,
+    "rationale": "The Dollar Tree conviction rested mainly on Babb's fingerprint attribution. His report stated that a statewide database search had been done when it had not, and that search would have found another man's print. This is an institutional agent claiming a step was done that was not, and it is backed by an overstated match and expert claims.",
+    "confidence": 0.62,
     "_model": "claude-opus-5-5",
     "_votes": {
       "n": 3,
       "agreed": 3,
       "unanimous": true,
       "distribution": {
+        "supplied_by": {
+          "institution": 3
+        },
         "mode": {
           "manufactured": 3
+        },
+        "shaped_by": {
+          "institution": 3
         }
       },
       "quarantined": 0
@@ -120,12 +148,10 @@
   },
   "control_backup": {
     "mode": "unmarked",
-    "mode_signals": [
-      "technical claim (from the practitioner, shaped by nobody): \"NTFS silently drops execute bits, symlinks, and ownership\"",
-      "assertive decision (from the practitioner, shaped by nobody): \"a claim that NTFS compatibility has no practical value on a machine that will never be handed to Windows\"",
-      "resolution (from the practitioner, shaped by nobody): \"reformat as ext4, preserve WSL as the Windows bridge, close the format question permanently\""
-    ],
-    "rationale": "The text describes a personal technical decision about formatting backup drives, so no institution relies on an account of events to decide, accuse, rule or act, and nothing shows any account being made.",
+    "supplied_by": "none",
+    "shaped_by": "none",
+    "mode_signals": [],
+    "rationale": "The text describes a personal technical decision to reformat backup drives from NTFS to ext4, so no institution acts on an account of events and nothing shows how such an account was made.",
     "confidence": 0.9,
     "_model": "claude-opus-5-5",
     "_votes": {
@@ -133,8 +159,14 @@
       "agreed": 3,
       "unanimous": true,
       "distribution": {
+        "supplied_by": {
+          "none": 3
+        },
         "mode": {
           "unmarked": 3
+        },
+        "shaped_by": {
+          "none": 3
         }
       },
       "quarantined": 0
@@ -146,17 +178,25 @@
   },
   "control_pivot": {
     "mode": "unmarked",
+    "supplied_by": "none",
+    "shaped_by": "none",
     "mode_signals": [],
-    "rationale": "The text describes a technical decision to change a backup script's source directory based on a user's stated preference; no institution relies on an account of events to decide, accuse, rule or act, and nothing shows such an account being shaped.",
-    "confidence": 0.9,
+    "rationale": "The text describes a technical decision to change a backup script's source directory from $HOME/Desktop to $HOME because of the user's command-line habits, so no institution acts on any account of events to decide, accuse, rule or act.",
+    "confidence": 0.95,
     "_model": "claude-opus-5-5",
     "_votes": {
       "n": 3,
       "agreed": 3,
       "unanimous": true,
       "distribution": {
+        "supplied_by": {
+          "none": 3
+        },
         "mode": {
           "unmarked": 3
+        },
+        "shaped_by": {
+          "none": 3
         }
       },
       "quarantined": 0

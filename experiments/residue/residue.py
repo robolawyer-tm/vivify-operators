@@ -151,23 +151,28 @@ def candidate_openings():
     return "\n\n".join(out)
 
 
-def add_account_production(name, encoding, named=False):
+def add_account_production(name, encoding, named=False, positions=False):
     """The mode alone, from account_production_run.json; signals carry particulars.
 
     named: label the value with WHOSE account it describes. The bare label was read
-    as describing the text itself (acceptance try 1, 2026-10-17)."""
-    mode = read_json(HERE / "account_production_run.json")[name]["mode"]
-    if named:
+    as describing the text itself (acceptance try 1, 2026-10-17).
+    positions: also who supplied and who shaped it (try 3; try 2 lost WHO)."""
+    rec = read_json(HERE / "account_production_run.json")[name]
+    mode = rec["mode"]
+    if positions:
+        encoding["logos"]["account_the_institution_relied_on"] = {
+            "how_it_was_made": mode, "supplied_by": rec["supplied_by"], "shaped_by": rec["shaped_by"]}
+    elif named:
         encoding["logos"]["account_the_institution_relied_on"] = {"how_it_was_made": mode}
     else:
         encoding["logos"]["account_production"] = {"mode": mode}
     return encoding
 
 
-def run_case(name, spec, out=HERE, with_ap=False, named=False):
+def run_case(name, spec, out=HERE, with_ap=False, named=False, positions=False):
     record, encoding = load_case(name, spec)
     if with_ap:
-        encoding = add_account_production(name, encoding, named)
+        encoding = add_account_production(name, encoding, named, positions)
     out.mkdir(parents=True, exist_ok=True)
     write_json(out / f"{name}_encoding.json", encoding)
     decoder = DECODER_PROMPT.read_text()
@@ -204,12 +209,14 @@ def main():
                     help="add logos.account_production.mode to each encoding")
     ap.add_argument("--named", action="store_true",
                     help="with --with-account-production: label it as the account the institution relied on")
+    ap.add_argument("--positions", action="store_true",
+                    help="with --with-account-production: named label plus supplied_by and shaped_by")
     args = ap.parse_args()
     out = Path(args.out) if args.out else HERE
     if not args.match_only:
         names = args.cases.split(",") if args.cases else list(CASES)
         for name in names:
-            run_case(name, CASES[name], out, args.with_account_production, args.named)
+            run_case(name, CASES[name], out, args.with_account_production, args.named, args.positions)
     if not args.out and (args.match_only or not args.cases):
         run_match()
 
@@ -220,3 +227,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/residue.py | created — demand-pull residue test: blind decode, residue vs case record (candidates unseen), then match against C-01..C-10 with NONE allowed
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/residue.py | --out (re-run arm, no match step) and --with-account-production (adds the mode alone to each encoding) for the account_production acceptance test
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/residue.py | --named: label the mode as the account the institution relied on (try 1 was read as describing the text itself)
+# llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/residue.py | --positions: named label plus supplied_by and shaped_by (acceptance try 3)

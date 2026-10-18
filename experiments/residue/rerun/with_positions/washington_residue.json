@@ -1,0 +1,83 @@
+{
+  "particulars": "All names, dates, places, ages, wound counts, sentence lengths, the 21-day limit and the specific governors were dropped.",
+  "items": [
+    {
+      "record": "The case is a criminal murder-and-rape prosecution ending in a death sentence: \"The jurors returned with their verdict of death.\"",
+      "reading": "A regulatory or administrative announcement about a fringe activist, publisher or business, built on a consent agreement or settlement.",
+      "loss": "The reading misidentifies the domain, the stakes and the kind of institution involved.",
+      "id": "washington-01"
+    },
+    {
+      "record": "The target was a man with an intellectual disability who deferred to authority: \"Washington would politely defer to any authority figure with whom he came into contact.\"",
+      "reading": "A dissident or unorthodox actor on the fringe of public life, bound to the institution by licensing, funding or supervision.",
+      "loss": "This is the specific personal vulnerability that made him easy to steer into a false confession.",
+      "id": "washington-02"
+    },
+    {
+      "record": "Police drew out confessions to several crimes after a separate arrest: \"police claimed he had 'confessed' to a total of five different crimes.\"",
+      "reading": "absent",
+      "loss": "This is the sequence by which an unrelated arrest led to a broad, indiscriminate set of confessions.",
+      "id": "washington-03"
+    },
+    {
+      "record": "The confession contradicted the known facts: \"Washington did not know the race of his victim... that he had stabbed her two or three times when the victim showed thirty-eight stab wounds.\"",
+      "reading": "The reading only suggests that the shaped account might still describe real misconduct.",
+      "loss": "The record shows the confession was plainly factually false, not merely ambiguous.",
+      "id": "washington-04"
+    },
+    {
+      "record": "The confession was rehearsed until it was acceptable, and police led him to the scene: \"Only on the fourth attempt at a rehearsed confession did authorities accept... police, who in the end had to help him pick out Williams' apartment.\"",
+      "reading": "The reading lists how the account was manufactured as unknown, possibly a plea bargain or boilerplate.",
+      "loss": "This is the concrete mechanism by which the authorities built the confession through repeated coaching.",
+      "id": "washington-05"
+    },
+    {
+      "record": "Forensic evidence that cleared him was altered: \"an amended forensic report was prepared (without additional testing being conducted) that said testing for the rare protein was 'inconclusive.'\"",
+      "reading": "absent",
+      "loss": "This is a second channel of institutional fabrication: tampering with the physical evidence, not only shaping his statement.",
+      "id": "washington-06"
+    },
+    {
+      "record": "His defense was one-sided and failed him: \"only the State's psychologist testified... the defense did not offer any counter argument to the jury concerning a sentence of death.\"",
+      "reading": "The reading lists whether he had a lawyer as unknown.",
+      "loss": "This shows that his legal representation failed at both trial and sentencing.",
+      "id": "washington-07"
+    },
+    {
+      "record": "Rescue came through an informal network of prisoners and volunteers: \"another death row inmate... alerted Marie Deans (a non-lawyer...) and a lawyer... the firm secured a stay of execution... nine days before he was scheduled to die.\"",
+      "reading": "The reading says the target had no strong community and that a fringe audience amplified the dispute publicly.",
+      "loss": "Relief came from a fellow prisoner and outside advocates acting just in time, not from public escalation.",
+      "id": "washington-08"
+    },
+    {
+      "record": "Procedural rules blocked exoneration despite DNA evidence: \"Because Washington was time barred by Virginia law... he was not exonerated. Instead... commuted Washington's sentence to life imprisonment.\"",
+      "reading": "The reading says the target is constrained by the signed document and cannot walk it back.",
+      "loss": "The real obstacle after he was proven innocent was a legal deadline, not his signature.",
+      "id": "washington-09"
+    },
+    {
+      "record": "Correction came in stages over many years: commutation, then a limited pardon, then release to parole, and finally \"an absolute pardon, which acknowledged that Washington was wrongfully convicted.\"",
+      "reading": "The reading predicts an unresolved split public, with the official record persisting and being cited.",
+      "loss": "This is the actual path of resolution: a gradual official reversal through executive clemency, ending in full acknowledgment of innocence.",
+      "id": "washington-10"
+    },
+    {
+      "record": "The real perpetrator was identified: \"Kenneth Tinsley... pleaded guilty to Rebecca Lynn Williams' rape and murder.\"",
+      "reading": "absent",
+      "loss": "This is the outcome that settled the underlying truth.",
+      "id": "washington-11"
+    },
+    {
+      "record": "There was an actual victim of a violent crime: \"a 19-year-old mother of three was raped and stabbed... She could only describe her attacker as a Black man acting alone.\"",
+      "reading": "absent",
+      "loss": "This covers the crime itself and the vague, race-based description that made him a fit for the suspect profile.",
+      "id": "washington-12"
+    },
+    {
+      "record": "His own response after release was mild: \"This was a whole lot better than I expected.\"",
+      "reading": "The reading guesses at humiliation, defiance or a martyr narrative.",
+      "loss": "This is the subject's actual, understated reaction to freedom.",
+      "id": "washington-13"
+    }
+  ]
+}
