@@ -160,6 +160,51 @@ def claude_cmd(prompt, model, *extra):
     return cmd
 
 
+# --- usage log -----------------------------------------------------------------
+# One JSON line per LLM call, the same shape for every backend, so runs and
+# providers can be compared by one ruler: tokens in / out / cached, seconds, ok.
+# Transports report what their provider says (_note_usage); llm_call_model times
+# the call and writes the line. VIVIFY_USAGE_LOG=off turns it off; VIVIFY_RUN_TAG
+# labels the calls of one run (e.g. "residue_try5").
+USAGE_FIELDS = ("input", "output", "cache_write", "cache_read", "thinking", "cost_usd")
+_last_usage = {}
+
+
+def usage_log_path():
+    import os
+    p = os.environ.get("VIVIFY_USAGE_LOG", "")
+    if p.lower() == "off":
+        return None
+    return Path(p) if p else Path.home() / ".local" / "state" / "vivify-operators" / "usage.jsonl"
+
+
+def _note_usage(**fields):
+    """Called by a transport with what its provider reported (missing = unknown)."""
+    _last_usage.update({k: v for k, v in fields.items() if v is not None})
+
+
+def _write_usage(backend, model, seconds, prompt_chars, ok, error=None):
+    import os
+    path = usage_log_path()
+    if path is None:
+        return
+    from datetime import datetime, timezone
+    rec = {"at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+           "tag": os.environ.get("VIVIFY_RUN_TAG"), "backend": backend, "model": model,
+           "ok": ok, "seconds": round(seconds, 2), "prompt_chars": prompt_chars}
+    rec.update({k: _last_usage.get(k) for k in USAGE_FIELDS})
+    if backend == "claude":
+        rec["worker"] = claude_worker_mode()
+    if error:
+        rec["error"] = str(error)[:200]
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "a") as f:
+            f.write(json.dumps(rec) + "\n")
+    except OSError:
+        pass                    # the log must never stop a run
+
+
 def _claude_transport(prompt, model, params=None):
     """Transport for the claude: backend — the claude CLI subprocess.
 
@@ -171,13 +216,25 @@ def _claude_transport(prompt, model, params=None):
     """
     import subprocess
     result = subprocess.run(
-        claude_cmd(prompt, model),
+        claude_cmd(prompt, model, "--output-format", "json"),
         capture_output=True,
         text=True
     )
     if result.returncode != 0:
         raise LLMUnavailable(result.stderr.strip() or f"claude exited {result.returncode}")
-    return result.stdout.strip()
+    try:
+        out = json.loads(result.stdout)
+    except json.JSONDecodeError:
+        return result.stdout.strip()        # an older CLI without JSON output
+    u = out.get("usage") or {}
+    _note_usage(input=u.get("input_tokens"), output=u.get("output_tokens"),
+                cache_write=u.get("cache_creation_input_tokens"),
+                cache_read=u.get("cache_read_input_tokens"),
+                thinking=(u.get("output_tokens_details") or {}).get("thinking_tokens"),
+                cost_usd=out.get("total_cost_usd"))
+    if out.get("is_error"):
+        raise LLMUnavailable(f"claude error: {str(out.get('result'))[:200]}")
+    return str(out.get("result", "")).strip()
 
 
 def _make_openai_transport(provider, base_url, env_key, extra_headers=None):
@@ -226,6 +283,10 @@ def _make_openai_transport(provider, base_url, env_key, extra_headers=None):
             # URLError, read TimeoutError, and socket errors are all OSError —
             # a slow free-tier model that times out must fail-soft, not crash.
             raise LLMUnavailable(f"{provider} request failed: {e}")
+        u = payload.get("usage") or {}
+        _note_usage(input=u.get("prompt_tokens"), output=u.get("completion_tokens"),
+                    cache_read=(u.get("prompt_tokens_details") or {}).get("cached_tokens"),
+                    thinking=(u.get("completion_tokens_details") or {}).get("reasoning_tokens"))
         try:
             return payload["choices"][0]["message"]["content"].strip()
         except (KeyError, IndexError, TypeError) as e:
@@ -279,6 +340,7 @@ def _ollama_transport(prompt, model, params=None):
             payload = json.loads(resp.read())
     except OSError as e:  # URLError / TimeoutError / socket errors are all OSError
         raise LLMUnavailable(f"ollama request failed (is the server running at {host}?): {e}")
+    _note_usage(input=payload.get("prompt_eval_count"), output=payload.get("eval_count"))
     try:
         return payload["message"]["content"].strip()
     except (KeyError, TypeError) as e:
@@ -406,6 +468,9 @@ def _gemini_transport(prompt, model, params=None, grounded=False):
         method="POST",
     )
     payload = _gemini_request_with_wait(req)
+    u = payload.get("usageMetadata") or {}
+    _note_usage(input=u.get("promptTokenCount"), output=u.get("candidatesTokenCount"),
+                cache_read=u.get("cachedContentTokenCount"), thinking=u.get("thoughtsTokenCount"))
     try:
         cand = payload["candidates"][0]
         text = "".join(p.get("text", "") for p in cand["content"]["parts"]).strip()
@@ -546,9 +611,17 @@ def llm_call_model(prompt, model_id, params=None, sensitive=False):
     - Raises LLMUnavailable (model down) / PrivacyGateError (sensitive call leaving box).
     """
     import re
+    import time
     backend, model = split_backend(model_id)
     _enforce_privacy_gate(backend, sensitive)
-    text = TRANSPORTS[backend](prompt, model, params)
+    _last_usage.clear()
+    t = time.time()
+    try:
+        text = TRANSPORTS[backend](prompt, model, params)
+    except Exception as e:
+        _write_usage(backend, model, time.time() - t, len(prompt), False, e)
+        raise
+    _write_usage(backend, model, time.time() - t, len(prompt), True)
     # strip markdown code fences (```json ... ``` or ``` ... ```)
     text = re.sub(r"^```[a-z]*\n?", "", text, flags=re.MULTILINE)
     text = re.sub(r"\n?```$", "", text, flags=re.MULTILINE)
@@ -979,3 +1052,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/lib/vivify_core.py | lean worker — claude -p calls drop the Claude Code harness (no tools, own system prompt, no settings/memory/MCP/skills/session file); VIVIFY_CLAUDE_WORKER=full restores the old call; alias probe routes through claude_cmd too
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/lib/vivify_core.py | gemini: is now a plain worker (no tools) and gemini_search: the grounded route; Gemini calls wait and retry on 429/503 (Google's retryDelay, else 30/60/90s, cap 120s, per-day quota gives up)
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/lib/vivify_core.py | Gemini give-up errors are one line and keep the quota hit (quota=<id>:<value>) instead of a 200-char cut of pretty-printed JSON
+# llm: claude-opus-5-5 | 2026-10-18 | repos/vivify-operators/lib/vivify_core.py | usage log: one JSON line per LLM call, same shape for every backend (tokens in/out/cache, thinking, cost, seconds, ok); claude worker reads --output-format json; VIVIFY_USAGE_LOG, VIVIFY_RUN_TAG
