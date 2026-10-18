@@ -75,7 +75,22 @@ A new coordinate, `account_production`, would record how the account the institu
 - So the residue count cannot tell structure from domain: once the structure is recovered, the reader places it in tax, benefits or a regulator, and the loss is written as "not X but Y".
 - Fair test, not yet run: give BOTH arms the domain (for example "criminal case"), as the keywords would in the real instrument (July finding: coordinates carry dynamics, keywords carry domain).
 
+## Try 4 (2026-10-18): setting held, residue count still fails
+
+- Both arms were told "criminal case". Losses about how the account was made: baseline_domain 18/58, positions_domain 23/55. The judge drifted by about ±3: it gave the baseline 18 here, after 15 three times.
+- The single dominant value misleads where it leaves things out. Sutton's shaped_by=nobody became "every official, including the prosecutor, acted sincerely". Cotton's became "certainty settled from the start".
+
+## Fixed checklist (2026-10-18): the first measure that moves
+
+- `ap_checklist.py` scores every arm's existing blind reading against the eleven original items: yes = 1, partly = 0.5. The arms are shuffled and labelled per case, and there is one judge call per case.
+- Totals out of 11: baseline 0; bare label 0.5; named 2; positions 1.5; baseline_domain 1; **positions_domain 4.5 (2 yes, 5 partly)**.
+- Fair pair (setting held): 1 vs 4.5. The yes items were washington-03 (the rehearsed confession) and cotton-04 (the honest but hesitant witness).
+- Still missed with everything added: sutton-03 (show-up despite mismatch), washington-07 (report rewritten), cotton-09 (weak evidence stacked), brown-02 (the hesitant picks). These are the secondary elements the one dominant value drops.
+- Limits: one judge draw per case, the same model family throughout, and readings from a single decode per arm.
+- Cost (usage log, tag ap_checklist): 4 calls, 42K tokens written to the cache, 2.5K out, 1.9K thinking, 37 s, list $0.39.
+
 <!-- llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/candidate_account_production.md | created — sketch of the first demand-led dimension candidate: mode (mistaken/inflated/manufactured/unmarked), hardening (repetition/endorsement/none), signals, replay reading, placement, acceptance via re-run residue test -->
 <!-- llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/candidate_account_production.md | open questions replaced by John's three decisions (one dominant value, mode first, shielding goes with reopening); built files listed -->
 <!-- llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/candidate_account_production.md | acceptance section: failed with bare and named labels; remaining losses ask who supplied and shaped the account -->
 <!-- llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/candidate_account_production.md | try 3: positions carried in the reading, count flat, remaining losses are domain; domain-held test proposed -->
+<!-- llm: claude-opus-5-5 | 2026-10-18 | repos/vivify-operators/experiments/residue/candidate_account_production.md | try 4 and fixed-checklist result: positions plus setting 4.5/11 vs 1/11 -->

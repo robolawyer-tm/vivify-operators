@@ -1,0 +1,247 @@
+{
+  "by_case": {
+    "sutton": {
+      "labels": {
+        "baseline_domain": "R1",
+        "with_positions": "R2",
+        "positions_domain": "R3",
+        "baseline": "R4",
+        "with_ap_named": "R5",
+        "with_ap": "R6"
+      },
+      "arms": {
+        "baseline": {
+          "marks": {
+            "sutton-03": "no",
+            "sutton-05": "no"
+          },
+          "score": 0.0
+        },
+        "with_ap": {
+          "marks": {
+            "sutton-03": "no",
+            "sutton-05": "no"
+          },
+          "score": 0.0
+        },
+        "with_ap_named": {
+          "marks": {
+            "sutton-03": "no",
+            "sutton-05": "no"
+          },
+          "score": 0.0
+        },
+        "with_positions": {
+          "marks": {
+            "sutton-03": "no",
+            "sutton-05": "no"
+          },
+          "score": 0.0
+        },
+        "baseline_domain": {
+          "marks": {
+            "sutton-03": "no",
+            "sutton-05": "no"
+          },
+          "score": 0.0
+        },
+        "positions_domain": {
+          "marks": {
+            "sutton-03": "no",
+            "sutton-05": "partly"
+          },
+          "score": 0.5
+        }
+      }
+    },
+    "washington": {
+      "labels": {
+        "with_positions": "R1",
+        "baseline_domain": "R2",
+        "positions_domain": "R3",
+        "with_ap_named": "R4",
+        "baseline": "R5",
+        "with_ap": "R6"
+      },
+      "arms": {
+        "baseline": {
+          "marks": {
+            "washington-03": "no",
+            "washington-05": "no",
+            "washington-07": "no"
+          },
+          "score": 0.0
+        },
+        "with_ap": {
+          "marks": {
+            "washington-03": "no",
+            "washington-05": "no",
+            "washington-07": "no"
+          },
+          "score": 0.0
+        },
+        "with_ap_named": {
+          "marks": {
+            "washington-03": "no",
+            "washington-05": "no",
+            "washington-07": "partly"
+          },
+          "score": 0.5
+        },
+        "with_positions": {
+          "marks": {
+            "washington-03": "partly",
+            "washington-05": "no",
+            "washington-07": "no"
+          },
+          "score": 0.5
+        },
+        "baseline_domain": {
+          "marks": {
+            "washington-03": "no",
+            "washington-05": "no",
+            "washington-07": "no"
+          },
+          "score": 0.0
+        },
+        "positions_domain": {
+          "marks": {
+            "washington-03": "yes",
+            "washington-05": "partly",
+            "washington-07": "no"
+          },
+          "score": 1.5
+        }
+      }
+    },
+    "cotton": {
+      "labels": {
+        "with_ap": "R1",
+        "with_ap_named": "R2",
+        "with_positions": "R3",
+        "baseline": "R4",
+        "baseline_domain": "R5",
+        "positions_domain": "R6"
+      },
+      "arms": {
+        "baseline": {
+          "marks": {
+            "cotton-04": "no",
+            "cotton-05": "no",
+            "cotton-09": "no"
+          },
+          "score": 0.0
+        },
+        "with_ap": {
+          "marks": {
+            "cotton-04": "partly",
+            "cotton-05": "no",
+            "cotton-09": "no"
+          },
+          "score": 0.5
+        },
+        "with_ap_named": {
+          "marks": {
+            "cotton-04": "partly",
+            "cotton-05": "partly",
+            "cotton-09": "no"
+          },
+          "score": 1.0
+        },
+        "with_positions": {
+          "marks": {
+            "cotton-04": "partly",
+            "cotton-05": "partly",
+            "cotton-09": "no"
+          },
+          "score": 1.0
+        },
+        "baseline_domain": {
+          "marks": {
+            "cotton-04": "partly",
+            "cotton-05": "partly",
+            "cotton-09": "no"
+          },
+          "score": 1.0
+        },
+        "positions_domain": {
+          "marks": {
+            "cotton-04": "yes",
+            "cotton-05": "partly",
+            "cotton-09": "no"
+          },
+          "score": 1.5
+        }
+      }
+    },
+    "brown": {
+      "labels": {
+        "with_ap": "R1",
+        "with_positions": "R2",
+        "with_ap_named": "R3",
+        "baseline_domain": "R4",
+        "baseline": "R5",
+        "positions_domain": "R6"
+      },
+      "arms": {
+        "baseline": {
+          "marks": {
+            "brown-02": "no",
+            "brown-03": "no",
+            "brown-15": "no"
+          },
+          "score": 0.0
+        },
+        "with_ap": {
+          "marks": {
+            "brown-02": "no",
+            "brown-03": "no",
+            "brown-15": "no"
+          },
+          "score": 0.0
+        },
+        "with_ap_named": {
+          "marks": {
+            "brown-02": "no",
+            "brown-03": "partly",
+            "brown-15": "no"
+          },
+          "score": 0.5
+        },
+        "with_positions": {
+          "marks": {
+            "brown-02": "no",
+            "brown-03": "no",
+            "brown-15": "no"
+          },
+          "score": 0.0
+        },
+        "baseline_domain": {
+          "marks": {
+            "brown-02": "no",
+            "brown-03": "no",
+            "brown-15": "no"
+          },
+          "score": 0.0
+        },
+        "positions_domain": {
+          "marks": {
+            "brown-02": "no",
+            "brown-03": "partly",
+            "brown-15": "partly"
+          },
+          "score": 1.0
+        }
+      }
+    }
+  },
+  "totals": {
+    "baseline": 0.0,
+    "with_ap": 0.5,
+    "with_ap_named": 2.0,
+    "with_positions": 1.5,
+    "baseline_domain": 1.0,
+    "positions_domain": 4.5
+  },
+  "max_per_arm": 11
+}
