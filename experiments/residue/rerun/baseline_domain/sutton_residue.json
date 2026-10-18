@@ -1,0 +1,83 @@
+{
+  "particulars": "All names, ages, dates, places, heights and weights, DNA statistics, sentence length, compensation amounts and agency names are omitted, as intended.",
+  "items": [
+    {
+      "record": "The text is a retrospective case narrative that follows the matter from crime to exoneration and beyond: \"On March 14, 2004, Gov. Perry granted Mr. Sutton a pardon based on innocence.\"",
+      "reading": "It guesses the text is a binding state document, such as a judgment, an appellate affirmance or a prosecutorial findings document, written to justify the conviction.",
+      "loss": "This is the actual genre, standpoint and time span of the document.",
+      "id": "sutton-01"
+    },
+    {
+      "record": "The conviction began with the victim spotting two youths on the street by their hats, then identifying them at a parking-lot show-up from about ten feet, despite a large mismatch with her own description: \"Josiah was about 6 inches taller and 60 pounds heavier than P.S.' description.\"",
+      "reading": "It proposes withheld evidence, an ignored suspect or a coerced confession. It says victims are entirely absent.",
+      "loss": "This is the originating mechanism of the wrongful conviction: a suggestive eyewitness identification made by the victim herself.",
+      "id": "sutton-02"
+    },
+    {
+      "record": "The crime lab's DNA work was faulty. It used an older, less discriminating method, typed the same person two different ways, and gave the jury a misleading statistic: \"1 in 694,000\" versus a true \"better than 1 chance in 8\" for a pair of suspects.",
+      "reading": "absent. It treats the failure as deliberate suppression and narrative cleanup.",
+      "loss": "This is the central causal mechanism: unreliable forensic science and overstated statistics presented as conclusive proof.",
+      "id": "sutton-03"
+    },
+    {
+      "record": "The same DNA test excluded the co-defendant, who was released. The appellate court then treated that result as confirming the evidence: \"The State's DNA evidence which implicated appellant and led to the dismissal of charges against others accused, is not seriously challenged.\"",
+      "reading": "It describes a generic build-up of rulings that narrows the room to reopen the case.",
+      "loss": "This is a specific self-validating loop, where the flawed test gained credibility by clearing one suspect while convicting the other.",
+      "id": "sutton-04"
+    },
+    {
+      "record": "Defence counsel simply accepted the lab result (\"Well, I'm sorry, man, but that's what they came up with\"). He never authorized the paid independent testing, hired no expert, and opened the door to his client's prior record.",
+      "reading": "It casts the defence lawyer as sharing career stakes with police and prosecutors in keeping the account intact.",
+      "loss": "This is the true nature of the defence failure: negligence and inability to handle the science, not collusion.",
+      "id": "sutton-05"
+    },
+    {
+      "record": "The lab report wrongly said the backseat sample was consistent with the defendant when he had in fact been excluded. At trial the prosecutor cut the analyst off: \"I don't want to talk about the unknown sample, okay?\"",
+      "reading": "It speaks only generally of exculpatory evidence being withheld before the record was written.",
+      "loss": "This is the concrete form of the hidden exculpatory evidence: a lab misstatement combined with an in-court shutdown of testimony.",
+      "id": "sutton-06"
+    },
+    {
+      "record": "The defendant and his family acted throughout. His family paid for independent testing. He drafted his own post-conviction motion. His mother called the TV station: \"Mr. Sutton's mother, Carol Batie, caught the story on television and called the station.\"",
+      "reading": "It describes an isolated subject with no group and no advocate, whose own voice grows less audible over time.",
+      "loss": "This is the subject's position and agency: a family network that actively drove the case toward correction.",
+      "id": "sutton-07"
+    },
+    {
+      "record": "The correction came through a broader scandal about the lab. Defence attorneys tipped off reporters, who had independent experts review the lab's work before this case was ever taken up: \"after receiving a tip from local defense attorneys about problems with the lab's work.\"",
+      "reading": "It predicts in general terms that any correction would come from outside, for example from journalism or DNA testing.",
+      "loss": "This is the route by which an individual case reached scrutiny: through a lab-wide exposure started by the defence bar.",
+      "id": "sutton-08"
+    },
+    {
+      "record": "Even after repeated DNA exclusions, prosecutors refused to back a pardon based on innocence, citing the identification: \"noting that the victim had not recanted her identification of Mr. Sutton.\" They also opposed the misconduct writ.",
+      "reading": "It speaks generally of a rising cost of admitting error.",
+      "loss": "This is the specific dynamic of officials falling back on eyewitness testimony to resist exoneration after the science reversed.",
+      "id": "sutton-09"
+    },
+    {
+      "record": "The case was fully resolved. He was released, pardoned for innocence and awarded compensation.",
+      "reading": "It says that within the document the case does not resolve and \"the illusion holds.\"",
+      "loss": "This is the outcome of the case: complete official exoneration and redress.",
+      "id": "sutton-10"
+    },
+    {
+      "record": "The unknown DNA profile was matched through a national database to another man, who pleaded guilty and named a now-dead accomplice: \"He pleaded guilty in January 2007.\"",
+      "reading": "absent",
+      "loss": "This is the identification of the actual perpetrators and the confirmation that the original account was false.",
+      "id": "sutton-11"
+    },
+    {
+      "record": "The 16-year-old was certified to stand trial as an adult: \"Josiah had just turned 17 and was certified to stand trial as an adult.\"",
+      "reading": "absent",
+      "loss": "This is the subject's position as a juvenile moved into the adult criminal process.",
+      "id": "sutton-12"
+    },
+    {
+      "record": "A public defender was appointed even though the new testing statute technically did not cover him: \"Although the statute technically didn't apply to him\u2026 Bob Wicoff\u2026 was appointed.\"",
+      "reading": "It says nobody stands with the subject and every procedural step closes off reopening.",
+      "loss": "This is an institutional opening where the system extended help beyond the letter of the law.",
+      "id": "sutton-13"
+    }
+  ]
+}

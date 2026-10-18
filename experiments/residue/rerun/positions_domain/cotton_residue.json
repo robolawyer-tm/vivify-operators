@@ -1,0 +1,83 @@
+{
+  "particulars": "All names, dates, places, ages, charges, sentence lengths, compensation amount and the book title are omitted.",
+  "items": [
+    {
+      "record": "The witness hesitated at first, then the police procedure firmed up her choice: \"it is between number four and number five\", and only after a second viewing with spoken phrases did she pick number five.",
+      "reading": "A confident eyewitness whose account was \"shaped by nobody\" and whose certainty was settled from the start.",
+      "loss": "The reading misses how an uncertain identification was made firm through repeated police lineups.",
+      "id": "cotton-01"
+    },
+    {
+      "record": "The suspect entered the photo pool because of an earlier record: police showed mugshots including one of a man \"arrested as a teenager for breaking and entering\".",
+      "reading": "absent",
+      "loss": "The reading misses how a prior record drew the defendant into the suspect pool to begin with.",
+      "id": "cotton-02"
+    },
+    {
+      "record": "A second victim twice failed to identify him, then at retrial named him, \"saying she had been too afraid to identify him right after the crime.\"",
+      "reading": "absent",
+      "loss": "The reading misses a second witness whose testimony changed over time, from no identification to an accusation.",
+      "id": "cotton-03"
+    },
+    {
+      "record": "Physical evidence that looked consistent backed up the mistake: foam insoles \"that appeared similar\" and a flashlight that \"resembled\" the attacker's.",
+      "reading": "Forensic error is offered only as an alternative source, not as material that supported the eyewitness.",
+      "loss": "The reading misses how loosely matching circumstantial evidence combined with the eyewitness account to strengthen the false conclusion.",
+      "id": "cotton-04"
+    },
+    {
+      "record": "The trial judge excluded evidence that another victim had picked a different man: \"The trial court excluded the evidence on grounds that it was not relevant.\"",
+      "reading": "It describes passive suppression mostly after conviction, through procedural denials.",
+      "loss": "The reading misses active exclusion of evidence that pointed away from the defendant, at the trial itself.",
+      "id": "cotton-05"
+    },
+    {
+      "record": "The appellate court corrected that error in the defendant's favor: the high court \"reversed the convictions and ordered a new trial.\"",
+      "reading": "Years of drifting filings, with every denial explaining why the record still holds.",
+      "loss": "The reading gets wrong how the institution behaved, since a higher court actually sided with the defendant before the case went wrong again.",
+      "id": "cotton-06"
+    },
+    {
+      "record": "The retrial made things worse rather than fixing them: he was \"charged with both rapes\" and was convicted of more counts.",
+      "reading": "absent",
+      "loss": "The reading misses the sequence in which a successful appeal led to a heavier second conviction.",
+      "id": "cotton-07"
+    },
+    {
+      "record": "The real perpetrator was known and was screened out by the victims outside the jury's presence: \"Ms. Thompson-Cannino and the other woman both contended that he was not their attacker\", so he could not be presented as an alternative suspect.",
+      "reading": "absent",
+      "loss": "The reading misses that the true offender was already in the courtroom and was excluded because the witnesses rejected him.",
+      "id": "cotton-08"
+    },
+    {
+      "record": "The true perpetrator had confessed informally: \"he had admitted to other inmates that he had committed both crimes.\"",
+      "reading": "absent",
+      "loss": "The reading misses a confession that circulated in prison and never reached the official process.",
+      "id": "cotton-09"
+    },
+    {
+      "record": "The defense asked for testing and the police complied: police \"turned over all physical evidence\" at the defense's request, and the DNA database matched the other man.",
+      "reading": "Grudging exoneration driven by outside pressure that keeps compounding: press coverage, an innocence project, a recantation.",
+      "loss": "The reading misdescribes how the exoneration happened, which was a cooperative handover of evidence rather than a reaction to mounting outside pressure.",
+      "id": "cotton-10"
+    },
+    {
+      "record": "The prosecution joined in the dismissal, a pardon followed, and the real offender pleaded guilty: \"The district attorney and the defense filed a motion to dismiss all charges\".",
+      "reading": "A face-saving negotiated outcome such as an Alford plea, framed so the court is not admitting error.",
+      "loss": "The reading gets the resolution wrong, since it was a full joint dismissal, a pardon and a guilty plea by the real offender.",
+      "id": "cotton-11"
+    },
+    {
+      "record": "Accuser and exonerated man reconciled and became advocates together: \"They became good friends and began to travel around the country to speak about wrongful convictions.\"",
+      "reading": "absent; the witness's reaction is listed only as unknowable inner experience.",
+      "loss": "The reading misses that the relationship between the accuser and the accused turned into a partnership for reform.",
+      "id": "cotton-12"
+    },
+    {
+      "record": "Life after release was rebuilt partly through the institution that proved his innocence: \"got a job in the warehouse of LabCorp, the company that tested the DNA evidence.\"",
+      "reading": "absent",
+      "loss": "The reading misses how the defendant rebuilt his life after release, including state compensation and family.",
+      "id": "cotton-13"
+    }
+  ]
+}

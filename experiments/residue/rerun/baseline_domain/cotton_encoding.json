@@ -1,0 +1,60 @@
+{
+  "logos": {
+    "act_type": {
+      "value": "assertive",
+      "authority_mismatch": false,
+      "confidence": 0.95
+    },
+    "cooperative": {
+      "status": "honored",
+      "maxim_violated": null,
+      "confidence": 0.85
+    },
+    "transmission": {
+      "value": "archive",
+      "confidence": 0.7
+    },
+    "resonance": {
+      "value": "illusion",
+      "confidence": 0.85
+    },
+    "authority": {
+      "value": "sovereign",
+      "confidence": 0.9
+    },
+    "utility": {
+      "value": "narrative",
+      "secondary": "instruction",
+      "confidence": 0.85
+    },
+    "social_field": {
+      "grid": 0.9,
+      "group": 0.45,
+      "quadrant": "isolate",
+      "confidence": 0.8
+    },
+    "structural": {
+      "layer": "institution",
+      "scale": "institution",
+      "_coerced": null,
+      "density": "bureaucratic",
+      "persistence": "institutional",
+      "authority": "system",
+      "transmission": "archive",
+      "memory_channel": "institutional",
+      "language_mode": "contractual",
+      "overlays": [
+        "society"
+      ],
+      "confidence": 0.8
+    }
+  },
+  "conflict": {
+    "schema": "entangled",
+    "behavior": "suppression",
+    "terrain": "drifting",
+    "window": "rationalizing",
+    "escalation_phase": "exponential",
+    "confidence": 0.68
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "particulars": "All names, dates, places, ages, counts (stab wounds, victim height, number of confessions, sentence lengths, 21-day limit) and the identities of the governors and the real perpetrator were dropped.",
+  "items": [
+    {
+      "record": "The accused's intellectual disability made him compliant: \"to compensate for his disability, Washington would politely defer to any authority figure\"",
+      "reading": "Lists mental capacity as unknown and says nothing confirms it.",
+      "loss": "The suspect's personal vulnerability, which explains how the confession was produced, is missing.",
+      "id": "washington-01"
+    },
+    {
+      "record": "Police said he had confessed to several crimes at once, and most were thrown out: \"the first four were dismissed by the Commonwealth because of the inconsistencies\"",
+      "reading": "absent",
+      "loss": "The interrogation produced confessions to many crimes, and the institution itself discarded most of them while keeping one.",
+      "id": "washington-02"
+    },
+    {
+      "record": "The confession got key facts wrong: \"did not know the race of his victim, the address... or that he had raped her\"",
+      "reading": "Says the statement was steered until it matched the theory, so it sounded orderly and sincere.",
+      "loss": "The confession stayed visibly wrong rather than polished, and the authorities accepted it anyway.",
+      "id": "washington-03"
+    },
+    {
+      "record": "The confession was rehearsed until accepted: \"Only on the fourth attempt at a rehearsed confession did authorities accept\"",
+      "reading": "Speaks generally of leading questions and corrections.",
+      "loss": "The concrete process was repeated rehearsal until a version was signed off and signed.",
+      "id": "washington-04"
+    },
+    {
+      "record": "Police led him to the scene: \"taken there three times in one afternoon by the police, who in the end had to help him pick out Williams' apartment\"",
+      "reading": "absent",
+      "loss": "Investigators directly built the corroborating evidence through a staged site identification.",
+      "id": "washington-05"
+    },
+    {
+      "record": "Forensic evidence was altered after he became a suspect: \"an amended forensic report was prepared (without additional testing being conducted) that said... 'inconclusive'\"",
+      "reading": "Suppression is described only as unpursued leads and dismissed recantations.",
+      "loss": "Exculpatory lab results were actively rewritten, not just ignored.",
+      "id": "washington-06"
+    },
+    {
+      "record": "The trial was one-sided: \"only the State's psychologist testified\" and \"the defense did not offer any counter argument... concerning a sentence of death\"",
+      "reading": "absent",
+      "loss": "The defense failed at trial and the expert evidence was uncontested, which is a source of the wrongful outcome the reading never names.",
+      "id": "washington-07"
+    },
+    {
+      "record": "The case carried a death sentence and an execution date: \"secured a stay of execution for Washington nine days before he was scheduled to die\"",
+      "reading": "Mentions appeals and imprisonment, never capital punishment.",
+      "loss": "The stakes were life or death, and the case came within days of an execution.",
+      "id": "washington-08"
+    },
+    {
+      "record": "Rescue came through a fellow prisoner and a volunteer: \"another death row inmate, Joseph Giarrantano, alerted Marie Deans (a non-lawyer...)\" and a lawyer who happened to be there brought the case to her firm",
+      "reading": "Guesses at a lone defense attorney, an innocence project, a relative, a journalist or online sleuths.",
+      "loss": "The specific chain of chance contacts inside prison that started the challenge is missing.",
+      "id": "washington-09"
+    },
+    {
+      "record": "Exoneration was blocked by procedure, not by official doubling-down: \"time barred by Virginia law... he was not exonerated. Instead... commuted\"",
+      "reading": "Says the institution escalated exponentially, hardening with each new doubt.",
+      "loss": "The real obstacle was a rigid deadline on new evidence, and DNA proof still did not free him.",
+      "id": "washington-10"
+    },
+    {
+      "record": "Relief came through executive clemency, in stages: commutation, then a \"pardon... on limited grounds,\" release to parole, then an \"absolute pardon\" years later",
+      "reading": "Predicts vacatur, exoneration or quiet dismissal through the courts.",
+      "loss": "Governors, not courts, resolved the case through a slow series of partial steps over many years.",
+      "id": "washington-11"
+    },
+    {
+      "record": "Release was conditional: \"released from prison to parole supervision\"",
+      "reading": "absent",
+      "loss": "Even after the pardon, he remained under state supervision rather than being fully free.",
+      "id": "washington-12"
+    },
+    {
+      "record": "The real perpetrator confessed: \"Kenneth Tinsley... pleaded guilty to Rebecca Lynn Williams' rape and murder\"",
+      "reading": "Mentions an alternate suspect only as one possible source of doubt.",
+      "loss": "Full acknowledgment of innocence came only after the actual offender admitted the crime.",
+      "id": "washington-13"
+    },
+    {
+      "record": "The dying victim's only description was racial: \"could only describe her attacker as a Black man acting alone\"",
+      "reading": "Treats the accused's race as unknown and the victim's role as unknown.",
+      "loss": "A race-only description from the victim framed the search for a suspect.",
+      "id": "washington-14"
+    },
+    {
+      "record": "He was brought in on unrelated charges: \"arrested in nearby Fauquier County, for an alleged burglary and malicious wounding\"",
+      "reading": "absent",
+      "loss": "He became a murder suspect through an unrelated arrest, not through any evidence tying him to the killing.",
+      "id": "washington-15"
+    },
+    {
+      "record": "His reaction to release was mild: \"This was a whole lot better than I expected.\"",
+      "reading": "Describes his experience as disorienting, then hopeless.",
+      "loss": "The accused's own understated, accommodating voice is missing.",
+      "id": "washington-16"
+    }
+  ]
+}

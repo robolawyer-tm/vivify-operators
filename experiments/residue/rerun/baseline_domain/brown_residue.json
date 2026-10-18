@@ -1,0 +1,119 @@
+{
+  "particulars": "All names, dates, locations, store names, dollar amounts, sentence lengths, physical measurements, print point counts, statute and agency names, and the year-by-year timeline are absent from the reading.",
+  "items": [
+    {
+      "record": "The harm was two armed robberies of retail stores by a stranger: \"a man with a gun robbed a Family Dollar store\" and a Dollar Tree was \"robbed at gunpoint of $208.\"",
+      "reading": "The harm happened \"inside a household, not between strangers\"; the victims are probably a child, partner or elderly parent.",
+      "loss": "This misidentifies the basic offence and the relationship between offender and victims.",
+      "id": "brown-01"
+    },
+    {
+      "record": "The man convicted was apparently not the robber. The case ends with the conviction undone: \"granted the motion for a new trial, and the state dismissed the charge.\"",
+      "reading": "The judgment \"produces a durable official truth\"; the record \"stands\", with a possible appeal pending.",
+      "loss": "This misses the overall arc of a wrongful conviction that was eventually reversed and dismissed.",
+      "id": "brown-02"
+    },
+    {
+      "record": "The accused consistently denied guilt and offered his own life as the reason: \"he worked full-time at a local factory, owned a $40,000 car and had no need to rob dollar stores\"; \"It wasn't me, your honor.\"",
+      "reading": "The defendant \"explained the harm away as discipline, accident, stress\", and the court dismantles that rationalization.",
+      "loss": "This misdescribes the defendant's stance as excusing harm when it was a flat claim of innocence.",
+      "id": "brown-03"
+    },
+    {
+      "record": "The conviction rested on shaky eyewitness picks. Witnesses chose no one at first and picked him only on a second look, with partial certainty: \"selected Brown, writing: 'I think it was him... 80 percent.'\"",
+      "reading": "Witnesses are family members who \"may have given evidence against people they love.\"",
+      "loss": "This misses the evidentiary mechanism of uncertain, repeated stranger identifications.",
+      "id": "brown-04"
+    },
+    {
+      "record": "The identifications were cross-racial and did not match the accused's build. The witness noted he looked \"'lighter' and 'smaller' and 'skinny' compared with the robber\", and medical records showed \"5 feet 9 inches and 150 pounds\" against descriptions of 6 feet and 200 or more pounds.",
+      "reading": "absent",
+      "loss": "This omits the physical mismatch between the description and the accused that should have undercut the identification.",
+      "id": "brown-05"
+    },
+    {
+      "record": "Police used a suggestive procedure on one witness: \"an officer pointed to Brown's photo and asked whether she was sure it wasn't him.\"",
+      "reading": "absent",
+      "loss": "This omits police conduct that steered witnesses toward the suspect.",
+      "id": "brown-06"
+    },
+    {
+      "record": "A witness who knew him as a regular customer testified for the defence that he was not the robber, and the prosecution confronted her with an earlier statement: \"'I know it's not him.'\"",
+      "reading": "Witnesses share loyalties with the defendant and testify against him.",
+      "loss": "This misses the split among witnesses and the prosecution's effort to discredit the exculpatory one.",
+      "id": "brown-07"
+    },
+    {
+      "record": "The fingerprint examiner's work was faulty and misreported. His report said he had searched the state database, but the prints were \"loaded but never searched\"; he called the gum print of no value when it \"did have value and appeared to be a whorl, a pattern Brown does not have.\"",
+      "reading": "absent",
+      "loss": "This omits the forensic failure and the false report at the centre of the conviction.",
+      "id": "brown-08"
+    },
+    {
+      "record": "The examiner testified that no usable print survives cleaning with Windex, but \"research published as early as 2012 showed latent prints routinely survive commercial cleaning products.\"",
+      "reading": "absent",
+      "loss": "This omits how inaccurate expert testimony explained away the absence of other prints.",
+      "id": "brown-09"
+    },
+    {
+      "record": "When the database search was finally run, it pointed to another man: \"one of the three prints came from a man identified as Daris J.... who was taller and heavier than Brown.\"",
+      "reading": "absent",
+      "loss": "This omits the discovery of an alternative suspect that broke the case open.",
+      "id": "brown-10"
+    },
+    {
+      "record": "The jury was divided and pushed toward agreement, then returned a split verdict: \"Judge Henry Hight gave an Allen charge urging a unanimous verdict\"; the jury acquitted on one robbery and convicted on the other.",
+      "reading": "absent",
+      "loss": "This omits the jury dynamics and the inconsistent verdict on two robberies attributed to the same man.",
+      "id": "brown-11"
+    },
+    {
+      "record": "Trial counsel failed to present available evidence: he did not show that Brown \"did not fit the witness descriptions or resemble the man on the surveillance video\", did not seek an eyewitness-reform instruction, and used no independent print expert.",
+      "reading": "\"Vigorous mitigation that the court engages with directly.\"",
+      "loss": "This misses inadequate defence at trial as a cause of the conviction.",
+      "id": "brown-12"
+    },
+    {
+      "record": "Evidence was destroyed after conviction and the claim failed on a high bar: \"no due-process violation because there was no proof the clerk had acted in bad faith.\"",
+      "reading": "absent",
+      "loss": "This omits loss of evidence by the institution and the legal standard that left the defendant without a remedy.",
+      "id": "brown-13"
+    },
+    {
+      "record": "Post-conviction relief came only after years of defence digging against institutional non-cooperation: \"The police department said it had no records... and did not answer the SAFIS question\"; the court ordered the review of the examiner disclosed.",
+      "reading": "The \"counter-force\" is most plausibly a single appeal or sentencing challenge.",
+      "loss": "This misses the long, staged process by which an innocence organisation forced disclosure from reluctant agencies.",
+      "id": "brown-14"
+    },
+    {
+      "record": "Early challenges failed: the conviction was affirmed on appeal and the destruction claim was rejected, and he was \"released from prison\" before he was cleared.",
+      "reading": "absent",
+      "loss": "This omits the sequence of failed remedies and the fact that the sentence was served before vindication.",
+      "id": "brown-15"
+    },
+    {
+      "record": "The state consented to a new trial while defending the system: it cited a \"'reasonable probability that someone else... was in fact the individual'\" while \"maintaining that Brown's trial lawyer had been effective.\"",
+      "reading": "The court authoritatively finds against the defendant.",
+      "loss": "This misses that the prosecution itself conceded the case while protecting the institution's record.",
+      "id": "brown-16"
+    },
+    {
+      "record": "The \"family\" element in the record is the defendant's own life, offered as evidence of innocence: \"I had a full-time job and custody of my son\"; he was seen \"often with a little boy.\"",
+      "reading": "The family is the site of the harm, and the defendant is an abusive relative.",
+      "loss": "This inverts the role of family, from the source of the crime to the defendant's character and alibi context.",
+      "id": "brown-17"
+    },
+    {
+      "record": "The apparent strength of the case was the illusion. A print \"match\" and eyewitness picks looked solid but later dissolved: the print attributed to Brown was later rated \"'medium-low' quality.\"",
+      "reading": "The illusion is either the court's neat narrative of a family or the defendant's rationalized story.",
+      "loss": "This misidentifies what was illusory: the seemingly strong forensic and eyewitness evidence of guilt.",
+      "id": "brown-18"
+    },
+    {
+      "record": "The text is a chronological case history of an exoneration spanning a dozen years, with many proceedings, not a single document.",
+      "reading": "A single court judgment or sentencing decision stating findings and issuing directions.",
+      "loss": "This misidentifies the form and time span of the record.",
+      "id": "brown-19"
+    }
+  ]
+}

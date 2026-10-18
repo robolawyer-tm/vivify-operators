@@ -1,0 +1,77 @@
+{
+  "particulars": "Dropped particulars include the names of the victim, defendant, co-defendant, lawyers, analyst, reporters, experts, prosecutor, governor and real perpetrators; dates from 1998 to 2007; places in Houston, Harris and Fort Bend counties and Dallas; ages, heights and weights; statistics (1 in 694,000, 1 in 15, 1 in 8); dollar sums ($600, $118,000, $1,700/month); and the 25- and 10-year sentences.",
+  "items": [
+    {
+      "record": "The case began with a violent crime and a mistaken eyewitness identification at a street show-up, made despite physical mismatch: \"From a distance of about 10 feet, she told police she was positive\" though he was \"about 6 inches taller and 60 pounds heavier\" than her description.",
+      "reading": "The reading treats the origin as a bureaucratic record that grew by accretion, through an arrest report written in its most serious form and stacked charges. It mentions no victim or eyewitness.",
+      "loss": "This is the initiating mechanism: a suggestive identification by a victim, not clerical inflation.",
+      "id": "sutton-01"
+    },
+    {
+      "record": "The forensic DNA analysis itself was the false official assertion. The lab claimed a match with an overstated statistic: \"1 in 694,000 Black persons\" versus an actual \"1 in 15 chance\", or \"better than 1 chance in 8\" across the two suspects.",
+      "reading": "The reading names an overstated forensic report only as a rejected alternative and favors an accreted criminal-history file.",
+      "loss": "This misidentifies which document carried the inflated claim and how it was inflated (statistical overstatement by a crime lab).",
+      "id": "sutton-02"
+    },
+    {
+      "record": "The lab produced internally inconsistent results and misreported exculpatory evidence: \"obtained different profiles when typing samples from the same person\"; the report \"erroneously stated that DNA types consistent with Mr. Sutton were found\" on Sample #1 \"when in fact, he had been excluded.\"",
+      "reading": "absent",
+      "loss": "This is the specific technical failure, including an excluding result recorded as an inclusion.",
+      "id": "sutton-03"
+    },
+    {
+      "record": "The same lab result that convicted one teenager freed the other: the analysis \"implicated Josiah but excluded Gregory, who was then released.\"",
+      "reading": "absent",
+      "loss": "This is the split fate of two co-accused people, decided by the same flawed test.",
+      "id": "sutton-04"
+    },
+    {
+      "record": "Defense counsel failed actively at several points. He told the client \"that's what they came up with,\" never authorized independent testing the family had paid for, retained no expert, and \"opened the door\" to the client's prior record.",
+      "reading": "The reading mentions only generically a possible \"overloaded public defender.\"",
+      "loss": "This shows how the defendant's own retained lawyer helped the error stand.",
+      "id": "sutton-05"
+    },
+    {
+      "record": "A prosecutor in the courtroom actively shut down exculpatory testimony: \"I don't want to talk about the unknown sample, okay?\" It \"was never brought up again.\"",
+      "reading": "The reading says nobody shaped the account and every official, including the prosecutor, acted sincerely and in good faith.",
+      "loss": "The record shows deliberate in-court suppression by a specific actor, not authorless drift.",
+      "id": "sutton-06"
+    },
+    {
+      "record": "The appellate court ruled that the flawed evidence was solid: \"The State's DNA evidence ... is not seriously challenged.\"",
+      "reading": "The reading predicts generic harmless-error rationalization and deference to the original fact-finder.",
+      "loss": "The court's reasoning relied on the unchallenged flawed evidence itself, which made the defense's failure to challenge it self-sealing.",
+      "id": "sutton-07"
+    },
+    {
+      "record": "The correction came from a specific chain. Defense attorneys tipped off reporters, the reporters sent records to independent experts, a broadcast aired, and the defendant's mother \"caught the story on television and called the station.\" Separately, the defendant drafted his own motion, which led to appointed counsel.",
+      "reading": "The reading lists possible outside pushes generically (journalist, appellate attorney, review). It also says correction usually doesn't come.",
+      "loss": "This is the actual sequence and the actors who brought about exoneration, including the family's and the defendant's own initiative.",
+      "id": "sutton-08"
+    },
+    {
+      "record": "The case did resolve. Retesting excluded him, he was released, a further test excluded him again, he was pardoned for innocence, compensated, and the real perpetrator was identified through the database and pleaded guilty.",
+      "reading": "The reading says the case most likely does not resolve on its own terms and the defendant serves out the sentence.",
+      "loss": "This is the outcome: full exoneration and identification of the true offenders.",
+      "id": "sutton-09"
+    },
+    {
+      "record": "Even after two DNA exclusions, the prosecution resisted. It \"declined to support a pardon based on innocence, noting that the victim had not recanted,\" and opposed the habeas petition alleging misconduct.",
+      "reading": "The reading has a general notion that the institution suppresses contrary information.",
+      "loss": "This is the specific post-exclusion resistance: the prosecution fell back on the eyewitness and set conditions on its support for a pardon.",
+      "id": "sutton-10"
+    },
+    {
+      "record": "The lab problem was systemic. Reporters were \"investigating the Houston crime lab after receiving a tip ... about problems with the lab's work,\" and the defendant's case was one of a broader set.",
+      "reading": "The reading lists in its residue whether the case was isolated or systemic as unknown.",
+      "loss": "The record places the case within a known institutional pattern of lab failures.",
+      "id": "sutton-11"
+    },
+    {
+      "record": "The forensic method was outdated: an \"early form of\" PCR \"rather than the more recently developed and discriminating\" STR analysis.",
+      "reading": "absent",
+      "loss": "This shows how the limits of the technology contributed to the false match.",
+      "id": "sutton-12"
+    }
+  ]
+}

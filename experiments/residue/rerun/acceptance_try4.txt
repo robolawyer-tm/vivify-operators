@@ -1,0 +1,5 @@
+case           baseline prod/itemsbaseline_domain prod/itemspositions_domain prod/items
+sutton                   4/14                  3/13                  6/12     
+washington               7/15                  4/11                  8/16     
+cotton                   3/11                  5/15                  5/13     
+brown                    4/13                  6/19                  4/14     

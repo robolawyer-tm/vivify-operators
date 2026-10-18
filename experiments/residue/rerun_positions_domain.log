@@ -1,0 +1,21 @@
+sutton: 12 structural items
+washington: 16 structural items
+Traceback (most recent call last):
+  File "/home/john/repos/vivify-operators/experiments/residue/residue.py", line 227, in <module>
+    main()
+  File "/home/john/repos/vivify-operators/experiments/residue/residue.py", line 221, in main
+    run_case(name, CASES[name], out, args.with_account_production, args.named, args.positions, args.domain)
+  File "/home/john/repos/vivify-operators/experiments/residue/residue.py", line 180, in run_case
+    reading = llm_call(decoder + "\n\n" + domain_line + json.dumps(encoding, indent=2),
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/john/repos/vivify-operators/lib/vivify_core.py", line 570, in llm_call
+    return llm_call_model(prompt, resolve_model(capability, config_dir), params, sensitive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/john/repos/vivify-operators/lib/vivify_core.py", line 551, in llm_call_model
+    text = TRANSPORTS[backend](prompt, model, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/john/repos/vivify-operators/lib/vivify_core.py", line 179, in _claude_transport
+    raise LLMUnavailable(result.stderr.strip() or f"claude exited {result.returncode}")
+vivify_core.LLMUnavailable: claude exited 1
+cotton: 13 structural items
+brown: 14 structural items

@@ -169,14 +169,15 @@ def add_account_production(name, encoding, named=False, positions=False):
     return encoding
 
 
-def run_case(name, spec, out=HERE, with_ap=False, named=False, positions=False):
+def run_case(name, spec, out=HERE, with_ap=False, named=False, positions=False, domain=None):
     record, encoding = load_case(name, spec)
     if with_ap:
         encoding = add_account_production(name, encoding, named, positions)
     out.mkdir(parents=True, exist_ok=True)
     write_json(out / f"{name}_encoding.json", encoding)
     decoder = DECODER_PROMPT.read_text()
-    reading = llm_call(decoder + "\n\n" + json.dumps(encoding, indent=2),
+    domain_line = f"Domain: {domain}\n\n" if domain else ""
+    reading = llm_call(decoder + "\n\n" + domain_line + json.dumps(encoding, indent=2),
                        capability=MODEL_CAPABILITY, sensitive=False)
     (out / f"{name}_reading.md").write_text(reading + "\n")
     raw = llm_call(RESIDUE_PROMPT % (record, reading),
@@ -209,6 +210,7 @@ def main():
                     help="add logos.account_production.mode to each encoding")
     ap.add_argument("--named", action="store_true",
                     help="with --with-account-production: label it as the account the institution relied on")
+    ap.add_argument("--domain", help="tell the decoder the domain (e.g. 'criminal case'), as keywords would")
     ap.add_argument("--positions", action="store_true",
                     help="with --with-account-production: named label plus supplied_by and shaped_by")
     args = ap.parse_args()
@@ -216,7 +218,7 @@ def main():
     if not args.match_only:
         names = args.cases.split(",") if args.cases else list(CASES)
         for name in names:
-            run_case(name, CASES[name], out, args.with_account_production, args.named, args.positions)
+            run_case(name, CASES[name], out, args.with_account_production, args.named, args.positions, args.domain)
     if not args.out and (args.match_only or not args.cases):
         run_match()
 
@@ -228,3 +230,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/residue.py | --out (re-run arm, no match step) and --with-account-production (adds the mode alone to each encoding) for the account_production acceptance test
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/residue.py | --named: label the mode as the account the institution relied on (try 1 was read as describing the text itself)
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/residue.py | --positions: named label plus supplied_by and shaped_by (acceptance try 3)
+# llm: claude-opus-5-5 | 2026-10-18 | repos/vivify-operators/experiments/residue/residue.py | --domain: one line naming the domain before the coordinates, so structure can be tested apart from domain (acceptance try 4)

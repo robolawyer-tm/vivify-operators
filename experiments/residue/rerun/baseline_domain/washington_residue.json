@@ -1,0 +1,71 @@
+{
+  "particulars": "All names, dates, locations, ages, counts of stab wounds and confessions, sentence lengths, the 21-day deadline, governors' identities and the real perpetrator's identity are omitted.",
+  "items": [
+    {
+      "record": "The case is a wrongful conviction in which the state produced a false confession from an innocent man: police claimed he had \"confessed\" to five crimes after two days of questioning.",
+      "reading": "A prosecutorial press release about a guilty fringe actor, honest in its account.",
+      "loss": "The basic nature of the case, a state-produced miscarriage of justice, is reversed.",
+      "id": "washington-01"
+    },
+    {
+      "record": "The defendant was intellectually disabled and deferred to authority: he \"would politely defer to any authority figure with whom he came into contact.\"",
+      "reading": "A lone actor embedded in a fringe ideological or conspiratorial milieu.",
+      "loss": "This misidentifies who the accused was and why he was vulnerable to the state.",
+      "id": "washington-02"
+    },
+    {
+      "record": "Police coached and rehearsed the confession until it fit the facts: \"Only on the fourth attempt at a rehearsed confession did authorities accept\" it, and they \"had to help him pick out Williams' apartment.\"",
+      "reading": "absent",
+      "loss": "The mechanism by which officials built false evidence through repeated shaping is missing.",
+      "id": "washington-03"
+    },
+    {
+      "record": "The confession contradicted the known facts. He did not know the victim's race or address, or that she had been raped, and he said he stabbed her \"two or three times\" when there were thirty-eight wounds.",
+      "reading": "The statement is honest and does not obviously mislead.",
+      "loss": "The gap between the state's narrative and the evidence is missed, and the official account is wrongly treated as truthful.",
+      "id": "washington-04"
+    },
+    {
+      "record": "The forensic report was altered without new tests: \"an amended forensic report was prepared (without additional testing being conducted)\" calling the result for the rare protein \"inconclusive.\"",
+      "reading": "absent",
+      "loss": "The deliberate tampering with exculpatory evidence inside the institution is missing.",
+      "id": "washington-05"
+    },
+    {
+      "record": "The trial was one-sided. Only the State's psychologist testified, and at the penalty phase \"the defense did not offer any counter argument,\" which led to a death sentence.",
+      "reading": "The legal process will run its course through plea or conviction.",
+      "loss": "The failure of the defense and the resulting capital sentence are absent.",
+      "id": "washington-06"
+    },
+    {
+      "record": "Rescue came through informal outsiders: a fellow death-row inmate alerted a volunteer non-lawyer and a visiting lawyer, whose firm won a stay \"nine days before he was scheduled to die.\"",
+      "reading": "absent",
+      "loss": "The chain of people from the prisoner network to an outside advocate to a law firm, which saved his life, is missing.",
+      "id": "washington-07"
+    },
+    {
+      "record": "DNA excluded him, but procedural rules blocked exoneration: he was \"time barred by Virginia law,\" so the governor gave only a commutation to life.",
+      "reading": "absent",
+      "loss": "The way procedural deadlines kept an innocent man imprisoned despite proof is missing.",
+      "id": "washington-08"
+    },
+    {
+      "record": "Release came through a slow sequence of executive acts: a commutation, then a limited pardon, then parole, then an absolute pardon years later after the real perpetrator \"pleaded guilty.\"",
+      "reading": "The case closes quickly through plea or conviction, while copycats and martyr narratives continue.",
+      "loss": "The long, step-by-step path of the state partially and finally admitting its error is replaced by an invented escalation dynamic.",
+      "id": "washington-09"
+    },
+    {
+      "record": "The original crime was a rape and murder of a young mother by an individual man, with no ideology involved.",
+      "reading": "The case involves an ideological or online milieu, and the state and the fringe feed each other.",
+      "loss": "The reading invents a social conflict and a feedback loop that are not in the record.",
+      "id": "washington-10"
+    },
+    {
+      "record": "The exonerated man reacted with modest gratitude: \"This was a whole lot better than I expected.\"",
+      "reading": "The defendant feels the state's language confirms his worldview.",
+      "loss": "The defendant's actual voice and stance are misdescribed.",
+      "id": "washington-11"
+    }
+  ]
+}

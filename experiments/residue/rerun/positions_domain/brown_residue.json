@@ -1,0 +1,89 @@
+{
+  "particulars": "All names, dates, places, store names, dollar amounts, heights, weights, print point counts, sentence length and statute names are dropped.",
+  "items": [
+    {
+      "record": "The case began with two armed robberies of small stores, with no confession, plea or family death: 'a man with a gun robbed a Family Dollar store'.",
+      "reading": "Guesses a domestic or child-death case built on a medical-legal diagnosis, or a plea-agreement statement of facts signed by the defendant.",
+      "loss": "The kind of offense and the kind of case are misidentified.",
+      "id": "brown-01"
+    },
+    {
+      "record": "The conviction rested on a fingerprint examiner's palm-print match plus cross-racial eyewitness picks made on a second viewing: 'made no identification on her first look... asked to see the photos again and selected Brown'.",
+      "reading": "Lists possible methods (coerced confession, informant, bad forensics, drafted plea) without settling on one, and leans toward a confession or plea.",
+      "loss": "The actual evidence that produced the wrongful account is missing.",
+      "id": "brown-02"
+    },
+    {
+      "record": "Brown went to trial and never adopted the state's version. He denied it throughout: 'It wasn't me, your honor.'",
+      "reading": "Suggests the defendant formally adopted the state's version and may feel 'the particular injury of having signed it'.",
+      "loss": "The defendant's stance toward the official account is misdescribed.",
+      "id": "brown-03"
+    },
+    {
+      "record": "The examiner's report falsely said he had searched the statewide database. The prints were 'loaded but never searched, although his report said they had been.'",
+      "reading": "absent",
+      "loss": "The specific false statement inside the forensic record that hid an alternative suspect is missing.",
+      "id": "brown-04"
+    },
+    {
+      "record": "Running the prints years later matched another man: 'one of the three prints came from a man identified as Daris J.... who was taller and heavier than Brown'.",
+      "reading": "Speaks generally of shifting ground (new science, recanting witness, a detective's pattern).",
+      "loss": "The mechanism that overturned the account, a database hit on a third party, is missing.",
+      "id": "brown-05"
+    },
+    {
+      "record": "Brown's physical build did not match the descriptions: medical records showed '5 feet 9 inches and 150 pounds' against a robber of 200\u2013220 pounds, and his lawyer failed to show this.",
+      "reading": "absent",
+      "loss": "The mismatch between the accused and the described offender, and defence counsel's failure to use it, are missing.",
+      "id": "brown-06"
+    },
+    {
+      "record": "The jury split: it acquitted on one robbery and convicted on the other only after an Allen charge, and a Black witness testified he was not the robber.",
+      "reading": "Says the account felt true to jurors and was believed because it was clear and procedurally correct.",
+      "loss": "The record shows doubt at trial, not smooth belief, and the reading misses this.",
+      "id": "brown-07"
+    },
+    {
+      "record": "Evans testified that 'an officer pointed to Brown's photo and asked whether she was sure it wasn't him'.",
+      "reading": "absent",
+      "loss": "The suggestive police pressure on an identification witness is missing.",
+      "id": "brown-08"
+    },
+    {
+      "record": "The trial exhibits were destroyed, and the court rejected the claim because there was 'no proof the clerk had acted in bad faith.'",
+      "reading": "Gives generic rationalizing arguments: not newly discovered, harmless error, voluntary plea.",
+      "loss": "The concrete episode of evidence destruction, and the bad-faith standard used to excuse it, are missing.",
+      "id": "brown-09"
+    },
+    {
+      "record": "Police said they had no records of the searches and ignored the database question. The defence had to confirm with another agency and get a court order. A review found the examiner wrongly called prints valueless.",
+      "reading": "absent",
+      "loss": "The step-by-step fight for disclosure and the exposure of the examiner's pattern of error are missing.",
+      "id": "brown-10"
+    },
+    {
+      "record": "Brown was released in 2021 while motions were pending, years before the conviction fell.",
+      "reading": "absent",
+      "loss": "The order of events, with release from prison coming well before vindication, is missing.",
+      "id": "brown-11"
+    },
+    {
+      "record": "The state consented to a new trial and then dismissed the charge, 'while maintaining that Brown's trial lawyer had been effective.'",
+      "reading": "Says the outcome is undecided at a threshold and predicts at best a partial correction such as an Alford plea or time-served re-plea.",
+      "loss": "The actual resolution is missing: a consented new trial and dismissal, with the state conceding on evidence but not on counsel.",
+      "id": "brown-12"
+    },
+    {
+      "record": "The family's role is limited to Brown having 'custody of my son' and being seen in the store 'often with a little boy'.",
+      "reading": "Says the family is inside the harm, as in a child-death case, split between grief and suspicion.",
+      "loss": "The family's position is misdescribed: in the record it serves as a character and alibi detail, not as the site of the alleged crime.",
+      "id": "brown-13"
+    },
+    {
+      "record": "Brown denied it on the grounds that he 'worked full-time at a local factory, owned a $40,000 car', and payroll showed him clocking out at 5 p.m. on the second robbery date.",
+      "reading": "absent",
+      "loss": "The defendant's stable social position and the timing evidence offered against the accusation are missing.",
+      "id": "brown-14"
+    }
+  ]
+}

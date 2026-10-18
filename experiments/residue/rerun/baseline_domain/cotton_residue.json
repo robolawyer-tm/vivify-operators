@@ -1,0 +1,95 @@
+{
+  "particulars": "All names, ages, dates, the location, the court and police department, the charges, the sentences, the compensation figure, the employer and the book title are omitted, as intended.",
+  "items": [
+    {
+      "record": "The text is a retrospective summary of an exoneration, written after the fact and running from the crime through release, pardon and later life: \"Mr. Cotton was released after spending more than 10 years in prison.\"",
+      "reading": "It treats the text as the state's own filed report or findings, meant to direct people to charge, convict and close the file.",
+      "loss": "This is the nature and stance of the document: it looks back on a miscarriage of justice rather than producing one.",
+      "id": "cotton-01"
+    },
+    {
+      "record": "The false account came from a victim's sincere but mistaken eyewitness identification: \"it is between number four and number five.\"",
+      "reading": "It puts the falsehood in bureaucratic paperwork written by officials who smoothed over ambiguity.",
+      "loss": "This misplaces the source of the error, which was one witness's memory rather than the institution's writing.",
+      "id": "cotton-02"
+    },
+    {
+      "record": "A hesitant first choice hardened through repeated procedures showing the same suspect: mugshots, then a photo lineup viewed twice with spoken phrases, then a live lineup where \"She again identified Mr. Cotton.\"",
+      "reading": "absent",
+      "loss": "This is the step-by-step process by which repeated identification procedures turned doubt into certainty.",
+      "id": "cotton-03"
+    },
+    {
+      "record": "The suspect entered the pool because of an earlier arrest: Cotton \"had been arrested as a teenager for breaking and entering.\"",
+      "reading": "absent",
+      "loss": "This is how a past record put him in front of the witness in the first place.",
+      "id": "cotton-04"
+    },
+    {
+      "record": "Weak physical evidence seemed to confirm the identification: shoe foam that \"appeared similar\" and a flashlight that \"resembled the one used by the assailant.\"",
+      "reading": "absent",
+      "loss": "This is how loose circumstantial matches propped up the false story.",
+      "id": "cotton-05"
+    },
+    {
+      "record": "The second victim first could not identify anyone, then at retrial identified the defendant, \"saying she had been too afraid to identify him right after the crime.\"",
+      "reading": "It expects new material, such as a recanting witness, to erode the official story.",
+      "loss": "This misses a witness who moved toward the false account over time, strengthening it rather than weakening it.",
+      "id": "cotton-06"
+    },
+    {
+      "record": "Contrary evidence was kept out by judges' evidentiary rulings: the other victim's choice of number four \"was excluded... on grounds that it was not relevant,\" and the alternate suspect was barred after both victims rejected him outside the jury's presence.",
+      "reading": "It describes suppression by officials each working in their own lane, mainly by leaving things out of the written record.",
+      "loss": "This is the specific mechanism of exclusion, which was courtroom rulings, including one that let the victims' own judgments decide the matter.",
+      "id": "cotton-07"
+    },
+    {
+      "record": "The high court reversed the first conviction because the excluded evidence should have come in, yet the retrial added the second rape and produced a heavier sentence, later affirmed.",
+      "reading": "It describes institutions rationalizing to protect the core account, with each patch compounding the contradictions.",
+      "loss": "This misses partial self-correction by the system that still ended in a worse outcome.",
+      "id": "cotton-08"
+    },
+    {
+      "record": "The real perpetrator was already inside the system and identifiable: his \"blood type matched the drop\" left at the scene, and in prison he \"had admitted to other inmates that he had committed both crimes.\"",
+      "reading": "absent",
+      "loss": "This is the presence of the true offender alongside the case throughout.",
+      "id": "cotton-09"
+    },
+    {
+      "record": "The case broke open through DNA testing requested by the defense. Police handed over the evidence, a database matched the real offender, and \"The district attorney and the defense filed a motion to dismiss.\"",
+      "reading": "It predicts a costly rupture forced by appeal, journalism or inquiry, against insiders who resist because reversing would indict themselves.",
+      "loss": "This misdescribes the resolution, which was a science-driven, cooperative reversal rather than a forced exposure.",
+      "id": "cotton-10"
+    },
+    {
+      "record": "The false account stayed stable for about a decade and then collapsed quickly in one spring and summer.",
+      "reading": "It describes exponential escalation, with growing contradictions and more parties pulled in over time.",
+      "loss": "This gets the time pattern wrong: long quiet stability followed by sudden resolution, not mounting escalation.",
+      "id": "cotton-11"
+    },
+    {
+      "record": "The defendant was not alone. Relatives \"testified that he was at home asleep,\" and his defense kept pressing until the DNA testing.",
+      "reading": "It says the defendant was profoundly alone against the system.",
+      "loss": "This overlooks the family and legal support around the accused.",
+      "id": "cotton-12"
+    },
+    {
+      "record": "The aftermath brought formal repair: the real offender \"pleaded guilty to both rapes,\" the governor \"officially pardoned Mr. Cotton,\" and the state paid compensation.",
+      "reading": "It lists the outcome and accountability as unknown.",
+      "loss": "This is how the case was formally closed and redress given.",
+      "id": "cotton-13"
+    },
+    {
+      "record": "The victim and the wrongly convicted man reconciled and campaigned together: \"They became good friends and began to travel around the country to speak about... eyewitness identification procedures,\" later writing a book together.",
+      "reading": "absent",
+      "loss": "This is the later relationship between the accuser and the accused and how it became shared work for reform.",
+      "id": "cotton-14"
+    },
+    {
+      "record": "His life was rebuilt, with an irony in it: he worked at \"the company that tested the DNA evidence that proved his innocence,\" married, had a child and bought land.",
+      "reading": "absent",
+      "loss": "This is how the exonerated man's life went on after release.",
+      "id": "cotton-15"
+    }
+  ]
+}
