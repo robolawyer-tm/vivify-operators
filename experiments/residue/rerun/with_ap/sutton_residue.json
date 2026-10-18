@@ -1,0 +1,89 @@
+{
+  "particulars": "All names, ages, dates, places, physical descriptions, sample labels, statistics, dollar amounts, sentence lengths and the compensation figures are absent.",
+  "items": [
+    {
+      "record": "A narrative account of a wrongful conviction and later exoneration, told from outside the institutions: \"Gov. Perry granted Mr. Sutton a pardon based on innocence.\"",
+      "reading": "A state body's own official findings document, written to close a dispute in which that body is implicated.",
+      "loss": "The kind of text and who stands behind it are misidentified.",
+      "id": "sutton-01"
+    },
+    {
+      "record": "The victim identified two teenagers by their hats in a police-staged show-up, although one was much larger than her own description: \"Josiah was about 6 inches taller and 60 pounds heavier than P.S.' description.\"",
+      "reading": "absent",
+      "loss": "The originating error, a suggestive eyewitness identification that contradicted the witness's own account, is missing.",
+      "id": "sutton-02"
+    },
+    {
+      "record": "The lab's DNA work was unreliable and its statistic hugely overstated: \"1 in 694,000\" given to the jury, against an expert's later figure of \"better than 1 chance in 8\" for a pair of men.",
+      "reading": "Inflation is placed in the overall framing of the institution's report, while each statement is said to be accurate.",
+      "loss": "The real location and mechanism of the distortion, a forensic lab overstating a match in sworn testimony, is misdescribed.",
+      "id": "sutton-03"
+    },
+    {
+      "record": "The lab got different profiles from the same person and wrongly reported an exculpatory sample as consistent with the accused: \"he had been excluded.\"",
+      "reading": "absent",
+      "loss": "Outright technical error and misreporting by the lab, not mere slanted emphasis, is missing.",
+      "id": "sutton-04"
+    },
+    {
+      "record": "The prosecutor cut off testimony about the unexplained sample at trial: \"I don't want to talk about the unknown sample, okay?\"",
+      "reading": "Suppression is described generally as recasting complaints or writing dissent out of an official report.",
+      "loss": "The concrete act of keeping exculpatory evidence from the jury in open court is missing.",
+      "id": "sutton-05"
+    },
+    {
+      "record": "Defense counsel deferred to the lab and failed his client. He never authorized the paid independent test, hired no expert, and opened the door to the client's prior record: \"Well, I'm sorry, man, but that's what they came up with.\"",
+      "reading": "absent",
+      "loss": "The failure of the accused's own advocate, a key link in the chain, is missing.",
+      "id": "sutton-06"
+    },
+    {
+      "record": "The same DNA result convicted one teenager and freed the other: \"implicated Josiah but excluded Gregory, who was then released.\"",
+      "reading": "absent",
+      "loss": "The way the flawed evidence sorted the two co-accused, which lent it credibility, is missing.",
+      "id": "sutton-07"
+    },
+    {
+      "record": "The appeals court treated the lab result as settled because no one had challenged it: \"The State's DNA evidence ... is not seriously challenged.\"",
+      "reading": "absent",
+      "loss": "The circular step by which the defense's failure to test was held not to matter, because the untested evidence stood unchallenged, is missing.",
+      "id": "sutton-08"
+    },
+    {
+      "record": "The prisoner filed his own motion under a statute that did not technically apply to him, which led to a public defender being appointed.",
+      "reading": "Challengers are described as lacking standing and being steered into dead-end procedures.",
+      "loss": "A self-started legal route that actually opened the case is missing.",
+      "id": "sutton-09"
+    },
+    {
+      "record": "Journalists acting on a tip from defense attorneys had independent experts review the lab, and the prisoner's mother saw the broadcast and pushed the station to take up his case: \"caught the story on television and called the station.\"",
+      "reading": "Challengers are scattered and isolated with no collective footing; media attention is mentioned only as one possible future trigger.",
+      "loss": "The actual alliance of family, reporters, academic experts and defense lawyers that broke the case is misdescribed.",
+      "id": "sutton-10"
+    },
+    {
+      "record": "The sequence that freed him: broadcast, then lab retest, then exclusion, then court-ordered release, then a second exclusion, then pardon, then compensation.",
+      "reading": "The case stays open and escalates exponentially, with suppression holding for a while and then failing.",
+      "loss": "The real sequence and its largely complete resolution are misdescribed.",
+      "id": "sutton-11"
+    },
+    {
+      "record": "The prosecution set a condition for supporting a pardon, the defendant met it, and they still refused: \"declined to support a pardon based on innocence, noting that the victim had not recanted.\" They also opposed the habeas petition.",
+      "reading": "absent",
+      "loss": "The prosecutors' specific way of holding their ground after exclusion, by moving the goalposts and leaning on the witness, is missing.",
+      "id": "sutton-12"
+    },
+    {
+      "record": "Years later, a database hit identified the real attacker, who pleaded guilty and named his dead accomplice: \"the sample had been matched to the profile of a man named Donald Young.\"",
+      "reading": "absent",
+      "loss": "The final confirmation of innocence and identification of the true perpetrators is missing.",
+      "id": "sutton-13"
+    },
+    {
+      "record": "Race ran through the case: the suspects were Black teenagers, a 16-year-old was certified to stand trial as an adult, and the match statistics were calculated against Black populations.",
+      "reading": "absent",
+      "loss": "The age and racial position of the accused, and how both shaped the process, are missing.",
+      "id": "sutton-14"
+    }
+  ]
+}

@@ -56,5 +56,16 @@ A new coordinate, `account_production`, would record how the account the institu
 - "The error shielding itself from review" (sutton-08, washington-10, brown-08) goes with the reopening route, as the obstacle a reopening must get past, not here.
 - Built: `account_production_operator.py`, its vocabulary in `config/coordinates.json`, and `tests/test_account_production.py`. The first run is `account_production_run.py`.
 
+## Acceptance test (2026-10-17): failed twice
+
+- Setup: fresh residue re-runs of all four cases. The baseline arm uses the coordinates as before, and the other arms add the mode. One blind judge marked every loss from all arms, pooled and shuffled, as about how the account was made or not (`ap_acceptance.py`, `rerun/`).
+- Losses about how the account was made: baseline 15/53; bare label `account_production.mode` 16/52; named label `account_the_institution_relied_on.how_it_was_made` 19/50. The judge gave the baseline 15 both times.
+- Try 1, bare label: the reader applied the mode to the text itself. Washington's "manufactured" plus cooperative=honored became "a polished explainer, true line by line".
+- Try 2, named label: the reader now places it right ("the falseness sits upstream: the account the institution relied on was inflated"), but the losses do not fall.
+- What the remaining losses ask for is WHO produced the account and through what channel, not its kind. Examples: cotton-01, "a single private witness whose uncertain memory hardened through repeated procedures, not an institution's document"; washington-02, "police produced a confession in custody, not an institution assembling its own record"; cotton-11, "a traumatized victim rather than a bureaucrat".
+- Without that, the reader fills the kind into a bureaucracy (registries, metrics, curated data). This is the July finding again: coordinates carry dynamics, not the actors' places.
+- Reading: the mode word is necessary but not sufficient. The positions in the signals, who supplied the account and who shaped it, are the part the field is asking for.
+
 <!-- llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/candidate_account_production.md | created — sketch of the first demand-led dimension candidate: mode (mistaken/inflated/manufactured/unmarked), hardening (repetition/endorsement/none), signals, replay reading, placement, acceptance via re-run residue test -->
 <!-- llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/candidate_account_production.md | open questions replaced by John's three decisions (one dominant value, mode first, shielding goes with reopening); built files listed -->
+<!-- llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/candidate_account_production.md | acceptance section: failed with bare and named labels; remaining losses ask who supplied and shaped the account -->

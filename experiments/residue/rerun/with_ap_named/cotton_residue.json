@@ -1,0 +1,71 @@
+{
+  "particulars": "All names, dates, ages, places, charges, sentence lengths, compensation amount, book title and the specific courts and agencies involved are absent.",
+  "items": [
+    {
+      "record": "The mistaken statement was a crime victim's eyewitness identification, made hesitantly at first: \"it is between number four and number five\", then firmed up through repeated viewings, a live lineup and courtroom testimony.",
+      "reading": "A sovereign body such as a state agency or regulator issues a report, registry entry or official finding resting on bad data or a flawed method.",
+      "loss": "This is who actually made the false statement and how it was produced: a single private witness whose uncertain memory hardened through repeated procedures, not an institution's document.",
+      "id": "cotton-01"
+    },
+    {
+      "record": "Police built the case around a man with a prior record, showing mugshots that included someone \"arrested as a teenager for breaking and entering\", and then a lineup that included him.",
+      "reading": "absent",
+      "loss": "This is how suspicion was first directed at the wrongly accused person through a prior criminal record and police selection.",
+      "id": "cotton-02"
+    },
+    {
+      "record": "Physical items were read as corroboration: shoes with foam insoles \"that appeared similar\" and a flashlight that \"resembled the one used by the assailant\".",
+      "reading": "absent",
+      "loss": "This is the mechanism by which loosely matching physical evidence reinforced the mistaken identification.",
+      "id": "cotton-03"
+    },
+    {
+      "record": "A second victim at first could not identify him, then at the retrial \"also identified Mr. Cotton as her attacker, saying she had been too afraid\".",
+      "reading": "absent",
+      "loss": "This is the sequence in which a second witness changed her testimony over time and widened the error.",
+      "id": "cotton-04"
+    },
+    {
+      "record": "The trial court excluded another victim's identification of a different man as \"not relevant\". At the retrial, the alternate suspect was kept from the jury after both victims viewed him and said he \"was not their attacker\".",
+      "reading": "Complaints are absorbed, routed into appeals, or dismissed as individual exceptions.",
+      "loss": "This is the specific way exculpatory evidence and the real perpetrator were filtered out by courtroom gatekeeping that relied on the witnesses' own judgments.",
+      "id": "cotton-05"
+    },
+    {
+      "record": "The process went back and forth: a high court \"reversed the convictions and ordered a new trial\", the retrial then produced convictions on more charges, and an appeals court affirmed them.",
+      "reading": "Slow drift with no single moment of crisis, and exponential escalation in which each decision multiplies the harm.",
+      "loss": "This is the actual path of the case, in which an internal correction occurred and then led to a heavier conviction rather than steady compounding.",
+      "id": "cotton-06"
+    },
+    {
+      "record": "The accused was not isolated. Defense lawyers kept fighting and \"Mr. Cotton's relatives testified that he was at home asleep\".",
+      "reading": "Each affected person meets the error alone, as a file number, without a group able to act for them.",
+      "loss": "This is the accused's position and support: he had family backing and an active defense rather than solitary powerlessness.",
+      "id": "cotton-07"
+    },
+    {
+      "record": "Exoneration came through the legal system itself. \"At the request of the defense\" police released evidence for DNA testing, the state database matched the real perpetrator, and the prosecutor joined the motion to dismiss.",
+      "reading": "Correction usually comes from outside, through inquiry, litigation, journalism or a political shock, and the institution tends not to resolve it.",
+      "loss": "This is how the error was actually undone: a new scientific test requested by the defense and accepted by the prosecution.",
+      "id": "cotton-08"
+    },
+    {
+      "record": "The real offender was found, already serving life for other assaults, \"had admitted to other inmates\", pleaded guilty, and the governor issued a pardon.",
+      "reading": "absent",
+      "loss": "This is the existence of a real perpetrator and the formal closure through confession, plea and pardon.",
+      "id": "cotton-09"
+    },
+    {
+      "record": "Afterwards the exonerated man and the witness \"became good friends\", traveled to speak about eyewitness reforms and co-wrote a book. He married, worked at the lab that cleared him and received state compensation.",
+      "reading": "A long tail of harm before any acknowledgment.",
+      "loss": "This is the aftermath, in which the accuser and the accused reconciled and became joint advocates, and the man rebuilt his life with compensation.",
+      "id": "cotton-10"
+    },
+    {
+      "record": "The person who made the error was herself a victim of violent crime: she \"was able to escape and run out the back door\".",
+      "reading": "Staff who felt they were doing their jobs correctly.",
+      "loss": "This is the position of the person who caused the error, a traumatized victim rather than a bureaucrat.",
+      "id": "cotton-11"
+    }
+  ]
+}

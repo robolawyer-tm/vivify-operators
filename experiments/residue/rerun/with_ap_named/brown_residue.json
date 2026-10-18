@@ -1,0 +1,77 @@
+{
+  "particulars": "All names, dates, places, store names, dollar amounts, heights, weights, print point counts, sentence length, statutes and agency names are absent.",
+  "items": [
+    {
+      "record": "The case is a criminal armed-robbery prosecution of one man: \"charged him with two counts of armed robbery\"",
+      "reading": "Primary guess is a child-welfare or family-court file narrating a family's conduct, with a records-driven prosecution only as an alternative",
+      "loss": "The basic setting and type of proceeding is misidentified.",
+      "id": "brown-01"
+    },
+    {
+      "record": "The wrongful conviction rested on cross-racial eyewitness picks made on a second look and based on the eyes, despite mismatched descriptions: \"I think it was him... It's his eyes. 80 percent.\"",
+      "reading": "absent; the false account is pictured as an archival document or system output",
+      "loss": "This is the actual evidentiary mechanism that produced the false finding.",
+      "id": "brown-02"
+    },
+    {
+      "record": "A forensic examiner's report claimed a statewide database search that never happened: \"they were loaded but never searched, although his report said they had been\"",
+      "reading": "Manufacture is described generically as selective records, faulty software or back-filling",
+      "loss": "This is the specific way the official record misstated what had been done.",
+      "id": "brown-03"
+    },
+    {
+      "record": "The examiner discarded a usable print, and testimony that cleaning removes prints was later shown to be wrong: \"the print from the gum wrapper, which Babb called of no value, did have value and appeared to be a whorl\"",
+      "reading": "absent",
+      "loss": "Exculpatory evidence was suppressed through expert judgment and unsupported testimony.",
+      "id": "brown-04"
+    },
+    {
+      "record": "A witness who knew the defendant said police steered her and insisted it was not him: \"an officer pointed to Brown's photo and asked whether she was sure it wasn't him\"",
+      "reading": "absent",
+      "loss": "Police influence on identification and an ignored insider witness are missing.",
+      "id": "brown-05"
+    },
+    {
+      "record": "The jury split: it acquitted on one count and convicted on the other only after a judge urged unanimity: \"Judge Henry Hight gave an Allen charge\"",
+      "reading": "absent",
+      "loss": "The record shows a contested, pressured verdict rather than a smooth official story.",
+      "id": "brown-06"
+    },
+    {
+      "record": "The defence lawyer failed to show the defendant didn't fit the descriptions: \"photo... showing a full beard and a thin face\" and \"5 feet 9 inches and 150 pounds\"",
+      "reading": "absent",
+      "loss": "Weak defence representation was a cause of the conviction.",
+      "id": "brown-07"
+    },
+    {
+      "record": "Trial exhibits were destroyed, and courts excused it for lack of bad faith: \"no proof the clerk had acted in bad faith\"",
+      "reading": "Claims the archive that preserved the false account also preserves evidence of how it was made",
+      "loss": "The reading gets the evidence dynamic backwards: physical evidence was lost and the institution was excused.",
+      "id": "brown-08"
+    },
+    {
+      "record": "Exoneration came from rerunning preserved prints, which pointed to another identified man: \"one of the three prints came from a man identified as Daris J.\"",
+      "reading": "Vague reconstruction from archival evidence",
+      "loss": "The concrete turning point was an alternative perpetrator found by database search.",
+      "id": "brown-09"
+    },
+    {
+      "record": "An innocence organisation fought through a long chain of failed appeals and motions, and an internal review of the examiner was forced into disclosure: \"The court ordered the review disclosed\"",
+      "reading": "An unspecified counter-force at a threshold",
+      "loss": "The record contains the sequence and actors of the challenge, including the setbacks.",
+      "id": "brown-10"
+    },
+    {
+      "record": "The case ended fully: the state consented to a new trial and then dropped the charge, while defending trial counsel: \"the state dismissed the charge against Brown\"",
+      "reading": "Places the case still at a threshold, with slow partial vindication or a stall",
+      "loss": "The resolution and how far along the case is are both misstated.",
+      "id": "brown-11"
+    },
+    {
+      "record": "The harm fell on one working man and on his custody of his son, and he served years before release: \"I had a full-time job and custody of my son\"",
+      "reading": "Diffuse harm to families or communities, possibly many",
+      "loss": "The scale and the individual nature of the harm are misdescribed.",
+      "id": "brown-12"
+    }
+  ]
+}

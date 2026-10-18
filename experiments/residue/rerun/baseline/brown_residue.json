@@ -1,0 +1,83 @@
+{
+  "particulars": "All names, dates, places, store names, dollar amounts, heights, weights, print-point counts, sentence length, ages and statute names were dropped.",
+  "items": [
+    {
+      "record": "The case is a criminal prosecution for armed robbery that ended in a wrongful conviction: 'charged him with two counts of armed robbery'.",
+      "reading": "A child-welfare agency's determination about a family, with a safety plan and supervised contact.",
+      "loss": "The basic kind of matter and the institution involved are misidentified.",
+      "id": "brown-01"
+    },
+    {
+      "record": "The conviction rested on a palm print and two cross-racial eyewitness picks made on a second look: 'selected no one on her first look and Brown on her second'.",
+      "reading": "absent",
+      "loss": "The evidence that produced the outcome, and how weak it was, is missing.",
+      "id": "brown-02"
+    },
+    {
+      "record": "The physical descriptions did not match the accused, who had a beard and was thin and much shorter: 'Brown looked 'lighter' and 'smaller' and 'skinny''.",
+      "reading": "absent",
+      "loss": "The mismatch between the evidence and the accused person is missing.",
+      "id": "brown-03"
+    },
+    {
+      "record": "A witness said police steered her toward the suspect's photo, and she insisted he was not the robber: 'an officer pointed to Brown's photo and asked whether she was sure it wasn't him'.",
+      "reading": "absent",
+      "loss": "Possible police suggestion during identification, and testimony against the official account, are missing.",
+      "id": "brown-04"
+    },
+    {
+      "record": "The jury was divided and was pushed toward unanimity, then split its verdict: 'acquitted Brown of the Family Dollar robbery and convicted him of the Dollar Tree robbery'.",
+      "reading": "absent",
+      "loss": "The jury's internal conflict and the pressure applied to it are missing.",
+      "id": "brown-05"
+    },
+    {
+      "record": "The examiner's report falsely claimed a statewide search had been run: 'Babb had never run the prints through SAFIS in 2014: they were loaded but never searched'.",
+      "reading": "Says the record's truth cannot be known; treats the institution as giving a self-justifying but procedurally clean account.",
+      "loss": "A specific false official statement at the root of the error is not recovered.",
+      "id": "brown-06"
+    },
+    {
+      "record": "The state destroyed trial exhibits, and the courts excused it: 'no proof the clerk had acted in bad faith'.",
+      "reading": "absent",
+      "loss": "The loss of evidence and a failed legal challenge along the way are missing.",
+      "id": "brown-07"
+    },
+    {
+      "record": "The case unfolded over years: appeal affirmed, an innocence organisation stepped in, the destruction motion failed, he was released, and then new discovery came.",
+      "reading": "A parent or advocate pushes back and the matter stands at a threshold.",
+      "loss": "The long sequence of failed and then successful challenges is collapsed.",
+      "id": "brown-08"
+    },
+    {
+      "record": "The defence had to go around the police to get the prints searched: 'Brown's lawyers confirmed with the State Bureau of Investigation... that the three prints were still in the system'.",
+      "reading": "absent",
+      "loss": "How the challengers found a route to the truth by going around the uncooperative department is missing.",
+      "id": "brown-09"
+    },
+    {
+      "record": "A database hit and an expert report pointed to another man and undercut the cleaning-product testimony: 'one of the three prints came from a man identified as Daris J.'.",
+      "reading": "absent",
+      "loss": "The new evidence that reversed the outcome is missing.",
+      "id": "brown-10"
+    },
+    {
+      "record": "The examiner's wider work was put under review: 'the Durham Police Department had reviewed Babb's work as a print examiner'.",
+      "reading": "absent",
+      "loss": "Institutional scrutiny of a single expert's reliability is missing.",
+      "id": "brown-11"
+    },
+    {
+      "record": "The state consented to a new trial and then dismissed the charge, while still defending the trial lawyer: 'maintaining that Brown's trial lawyer had been effective'.",
+      "reading": "Predicts a procedural resolution in which the institutional record dominates, such as an upheld finding.",
+      "loss": "The actual result is mispredicted: the institution conceded and the accused was exonerated.",
+      "id": "brown-12"
+    },
+    {
+      "record": "The accused consistently denied guilt, pointing to his job and his custody of his son: 'I had a full-time job and custody of my son'.",
+      "reading": "The parent depends on the system they are contesting; the family's crisis is turned into directives.",
+      "loss": "The accused person's own steady claim of innocence and his circumstances are not recovered.",
+      "id": "brown-13"
+    }
+  ]
+}

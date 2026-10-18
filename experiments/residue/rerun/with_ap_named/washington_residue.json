@@ -1,0 +1,101 @@
+{
+  "particulars": "Names of the victim, the accused, the true perpetrator, the advocate, the lawyer and three governors, the dates from 1982 to 2007, the places, the victim's age, height and number of children, the count of stab wounds, the 21-day limit and the prison terms were all dropped.",
+  "items": [
+    {
+      "record": "The case is a criminal prosecution of one individual for rape and murder, ending in a death sentence: \"The jurors returned with their verdict of death\"",
+      "reading": "A national agency or similar institution issues a public statement, report or press release to society at large",
+      "loss": "The basic kind of event is wrong: a court case against one person, not a public announcement by an institution.",
+      "id": "washington-01"
+    },
+    {
+      "record": "The false account was a confession drawn from a disabled suspect during interrogation: \"After two days of questioning, police claimed he had 'confessed' to a total of five different crimes\"",
+      "reading": "The account was built from selected testimony or curated data upstream, and spokespeople may have sincerely believed it",
+      "loss": "This is how the false story was actually made: police produced a confession in custody, not an institution assembling its own record.",
+      "id": "washington-02"
+    },
+    {
+      "record": "The suspect's intellectual disability made him go along with whoever held authority: \"Washington would politely defer to any authority figure with whom he came into contact\"",
+      "reading": "absent",
+      "loss": "The suspect's vulnerability and habit of deferring to authority are the main reason the false account could be produced.",
+      "id": "washington-03"
+    },
+    {
+      "record": "Police coached and rehearsed the confession until it fit, and led him to the crime scene: \"Only on the fourth attempt at a rehearsed confession did authorities accept\" and police \"had to help him pick out Williams' apartment\"",
+      "reading": "The reading suggests honest belief and no deliberate lie",
+      "loss": "The record shows authorities actively shaping the evidence step by step, which contradicts the reading's picture of sincere error.",
+      "id": "washington-04"
+    },
+    {
+      "record": "The confession contradicted the known facts: he did not know the victim's race or address, said he stabbed her \"two or three times when the victim showed thirty-eight stab wounds,\" and said no one else was present",
+      "reading": "absent",
+      "loss": "Clear signs that the account was false were on the record from the start and were ignored.",
+      "id": "washington-05"
+    },
+    {
+      "record": "Lab evidence pointing away from him was rewritten without new testing: \"an amended forensic report was prepared (without additional testing being conducted) that said testing for the rare protein was 'inconclusive'\"",
+      "reading": "Curated data is mentioned only vaguely",
+      "loss": "The record shows deliberate alteration of physical evidence once he became a suspect, not a general picture of selective data.",
+      "id": "washington-06"
+    },
+    {
+      "record": "The adversarial trial did not test the case: \"only the State's psychologist testified\" and \"the defense did not offer any counter argument to the jury concerning a sentence of death\"",
+      "reading": "absent",
+      "loss": "The safeguard that was supposed to challenge the prosecution failed, so the accused had no real defence.",
+      "id": "washington-07"
+    },
+    {
+      "record": "Other confessions were dropped as unreliable while this one was used: \"the first four were dismissed by the Commonwealth because of the inconsistencies\"",
+      "reading": "absent",
+      "loss": "The state was selective, rejecting confessions from the same method as unreliable while relying on the one that convicted him.",
+      "id": "washington-08"
+    },
+    {
+      "record": "Rescue came through an informal chain inside the prison: another death row inmate told a volunteer advocate and a visiting lawyer, whose firm \"secured a stay of execution for Washington nine days before he was scheduled to die\"",
+      "reading": "Fringe challengers such as researchers, whistleblowers or advocacy groups were dismissed as cranks",
+      "loss": "The challengers were a fellow prisoner, a volunteer and a law firm working through the courts, and they were not shown being discredited.",
+      "id": "washington-09"
+    },
+    {
+      "record": "The state did not mainly respond by suppressing critics. Instead, legal rules blocked relief even after DNA cleared him: \"Because Washington was time barred by Virginia law, which allowed a defendant only 21 days to introduce new evidence, he was not exonerated\"",
+      "reading": "The institution responds with dismissal, discrediting, denial of access and removal of dissenters",
+      "loss": "The real obstacle was a procedural deadline that outlasted the evidence of innocence, not active suppression.",
+      "id": "washington-10"
+    },
+    {
+      "record": "Relief came only through the discretion of successive governors, each going a step further: commutation to life, then a pardon \"on limited grounds,\" then release on parole, then an \"absolute pardon\"",
+      "reading": "The case is at the point just before a break, with exponential escalation, and the outcome is open",
+      "loss": "The record shows a slow, step-by-step correction over many years through executive mercy, and the case has a completed ending.",
+      "id": "washington-11"
+    },
+    {
+      "record": "Release came with conditions: he \"was released from prison to parole supervision\" years before he was declared wrongfully convicted",
+      "reading": "absent",
+      "loss": "Even after release he remained under state control before his innocence was officially recognised.",
+      "id": "washington-12"
+    },
+    {
+      "record": "The case ended with the actual perpetrator identified: Tinsley, \"serving life in prison for a 1984 rape, pleaded guilty to Rebecca Lynn Williams' rape and murder\"",
+      "reading": "The reading says it is unknown whether the challengers were right",
+      "loss": "The question of truth was fully settled, with the real offender confessing.",
+      "id": "washington-13"
+    },
+    {
+      "record": "Race shaped the case: the victim could only describe \"a Black man acting alone,\" and that description was what the suspect was fitted to",
+      "reading": "absent",
+      "loss": "A vague racial description was the starting point that made the suspect fit the case.",
+      "id": "washington-14"
+    },
+    {
+      "record": "His own reaction to release was mild and grateful: \"This was a whole lot better than I expected.\"",
+      "reading": "The dissenters feel isolated and maddened at being treated as unhinged",
+      "loss": "The emotional tone of the person most affected differs sharply from the reading's guess.",
+      "id": "washington-15"
+    },
+    {
+      "record": "He also pleaded guilty to an unrelated burglary and malicious wounding and received \"two consecutive fifteen year sentences\"",
+      "reading": "absent",
+      "loss": "A separate conviction complicates the picture of him as simply a victim and helps explain why he stayed in prison.",
+      "id": "washington-16"
+    }
+  ]
+}

@@ -25,6 +25,7 @@ Usage:
     python3 residue.py                 # all cases, all steps
     python3 residue.py --cases sutton  # some cases (steps 1-2)
     python3 residue.py --match-only    # step 3 on the residue files present
+    python3 residue.py --out rerun/with_ap --with-account-production   # acceptance arm
 """
 
 import os
@@ -150,19 +151,35 @@ def candidate_openings():
     return "\n\n".join(out)
 
 
-def run_case(name, spec):
+def add_account_production(name, encoding, named=False):
+    """The mode alone, from account_production_run.json; signals carry particulars.
+
+    named: label the value with WHOSE account it describes. The bare label was read
+    as describing the text itself (acceptance try 1, 2026-10-17)."""
+    mode = read_json(HERE / "account_production_run.json")[name]["mode"]
+    if named:
+        encoding["logos"]["account_the_institution_relied_on"] = {"how_it_was_made": mode}
+    else:
+        encoding["logos"]["account_production"] = {"mode": mode}
+    return encoding
+
+
+def run_case(name, spec, out=HERE, with_ap=False, named=False):
     record, encoding = load_case(name, spec)
-    write_json(HERE / f"{name}_encoding.json", encoding)
+    if with_ap:
+        encoding = add_account_production(name, encoding, named)
+    out.mkdir(parents=True, exist_ok=True)
+    write_json(out / f"{name}_encoding.json", encoding)
     decoder = DECODER_PROMPT.read_text()
     reading = llm_call(decoder + "\n\n" + json.dumps(encoding, indent=2),
                        capability=MODEL_CAPABILITY, sensitive=False)
-    (HERE / f"{name}_reading.md").write_text(reading + "\n")
+    (out / f"{name}_reading.md").write_text(reading + "\n")
     raw = llm_call(RESIDUE_PROMPT % (record, reading),
                    capability=MODEL_CAPABILITY, sensitive=False)
     residue = extract_json(raw)
     for i, item in enumerate(residue.get("items", []), 1):
         item["id"] = f"{name}-{i:02d}"
-    write_json(HERE / f"{name}_residue.json", residue)
+    write_json(out / f"{name}_residue.json", residue)
     print(f"{name}: {len(residue.get('items', []))} structural items")
 
 
@@ -182,12 +199,18 @@ def main():
     ap = argparse.ArgumentParser(description="residue reading: what the coordinates drop")
     ap.add_argument("--cases", help="comma-separated subset of " + ",".join(CASES))
     ap.add_argument("--match-only", action="store_true")
+    ap.add_argument("--out", help="write case files here instead (a re-run arm); no match step")
+    ap.add_argument("--with-account-production", action="store_true",
+                    help="add logos.account_production.mode to each encoding")
+    ap.add_argument("--named", action="store_true",
+                    help="with --with-account-production: label it as the account the institution relied on")
     args = ap.parse_args()
+    out = Path(args.out) if args.out else HERE
     if not args.match_only:
         names = args.cases.split(",") if args.cases else list(CASES)
         for name in names:
-            run_case(name, CASES[name])
-    if args.match_only or not args.cases:
+            run_case(name, CASES[name], out, args.with_account_production, args.named)
+    if not args.out and (args.match_only or not args.cases):
         run_match()
 
 
@@ -195,3 +218,5 @@ if __name__ == "__main__":
     main()
 
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/residue.py | created — demand-pull residue test: blind decode, residue vs case record (candidates unseen), then match against C-01..C-10 with NONE allowed
+# llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/residue.py | --out (re-run arm, no match step) and --with-account-production (adds the mode alone to each encoding) for the account_production acceptance test
+# llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/residue.py | --named: label the mode as the account the institution relied on (try 1 was read as describing the text itself)

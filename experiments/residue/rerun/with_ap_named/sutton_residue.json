@@ -1,0 +1,71 @@
+{
+  "particulars": "All names, dates, places, ages, heights and weights, statistics, sentence lengths and compensation amounts were dropped (Houston 1998 abduction and rape, two teenagers, 1 in 694,000 vs 1 in 8, 25 years, $118,000 plus annuity, the CODIS hit in 2006).",
+  "items": [
+    {
+      "record": "The case starts with a crime victim's eyewitness identification at a show-up: \"From a distance of about 10 feet, she told police she was positive\", even though the suspect did not match her own description.",
+      "reading": "absent; the reading frames the case as an institution acting on inflated internal metrics or vendor assurances.",
+      "loss": "The originating event and the role of a mistaken eyewitness as an independent source of the false account are missing.",
+      "id": "sutton-01"
+    },
+    {
+      "record": "The harmed party is a single teenage criminal defendant who was wrongfully convicted and imprisoned: \"convicted on July 9, 1999, and sentenced to 25 years in prison.\"",
+      "reading": "Scattered isolates such as contractors, franchisees, claimants or frontline staff, many people each facing the institution alone.",
+      "loss": "The reading gets wrong who was harmed, how many, and what was at stake (liberty, not money or contracts).",
+      "id": "sutton-02"
+    },
+    {
+      "record": "The flawed account was forensic science: an outdated, low-discrimination DNA method, analyst errors and overstated statistics, \"1 in 694,000\" against an actual \"better than 1 chance in 8.\"",
+      "reading": "Inflated performance metrics or self-assessments reported up a chain of command by units seeking to look good.",
+      "loss": "The reading misidentifies the mechanism of inflation: technical misstatement of match probability, not incentive-driven reporting.",
+      "id": "sutton-03"
+    },
+    {
+      "record": "The lab's internal inconsistencies went unnoticed: it \"obtained different profiles when typing samples from the same person,\" and its report wrongly said a sample implicated him when \"he had been excluded.\"",
+      "reading": "absent",
+      "loss": "Concrete internal errors that should have exposed the flaw are not recovered.",
+      "id": "sutton-04"
+    },
+    {
+      "record": "Exculpatory evidence was actively cut off at trial: \"I don't want to talk about the unknown sample, okay?\"",
+      "reading": "Suppression is described as procedural dismissal of complaints, not as an adversary blocking evidence in open court.",
+      "loss": "A specific suppressive act by the prosecution at trial is missing.",
+      "id": "sutton-05"
+    },
+    {
+      "record": "Defense counsel failed him: he told his client \"that's what they came up with,\" never authorized the paid independent test, retained no expert, and opened the door to prior-conduct questions.",
+      "reading": "absent",
+      "loss": "The failure of the defendant's own advocate, a key link in the harm, is not recovered.",
+      "id": "sutton-06"
+    },
+    {
+      "record": "The appeal was rejected on the strength of the flawed evidence itself: \"The State's DNA evidence ... is not seriously challenged.\"",
+      "reading": "Partly recovered as general institutional rationalizing, but not as a court relying on the same flawed record.",
+      "loss": "The way the error was locked in through appellate review is missing.",
+      "id": "sutton-07"
+    },
+    {
+      "record": "The break came through a sequence: defense lawyers tipped reporters, independent experts reviewed records, the broadcast aired, the mother saw it and called the station, then the expert review, retesting and release followed.",
+      "reading": "A predicted generic outside rupture via press or courts, with \"the record still stands\" at the moment captured.",
+      "loss": "The actual chain of exposure, including family agency and the defendant's own self-drafted motion, is missing, and the reading wrongly places the case before resolution.",
+      "id": "sutton-08"
+    },
+    {
+      "record": "Prosecutors resisted after exoneration: they \"declined to support a pardon based on innocence, noting that the victim had not recanted,\" and opposed the habeas petition even after repeated exclusions.",
+      "reading": "absent",
+      "loss": "The institution's continued resistance after the error was proven is missing.",
+      "id": "sutton-09"
+    },
+    {
+      "record": "Full resolution: a pardon based on innocence, state compensation, and a database hit identifying the real perpetrator, who \"pleaded guilty\" and named an accomplice.",
+      "reading": "Lists the outcome as unknown and says redress may never have come.",
+      "loss": "The ending, including formal vindication, redress and identification of the true offenders, is not recovered.",
+      "id": "sutton-10"
+    },
+    {
+      "record": "The wider context was a systemic crime lab scandal that this case exemplified: reporters were \"investigating the Houston crime lab after receiving a tip ... about problems with the lab's work.\"",
+      "reading": "Proposes many cases multiplying, but frames them as isolated complainants rather than a broad audit of one lab.",
+      "loss": "The relation between one wrongful conviction and a broader failure of a forensic institution is only vaguely recovered.",
+      "id": "sutton-11"
+    }
+  ]
+}

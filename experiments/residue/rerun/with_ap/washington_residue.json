@@ -1,0 +1,77 @@
+{
+  "particulars": "All names, dates, places, ages, counts (stab wounds, confessions, days, years, sentence lengths) and the specific governors, firm and inmates are omitted by design.",
+  "items": [
+    {
+      "record": "The case is a criminal prosecution of one man for rape and murder, carried through to a death sentence: \"The jurors returned with their verdict of death.\"",
+      "reading": "A corporation or public agency issues a press statement in reply to online critics about data, safety or policy.",
+      "loss": "The basic kind of event and arena (a capital criminal case run by state justice institutions) is misidentified.",
+      "id": "washington-01"
+    },
+    {
+      "record": "The 'manufactured account' is a coerced confession built through repeated police coaching: \"Only on the fourth attempt at a rehearsed confession did authorities accept Washington's statement.\"",
+      "reading": "A polished institutional explainer that is true line by line but misleading through framing and omission.",
+      "loss": "The mechanism of fabrication (officials shaping a vulnerable person's words into a confession, not spin in a public statement) is misdescribed.",
+      "id": "washington-02"
+    },
+    {
+      "record": "The confession contradicted the known facts and authorities overrode the gaps: \"did not know the race of his victim, the address... or that he had raped her\"; police \"had to help him pick out Williams' apartment.\"",
+      "reading": "Each sentence would likely hold up on review.",
+      "loss": "The record shows outright factual falsity covered over by officials, not selective accuracy.",
+      "id": "washington-03"
+    },
+    {
+      "record": "The accused was intellectually disabled and deferred to authority: \"Washington would politely defer to any authority figure with whom he came into contact.\"",
+      "reading": "The weaker party is a loosely organized fringe group of researchers, users or whistleblowers.",
+      "loss": "The vulnerable party's position (a single cognitively disabled individual in custody, whose compliance was exploited) is missed.",
+      "id": "washington-04"
+    },
+    {
+      "record": "Exculpatory forensic evidence was quietly altered once a suspect existed: \"an amended forensic report was prepared (without additional testing being conducted) that said testing for the rare protein was 'inconclusive.'\"",
+      "reading": "Suppression is speculated as takedowns, NDAs, firings or legal threats, or simply crowding out critics with an authoritative account.",
+      "loss": "The concrete suppression mechanism (tampering with scientific evidence to fit an already chosen suspect) is absent.",
+      "id": "washington-05"
+    },
+    {
+      "record": "The trial was one-sided: \"only the State's psychologist testified\" and \"the defense did not offer any counter argument to the jury concerning a sentence of death.\"",
+      "reading": "absent",
+      "loss": "The failure of the adversarial process and of defense counsel is missing.",
+      "id": "washington-06"
+    },
+    {
+      "record": "Rescue came from fellow prisoners and volunteers inside the prison, not a public uproar: \"another death row inmate... alerted Marie Deans (a non-lawyer...) and a lawyer... at the Virginia prison working on another case.\"",
+      "reading": "A fringe concern spreads exponentially and virally through scattered individuals online.",
+      "loss": "How the challenge actually spread (a chance chain of personal contacts among inmates, a volunteer and a lawyer, leading to a stay days before execution) is misdescribed.",
+      "id": "washington-07"
+    },
+    {
+      "record": "Proof of innocence was blocked by a procedural deadline: \"time barred by Virginia law, which allowed a defendant only 21 days to introduce new evidence, he was not exonerated.\"",
+      "reading": "absent",
+      "loss": "The legal rule that kept exculpatory DNA evidence from freeing him is missing.",
+      "id": "washington-08"
+    },
+    {
+      "record": "Resolution came in slow, partial steps through executive clemency: commutation to life, then a limited pardon \"on limited grounds that a jury would not have convicted him,\" release on parole, and only years later \"an absolute pardon, which acknowledged that Washington was wrongfully convicted.\"",
+      "reading": "A quick second round of clarification, outside review or quiet policy change, or the matter simply fading.",
+      "loss": "The decades-long, step-by-step path to vindication, depending on successive governors' discretion rather than courts or public pressure, is missed.",
+      "id": "washington-09"
+    },
+    {
+      "record": "The true perpetrator was eventually identified: \"Kenneth Tinsley... pleaded guilty to Rebecca Lynn Williams' rape and murder.\"",
+      "reading": "Says it cannot know whether the fringe claim is true.",
+      "loss": "The decisive confirmation that the official account was wrong, and who actually committed the crime, is absent.",
+      "id": "washington-10"
+    },
+    {
+      "record": "The wronged man's own response was mild and grateful: \"This was a whole lot better than I expected.\"",
+      "reading": "Critics feel erased by a press release, told politely that their experience does not count.",
+      "loss": "The emotional stance of the wrongly convicted person (understated relief rather than grievance at being dismissed) is misdescribed.",
+      "id": "washington-11"
+    },
+    {
+      "record": "The victim's last words framed the investigation: she \"could only describe her attacker as a Black man acting alone,\" and police later pinned the crime on a man arrested for unrelated offenses.",
+      "reading": "absent",
+      "loss": "The origin of the wrongful case (a vague, race-based description plus opportunistic attribution to someone already in custody) is missing.",
+      "id": "washington-12"
+    }
+  ]
+}

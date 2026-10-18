@@ -1,0 +1,89 @@
+{
+  "particulars": "All names, dates, places, ages, charges, sentence lengths, the compensation amount, the court and police bodies, the governor, the testing company and the book title are absent.",
+  "items": [
+    {
+      "record": "The case is a criminal prosecution of one man for rape and burglary, built mainly on a victim's eyewitness identification: \"she identified number five \u2014 Mr. Cotton \u2014 as her attacker.\"",
+      "reading": "An institution certifying that a system, product or population is \"within normal parameters\" and issuing directives to subordinates or the public.",
+      "loss": "This is the basic kind of event and the type of error: a wrongful criminal conviction of an individual, not an administrative finding about a system.",
+      "id": "cotton-01"
+    },
+    {
+      "record": "The mistaken belief starts in a sincere crime victim's memory, not in the institution's view of itself. She \"worked with police to create a composite sketch\" and then picked him out.",
+      "reading": "The authors are an institution that sincerely misjudges its own machinery.",
+      "loss": "This is where the error came from: one honest witness's misremembering, which officials then carried forward.",
+      "id": "cotton-02"
+    },
+    {
+      "record": "Her first identification was hesitant and became certain through repeated viewings: \"it is between number four and number five,\" then a second viewing, a live lineup and trial testimony.",
+      "reading": "absent",
+      "loss": "This is the step-by-step process by which a tentative choice hardened into fixed certainty.",
+      "id": "cotton-03"
+    },
+    {
+      "record": "The other victim could not identify anyone at first (\"did not see her attacker\"). At the second trial she named him, \"saying she had been too afraid.\"",
+      "reading": "absent",
+      "loss": "This is how a second witness's account shifted over time to match the prosecution's case.",
+      "id": "cotton-04"
+    },
+    {
+      "record": "His prior arrest as a teenager put him in the pool of mugshots: \"had been arrested as a teenager for breaking and entering.\"",
+      "reading": "absent",
+      "loss": "This is how an earlier record made one person a suspect in the first place.",
+      "id": "cotton-05"
+    },
+    {
+      "record": "Weak physical similarities were treated as corroboration: shoe foam that \"appeared similar\" and a flashlight that \"resembled the one used.\"",
+      "reading": "absent",
+      "loss": "This is the role of loose physical resemblance in propping up a mistaken identification.",
+      "id": "cotton-06"
+    },
+    {
+      "record": "Evidence pointing away from him was excluded or dismissed. The third victim's choice of \"subject number four\" was ruled \"not relevant,\" and his relatives' alibi that he was \"at home asleep\" did not prevail.",
+      "reading": "Contrary signals are filtered out as noise in a general, unspecified way.",
+      "loss": "These are the specific courtroom decisions that kept exculpatory evidence away from the jury.",
+      "id": "cotton-07"
+    },
+    {
+      "record": "The real attacker was kept from the jury because the victims rejected him outside its presence: \"Ms. Thompson-Cannino and the other woman both contended that he was not their attacker.\" This happened even though his blood type matched.",
+      "reading": "absent",
+      "loss": "This is how the same mistaken eyewitness certainty was used to shut out the true offender.",
+      "id": "cotton-08"
+    },
+    {
+      "record": "The higher court did correct the process at one point: the state supreme court \"reversed the convictions and ordered a new trial.\" The retrial then produced convictions on both rapes and a longer sentence, which a later appeal affirmed.",
+      "reading": "Correction will not come from within; only an external rupture will break the official account.",
+      "loss": "This is the sequence in which internal review partly worked, yet the error came back stronger.",
+      "id": "cotton-09"
+    },
+    {
+      "record": "The exoneration came from DNA testing requested by the defense, which police cooperated with. A database matched the real attacker, who had also \"admitted to other inmates that he had committed both crimes.\"",
+      "reading": "An inquiry, litigation, journalism, audit or catastrophe forces correction.",
+      "loss": "This is the actual way the case was corrected: a new scientific test plus a database match.",
+      "id": "cotton-10"
+    },
+    {
+      "record": "The prosecution joined the defense in dismissing the case: \"The district attorney and the defense filed a motion to dismiss all charges.\" A pardon, the real offender's guilty plea and state compensation followed quickly.",
+      "reading": "Correction is late, partial and costly, followed by a contested fight over whether the error was negligent.",
+      "loss": "This is the cooperative, fairly complete way the case ended, which is the opposite of the predicted contested aftermath.",
+      "id": "cotton-11"
+    },
+    {
+      "record": "The harm fell on one wrongly imprisoned man for more than ten years, and on two victims whose attacker stayed free and kept offending (\"convicted of several other sexual assaults\").",
+      "reading": "A growing, exponential number of affected cases across a population.",
+      "loss": "This is the scale and shape of the harm: concentrated on a few individuals, with the cost growing through the real offender's freedom rather than through more cases.",
+      "id": "cotton-12"
+    },
+    {
+      "record": "The crime victim was both harmed and the source of the error. She and the man she misidentified later \"became good friends\" and campaigned together on \"eyewitness identification procedures.\"",
+      "reading": "Harmed people stay isolated, disbelieved and without solidarity.",
+      "loss": "This is the later reconciliation and partnership between the accuser and the accused that turned the case into a reform effort.",
+      "id": "cotton-13"
+    },
+    {
+      "record": "After release he rebuilt his life: he \"got a job in the warehouse of LabCorp,\" married, had a child and bought land.",
+      "reading": "absent",
+      "loss": "This is how the wrongly convicted man's life went after exoneration.",
+      "id": "cotton-14"
+    }
+  ]
+}

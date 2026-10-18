@@ -1,0 +1,89 @@
+{
+  "particulars": "All names, ages, dates, places, the agencies involved, physical measurements, probability figures, the sentence length and compensation amounts were dropped.",
+  "items": [
+    {
+      "record": "The text is a narrative summary of a wrongful rape conviction and exoneration that follows many actors over several years: \"Josiah Sutton was convicted... and sentenced to 25 years in prison.\"",
+      "reading": "A single official findings memo or closing determination, issued by one body with final authority, written in numbered findings and defined terms.",
+      "loss": "This is the basic genre and subject of the case, and the reading gets it wrong.",
+      "id": "sutton-01"
+    },
+    {
+      "record": "The person on the margin is a Black teenager accused of rape, tried as an adult and imprisoned. What was at stake was his liberty: \"certified to stand trial as an adult.\"",
+      "reading": "A whistleblower, dissenting employee or complainant who depends on the institution for a job, licence or benefits.",
+      "loss": "This is who the marginal party was and what they stood to lose, and the reading misidentifies both.",
+      "id": "sutton-02"
+    },
+    {
+      "record": "The accusation began with a street show-up identification based on hats, even though the description did not fit him: \"about 6 inches taller and 60 pounds heavier than P.S.' description.\"",
+      "reading": "absent",
+      "loss": "This is how the error started: a mistaken eyewitness identification that ignored a clear physical mismatch.",
+      "id": "sutton-03"
+    },
+    {
+      "record": "The lab's DNA work was unreliable and its statistics were overstated. The jury heard \"1 in 694,000\", but a correct analysis gave \"better than 1 chance in 8\". The lab also produced two different profiles for the same victim.",
+      "reading": "The record is honest on its surface and accurate in each part, and the institution does not need to lie.",
+      "loss": "This is the central mechanism: forensic evidence that was flawed and misleadingly presented, which the reading wrongly treats as accurate.",
+      "id": "sutton-04"
+    },
+    {
+      "record": "Exculpatory evidence was misreported and then shut down at trial: \"The lab report had erroneously stated that DNA types consistent with Mr. Sutton were found\" on a sample that excluded him, and the prosecutor said \"I don't want to talk about the unknown sample, okay?\"",
+      "reading": "Suppression is quiet containment through documentation, and may be an unintended side effect of routine procedure.",
+      "loss": "This is the specific act of suppression: a prosecutor cutting off exculpatory testimony in open court, not a file being administratively closed.",
+      "id": "sutton-05"
+    },
+    {
+      "record": "His own defence lawyer failed him. The lawyer never authorized the independent testing the family had paid for, retained no expert, and opened the door to questions about a prior conviction: \"Well, I'm sorry, man, but that's what they came up with.\"",
+      "reading": "absent",
+      "loss": "This is a breakdown by the person who was supposed to be on his side, not a direct clash between him and the institution.",
+      "id": "sutton-06"
+    },
+    {
+      "record": "The same DNA test that implicated him cleared his co-defendant, who \"was then released\".",
+      "reading": "absent",
+      "loss": "This is how the flawed evidence sorted two accused people, freeing one and condemning the other.",
+      "id": "sutton-07"
+    },
+    {
+      "record": "The appeals court rejected his ineffective-counsel claim because the DNA evidence \"is not seriously challenged\".",
+      "reading": "absent",
+      "loss": "This is the review step that relied on the faulty evidence and so locked in the error.",
+      "id": "sutton-08"
+    },
+    {
+      "record": "His family supported him actively. They paid for testing, and his mother saw the broadcast and \"called the station to convince the reporters to investigate her son's case.\"",
+      "reading": "There is no collective behind the marginal party, who faces the apparatus alone.",
+      "loss": "This is the kin support that actually broke the case open, which the reading denies existed.",
+      "id": "sutton-09"
+    },
+    {
+      "record": "He started post-conviction relief himself, by drafting a motion under a statute that \"technically didn't apply to him\", and a public defender was then appointed.",
+      "reading": "absent",
+      "loss": "This is the prisoner acting on his own initiative and using a new legal route that did not formally fit his situation.",
+      "id": "sutton-10"
+    },
+    {
+      "record": "Defence attorneys tipped off TV reporters, who investigated the whole crime lab with independent experts before his case was added: \"had begun investigating the Houston crime lab.\"",
+      "reading": "Press investigation is listed only as one generic possible future source of exposure.",
+      "loss": "This is the outside actors who exposed a lab-wide problem and the order in which that exposure reached his case.",
+      "id": "sutton-11"
+    },
+    {
+      "record": "After he was excluded, prosecutors added conditions, still refused to back innocence, and opposed his habeas petition: \"declined to support a pardon based on innocence, noting that the victim had not recanted.\"",
+      "reading": "absent",
+      "loss": "This is the institution continuing to resist after it had been proven wrong.",
+      "id": "sutton-12"
+    },
+    {
+      "record": "He was released by a judge and then pardoned by the governor on grounds of innocence, and he received compensation.",
+      "reading": "The file is reopened or exposed, with no specific resolution described.",
+      "loss": "This is the actual outcome, which came through executive clemency and financial redress.",
+      "id": "sutton-13"
+    },
+    {
+      "record": "Years later a database match identified the real attacker, who \"pleaded guilty\" and named his accomplice.",
+      "reading": "absent",
+      "loss": "This is the later, independent confirmation of the truth and the identification of the actual offenders.",
+      "id": "sutton-14"
+    }
+  ]
+}

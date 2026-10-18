@@ -1,0 +1,65 @@
+{
+  "logos": {
+    "act_type": {
+      "value": "assertive",
+      "authority_mismatch": false,
+      "confidence": 0.9
+    },
+    "cooperative": {
+      "status": "honored",
+      "maxim_violated": null,
+      "confidence": 0.8
+    },
+    "transmission": {
+      "value": "archive",
+      "confidence": 0.85
+    },
+    "resonance": {
+      "value": "illusion",
+      "confidence": 0.65
+    },
+    "authority": {
+      "value": "sovereign",
+      "confidence": 0.8
+    },
+    "utility": {
+      "value": "narrative",
+      "secondary": "instruction",
+      "confidence": 0.8
+    },
+    "social_field": {
+      "grid": 0.85,
+      "group": 0.6,
+      "quadrant": "hierarchical",
+      "confidence": 0.75
+    },
+    "structural": {
+      "layer": "institution",
+      "scale": "institution",
+      "_coerced": null,
+      "density": "bureaucratic",
+      "persistence": "institutional",
+      "authority": "system",
+      "transmission": "broadcast",
+      "memory_channel": "institutional",
+      "language_mode": "contractual",
+      "overlays": [
+        "society",
+        "family"
+      ],
+      "confidence": 0.8
+    },
+    "account_the_institution_relied_on": {
+      "how_it_was_made": "manufactured"
+    }
+  },
+  "conflict": {
+    "schema": "entangled",
+    "behavior": "rationalizing",
+    "terrain": "drifting",
+    "window": "rationalizing",
+    "escalation_phase": "threshold",
+    "counter_force": "taken_up",
+    "confidence": 0.8
+  }
+}

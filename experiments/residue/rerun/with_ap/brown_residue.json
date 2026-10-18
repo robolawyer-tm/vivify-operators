@@ -1,0 +1,77 @@
+{
+  "particulars": "All names, dates, places, store names, dollar amounts, physical measurements, print-point counts, sentence length, court and agency names, and statute titles are absent.",
+  "items": [
+    {
+      "record": "The case is a criminal prosecution of one man for armed robbery that ends in a wrongful-conviction reversal: 'charged him with two counts of armed robbery'.",
+      "reading": "An agency's official self-review of its conduct toward families, for example in child welfare or benefits.",
+      "loss": "The basic nature of the matter and the institution involved is misidentified.",
+      "id": "brown-01"
+    },
+    {
+      "record": "The conviction rested on a fingerprint examiner's report that falsely said a database search had been done: 'they were loaded but never searched, although his report said they had been.'",
+      "reading": "A coherent bureaucratic narrative that 'does not lie in any obvious way'.",
+      "loss": "The specific mechanism of fabrication, a false statement of procedure by a technical expert, is missed.",
+      "id": "brown-02"
+    },
+    {
+      "record": "Witness identifications were shaky and suggestive: a witness picked him on a second look at '80 percent', and another said 'an officer pointed to Brown's photo and asked whether she was sure it wasn't him'.",
+      "reading": "absent",
+      "loss": "The evidentiary process by which police steered eyewitnesses toward a suspect is lost.",
+      "id": "brown-03"
+    },
+    {
+      "record": "Physical descriptions did not fit the accused: he was 'stocky', 'pudgy', 6 feet to 6 feet 2, while Brown was recorded as 5 feet 9 and 150 pounds with a full beard.",
+      "reading": "absent",
+      "loss": "The concrete mismatch between the suspect and the evidence that later underpinned innocence is missing.",
+      "id": "brown-04"
+    },
+    {
+      "record": "The jury split its verdicts and convicted on one count only after the judge urged unanimity: 'acquitted Brown of the Family Dollar robbery and convicted him of the Dollar Tree robbery.'",
+      "reading": "absent",
+      "loss": "The trial dynamic of a divided jury pushed toward a verdict is absent.",
+      "id": "brown-05"
+    },
+    {
+      "record": "The trial evidence was destroyed and the challenge failed for lack of bad faith: 'no proof the clerk had acted in bad faith.'",
+      "reading": "Drift from harm to whether procedure was followed, framed as the institution's rationalization.",
+      "loss": "The concrete step-by-step sequence of evidence loss and the court's legal test for it are not recovered.",
+      "id": "brown-06"
+    },
+    {
+      "record": "The defense, not the state, forced the database search by going to the agency that runs it: 'Brown's lawyers confirmed with the State Bureau of Investigation... that the three prints were still in the system.'",
+      "reading": "A counter-force of families, advocates, journalists, or a review body contesting a document.",
+      "loss": "Who drove the correction, an innocence-project legal team using discovery, and how they did it is misdescribed.",
+      "id": "brown-07"
+    },
+    {
+      "record": "The search identified another man as the likely source: 'one of the three prints came from a man identified as Daris J.... who was taller and heavier than Brown.'",
+      "reading": "absent",
+      "loss": "The alternative-perpetrator discovery that broke the case is missing.",
+      "id": "brown-08"
+    },
+    {
+      "record": "The examiner's wider work was later reviewed for errors: 'instances where Mr. Babb had found a print did not have evidentiary value, but another analyst determined the same print did have evidentiary value.'",
+      "reading": "absent",
+      "loss": "The internal audit exposing a pattern in the expert's errors is missing.",
+      "id": "brown-09"
+    },
+    {
+      "record": "The state consented while still defending trial counsel: 'maintaining that Brown's trial lawyer had been effective.'",
+      "reading": "Resolution likely partial, with an official version persisting beside a counter-record.",
+      "loss": "The actual outcome, a full dismissal achieved through a partial state concession, is misjudged.",
+      "id": "brown-10"
+    },
+    {
+      "record": "The sequence spans arrest, conviction, appeal, release, and finally dismissal over more than a decade: 'the state dismissed the charge against Brown.'",
+      "reading": "Escalation poised at a threshold, outcome undetermined.",
+      "loss": "The completed long-run sequence and its end state are not recovered.",
+      "id": "brown-11"
+    },
+    {
+      "record": "The accused's own position was steady denial resting on stable work and family ties: 'I had a full-time job and custody of my son.'",
+      "reading": "Families feeling misdescribed by an authoritative text.",
+      "loss": "The individual defendant's standpoint and his alibi-like circumstances are replaced by a collective family frame.",
+      "id": "brown-12"
+    }
+  ]
+}

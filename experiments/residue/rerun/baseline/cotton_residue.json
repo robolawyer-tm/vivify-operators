@@ -1,0 +1,71 @@
+{
+  "particulars": "All names, ages, dates, times, places, court names, charges, sentence lengths, compensation amount, employer and book title are omitted.",
+  "items": [
+    {
+      "record": "A single victim's eyewitness identification drives the case: \"it is between number four and number five\" before she settles on number five after a second viewing.",
+      "reading": "absent; the reading imagines an official report written by a bureaucratic state body",
+      "loss": "The core mechanism, an honest but mistaken eyewitness memory hardening into certainty through repeated police procedures, is missing.",
+      "id": "cotton-01"
+    },
+    {
+      "record": "The suspect was picked from mugshots because of a prior record: Cotton \"had been arrested as a teenager for breaking and entering.\"",
+      "reading": "absent",
+      "loss": "The way a past record channels a person into suspicion is not recovered.",
+      "id": "cotton-02"
+    },
+    {
+      "record": "Exculpatory evidence was blocked: the other victim \"positively identified subject number four\" and the court \"excluded the evidence on grounds that it was not relevant.\"",
+      "reading": "absent; the reading describes a document made of true statements with misleading framing",
+      "loss": "The concrete process by which a court shut out evidence pointing away from the defendant is missed.",
+      "id": "cotton-03"
+    },
+    {
+      "record": "An appeal partly corrected the error, and a retrial then made things worse: the high court \"reversed the convictions and ordered a new trial,\" and at retrial \"the second woman also identified Mr. Cotton.\"",
+      "reading": "absent; the reading assumes steady drift with no intervening correction",
+      "loss": "The back-and-forth sequence of reversal, retrial and a heavier conviction is lost.",
+      "id": "cotton-04"
+    },
+    {
+      "record": "The real perpetrator was screened out by witness denial: Poole was brought in and both women \"contended that he was not their attacker,\" so the defense was denied.",
+      "reading": "absent",
+      "loss": "The ironic dynamic in which the same mistaken witnesses blocked the true suspect is not recovered.",
+      "id": "cotton-05"
+    },
+    {
+      "record": "Resolution came through forensic science requested by the defense: DNA testing \"indicated that Mr. Cotton was not the source,\" and a database match identified Poole.",
+      "reading": "resolution by leak, journalist or inquiry, described as \"not cleanly, and not soon\"",
+      "loss": "The actual mechanism and agent of exposure, technical evidence pursued by one individual's defense, is misdescribed.",
+      "id": "cotton-06"
+    },
+    {
+      "record": "Prosecutor and defense jointly moved to dismiss, followed by a guilty plea and a pardon: \"The district attorney and the defense filed a motion to dismiss all charges.\"",
+      "reading": "the institution keeps producing rationalizing documents to suppress the problem",
+      "loss": "The institution's cooperative self-correction once proof arrived is misdescribed as continued suppression.",
+      "id": "cotton-07"
+    },
+    {
+      "record": "A single individual, not a dispersed population, bore the harm: Cotton spent \"more than 10 years in prison\" for crimes Poole committed while Poole kept offending.",
+      "reading": "an isolated mass of claimants or patients whose individual cases form a hidden pattern",
+      "loss": "The affected party is misidentified: one wrongly convicted man, plus victims of a free perpetrator, rather than a diffuse public.",
+      "id": "cotton-08"
+    },
+    {
+      "record": "The accuser and the wrongly accused reconciled and became joint advocates: \"They became good friends and began to travel around the country to speak about wrongful convictions.\"",
+      "reading": "affected people stay isolated, resigned and without a collective",
+      "loss": "The post-exoneration relationship that turned former adversaries into reform partners is missed.",
+      "id": "cotton-09"
+    },
+    {
+      "record": "The case produced a reform agenda: speaking about reforms \"especially for eyewitness identification procedures.\"",
+      "reading": "the archived document later serves as evidence of institutional knowledge",
+      "loss": "The policy outcome, procedural reform of witness identification, is not recovered.",
+      "id": "cotton-10"
+    },
+    {
+      "record": "The exoneree rebuilt his life: he \"got a job in the warehouse of LabCorp,\" married, had a child, bought land and received state compensation.",
+      "reading": "absent",
+      "loss": "The individual repair and restitution trajectory after release is lost.",
+      "id": "cotton-11"
+    }
+  ]
+}
