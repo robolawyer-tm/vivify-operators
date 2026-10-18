@@ -269,6 +269,29 @@
    "free_text": [
     "rationale"
    ]
+  },
+  "account_production": {
+   "enums": {
+    "mode": [
+     "unmarked",
+     "mistaken",
+     "inflated",
+     "manufactured"
+    ]
+   },
+   "floats": {
+    "confidence": [
+     0.0,
+     1.0
+    ]
+   },
+   "lists": [
+    "mode_signals"
+   ],
+   "free_text": [
+    "rationale"
+   ],
+   "nullable": []
   }
  }
 }
