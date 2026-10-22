@@ -89,8 +89,20 @@ A new coordinate, `account_production`, would record how the account the institu
 - Limits: one judge draw per case, the same model family throughout, and readings from a single decode per arm.
 - Cost (usage log, tag ap_checklist): 4 calls, 42K tokens written to the cache, 2.5K out, 1.9K thinking, 37 s, list $0.39.
 
+## Checklist repeat draws (2026-10-22): the gap holds
+
+- Two more judge draws with new shuffles (`ap_checklist.py --seed 2` and `--seed 3`), over the same readings.
+- Totals out of 11, draws 10-18 / s2 / s3, then the mean: baseline 0/0/0 (0); bare label 0.5/0/0 (0.17); named 2/1.5/1 (1.5); positions 1.5/0.5/1 (1.0); baseline_domain 1/0/0.5 (0.5); **positions_domain 4.5/4/4 (4.17)**.
+- The fair pair is 0.5 vs 4.17. positions_domain is top in every draw, and the lowest positions_domain draw (4) is above the highest score of any other arm in any draw (2).
+- The per-item marks barely move: washington-03 is yes in all three draws; sutton-05, washington-05, brown-03 and brown-15 are partly in all three; only cotton-04 moves (yes, then partly twice).
+- The same four items are missed every time: sutton-03, washington-07, cotton-09, brown-02. These are the secondary elements.
+- So the judge is stable, and the effect is not shuffle noise. Recall is still low: about 4 of 11, mostly partly.
+- What this does not test: the readings come from one decode per arm, and the judge is the same model family as the writer. A second decode, or a non-Anthropic judge, is what would test those.
+- Cost (usage log, tags ap_checklist_s2 and ap_checklist_s3): 8 calls, list $0.76.
+
 <!-- llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/candidate_account_production.md | created — sketch of the first demand-led dimension candidate: mode (mistaken/inflated/manufactured/unmarked), hardening (repetition/endorsement/none), signals, replay reading, placement, acceptance via re-run residue test -->
 <!-- llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/candidate_account_production.md | open questions replaced by John's three decisions (one dominant value, mode first, shielding goes with reopening); built files listed -->
 <!-- llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/candidate_account_production.md | acceptance section: failed with bare and named labels; remaining losses ask who supplied and shaped the account -->
 <!-- llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/candidate_account_production.md | try 3: positions carried in the reading, count flat, remaining losses are domain; domain-held test proposed -->
 <!-- llm: claude-opus-5-5 | 2026-10-18 | repos/vivify-operators/experiments/residue/candidate_account_production.md | try 4 and fixed-checklist result: positions plus setting 4.5/11 vs 1/11 -->
+<!-- llm: claude-opus-5-5 | 2026-10-22 | repos/vivify-operators/experiments/residue/candidate_account_production.md | checklist repeat draws s2/s3: positions_domain 4/4 (mean 4.17) vs baseline_domain 0/0.5 (mean 0.5); judge stable, same 4 items always missed -->

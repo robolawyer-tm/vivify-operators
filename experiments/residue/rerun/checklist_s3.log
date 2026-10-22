@@ -1,0 +1,6 @@
+sutton     baseline=0 with_ap=0 with_ap_named=0.5 with_positions=0 baseline_domain=0 positions_domain=0.5 
+washington baseline=0 with_ap=0 with_ap_named=0.5 with_positions=0.5 baseline_domain=0 positions_domain=1.5 
+cotton     baseline=0 with_ap=0 with_ap_named=0 with_positions=0.5 baseline_domain=0.5 positions_domain=1 
+brown      baseline=0 with_ap=0 with_ap_named=0 with_positions=0 baseline_domain=0 positions_domain=1 
+
+total (of 11): baseline=0  with_ap=0  with_ap_named=1  with_positions=1  baseline_domain=0.5  positions_domain=4

@@ -18,6 +18,8 @@ rerun/checklist.json (snapshot).
 
 Usage:
     VIVIFY_RUN_TAG=ap_checklist python3 ap_checklist.py
+    VIVIFY_RUN_TAG=ap_checklist_s2 python3 ap_checklist.py --seed 2   # a repeat draw, new shuffles,
+                                                                      # writes rerun/checklist_s2.json
 """
 
 import sys
@@ -57,7 +59,9 @@ READINGS:
 
 
 def main():
-    rng = random.Random(20261018)
+    seed = int(sys.argv[sys.argv.index("--seed") + 1]) if "--seed" in sys.argv else None
+    rng = random.Random(20261018 if seed is None else seed)
+    out_name = "checklist.json" if seed is None else f"checklist_s{seed}.json"
     out = {"by_case": {}, "totals": {a: 0.0 for a in ARMS}, "max_per_arm": 0}
     for case, nums in CHECKLIST.items():
         items = {it["id"]: it for it in read_json(HERE / f"{case}_residue.json")["items"]}
@@ -78,7 +82,7 @@ def main():
         out["by_case"][case] = {"labels": label, "arms": by_arm}
         out["max_per_arm"] += len(facts)
         print(f"{case:<11}" + "".join(f"{a}={by_arm[a]['score']:g} " for a in ARMS), flush=True)
-    write_json(HERE / "rerun" / "checklist.json", out)
+    write_json(HERE / "rerun" / out_name, out)
     print(f"\ntotal (of {out['max_per_arm']}): " + "  ".join(f"{a}={out['totals'][a]:g}" for a in ARMS))
 
 
@@ -86,3 +90,4 @@ if __name__ == "__main__":
     main()
 
 # llm: claude-opus-5-5 | 2026-10-18 | repos/vivify-operators/experiments/residue/ap_checklist.py | created — fixed-checklist recall of the eleven production items against every arm's blind reading, arms shuffled and labelled per case, yes/partly/no
+# llm: claude-opus-5-5 | 2026-10-22 | repos/vivify-operators/experiments/residue/ap_checklist.py | --seed N for repeat draws: new shuffles, output rerun/checklist_sN.json; default run unchanged
