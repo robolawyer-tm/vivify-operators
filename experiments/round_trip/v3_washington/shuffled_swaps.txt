@@ -1,0 +1,21 @@
+# Permutation control, seed 20261022, pool = 20 other stored inferences.
+# Every value below is a REAL value for that field, taken from a different inference.
+
+logos.transmission.value: broadcast -> archive  (inf_a636d323)
+logos.resonance.value: illusion -> harmony  (inf_44592bee)
+logos.authority.value: sovereign -> occult  (inf_a636d323)
+logos.social_field.grid: 0.4 -> 0.28  (inf_72711662)
+logos.social_field.group: 0.2 -> 0.17  (inf_a636d323)
+logos.social_field.quadrant: individualist -> egalitarian  (inf_c8e1ac73)
+logos.structural.layer: institution -> global  (inf_b097e1d7)
+logos.structural.scale: institution -> global  (inf_b097e1d7)
+logos.structural.persistence: institutional -> durable  (inf_0f31de7a)
+logos.structural.authority: system -> pair  (inf_c8e1ac73)
+logos.structural.transmission: broadcast -> archive  (inf_682bab80)
+logos.structural.memory_channel: institutional -> episodic  (inf_1d767cb6)
+logos.structural.language_mode: contractual -> indexical  (inf_1d767cb6)
+conflict.schema: entangled -> activated  (inf_682bab80)
+conflict.behavior: suppression -> positioning  (inf_0bc11447)
+conflict.terrain: fringe -> center  (inf_58190c7d)
+conflict.window: rationalizing -> forming  (inf_1d767cb6)
+conflict.escalation_phase: exponential -> early  (inf_44592bee)
