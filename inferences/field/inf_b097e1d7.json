@@ -295,12 +295,37 @@
       "_operator": "utility_operator.py"
     },
     "social_field": {
-      "grid": 0.3,
-      "group": 0.2,
-      "quadrant": "individualist",
-      "rationale": "The telling occurs in an open public-discourse field \u2014 a published, freely circulating account with no membership gate and few binding role-rules on the reader.",
-      "confidence": 0.65,
-      "_model": "claude-opus-4-8",
+      "grid": 0.8,
+      "group": 0.6,
+      "quadrant": "hierarchical",
+      "quadrant_drawn": "hierarchical",
+      "quadrant_agrees": true,
+      "rationale": "The described acts take place mainly within the criminal justice system, where police procedures, lineups, trial and appellate courts, evidentiary rulings, and sentencing set strongly prescribed roles and a firm boundary between institution and accused. The later post-exoneration friendship and reform advocacy are a looser, more negotiated coda.",
+      "level": "events",
+      "telling": {
+        "grid": 0.4,
+        "group": 0.3,
+        "quadrant": "individualist",
+        "quadrant_drawn": "individualist",
+        "rationale": "The text is an encyclopedic case summary written from outside for a general or reference readership, likely a wrongful-conviction database or explainer. It circulates under loose conventions of neutral factual reporting rather than institutional role or group membership."
+      },
+      "confidence": 0.7,
+      "_model": "claude-opus-5-5",
+      "_votes": {
+        "n": 3,
+        "agreed": 2,
+        "unanimous": false,
+        "distribution": {
+          "quadrant": {
+            "hierarchical": 2,
+            "isolate": 1
+          },
+          "telling_quadrant": {
+            "individualist": 3
+          }
+        },
+        "quarantined": 0
+      },
       "_src": [
         "Douglas"
       ],

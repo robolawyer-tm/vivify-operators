@@ -414,22 +414,33 @@
       "_operator": "utility_operator.py"
     },
     "social_field": {
-      "grid": 0.4,
-      "group": 0.2,
-      "quadrant": "individualist",
-      "quadrant_drawn": "individualist",
+      "grid": 0.85,
+      "group": 0.6,
+      "quadrant": "hierarchical",
+      "quadrant_drawn": "hierarchical",
       "quadrant_agrees": true,
-      "rationale": "The act is a public narrative broadcast to an anonymous mass audience: identity is not defined by membership (low group), and the telling itself is only loosely rule-bound (moderate-low grid), even though its content concerns a highly rule-governed institution.",
-      "confidence": 0.58,
-      "_model": "claude-opus-4-8",
+      "rationale": "The acts unfold within the criminal justice and prison system (police interrogation, forensic labs, trial, death row, gubernatorial clemency), a strongly rule-bound, role-defined institutional field with clear insider/outsider boundaries between state authorities and the accused, punctured only briefly by informal actors like a fellow inmate and a volunteer advocate.",
+      "level": "events",
+      "telling": {
+        "grid": 0.35,
+        "group": 0.6,
+        "quadrant": "egalitarian",
+        "quadrant_drawn": "egalitarian",
+        "rationale": "The text is an exoneration-advocacy case summary written from outside the events for a sympathetic public audience. It circulates under loose genre conventions rather than formal rules and is framed by a moral community critical of state authority, as its scare-quoted \"confessions\" show."
+      },
+      "confidence": 0.7,
+      "_model": "claude-opus-5-5",
       "_votes": {
         "n": 3,
         "agreed": 2,
         "unanimous": false,
         "distribution": {
+          "telling_quadrant": {
+            "egalitarian": 3
+          },
           "quadrant": {
-            "individualist": 2,
-            "hierarchical": 1
+            "hierarchical": 2,
+            "isolate": 1
           }
         },
         "quarantined": 0

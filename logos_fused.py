@@ -109,8 +109,10 @@ Judge each dimension on its own terms; do not let one dimension's answer bias an
 
 7. social_field — Douglas grid/group, each 0.0-1.0.
    grid=constraint by explicit rules/roles; group=identity defined by membership.
-   quadrant ({_vals('social_field','quadrant')}). Score the field the act occurs in,
-   not its content.
+   quadrant ({_vals('social_field','quadrant')}). Score TWO fields, not the content:
+   grid/group/quadrant = the EVENTS, the field the described acts take place in;
+   telling_* = the TELLING, the field this text itself is communicated in. A text that
+   is itself a move inside its events gets the same scores for both.
 
 8. structural — locate the act in social space. Pick the primary layer/scale
    ({"|".join(structural_operator.VALID_SCALES)}) and set scale = layer:
@@ -138,7 +140,9 @@ Return ONLY valid JSON, exactly these keys (confidence is 0.0-1.0 per block):
   "resonance":    {{"resonance": "", "surface": "", "underlying": null, "confidence": 0.0}},
   "authority":    {{"authority": "", "source": "", "rationale": "", "confidence": 0.0}},
   "utility":      {{"utility": "", "secondary": null, "rationale": "", "confidence": 0.0}},
-  "social_field": {{"grid": 0.0, "group": 0.0, "quadrant": "", "rationale": "", "confidence": 0.0}},
+  "social_field": {{"grid": 0.0, "group": 0.0, "quadrant": "", "rationale": "",
+                   "telling_grid": 0.0, "telling_group": 0.0, "telling_quadrant": "",
+                   "telling_rationale": "", "confidence": 0.0}},
   "structural":   {{"layer": "", "scale": "", "density": "", "persistence": "", "authority": "",
                    "transmission": "", "memory_channel": "", "language_mode": "", "overlays": [], "confidence": 0.0}}
 }}
@@ -290,3 +294,4 @@ if __name__ == "__main__":
 # llm: claude-opus-4-8 | 2026-06-29 | repos/vivify-operators/logos_fused.py | run() now clears stale per-dimension _errors for the 8 dims it re-tags on a successful pass (prevents an old per-operator error from wedging logos_complete forever)
 # llm: claude-opus-5 | 2026-08-13 | repos/vivify-operators/logos_fused.py | fused path stamps _model on all 8 blocks before parse() (the per-operator path got it from call_and_validate; the fused path is what field runs use)
 # llm: claude-opus-5 | 2026-09-03 | repos/vivify-operators/logos_fused.py | repeat-and-vote on the fused path: _fused_vote() takes VIVIFY_VOTES draws and keeps the modal block PER DIMENSION (the 8 dims are independent, so one wobble must not discard the others' agreement); each block carries its _votes spread
+# llm: claude-opus-5-5 | 2026-10-22 | repos/vivify-operators/logos_fused.py | social_field asks for two levels (events in grid/group/quadrant, the telling in telling_*); the new fields are required in the fused block via coordinates.json

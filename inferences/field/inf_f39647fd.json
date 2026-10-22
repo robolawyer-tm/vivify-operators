@@ -374,19 +374,31 @@
       "_operator": "utility_operator.py"
     },
     "social_field": {
-      "grid": 0.9,
-      "group": 0.45,
-      "quadrant": "isolate",
+      "grid": 0.85,
+      "group": 0.6,
+      "quadrant": "hierarchical",
       "quadrant_drawn": "hierarchical",
-      "quadrant_agrees": false,
-      "rationale": "The act sits inside a heavily rule- and role-bound legal apparatus (courts, statutes, procedures); constraint by explicit rules is high, while membership-defined identity is only moderate.",
-      "confidence": 0.8,
-      "_model": "claude-opus-4-8",
+      "quadrant_agrees": true,
+      "rationale": "The acts unfold within the criminal justice apparatus, where police, prosecutors, defense, judges, juries, appellate courts and the governor act in tightly prescribed institutional roles under formal procedural and evidentiary rules, bound together as a state legal order.",
+      "level": "events",
+      "telling": {
+        "grid": 0.4,
+        "group": 0.35,
+        "quadrant": "individualist",
+        "quadrant_drawn": "individualist",
+        "rationale": "This is an external case summary in the style of an exoneration registry or advocacy profile, written for an open general readership under loose journalistic and documentary conventions rather than binding institutional rules or membership boundaries."
+      },
+      "confidence": 0.7,
+      "_model": "claude-opus-5-5",
       "_votes": {
         "n": 3,
-        "agreed": 3,
-        "unanimous": true,
+        "agreed": 2,
+        "unanimous": false,
         "distribution": {
+          "telling_quadrant": {
+            "hierarchical": 1,
+            "individualist": 2
+          },
           "quadrant": {
             "hierarchical": 3
           }

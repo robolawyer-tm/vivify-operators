@@ -497,21 +497,32 @@
     },
     "social_field": {
       "grid": 0.85,
-      "group": 0.3,
+      "group": 0.4,
       "quadrant": "isolate",
       "quadrant_drawn": "hierarchical",
       "quadrant_agrees": false,
-      "rationale": "The act occurs in a highly rule-bound institutional field \u2014 labs, courts, statutes, defined roles \u2014 with weak membership-based identity; strong grid, low group.",
-      "confidence": 0.8,
-      "_model": "claude-opus-4-8",
+      "rationale": "The described acts take place within the criminal justice apparatus: police, crime lab, prosecutors, defense counsel, trial and appellate courts, and the governor's pardon power. Actors act under prescribed institutional roles and procedures. Group cohesion is moderate, with an adversarial structure and individuals like the reporters and Sutton's mother working from outside it.",
+      "level": "events",
+      "telling": {
+        "grid": 0.55,
+        "group": 0.35,
+        "quadrant": "isolate",
+        "quadrant_drawn": "individualist",
+        "rationale": "This is an exoneration case summary written from outside the events, of the kind published by an innocence or registry organization for a general and reform-minded public. It follows conventions of factual case documentation but circulates openly with weak membership boundaries."
+      },
+      "confidence": 0.6,
+      "_model": "claude-opus-5-5",
       "_votes": {
         "n": 3,
         "agreed": 2,
         "unanimous": false,
         "distribution": {
+          "telling_quadrant": {
+            "individualist": 2,
+            "hierarchical": 1
+          },
           "quadrant": {
-            "hierarchical": 2,
-            "isolate": 1
+            "hierarchical": 3
           }
         },
         "quarantined": 0

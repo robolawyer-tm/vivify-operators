@@ -5,6 +5,11 @@ social_field_operator.py — logos tagging pass: Douglas grid/group axes
 Reads a vivified inference, scores it on Douglas's grid/group axes,
 attaches logos.social_field coordinates to the inference JSON.
 
+Two levels: the field the described acts take place in (events, the top-level
+grid/group) and the field the text itself circulates in (telling). A case summary
+is about its events, so a single score had to pick one, and each draw picked
+silently (round_trip v4, 2026-10-22).
+
 _src: Douglas (Purity and Danger, 1966; Natural Symbols, 1970)
 Schema: pillars/logos/logos_schema_v01.json#dimensions.social_field
 """
@@ -36,8 +41,17 @@ The four quadrants this produces:
   low grid / high group  — egalitarian, strong boundary, internal negotiation
   high grid / high group — hierarchical, role and group together, most institutionalized
 
-Score the social constraint field in which this communication occurs, not the
-content of the communication itself.
+Score TWO fields, each on both axes:
+
+  events  — the social constraint field in which the acts the text describes take
+            place: the people who act in it, and the rules and roles they act under.
+  telling — the social constraint field in which this text itself is communicated:
+            who it is written for, and under what rules it circulates.
+
+For a text that is itself a move inside its events (a ruling, a demand, a message
+to the other party), the two are the same field: give both the same scores. For a
+text that reports events from outside (a case summary, a news account, notes), score
+each on its own. Score the fields, not the content of the communication.
 
 Text:
 {text}
@@ -47,7 +61,11 @@ Return ONLY valid JSON:
   "grid":      <0.0-1.0>,
   "group":     <0.0-1.0>,
   "quadrant":  "<individualist|isolate|egalitarian|hierarchical>",
-  "rationale": "<one sentence — what social field this communication occurs in>",
+  "rationale": "<one sentence — what social field the described acts take place in>",
+  "telling_grid":      <0.0-1.0>,
+  "telling_group":     <0.0-1.0>,
+  "telling_quadrant":  "<individualist|isolate|egalitarian|hierarchical>",
+  "telling_rationale": "<one sentence — what social field this text is communicated in>",
   "confidence": <0.0-1.0>
 }}
 """
@@ -90,11 +108,28 @@ def parse(result: dict, inference: dict) -> dict:
     """Map a validated social_field result into inference['logos']['social_field'].
 
     Split out from run() so the fused logos pass (logos_fused.py) can reuse this
-    mapping with a pre-fetched sub-result, without re-calling the LLM."""
+    mapping with a pre-fetched sub-result, without re-calling the LLM.
+
+    The top-level grid/group/quadrant are the EVENTS level, so every reader of
+    social_field (conflict, cross_scale, narrative) gets the case, not the page it
+    was reported on. The telling level sits under "telling", quadrant derived the
+    same way; it is None when a result predates the two-level prompt."""
     logos = inference.setdefault("logos", {})
     grid, group = result["grid"], result["group"]
     drawn = result.get("quadrant")
     derived = derive_quadrant(grid, group)
+    t_grid, t_group = result.get("telling_grid"), result.get("telling_group")
+    telling = None
+    if t_grid is not None or t_group is not None:
+        t_drawn = result.get("telling_quadrant")
+        t_derived = derive_quadrant(t_grid, t_group)
+        telling = {
+            "grid":      t_grid,
+            "group":     t_group,
+            "quadrant":  t_derived if t_derived is not None else t_drawn,
+            "quadrant_drawn": t_drawn,
+            "rationale": result.get("telling_rationale"),
+        }
     logos["social_field"] = {
         "grid":       grid,
         "group":      group,
@@ -102,6 +137,8 @@ def parse(result: dict, inference: dict) -> dict:
         "quadrant_drawn":  drawn,
         "quadrant_agrees": (derived == drawn) if derived is not None else None,
         "rationale":  result.get("rationale"),
+        "level":      "events" if telling is not None else None,
+        "telling":    telling,
         "confidence": result.get("confidence"),
         "_model":     result.get("_model"),
         "_votes":     result.get("_votes"),
@@ -137,3 +174,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5 | 2026-08-13 | repos/vivify-operators/social_field_operator.py | parse() records _model beside _operator — which model produced the coordinate
 
 # llm: claude-opus-5 | 2026-09-07 | repos/vivify-operators/social_field_operator.py | quadrant is now DERIVED from grid/group (it contradicted its own axes in 2 of 4 stored inferences); drawn label kept as quadrant_drawn + quadrant_agrees so the disagreement stays measurable; parse() is shared so the fused pass gets the fix too
+# llm: claude-opus-5-5 | 2026-10-22 | repos/vivify-operators/social_field_operator.py | two levels: grid/group/quadrant now score the EVENTS, telling_* the field the text itself circulates in (same scores for a within text); parse() stores the telling under social_field.telling with a derived quadrant; forced by the round_trip v4 case-identity fail

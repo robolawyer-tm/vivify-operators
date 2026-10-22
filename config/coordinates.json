@@ -136,8 +136,15 @@
    ]
   },
   "social_field": {
+   "_note": "Two levels since 2026-10-22. grid/group/quadrant/rationale score the EVENTS: the field in which the acts the text describes take place. telling_* score the TELLING: the field in which the text itself is communicated. For a text that is itself a move inside its events the two are the same field. Before this, one value was asked for and each draw chose a level silently: Sutton and Cotton read the courts, Washington read the Innocence Project page's public audience, and the round_trip v4 case-identity test failed on that difference.",
    "enums": {
     "quadrant": [
+     "individualist",
+     "isolate",
+     "egalitarian",
+     "hierarchical"
+    ],
+    "telling_quadrant": [
      "individualist",
      "isolate",
      "egalitarian",
@@ -153,13 +160,22 @@
      0.0,
      1.0
     ],
+    "telling_grid": [
+     0.0,
+     1.0
+    ],
+    "telling_group": [
+     0.0,
+     1.0
+    ],
     "confidence": [
      0.0,
      1.0
     ]
    },
    "free_text": [
-    "rationale"
+    "rationale",
+    "telling_rationale"
    ]
   },
   "structural": {
