@@ -1,0 +1,50 @@
+{
+  "id": "inf_9f77fdc1",
+  "version": "1.0",
+  "timestamp": "2026-10-22T19:08:20.373103+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "A phased roadmap was clarified. Modeling beneficial outcomes belongs to phase 3, which is expected to bring a larger pivot and a wider contextual scope. In the meantime, input data can already be \"streamed\" through the pipeline. To test this, historical wrongful-conviction cases were cut into time-ordered slices, starting with the Sutton case and later the Brown case. A beneficial signal definition was drafted to say what the pipeline should detect before the case's turning point, such as exoneration or release.",
+  "left_keywords": [
+    "phased_roadmap",
+    "deferred_outcome_modeling",
+    "strategic_pivot",
+    "contextual_scope_expansion",
+    "interim_data_streaming",
+    "temporal_slicing",
+    "wrongful_conviction_corpus",
+    "sequential_case_testing",
+    "beneficial_signal_definition",
+    "pre_turning_point_detection",
+    "exoneration_release_milestone"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "roadmap_sequencing": [
+      "phased_roadmap",
+      "deferred_outcome_modeling",
+      "strategic_pivot",
+      "contextual_scope_expansion"
+    ],
+    "pipeline_streaming_test": [
+      "interim_data_streaming",
+      "temporal_slicing",
+      "sequential_case_testing"
+    ],
+    "historical_case_grounding": [
+      "wrongful_conviction_corpus",
+      "exoneration_release_milestone"
+    ],
+    "early_signal_detection": [
+      "beneficial_signal_definition",
+      "pre_turning_point_detection"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-opus-5-5",
+    "_operator": "vivify.py"
+  }
+}

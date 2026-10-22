@@ -1,0 +1,52 @@
+{
+  "id": "inf_9fcce52b",
+  "version": "1.0",
+  "timestamp": "2026-10-22T19:08:37.152679+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "The replay runs each slice through several stages, all on Opus: a left pass, the fused logos operators, and a conflict operator that records votes. Slices run in parallel in the background, and each result is written to disk as soon as it completes, so partial runs survive interruptions such as usage limits and only the unfinished slices need rerunning. A grounding rule for the left pass was committed, requiring its readings to be anchored in what was on the record at each slice.",
+  "left_keywords": [
+    "staged_pipeline",
+    "single_model_uniformity",
+    "fused_operator_chain",
+    "conflict_vote_recording",
+    "parallel_slice_execution",
+    "background_processing",
+    "incremental_persistence",
+    "interruption_resilience",
+    "selective_rerun",
+    "grounding_constraint",
+    "record_anchored_reading",
+    "temporal_fidelity"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "pipeline_architecture": [
+      "staged_pipeline",
+      "single_model_uniformity",
+      "fused_operator_chain",
+      "conflict_vote_recording"
+    ],
+    "execution_concurrency": [
+      "parallel_slice_execution",
+      "background_processing"
+    ],
+    "fault_tolerance": [
+      "incremental_persistence",
+      "interruption_resilience",
+      "selective_rerun"
+    ],
+    "epistemic_discipline": [
+      "grounding_constraint",
+      "record_anchored_reading",
+      "temporal_fidelity"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-opus-5-5",
+    "_operator": "vivify.py"
+  }
+}

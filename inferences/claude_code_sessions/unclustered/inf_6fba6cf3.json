@@ -1,0 +1,50 @@
+{
+  "id": "inf_6fba6cf3",
+  "version": "1.0",
+  "timestamp": "2026-10-20T21:27:31.540759+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "Publishing followed a verify-then-act approach. publish_repos was run as a dry run first, and its output was checked to confirm that every file it would send was tracked in git, so nothing unintended would be published. Only then did the real publish run. After that, publish_repos was run with the delete option so the published copies would drop files no longer present in the source, and the results were committed and pushed. This keeps the public repositories an exact mirror of the curated local state.",
+  "left_keywords": [
+    "verify_then_act",
+    "dry_run_rehearsal",
+    "tracked_file_confirmation",
+    "unintended_exposure_guard",
+    "gated_execution",
+    "deletion_sync",
+    "stale_file_pruning",
+    "commit_and_push",
+    "exact_mirror",
+    "curated_local_authority",
+    "public_repository_integrity"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "precautionary_verification": [
+      "verify_then_act",
+      "dry_run_rehearsal",
+      "gated_execution"
+    ],
+    "publication_safety": [
+      "tracked_file_confirmation",
+      "unintended_exposure_guard"
+    ],
+    "synchronization_hygiene": [
+      "deletion_sync",
+      "stale_file_pruning",
+      "commit_and_push"
+    ],
+    "source_of_truth_fidelity": [
+      "exact_mirror",
+      "curated_local_authority",
+      "public_repository_integrity"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-opus-5-5",
+    "_operator": "vivify.py"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "inf_52605201",
+  "version": "1.0",
+  "timestamp": "2026-10-22T19:07:53.962531+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "The session contained a decision to make model provenance track whatever models are currently in use, not hardcoded identifiers. The user noted that models change over time, so references to specific models should resolve to the active model rather than a fixed name. This was implemented with model provenance tests and an additional config check that works regardless of the working directory, then committed, pushed, rebuilt and published. Provenance stamps on documents record the LLM and date so that later readers know which model produced a given piece of writing.",
+  "left_keywords": [
+    "dynamic_model_provenance",
+    "anti_hardcoding",
+    "model_impermanence",
+    "active_model_resolution",
+    "provenance_testing",
+    "directory_independent_validation",
+    "release_pipeline_completion",
+    "authorship_attribution",
+    "temporal_stamping",
+    "reader_traceability"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "adaptive_identity": [
+      "dynamic_model_provenance",
+      "anti_hardcoding",
+      "active_model_resolution"
+    ],
+    "change_over_time": [
+      "model_impermanence",
+      "temporal_stamping"
+    ],
+    "verification_rigor": [
+      "provenance_testing",
+      "directory_independent_validation"
+    ],
+    "delivery_closure": [
+      "release_pipeline_completion"
+    ],
+    "authorship_transparency": [
+      "authorship_attribution",
+      "reader_traceability"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-opus-5-5",
+    "_operator": "vivify.py"
+  }
+}

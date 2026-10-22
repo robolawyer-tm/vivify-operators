@@ -1,0 +1,48 @@
+{
+  "id": "inf_fa6b2cff",
+  "version": "1.0",
+  "timestamp": "2026-10-20T21:26:59.960136+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "Pushing commits to GitHub repeatedly needed manual approval, and the user was unsure what the permission prompt meant. Claude explained that a permission rule could pre-approve these actions. The rule was limited to three specific git commands for saving and sending changes to GitHub, and it can be removed at any time. The user accepted. This was a deliberate trade-off between convenience and control, with the scope kept narrow so routine commit-and-push work runs without interruption while other actions still need approval.",
+  "left_keywords": [
+    "approval_friction",
+    "permission_uncertainty",
+    "preapproval_mechanism",
+    "scoped_authorization",
+    "narrow_command_scope",
+    "reversible_consent",
+    "informed_acceptance",
+    "convenience_control_tradeoff",
+    "workflow_continuity",
+    "residual_oversight"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "interruption_and_confusion": [
+      "approval_friction",
+      "permission_uncertainty"
+    ],
+    "permission_design": [
+      "preapproval_mechanism",
+      "scoped_authorization",
+      "narrow_command_scope"
+    ],
+    "user_agency": [
+      "reversible_consent",
+      "informed_acceptance"
+    ],
+    "balanced_tradeoff": [
+      "convenience_control_tradeoff",
+      "workflow_continuity",
+      "residual_oversight"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-opus-5-5",
+    "_operator": "vivify.py"
+  }
+}

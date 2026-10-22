@@ -1,0 +1,48 @@
+{
+  "id": "inf_106eaba7",
+  "version": "1.0",
+  "timestamp": "2026-10-22T19:08:09.391996+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "The project pivoted toward producing prose output from the vivify pipelines, so it could be confirmed end to end that the pipelines work and the direction of the outputs could be observed. The user set a preferred prose style: strong declarative sentences, each followed by supporting bullets, with references only occasionally. A preamble placed before the block of sentences and bullets frames the writing, as the user would do when presenting it as their own. Support for this preamble was added to the synthesis step of the reify tooling and committed together with the related doc standard change.",
+  "left_keywords": [
+    "prose_output_pivot",
+    "end_to_end_validation",
+    "output_direction_observability",
+    "declarative_assertion_style",
+    "bullet_support_structure",
+    "sparse_referencing",
+    "preamble_framing",
+    "authorial_ownership",
+    "synthesis_step_extension",
+    "doc_standard_alignment"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "pipeline_verification": [
+      "prose_output_pivot",
+      "end_to_end_validation",
+      "output_direction_observability"
+    ],
+    "prose_style_preference": [
+      "declarative_assertion_style",
+      "bullet_support_structure",
+      "sparse_referencing"
+    ],
+    "framing_and_voice": [
+      "preamble_framing",
+      "authorial_ownership"
+    ],
+    "tooling_change": [
+      "synthesis_step_extension",
+      "doc_standard_alignment"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-opus-5-5",
+    "_operator": "vivify.py"
+  }
+}

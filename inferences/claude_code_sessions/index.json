@@ -753,6 +753,159 @@
         ],
         "cross_platform_harmony": []
       },
+      "single_source_of_truth": {
+        "sync_scope_reduction": [
+          "target_decommission",
+          "publishing_pipeline_change",
+          "repository_consolidation",
+          "content_relocation"
+        ],
+        "target_decommission": [
+          "publishing_pipeline_change",
+          "repository_consolidation",
+          "content_relocation",
+          "canonical_ownership"
+        ],
+        "publishing_pipeline_change": [
+          "repository_consolidation",
+          "content_relocation",
+          "canonical_ownership",
+          "stale_content_risk"
+        ],
+        "repository_consolidation": [
+          "content_relocation",
+          "canonical_ownership",
+          "stale_content_risk",
+          "content_duplication_risk"
+        ],
+        "content_relocation": [
+          "canonical_ownership",
+          "stale_content_risk",
+          "content_duplication_risk",
+          "data_divergence_prevention"
+        ],
+        "canonical_ownership": [
+          "stale_content_risk",
+          "content_duplication_risk",
+          "data_divergence_prevention",
+          "risk_driven_simplification"
+        ],
+        "stale_content_risk": [
+          "content_duplication_risk",
+          "data_divergence_prevention",
+          "risk_driven_simplification"
+        ],
+        "content_duplication_risk": [
+          "data_divergence_prevention",
+          "risk_driven_simplification"
+        ],
+        "data_divergence_prevention": [
+          "risk_driven_simplification"
+        ],
+        "risk_driven_simplification": [],
+        "fused_prompt_drift": [
+          "parse_function_exposure",
+          "authoritative_mapping",
+          "enum_injection",
+          "result_to_coordinate_mapping"
+        ],
+        "parse_function_exposure": [
+          "authoritative_mapping",
+          "enum_injection",
+          "result_to_coordinate_mapping",
+          "scale_coercion"
+        ],
+        "authoritative_mapping": [
+          "enum_injection",
+          "result_to_coordinate_mapping",
+          "scale_coercion",
+          "byte_identical_output"
+        ],
+        "enum_injection": [
+          "result_to_coordinate_mapping",
+          "scale_coercion",
+          "byte_identical_output",
+          "downstream_invariance"
+        ],
+        "result_to_coordinate_mapping": [
+          "scale_coercion",
+          "byte_identical_output",
+          "downstream_invariance",
+          "no_duplication_discipline"
+        ],
+        "scale_coercion": [
+          "byte_identical_output",
+          "downstream_invariance",
+          "no_duplication_discipline",
+          "convenience_layer_constraint"
+        ],
+        "byte_identical_output": [
+          "downstream_invariance",
+          "no_duplication_discipline",
+          "convenience_layer_constraint",
+          "per_dimension_fidelity"
+        ],
+        "downstream_invariance": [
+          "no_duplication_discipline",
+          "convenience_layer_constraint",
+          "per_dimension_fidelity"
+        ],
+        "no_duplication_discipline": [
+          "convenience_layer_constraint",
+          "per_dimension_fidelity"
+        ],
+        "convenience_layer_constraint": [
+          "per_dimension_fidelity"
+        ],
+        "per_dimension_fidelity": [],
+        "selective_deployment": [
+          "incremental_copy",
+          "blind_overwrite_avoidance",
+          "git_diff_gating",
+          "session_scoped_changes"
+        ],
+        "incremental_copy": [
+          "blind_overwrite_avoidance",
+          "git_diff_gating",
+          "session_scoped_changes",
+          "wrapup_integration"
+        ],
+        "blind_overwrite_avoidance": [
+          "git_diff_gating",
+          "session_scoped_changes",
+          "wrapup_integration",
+          "session_boundary_action"
+        ],
+        "git_diff_gating": [
+          "session_scoped_changes",
+          "wrapup_integration",
+          "session_boundary_action",
+          "source_deployment_gap"
+        ],
+        "session_scoped_changes": [
+          "wrapup_integration",
+          "session_boundary_action",
+          "source_deployment_gap",
+          "deploy_automation"
+        ],
+        "wrapup_integration": [
+          "source_deployment_gap",
+          "silent_divergence",
+          "authorship_execution_link",
+          "deploy_enforcement"
+        ],
+        "session_boundary_action": [
+          "source_deployment_gap",
+          "deploy_automation"
+        ],
+        "source_deployment_gap": [
+          "local_toolchain",
+          "personal_bin_directory",
+          "self_maintained_scripts",
+          "session_management"
+        ],
+        "deploy_automation": []
+      },
       "source_deployment_gap": {
         "wrapup_integration": [
           "silent_divergence",
@@ -868,28 +1021,19 @@
           "git_diff_gating",
           "session_scoped_changes",
           "session_boundary_action",
-          "single_source_of_truth"
+          "deploy_automation"
         ],
         "git_diff_gating": [
           "session_scoped_changes",
           "session_boundary_action",
-          "single_source_of_truth",
           "deploy_automation"
         ],
         "session_scoped_changes": [
           "session_boundary_action",
-          "single_source_of_truth",
           "deploy_automation"
         ],
         "session_boundary_action": [
-          "single_source_of_truth",
           "deploy_automation"
-        ],
-        "single_source_of_truth": [
-          "fused_prompt_drift",
-          "parse_function_exposure",
-          "authoritative_mapping",
-          "enum_injection"
         ],
         "deploy_automation": []
       },
@@ -3662,106 +3806,6 @@
           "claim_currency"
         ],
         "claim_currency": []
-      },
-      "privacy_preservation": {
-        "meta_analysis_object": [
-          "derived_characterization",
-          "political_strata_mapping",
-          "external_model_lens",
-          "sensitivity_reassessment"
-        ],
-        "derived_characterization": [
-          "political_strata_mapping",
-          "external_model_lens",
-          "sensitivity_reassessment",
-          "relevance_reassessment"
-        ],
-        "political_strata_mapping": [
-          "external_model_lens",
-          "sensitivity_reassessment",
-          "relevance_reassessment",
-          "default_opacity"
-        ],
-        "external_model_lens": [
-          "sensitivity_reassessment",
-          "relevance_reassessment",
-          "default_opacity",
-          "retaggable_provenance"
-        ],
-        "sensitivity_reassessment": [
-          "relevance_reassessment",
-          "default_opacity",
-          "retaggable_provenance",
-          "store_maintainability"
-        ],
-        "relevance_reassessment": [
-          "default_opacity",
-          "retaggable_provenance",
-          "store_maintainability"
-        ],
-        "default_opacity": [
-          "retaggable_provenance",
-          "store_maintainability"
-        ],
-        "retaggable_provenance": [
-          "store_maintainability"
-        ],
-        "store_maintainability": [],
-        "transparent_key_conversion": [
-          "elliptic_curve_interop",
-          "authenticated_encryption",
-          "seal_to_existing_key",
-          "privilege_constraint"
-        ],
-        "elliptic_curve_interop": [
-          "authenticated_encryption",
-          "seal_to_existing_key",
-          "privilege_constraint",
-          "sudo_unavailability"
-        ],
-        "authenticated_encryption": [
-          "seal_to_existing_key",
-          "privilege_constraint",
-          "sudo_unavailability",
-          "install_path_deliberation"
-        ],
-        "seal_to_existing_key": [
-          "privilege_constraint",
-          "sudo_unavailability",
-          "install_path_deliberation",
-          "static_binary_dropin"
-        ],
-        "privilege_constraint": [
-          "sudo_unavailability",
-          "install_path_deliberation",
-          "static_binary_dropin",
-          "trusted_package_mirror"
-        ],
-        "sudo_unavailability": [
-          "install_path_deliberation",
-          "static_binary_dropin",
-          "trusted_package_mirror",
-          "local_only_keys"
-        ],
-        "install_path_deliberation": [
-          "static_binary_dropin",
-          "trusted_package_mirror",
-          "local_only_keys",
-          "agent_autonomy_limit"
-        ],
-        "static_binary_dropin": [
-          "trusted_package_mirror",
-          "local_only_keys",
-          "agent_autonomy_limit"
-        ],
-        "trusted_package_mirror": [
-          "local_only_keys",
-          "agent_autonomy_limit"
-        ],
-        "local_only_keys": [
-          "agent_autonomy_limit"
-        ],
-        "agent_autonomy_limit": []
       }
     },
     "paths": {
@@ -4806,6 +4850,36 @@
       "capture_fidelity/waystation_function": [
         "inf_cfcc4d94"
       ],
+      "single_source_of_truth/canonical_ownership": [
+        "inf_b9038981"
+      ],
+      "single_source_of_truth/content_duplication_risk": [
+        "inf_b9038981"
+      ],
+      "single_source_of_truth/content_relocation": [
+        "inf_b9038981"
+      ],
+      "single_source_of_truth/data_divergence_prevention": [
+        "inf_b9038981"
+      ],
+      "single_source_of_truth/publishing_pipeline_change": [
+        "inf_b9038981"
+      ],
+      "single_source_of_truth/repository_consolidation": [
+        "inf_b9038981"
+      ],
+      "single_source_of_truth/risk_driven_simplification": [
+        "inf_b9038981"
+      ],
+      "single_source_of_truth/stale_content_risk": [
+        "inf_b9038981"
+      ],
+      "single_source_of_truth/sync_scope_reduction": [
+        "inf_b9038981"
+      ],
+      "single_source_of_truth/target_decommission": [
+        "inf_b9038981"
+      ],
       "context_preservation/cross_session_memory": [
         "inf_4a7a62b8"
       ],
@@ -5303,33 +5377,6 @@
       "naming_convention/tribal_signal": [
         "inf_2703b233"
       ],
-      "privacy_preservation/default_opacity": [
-        "inf_13def085"
-      ],
-      "privacy_preservation/derived_characterization": [
-        "inf_13def085"
-      ],
-      "privacy_preservation/external_model_lens": [
-        "inf_13def085"
-      ],
-      "privacy_preservation/meta_analysis_object": [
-        "inf_13def085"
-      ],
-      "privacy_preservation/political_strata_mapping": [
-        "inf_13def085"
-      ],
-      "privacy_preservation/relevance_reassessment": [
-        "inf_13def085"
-      ],
-      "privacy_preservation/retaggable_provenance": [
-        "inf_13def085"
-      ],
-      "privacy_preservation/sensitivity_reassessment": [
-        "inf_13def085"
-      ],
-      "privacy_preservation/store_maintainability": [
-        "inf_13def085"
-      ],
       "raw_data_distinction/default_opacity": [
         "inf_13def085"
       ],
@@ -5393,39 +5440,6 @@
       ],
       "reframing_insight/store_maintainability": [
         "inf_13def085"
-      ],
-      "privacy_preservation/agent_autonomy_limit": [
-        "inf_2fb0f50a"
-      ],
-      "privacy_preservation/authenticated_encryption": [
-        "inf_2fb0f50a"
-      ],
-      "privacy_preservation/elliptic_curve_interop": [
-        "inf_2fb0f50a"
-      ],
-      "privacy_preservation/install_path_deliberation": [
-        "inf_2fb0f50a"
-      ],
-      "privacy_preservation/local_only_keys": [
-        "inf_2fb0f50a"
-      ],
-      "privacy_preservation/privilege_constraint": [
-        "inf_2fb0f50a"
-      ],
-      "privacy_preservation/seal_to_existing_key": [
-        "inf_2fb0f50a"
-      ],
-      "privacy_preservation/static_binary_dropin": [
-        "inf_2fb0f50a"
-      ],
-      "privacy_preservation/sudo_unavailability": [
-        "inf_2fb0f50a"
-      ],
-      "privacy_preservation/transparent_key_conversion": [
-        "inf_2fb0f50a"
-      ],
-      "privacy_preservation/trusted_package_mirror": [
-        "inf_2fb0f50a"
       ],
       "occult_dependency/authorship_execution_link": [
         "inf_b47e03d6"
@@ -5905,6 +5919,66 @@
       "reframing_insight/true_bottleneck_identification": [
         "inf_c28008c3"
       ],
+      "single_source_of_truth/authoritative_mapping": [
+        "inf_649b1fc8"
+      ],
+      "single_source_of_truth/byte_identical_output": [
+        "inf_649b1fc8"
+      ],
+      "single_source_of_truth/convenience_layer_constraint": [
+        "inf_649b1fc8"
+      ],
+      "single_source_of_truth/downstream_invariance": [
+        "inf_649b1fc8"
+      ],
+      "single_source_of_truth/enum_injection": [
+        "inf_649b1fc8"
+      ],
+      "single_source_of_truth/fused_prompt_drift": [
+        "inf_649b1fc8"
+      ],
+      "single_source_of_truth/no_duplication_discipline": [
+        "inf_649b1fc8"
+      ],
+      "single_source_of_truth/parse_function_exposure": [
+        "inf_649b1fc8"
+      ],
+      "single_source_of_truth/per_dimension_fidelity": [
+        "inf_649b1fc8"
+      ],
+      "single_source_of_truth/result_to_coordinate_mapping": [
+        "inf_649b1fc8"
+      ],
+      "single_source_of_truth/scale_coercion": [
+        "inf_649b1fc8"
+      ],
+      "single_source_of_truth/blind_overwrite_avoidance": [
+        "inf_c77f2f40"
+      ],
+      "single_source_of_truth/deploy_automation": [
+        "inf_c77f2f40"
+      ],
+      "single_source_of_truth/git_diff_gating": [
+        "inf_c77f2f40"
+      ],
+      "single_source_of_truth/incremental_copy": [
+        "inf_c77f2f40"
+      ],
+      "single_source_of_truth/selective_deployment": [
+        "inf_c77f2f40"
+      ],
+      "single_source_of_truth/session_boundary_action": [
+        "inf_c77f2f40"
+      ],
+      "single_source_of_truth/session_scoped_changes": [
+        "inf_c77f2f40"
+      ],
+      "single_source_of_truth/source_deployment_gap": [
+        "inf_c77f2f40"
+      ],
+      "single_source_of_truth/wrapup_integration": [
+        "inf_c77f2f40"
+      ],
       "source_deployment_gap/blind_overwrite_avoidance": [
         "inf_c77f2f40"
       ],
@@ -5924,9 +5998,6 @@
         "inf_c77f2f40"
       ],
       "source_deployment_gap/session_scoped_changes": [
-        "inf_c77f2f40"
-      ],
-      "source_deployment_gap/single_source_of_truth": [
         "inf_c77f2f40"
       ]
     }

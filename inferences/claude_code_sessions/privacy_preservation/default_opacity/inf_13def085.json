@@ -44,15 +44,6 @@
     ]
   },
   "category_paths": [
-    "privacy_preservation/default_opacity",
-    "privacy_preservation/derived_characterization",
-    "privacy_preservation/external_model_lens",
-    "privacy_preservation/meta_analysis_object",
-    "privacy_preservation/political_strata_mapping",
-    "privacy_preservation/relevance_reassessment",
-    "privacy_preservation/retaggable_provenance",
-    "privacy_preservation/sensitivity_reassessment",
-    "privacy_preservation/store_maintainability",
     "raw_data_distinction/default_opacity",
     "raw_data_distinction/derived_characterization",
     "raw_data_distinction/external_model_lens",

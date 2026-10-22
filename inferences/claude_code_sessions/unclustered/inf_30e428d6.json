@@ -1,0 +1,48 @@
+{
+  "id": "inf_30e428d6",
+  "version": "1.0",
+  "timestamp": "2026-10-20T21:27:08.618420+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "Three files on the public robolawyer-tm.github.io site were updated: index.html, llms.txt, and llms-full.txt. The goal was to point their references at the inference documents now hosted in the vivify-operators repository, such as cross_scale_significance.md. Because llms.txt and llms-full.txt are machine-readable discovery files for language models, keeping them aligned with the current repository layout means automated readers and humans both reach the correct theory documents after the reorganization.",
+  "left_keywords": [
+    "reference_realignment",
+    "repository_reorganization",
+    "document_relocation",
+    "machine_readable_discovery",
+    "llm_oriented_indexing",
+    "dual_audience_access",
+    "navigational_integrity",
+    "public_site_maintenance",
+    "theory_document_reachability",
+    "structural_consistency"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "migration_alignment": [
+      "reference_realignment",
+      "repository_reorganization",
+      "document_relocation"
+    ],
+    "machine_discovery": [
+      "machine_readable_discovery",
+      "llm_oriented_indexing"
+    ],
+    "access_coherence": [
+      "dual_audience_access",
+      "navigational_integrity",
+      "theory_document_reachability"
+    ],
+    "site_upkeep": [
+      "public_site_maintenance",
+      "structural_consistency"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-opus-5-5",
+    "_operator": "vivify.py"
+  }
+}

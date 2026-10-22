@@ -44,19 +44,7 @@
   "tension_score": null,
   "guardrail_actions": {},
   "domain": "claude_code_sessions",
-  "category_paths": [
-    "privacy_preservation/agent_autonomy_limit",
-    "privacy_preservation/authenticated_encryption",
-    "privacy_preservation/elliptic_curve_interop",
-    "privacy_preservation/install_path_deliberation",
-    "privacy_preservation/local_only_keys",
-    "privacy_preservation/privilege_constraint",
-    "privacy_preservation/seal_to_existing_key",
-    "privacy_preservation/static_binary_dropin",
-    "privacy_preservation/sudo_unavailability",
-    "privacy_preservation/transparent_key_conversion",
-    "privacy_preservation/trusted_package_mirror"
-  ],
+  "category_paths": [],
   "tension": {
     "predicted": null,
     "confirmed": null,

@@ -1,0 +1,48 @@
+{
+  "id": "inf_2c89c25c",
+  "version": "1.0",
+  "timestamp": "2026-10-20T21:26:50.506212+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "The user asked whether the inference extraction process was examining new material that might contain real theory relevant to operators. This question set the standard for what counts as a valid inference: extracted ideas should carry substantive conceptual content, not just reflect the mechanics of a working session. As a result, three low-value inferences were deleted and a check was added to the extraction pipeline to stop similar junk inferences from being produced in future.",
+  "left_keywords": [
+    "user_question_as_criterion",
+    "inference_quality_standard",
+    "substantive_conceptual_content",
+    "session_mechanics_noise",
+    "operator_theory_relevance",
+    "novel_material_scrutiny",
+    "extraction_process_audit",
+    "low_value_inference_pruning",
+    "pipeline_quality_gate",
+    "junk_inference_prevention"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "standard_origin": [
+      "user_question_as_criterion",
+      "inference_quality_standard"
+    ],
+    "validity_criteria": [
+      "substantive_conceptual_content",
+      "session_mechanics_noise"
+    ],
+    "theory_seeking": [
+      "operator_theory_relevance",
+      "novel_material_scrutiny",
+      "extraction_process_audit"
+    ],
+    "corrective_action": [
+      "low_value_inference_pruning",
+      "pipeline_quality_gate",
+      "junk_inference_prevention"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-opus-5-5",
+    "_operator": "vivify.py"
+  }
+}

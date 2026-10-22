@@ -1,0 +1,51 @@
+{
+  "id": "inf_09a70c87",
+  "version": "1.0",
+  "timestamp": "2026-10-22T19:08:53.039082+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "Several operational issues were noted for later. The web_research component broke because Groq retired the model it pointed to, which again showed the problem of hardcoded model identifiers. A Nemotron panel member mislabeled its output but its content was accepted and merged into a majority-vote key. Separately, the wholesystemsmodel.org website became unreachable even though SSH to the server worked, which prompted a diagnosis of whether the fault lay with the site or the network.",
+  "left_keywords": [
+    "deferred_operational_issues",
+    "upstream_model_retirement",
+    "hardcoded_model_identifier",
+    "recurring_fragility",
+    "output_mislabeling",
+    "content_over_label_acceptance",
+    "majority_vote_consensus",
+    "panel_member_unreliability",
+    "partial_service_reachability",
+    "fault_localization",
+    "site_vs_network_diagnosis"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "dependency_brittleness": [
+      "upstream_model_retirement",
+      "hardcoded_model_identifier",
+      "recurring_fragility"
+    ],
+    "ensemble_integrity": [
+      "output_mislabeling",
+      "content_over_label_acceptance",
+      "majority_vote_consensus",
+      "panel_member_unreliability"
+    ],
+    "infrastructure_diagnosis": [
+      "partial_service_reachability",
+      "fault_localization",
+      "site_vs_network_diagnosis"
+    ],
+    "operational_triage": [
+      "deferred_operational_issues",
+      "recurring_fragility"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-opus-5-5",
+    "_operator": "vivify.py"
+  }
+}

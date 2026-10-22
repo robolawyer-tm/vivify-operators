@@ -1,0 +1,54 @@
+{
+  "id": "inf_be9d1e24",
+  "version": "1.0",
+  "timestamp": "2026-10-22T19:08:28.951582+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "To score the replay, a key had to be built marking which case slices show the beneficial signal. Ruling on every row by hand was too much work, so Opus was used to mark all slices with a single prompt, and its answers became the key. The acknowledged trade-off is circularity: Opus both wrote the key and serves as the instrument, so a hit partly measures Opus agreeing with itself. To keep this visible, a three-model panel was retained as a cross-check, and its disagreements with Opus were recorded in the definition. Three caveats were written into the definition that every replay report must carry: self-grading, the specific slices where Opus and the panel diverged, and the fact that false alarms cannot occur before the turn when all earlier slices are marked yes. Because of that last caveat, the real test is whether the signal appears before the turn while avoiding the earliest slice, and a very early signal would suggest the model is recalling a known case. The definition was then frozen before the replay was run.",
+  "left_keywords": [
+    "answer_key_construction",
+    "labeling_cost_tradeoff",
+    "single_prompt_labeling",
+    "evaluation_circularity",
+    "self_agreement_bias",
+    "panel_cross_check",
+    "recorded_disagreement",
+    "mandatory_caveats",
+    "false_alarm_blindspot",
+    "early_detection_test",
+    "memorization_risk",
+    "pre_registration_freeze"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "key_construction": [
+      "answer_key_construction",
+      "labeling_cost_tradeoff",
+      "single_prompt_labeling"
+    ],
+    "circularity_risk": [
+      "evaluation_circularity",
+      "self_agreement_bias"
+    ],
+    "transparency_safeguards": [
+      "panel_cross_check",
+      "recorded_disagreement",
+      "mandatory_caveats"
+    ],
+    "test_validity": [
+      "false_alarm_blindspot",
+      "early_detection_test",
+      "memorization_risk"
+    ],
+    "methodological_commitment": [
+      "pre_registration_freeze"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-opus-5-5",
+    "_operator": "vivify.py"
+  }
+}

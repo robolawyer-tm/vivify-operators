@@ -1,0 +1,52 @@
+{
+  "id": "inf_7f7221e7",
+  "version": "1.0",
+  "timestamp": "2026-10-20T21:27:24.142746+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "The inference index was rebuilt after more junk inferences were removed, including some identified as artifacts or meta-content and not real ideas. Claude first ran the index build as a dry run to confirm the count of session ideas went down once the deleted entries were gone, and to confirm the only remaining references were in the index files the rebuild would regenerate. The real rebuild also produced a JSON-LD discovery file and cleared stale category paths, such as a group of silent_failure subcategories, from session inferences that were no longer validly clustered. This puts those inferences back into an unclassified state for future clustering.",
+  "left_keywords": [
+    "index_rebuild",
+    "junk_inference_removal",
+    "artifact_filtering",
+    "meta_content_exclusion",
+    "dry_run_verification",
+    "count_reduction_check",
+    "reference_containment",
+    "regenerated_artifacts",
+    "jsonld_discovery_output",
+    "stale_category_cleanup",
+    "cluster_invalidation",
+    "unclassified_reset"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "data_hygiene": [
+      "junk_inference_removal",
+      "artifact_filtering",
+      "meta_content_exclusion"
+    ],
+    "safe_verification": [
+      "dry_run_verification",
+      "count_reduction_check",
+      "reference_containment"
+    ],
+    "rebuild_outputs": [
+      "index_rebuild",
+      "regenerated_artifacts",
+      "jsonld_discovery_output"
+    ],
+    "classification_reset": [
+      "stale_category_cleanup",
+      "cluster_invalidation",
+      "unclassified_reset"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-opus-5-5",
+    "_operator": "vivify.py"
+  }
+}

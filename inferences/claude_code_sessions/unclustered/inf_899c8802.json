@@ -1,0 +1,52 @@
+{
+  "id": "inf_899c8802",
+  "version": "1.0",
+  "timestamp": "2026-10-20T21:26:40.598125+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "The user agreed to exempt files associated with claude_session from a cleanup sweep and then rerun the sweep. Before the exemption, session-related material in the vivify-operators repository could be removed or flagged incorrectly. The rerun produced a fresh batch of inference files under the claude_code_sessions domain, stored in the unclustered directory, which means session-derived ideas are now kept as legitimate inference content and not treated as debris.",
+  "left_keywords": [
+    "user_authorization",
+    "session_exemption",
+    "cleanup_sweep",
+    "sweep_rerun",
+    "erroneous_removal",
+    "misclassification_risk",
+    "inference_regeneration",
+    "unclustered_storage",
+    "session_derived_ideas",
+    "content_legitimacy",
+    "debris_distinction"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "policy_change": [
+      "user_authorization",
+      "session_exemption"
+    ],
+    "cleanup_process": [
+      "cleanup_sweep",
+      "sweep_rerun"
+    ],
+    "prior_risk": [
+      "erroneous_removal",
+      "misclassification_risk"
+    ],
+    "output_regeneration": [
+      "inference_regeneration",
+      "unclustered_storage"
+    ],
+    "content_status": [
+      "session_derived_ideas",
+      "content_legitimacy",
+      "debris_distinction"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-opus-5-5",
+    "_operator": "vivify.py"
+  }
+}

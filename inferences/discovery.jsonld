@@ -3,7 +3,7 @@
   "@type": "DataCatalog",
   "@id": "https://robolawyer-tm.github.io/#catalog",
   "name": "robolawyer-tm inference store",
-  "description": "Emergent inference store \u2014 beneficial-outcome inferences organized by self-arising categories with no external taxonomy. 115 public inferences across emergent domains.",
+  "description": "Emergent inference store \u2014 beneficial-outcome inferences organized by self-arising categories with no external taxonomy. 130 public inferences across emergent domains.",
   "url": "https://robolawyer-tm.github.io",
   "isAccessibleForFree": true,
   "publisher": {
@@ -47,7 +47,6 @@
         "outsider_distortion_signature",
         "persistence_boundary",
         "premature_generalization_deferral",
-        "privacy_preservation",
         "quality_maxim_violation",
         "quarantine_membrane",
         "raw_data_distinction",
@@ -57,6 +56,7 @@
         "replicated_signature",
         "self_referential_corpus",
         "single_key_secrecy",
+        "single_source_of_truth",
         "source_deployment_gap",
         "taxonomy_ossification_risk",
         "thin_evidence_base",
@@ -165,10 +165,6 @@
           },
           {
             "@type": "DefinedTerm",
-            "name": "privacy_preservation"
-          },
-          {
-            "@type": "DefinedTerm",
             "name": "quality_maxim_violation"
           },
           {
@@ -202,6 +198,10 @@
           {
             "@type": "DefinedTerm",
             "name": "single_key_secrecy"
+          },
+          {
+            "@type": "DefinedTerm",
+            "name": "single_source_of_truth"
           },
           {
             "@type": "DefinedTerm",
