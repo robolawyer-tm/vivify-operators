@@ -100,9 +100,19 @@ A new coordinate, `account_production`, would record how the account the institu
 - What this does not test: the readings come from one decode per arm, and the judge is the same model family as the writer. A second decode, or a non-Anthropic judge, is what would test those.
 - Cost (usage log, tags ap_checklist_s2 and ap_checklist_s3): 8 calls, list $0.76.
 
+## ACCEPTED (John, 2026-10-22)
+
+- Decision: account_production is accepted as a coordinate.
+- The evidence it rests on:
+  - fixed-checklist recall over three judge draws, positions plus setting 4.17 of 11 against 0.5 for the baseline with the setting (8eb4b06);
+  - the case-identity test, round_trip v5 arm B, 4 of 4: judges from two model makers switched their pick with the record, Sutton against Washington, two cases whose conflict coordinates are identical. Without the account values (arm A) the test failed 2 of 4 (dfface1).
+- What acceptance does not settle: recall is still about 4 of 11, so the secondary elements are lost; there are two cases and one decode each; and the values come from this experiment's run (account_production_run.json), not yet from the field store.
+- Next, not done: run account_production_operator.py over the field store, so the coordinate lives with the others instead of in the experiment folder.
+
 <!-- llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/candidate_account_production.md | created — sketch of the first demand-led dimension candidate: mode (mistaken/inflated/manufactured/unmarked), hardening (repetition/endorsement/none), signals, replay reading, placement, acceptance via re-run residue test -->
 <!-- llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/candidate_account_production.md | open questions replaced by John's three decisions (one dominant value, mode first, shielding goes with reopening); built files listed -->
 <!-- llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/candidate_account_production.md | acceptance section: failed with bare and named labels; remaining losses ask who supplied and shaped the account -->
 <!-- llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/candidate_account_production.md | try 3: positions carried in the reading, count flat, remaining losses are domain; domain-held test proposed -->
 <!-- llm: claude-opus-5-5 | 2026-10-18 | repos/vivify-operators/experiments/residue/candidate_account_production.md | try 4 and fixed-checklist result: positions plus setting 4.5/11 vs 1/11 -->
 <!-- llm: claude-opus-5-5 | 2026-10-22 | repos/vivify-operators/experiments/residue/candidate_account_production.md | checklist repeat draws s2/s3: positions_domain 4/4 (mean 4.17) vs baseline_domain 0/0.5 (mean 0.5); judge stable, same 4 items always missed -->
+<!-- llm: claude-opus-5-5 | 2026-10-22 | repos/vivify-operators/experiments/residue/candidate_account_production.md | ACCEPTED by John: evidence (checklist 4.17 vs 0.5; v5 arm B 4/4 vs arm A 2/4), limits, and the next step (run it over the field store) -->
