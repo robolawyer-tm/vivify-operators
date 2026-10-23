@@ -399,11 +399,13 @@ def _gemini_request_with_wait(req, sleep=None):
     import time
     import urllib.error
     import urllib.request
+    import os
     sleep = sleep or time.sleep
+    timeout = float(os.environ.get("GEMINI_TIMEOUT", 120))   # long judging packets need more
     attempt = 0
     while True:
         try:
-            with urllib.request.urlopen(req, timeout=120) as resp:
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
                 return json.loads(resp.read())
         except urllib.error.HTTPError as e:
             body = e.read().decode("utf-8", "replace")
@@ -1053,3 +1055,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/lib/vivify_core.py | gemini: is now a plain worker (no tools) and gemini_search: the grounded route; Gemini calls wait and retry on 429/503 (Google's retryDelay, else 30/60/90s, cap 120s, per-day quota gives up)
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/lib/vivify_core.py | Gemini give-up errors are one line and keep the quota hit (quota=<id>:<value>) instead of a 200-char cut of pretty-printed JSON
 # llm: claude-opus-5-5 | 2026-10-18 | repos/vivify-operators/lib/vivify_core.py | usage log: one JSON line per LLM call, same shape for every backend (tokens in/out/cache, thinking, cost, seconds, ok); claude worker reads --output-format json; VIVIFY_USAGE_LOG, VIVIFY_RUN_TAG
+# llm: claude-opus-5-5 | 2026-10-23 | repos/vivify-operators/lib/vivify_core.py | Gemini read timeout configurable via GEMINI_TIMEOUT (default 120s unchanged); long judging packets timed out at 120s and the timed-out calls still spent free quota
