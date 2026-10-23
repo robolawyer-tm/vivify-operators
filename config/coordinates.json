@@ -243,15 +243,22 @@
    ]
   },
   "transmission": {
+   "_note": "Two levels since 2026-10-22, as social_field. transmission/rationale = the EVENTS: how the communications inside the described events moved (a filed lab report, a sealed confession, a broadcast verdict). telling_* = how the text itself moves. In all five field cases the single value had described the Innocence Project page, the same genre read as archive four times and broadcast once (Washington, 2-1), and that difference was the leak left in round_trip v5 arm A.",
    "enums": {
     "transmission": [
+     "broadcast",
+     "leak",
+     "archive"
+    ],
+    "telling_transmission": [
      "broadcast",
      "leak",
      "archive"
     ]
    },
    "free_text": [
-    "rationale"
+    "rationale",
+    "telling_rationale"
    ]
   },
   "utility": {

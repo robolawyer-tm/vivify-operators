@@ -320,18 +320,25 @@
       "_operator": "cooperative_operator.py"
     },
     "transmission": {
-      "value": "broadcast",
-      "rationale": "A public-facing, one-to-many case account written to inform a general audience about a wrongful conviction. It preserves history but its motion is dissemination to many, not restricted leak or purely internal archive.",
-      "confidence": 0.68,
-      "_model": "claude-opus-4-8",
+      "value": "archive",
+      "rationale": "The communications inside the events were mostly institutional records that persisted and were acted on over the years, including the written and signed confession, the forensic and amended serology reports, the trial verdict, DNA test results, the commutation and the pardons.",
+      "level": "events",
+      "telling": {
+        "value": "broadcast",
+        "rationale": "The text is a public case summary written from outside the events, of the kind an exoneration project posts, addressed one-to-many to a general readership and simplifying the source records."
+      },
+      "confidence": 0.8,
+      "_model": "claude-opus-5-5",
       "_votes": {
         "n": 3,
-        "agreed": 2,
-        "unanimous": false,
+        "agreed": 3,
+        "unanimous": true,
         "distribution": {
+          "telling_transmission": {
+            "broadcast": 3
+          },
           "transmission": {
-            "broadcast": 2,
-            "archive": 1
+            "archive": 3
           }
         },
         "quarantined": 0

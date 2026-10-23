@@ -93,7 +93,9 @@ Judge each dimension on its own terms; do not let one dimension's answer bias an
 
 3. transmission ({_vals('transmission','transmission')}) — how it moves.
    broadcast=one-to-many public; leak=restricted, charged, unofficial; archive=preserved,
-   institutional, past-to-future.
+   institutional, past-to-future. Classify TWO channels: transmission = the EVENTS, how
+   the communications inside the described events moved; telling_transmission = how this
+   text itself moves. A text that is itself a move inside its events gets the same value.
 
 4. resonance ({_vals('resonance','resonance')}) — affective field.
    harmony=alignment; friction=dissonance; illusion=surface harmony masking friction
@@ -136,7 +138,8 @@ Return ONLY valid JSON, exactly these keys (confidence is 0.0-1.0 per block):
 {{
   "act_type":     {{"act_type": "", "authority_mismatch": false, "rationale": "", "confidence": 0.0}},
   "cooperative":  {{"status": "", "maxim_violated": null, "implicature": null, "confidence": 0.0}},
-  "transmission": {{"transmission": "", "rationale": "", "confidence": 0.0}},
+  "transmission": {{"transmission": "", "rationale": "", "telling_transmission": "",
+                   "telling_rationale": "", "confidence": 0.0}},
   "resonance":    {{"resonance": "", "surface": "", "underlying": null, "confidence": 0.0}},
   "authority":    {{"authority": "", "source": "", "rationale": "", "confidence": 0.0}},
   "utility":      {{"utility": "", "secondary": null, "rationale": "", "confidence": 0.0}},
@@ -295,3 +298,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5 | 2026-08-13 | repos/vivify-operators/logos_fused.py | fused path stamps _model on all 8 blocks before parse() (the per-operator path got it from call_and_validate; the fused path is what field runs use)
 # llm: claude-opus-5 | 2026-09-03 | repos/vivify-operators/logos_fused.py | repeat-and-vote on the fused path: _fused_vote() takes VIVIFY_VOTES draws and keeps the modal block PER DIMENSION (the 8 dims are independent, so one wobble must not discard the others' agreement); each block carries its _votes spread
 # llm: claude-opus-5-5 | 2026-10-22 | repos/vivify-operators/logos_fused.py | social_field asks for two levels (events in grid/group/quadrant, the telling in telling_*); the new fields are required in the fused block via coordinates.json
+# llm: claude-opus-5-5 | 2026-10-22 | repos/vivify-operators/logos_fused.py | transmission asks for two levels (events in transmission, the text itself in telling_transmission); required in the fused block via coordinates.json

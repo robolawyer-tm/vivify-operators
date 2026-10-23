@@ -283,15 +283,23 @@
     },
     "transmission": {
       "value": "archive",
-      "rationale": "A preserved, institutional case record of a completed matter \u2014 dated events, court rulings, dispositions \u2014 assembled to carry a documented history from past to future, not a live one-to-many address.",
-      "confidence": 0.7,
-      "_model": "claude-opus-4-8",
+      "rationale": "The communications that drove the events were institutional and preserved: police lineups and evidence, court testimony and rulings, appellate decisions, a filed motion to dismiss, a DNA database match, and an official pardon, with Poole's prison admission to other inmates as the only minor unofficial leak.",
+      "level": "events",
+      "telling": {
+        "value": "archive",
+        "rationale": "The text is a dated, chronological case summary of the kind kept in an exoneration registry, written to preserve the case record for future readers rather than to announce news."
+      },
+      "confidence": 0.72,
+      "_model": "claude-opus-5-5",
       "_votes": {
         "n": 3,
         "agreed": 3,
         "unanimous": true,
         "distribution": {
           "transmission": {
+            "archive": 3
+          },
+          "telling_transmission": {
             "archive": 3
           }
         },

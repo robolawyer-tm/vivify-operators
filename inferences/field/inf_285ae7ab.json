@@ -404,14 +404,22 @@
     },
     "transmission": {
       "value": "archive",
-      "rationale": "A preserved, past-to-future case telling built from court records, lab notebooks, and statutes; it fixes the sequence institutionally rather than broadcasting live or leaking.",
-      "confidence": 0.82,
-      "_model": "claude-opus-4-8",
+      "rationale": "The case turned on preserved institutional records, including lab notebooks, the erroneous lab report, trial transcripts, the appellate opinion, and the CODIS database, which were retrieved, re-examined, and matched years later, with the KHOU broadcast acting mainly as the trigger for revisiting them.",
+      "level": "events",
+      "telling": {
+        "value": "archive",
+        "rationale": "The text is a retrospective, dated case summary in the style of an exoneration registry entry, compiled from court and lab records and preserved as an institutional record for future readers."
+      },
+      "confidence": 0.72,
+      "_model": "claude-opus-5-5",
       "_votes": {
         "n": 3,
         "agreed": 3,
         "unanimous": true,
         "distribution": {
+          "telling_transmission": {
+            "archive": 3
+          },
           "transmission": {
             "archive": 3
           }

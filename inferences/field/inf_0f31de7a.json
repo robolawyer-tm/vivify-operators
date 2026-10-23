@@ -292,9 +292,28 @@
     },
     "transmission": {
       "value": "archive",
-      "rationale": "A preserved, structured account moving a documented case from past to future \u2014 culminating in a published memoir and reform advocacy. Its function is durable record-keeping, not restricted disclosure or momentary broadcast.",
+      "rationale": "The communications inside the case moved as institutional records carried forward in time: the composite sketch, photo array, lineup identifications and trial records fixed one mistaken recognition and resisted revision through two trials, until rape kits held in police storage for over a decade were tested and overturned it.",
+      "level": "events",
+      "telling": {
+        "value": "archive",
+        "rationale": "The text is a retrospective case-registry entry that reports the events from outside, compiling dates, charges, sentences and outcomes into a preserved reference record for future readers rather than a news announcement or a restricted message."
+      },
       "confidence": 0.72,
-      "_model": "claude-opus-4-8",
+      "_model": "claude-opus-5-5",
+      "_votes": {
+        "n": 3,
+        "agreed": 3,
+        "unanimous": true,
+        "distribution": {
+          "telling_transmission": {
+            "archive": 3
+          },
+          "transmission": {
+            "archive": 3
+          }
+        },
+        "quarantined": 0
+      },
       "_src": [
         "Logos Core Tree"
       ],

@@ -251,9 +251,28 @@
     },
     "transmission": {
       "value": "archive",
-      "rationale": "A preserved, past-to-future record of an institutional injustice \u2014 culminating in a published memoir. It is documentation meant to persist and instruct, not restricted leak or ephemeral broadcast.",
-      "confidence": 0.78,
-      "_model": "claude-opus-4-8",
+      "rationale": "The decisive communications were institutional records preserved over time: police identifications, trial and appellate rulings, and especially the physical evidence and rape kits the Burlington police kept and turned over a decade later for DNA testing that overturned the record.",
+      "level": "events",
+      "telling": {
+        "value": "archive",
+        "rationale": "The text is a dated, sourced case-registry entry recording a completed exoneration for future reference, not a time-bound announcement or private message."
+      },
+      "confidence": 0.72,
+      "_model": "claude-opus-5-5",
+      "_votes": {
+        "n": 3,
+        "agreed": 3,
+        "unanimous": true,
+        "distribution": {
+          "transmission": {
+            "archive": 3
+          },
+          "telling_transmission": {
+            "archive": 3
+          }
+        },
+        "quarantined": 0
+      },
       "_src": [
         "Logos Core Tree"
       ],
