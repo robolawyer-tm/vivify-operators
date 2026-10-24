@@ -233,9 +233,9 @@ def score(exp, judges):
     for model_id, p in patterns.items():
         lines.append(f"- {model_id}: pattern **{p}**")
     if spec.get("expected"):
-        ok = all(p == spec["expected"] for p in patterns.values())
+        match = [m for m, p in patterns.items() if p == spec["expected"]]
         lines.append(f"- Web judges' pattern (2026-10-22): **{spec['expected']}**. "
-                     f"Calibration {'MATCHES' if ok else 'DOES NOT MATCH'}.")
+                     f"Matched by {len(match)} of {len(patterns)} judges: {', '.join(match) or 'none'}.")
     text = "\n".join(lines) + "\n"
     (HERE / spec["dir"] / "judged" / "SCORE.md").write_text(text)
     print(text)
@@ -263,3 +263,4 @@ if __name__ == "__main__":
 
 # llm: claude-opus-5-5 | 2026-10-23 | repos/vivify-operators/experiments/round_trip/judge.py | created — scripted blind judging: packets rebuilt from committed readings (web-page text + PICK/CONFIDENCE lines), one verdict file per judge and packet, key read only when every verdict is in, calibration against the 2026-10-22 web pattern
 # llm: claude-opus-5-5 | 2026-10-23 | repos/vivify-operators/experiments/round_trip/judge.py | after the first calibration run: fallback pick/confidence parse when the closing lines are dropped, 65s retry on per-minute 429, judge stopped on a per-day quota, Gemini timeout 300s
+# llm: claude-opus-5-5 | 2026-10-24 | repos/vivify-operators/experiments/round_trip/judge.py | score names which judges matched the web pattern, instead of one all-judges verdict

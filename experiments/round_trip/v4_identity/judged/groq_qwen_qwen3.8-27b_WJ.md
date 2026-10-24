@@ -1,0 +1,17 @@
+# Verdict — v4 — groq:qwen/qwen3.8-27b — packet WJ
+
+1. Which reading was written from THIS case's descriptors: **J**
+
+2. Your confidence: **80%**
+
+3. Your reasons:
+   - **Nature of the "Fringe" Actors:** Reading J describes the suppressed group as being in "fringe terrain" because they are "disabled, polite... defer to authority" or are "marginalized," which aligns perfectly with the case details stating Washington "did not possess the rare protein," had a "disability" causing him to "politely defer to any authority figure," and was initially dismissed by police. Reading K describes the fringe as a "noisy movement," "contested claim spreading online," or "protest network," which contradicts the case where Washington was a passive suspect coerced into a confession, not a vocal dissident.
+   - **Mechanism of Suppression/Coercion:** Reading J highlights "exponential escalation" and "measures... compounding," which fits the case's narrative of twenty-nine days of questioning, multiple attempts at a rehearsed confession, and the gradual tightening of the noose (arrest -> questioning -> coerced confession -> death penalty). Reading K frames the interaction as an "information or claims conflict" where an institution issues a "statement" to "broadcast to the general public," which does not fit the case's private, carceral procedural abuse (questioning rooms, forensic labs, jury trials) rather than public media relations.
+   - **The "Illusion" and Record:** Reading J identifies the central tension as the document creating a "false sense of shared reality" and "consensus" through "bureaucratic language that turns people into cases." This mirrors the case's core injustice: the state created a coherent legal narrative (the "confession" and initially "conclusive" forensic report) that was an "illusion" of truth, subsequently shattered when the "amended forensic report" changed to "inconclusive" and DNA tested negative. Reading K focuses on the "socially hollow" nature of a public statement against online rumors, which is irrelevant to a murder trial.
+   - **Outcome and Resolution:** Reading J suggests the resolution involves hitting an "external limit... such as a scandal" or "future historians, courts... [reading] the record," which aligns with the exoneration process involving DNA testing (years later) and the Governor's pardon (a political/legal reversal). Reading K suggests the conflict "burns out" or the statement becomes "evidence of a cover-up" in a public debate, which misses the specific trajectory of wrongful conviction to DNA exoneration.
+
+4. If anything other than fit to the case influenced your decision, say what.
+   - I recognized the "coordinates" in the prompt imply a theoretical framework (likely Grid-Group theory or similar sociological coding). Reading J applies these coordinates to the *structural* relationship between the State and the Marginalized Individual (High Grid/Low Bond vs. Fringe), which is the correct sociological lens for this specific case of wrongful conviction. Reading K applies the same coordinates to a *media/information* crisis, which is a different sub-genre of case. The specific details in the case record (disability, deference, forensic switching) are archetypal of the "marginalized suspect" trope in Reading J, whereas they would be invisible noise in the "online rumor" trope of Reading K.
+
+PICK: J
+CONFIDENCE: 80%
