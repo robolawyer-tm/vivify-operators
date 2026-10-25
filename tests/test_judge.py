@@ -33,6 +33,9 @@ def check(label, condition, detail=""):
 
 
 for exp, spec in judge.EXPERIMENTS.items():
+    if not (judge.HERE / spec["dir"] / f"reading_{spec['labels'][0]}.md").exists():
+        print(f"  skip {exp}: readings not committed yet (blind experiment in progress)")
+        continue
     ps = judge.packets(exp)
     want = {"shuffle": 2, "identity": 4}[spec["kind"]]
     check(f"{exp}: {want} packets", len(ps) == want, sorted(ps))
@@ -97,3 +100,4 @@ sys.exit(1 if failures else 0)
 
 # llm: claude-opus-5-5 | 2026-10-23 | repos/vivify-operators/tests/test_judge.py | created — scripted judge: packet build, verdict and key parsing, pattern classes, score refuses while verdicts are missing
 # llm: claude-opus-5-5 | 2026-10-23 | repos/vivify-operators/tests/test_judge.py | fallback parse and 429 retry checks
+# llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/tests/test_judge.py | skip an experiment whose readings are not committed yet (blind run in progress), so a fresh clone passes
