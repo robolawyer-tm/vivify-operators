@@ -38,10 +38,11 @@ sys.path.insert(0, str(REPO / "lib"))
 os.environ.setdefault("PRIVACY_GATE", "off")          # public Innocence Project cases
 os.environ.setdefault("GEMINI_TIMEOUT", "300")        # 120s timed out on these packets
 os.environ.setdefault("GEMINI_503_RETRIES", "1")      # retried 503s spend the free quota
-from vivify_core import llm_call_model, LLMUnavailable
+from vivify_core import llm_call_model, LLMUnavailable, _write_usage
 
 # gemini:  plain worker, free tier = 20 requests/day per model (14 calibration packets fit)
 # groq:    the panel model already used by web_research, a second model maker
+# clef:    Cloudflare's decision model, probabilities instead of text (see CLEF_URL)
 JUDGES = ("gemini:gemini-3.8-flash", "groq:openai/gpt-oss-120b")
 
 FIELD = REPO / "inferences" / "field"
@@ -153,11 +154,68 @@ def parse_key(text):
     return dict(re.findall(r"\b([A-Z])\s*=\s*(\w+)", text))
 
 
-def call_judge(text, model_id, sleep=time.sleep):
+# clef: Cloudflare's decision model (Workers AI). Not a chat model: it takes a state and
+# typed questions and returns a probability for every allowed option, with no reasons.
+#   clef:clef        options offered in label order (X, Y)
+#   clef:clef@swap   options offered in reverse order, to measure option-order bias
+#   clef:clef@rep    the same call as clef:clef again, to measure determinism
+# clef-flash works in place of clef. Reads CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_API_TOKEN.
+CLEF_URL = "https://api.cloudflare.com/client/v4/accounts/{account}/ai/run/@cf/cloudflare/{model}"
+
+
+def clef_request(packet, labels, swap=False):
+    """The Clef body for one packet: the blind-test framing and question go in the
+    instructions, the case record and both readings in the state, one choice question."""
+    head, rest = packet.split("=== THE CASE", 1)
+    state = "=== THE CASE" + (rest[:-len(CLOSING)] if rest.endswith(CLOSING) else rest)
+    framing = head.split("Below are the case record")[0].strip()
+    question = next(l for l in head.splitlines() if l.startswith("1. "))[3:]
+    order = list(reversed(labels)) if swap else list(labels)
+    return {"model": None, "state": state,
+            "questions": {"pick": {"type": "choice", "instructions": framing + "\n\n" + question,
+                                   "criteria": {l: f"Reading {l}" for l in order}}}}
+
+
+def call_clef(packet, model_id, labels):
+    """One Clef verdict, written as text with the same PICK/CONFIDENCE lines as the chat judges,
+    plus the full per-option probabilities."""
+    import urllib.request
+    import urllib.error
+    model, _, variant = model_id.split(":", 1)[1].partition("@")
+    key, account = os.environ.get("CLOUDFLARE_API_TOKEN"), os.environ.get("CLOUDFLARE_ACCOUNT_ID")
+    if not key or not account:
+        raise LLMUnavailable("CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID not set — source the sealed keys.env first")
+    body = clef_request(packet, labels, swap=(variant == "swap"))
+    body["model"] = model
+    req = urllib.request.Request(CLEF_URL.format(account=account, model=model), method="POST",
+                                 data=json.dumps(body).encode(),
+                                 headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json",
+                                          "User-Agent": "vivify-operators/1.0"})
+    t = time.time()
+    try:
+        with urllib.request.urlopen(req, timeout=300) as resp:
+            ans = json.loads(resp.read())["result"]["answers"]["pick"]
+    except urllib.error.HTTPError as e:
+        err = f"clef request failed: HTTP {e.code}: {e.read().decode(errors='replace')[:200]}"
+        _write_usage("clef", model, time.time() - t, len(packet), False, err)
+        raise LLMUnavailable(err)
+    except (OSError, KeyError, ValueError) as e:
+        _write_usage("clef", model, time.time() - t, len(packet), False, e)
+        raise LLMUnavailable(f"clef request failed: {e}")
+    _write_usage("clef", model, time.time() - t, len(packet), True)
+    p = ans["probabilities"]
+    return (f"Options offered in the order {', '.join(body['questions']['pick']['criteria'])}.\n"
+            f"Probabilities: {json.dumps(p)}; Clef confidence {ans.get('confidence')}.\n\n"
+            f"PICK: {ans['choice']}\nCONFIDENCE: {round(100 * p[ans['choice']])}%\n")
+
+
+def call_judge(text, model_id, sleep=time.sleep, labels=("J", "K")):
     """One verdict. A per-minute 429 (groq's token-per-minute limit on long packets) waits
     65s and retries, up to 4 tries; a per-day quota raises at once, so run() can stop that judge."""
     for attempt in range(4):
         try:
+            if model_id.startswith("clef:"):
+                return call_clef(text, model_id, labels)
             return llm_call_model(text, model_id, sensitive=False)
         except LLMUnavailable as e:
             msg = str(e)
@@ -174,7 +232,7 @@ def run(exp, judges):
                 print(f"{exp} {model_id} {pid}: on disk, skipped")
                 continue
             try:
-                reply = call_judge(text, model_id)
+                reply = call_judge(text, model_id, labels=EXPERIMENTS[exp]["labels"])
             except LLMUnavailable as e:
                 print(f"{exp} {model_id} {pid}: UNAVAILABLE {e}", flush=True)
                 if "PerDay" in str(e):
@@ -269,3 +327,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-24 | repos/vivify-operators/experiments/round_trip/judge.py | score names which judges matched the web pattern, instead of one all-judges verdict
 # llm: claude-opus-5-5 | 2026-10-24 | repos/vivify-operators/experiments/round_trip/judge.py | added experiment v6 (case identity, X/Y, no web pattern to match)
 # llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/experiments/round_trip/judge.py | GEMINI_503_RETRIES=1, so an overloaded Gemini gives up early and keeps the quota
+# llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/experiments/round_trip/judge.py | clef: judges (Cloudflare decision model): one choice question per packet, per-option probabilities in the verdict, @swap (reversed option order) and @rep (repeat) variants

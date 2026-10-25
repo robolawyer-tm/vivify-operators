@@ -7,6 +7,7 @@
 - pattern() tells real / switch / no_switch / mixed apart
 - score refuses, with the key unread, while any verdict is missing
 - a per-minute 429 is retried; a per-day quota is not
+- clef: the request splits framing/question from record/readings, @swap reverses options, the reply parses
 - the fallback parse reads a bold pick on the answer-1 line, and not a restated question
 
 No real LLM calls.
@@ -72,6 +73,38 @@ try:
 except judge.LLMUnavailable:
     check("retry: per-day quota raises at once", True)
 judge.llm_call_model = real_call
+b = judge.clef_request(judge.packets("v5B")["WJ"], ("J", "K"))
+q = b["questions"]["pick"]
+check("clef: one choice question, options in label order", q["type"] == "choice" and list(q["criteria"]) == ["J", "K"])
+check("clef: @swap reverses the options",
+      list(judge.clef_request(judge.packets("v5B")["WJ"], ("J", "K"), swap=True)["questions"]["pick"]["criteria"]) == ["K", "J"])
+check("clef: state holds record + readings, not the PICK lines",
+      b["state"].startswith("=== THE CASE") and "PICK:" not in b["state"] and "=== READING K ===" in b["state"])
+check("clef: the question is in the instructions", q["instructions"].endswith("J or K?"))
+
+
+class FakeResp:
+    def __init__(self, data):
+        self.data = data
+    def __enter__(self):
+        return self
+    def __exit__(self, *a):
+        return False
+    def read(self):
+        return self.data
+
+
+import os
+import json
+import urllib.request
+real_open = urllib.request.urlopen
+os.environ.setdefault("CLOUDFLARE_API_TOKEN", "test"), os.environ.setdefault("CLOUDFLARE_ACCOUNT_ID", "test")
+os.environ["VIVIFY_USAGE_LOG"] = "off"
+urllib.request.urlopen = lambda req, timeout=None: FakeResp(json.dumps({"result": {"answers": {"pick": {
+    "type": "choice", "choice": "K", "probabilities": {"J": 0.04, "K": 0.96}, "confidence": 0.9}}}}).encode())
+reply = judge.call_judge(judge.packets("v5B")["WJ"], "clef:clef", labels=("J", "K"))
+urllib.request.urlopen = real_open
+check("clef: verdict parses like a chat verdict", judge.parse_verdict(reply, ("J", "K")) == ("K", 96), reply)
 check("key", judge.parse_key("J = sutton K = washington\n") == {"J": "sutton", "K": "washington"})
 
 
@@ -101,3 +134,4 @@ sys.exit(1 if failures else 0)
 # llm: claude-opus-5-5 | 2026-10-23 | repos/vivify-operators/tests/test_judge.py | created — scripted judge: packet build, verdict and key parsing, pattern classes, score refuses while verdicts are missing
 # llm: claude-opus-5-5 | 2026-10-23 | repos/vivify-operators/tests/test_judge.py | fallback parse and 429 retry checks
 # llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/tests/test_judge.py | skip an experiment whose readings are not committed yet (blind run in progress), so a fresh clone passes
+# llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/tests/test_judge.py | clef request shape, @swap, mocked reply parse
