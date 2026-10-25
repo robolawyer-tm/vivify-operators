@@ -68,6 +68,12 @@ check("503 without a delay waits 30s, then 60s",
       _gemini_wait_seconds(503, "", 0) == 30 and _gemini_wait_seconds(503, "", 1) == 60)
 check("a per-day quota gives up at once", _gemini_wait_seconds(429, PER_DAY, 0) is None)
 check("other errors give up at once", _gemini_wait_seconds(400, "", 0) is None)
+import os
+os.environ["GEMINI_503_RETRIES"] = "1"
+check("GEMINI_503_RETRIES=1: one 503 retry, then give up; 429 unaffected",
+      _gemini_wait_seconds(503, "", 0) == 30 and _gemini_wait_seconds(503, "", 1) is None
+      and _gemini_wait_seconds(429, "", 1) == 60)
+del os.environ["GEMINI_503_RETRIES"]
 check("gives up after the last retry",
       _gemini_wait_seconds(429, "", vivify_core.GEMINI_RETRIES) is None)
 check("never waits longer than the cap",
@@ -120,3 +126,4 @@ print("All gemini-worker checks passed.")
 
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/tests/test_gemini_worker.py | created — gemini: plain vs gemini_search: grounded, wait-and-retry on 429/503 (retryDelay, per-day quota, cap, give-up), urlopen and sleep stubbed
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/tests/test_gemini_worker.py | per-day refusal must name its quota in the error
+# llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/tests/test_gemini_worker.py | GEMINI_503_RETRIES check

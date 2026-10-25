@@ -37,6 +37,7 @@ REPO = HERE.parents[1]
 sys.path.insert(0, str(REPO / "lib"))
 os.environ.setdefault("PRIVACY_GATE", "off")          # public Innocence Project cases
 os.environ.setdefault("GEMINI_TIMEOUT", "300")        # 120s timed out on these packets
+os.environ.setdefault("GEMINI_503_RETRIES", "1")      # retried 503s spend the free quota
 from vivify_core import llm_call_model, LLMUnavailable
 
 # gemini:  plain worker, free tier = 20 requests/day per model (14 calibration packets fit)
@@ -60,6 +61,8 @@ EXPERIMENTS = {
             "labels": ("J", "K"), "expected": "no_switch"},
     "v5B": {"dir": "v5_identity/arm_B", "key": "v5_identity/KEY_B.txt", "kind": "identity",
             "labels": ("J", "K"), "expected": "switch"},
+    "v6":  {"dir": "v6_identity", "key": "v6_identity/KEY.txt", "kind": "identity",
+            "labels": ("X", "Y"), "expected": None},
 }
 
 SHUFFLE_INTRO = (
@@ -264,3 +267,5 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-23 | repos/vivify-operators/experiments/round_trip/judge.py | created — scripted blind judging: packets rebuilt from committed readings (web-page text + PICK/CONFIDENCE lines), one verdict file per judge and packet, key read only when every verdict is in, calibration against the 2026-10-22 web pattern
 # llm: claude-opus-5-5 | 2026-10-23 | repos/vivify-operators/experiments/round_trip/judge.py | after the first calibration run: fallback pick/confidence parse when the closing lines are dropped, 65s retry on per-minute 429, judge stopped on a per-day quota, Gemini timeout 300s
 # llm: claude-opus-5-5 | 2026-10-24 | repos/vivify-operators/experiments/round_trip/judge.py | score names which judges matched the web pattern, instead of one all-judges verdict
+# llm: claude-opus-5-5 | 2026-10-24 | repos/vivify-operators/experiments/round_trip/judge.py | added experiment v6 (case identity, X/Y, no web pattern to match)
+# llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/experiments/round_trip/judge.py | GEMINI_503_RETRIES=1, so an overloaded Gemini gives up early and keeps the quota

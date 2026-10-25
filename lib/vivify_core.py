@@ -358,8 +358,15 @@ def _gemini_wait_seconds(status, body, attempt):
     the call waits and tries again instead of stopping the run. A 429 that names a
     per-day quota will not pass within a run, so it gives up at once. The wait is
     Google's own retryDelay when the error carries one, else 30s, 60s, 90s.
+
+    GEMINI_503_RETRIES (env) caps the 503 retries separately: on the free tier a
+    retried 503 still spends the daily quota (2026-10-25: 2 verdicts, then 429), so
+    judge.py sets it to 1. Default = GEMINI_RETRIES, unchanged for the operators.
     """
+    import os
     if status not in (429, 503) or attempt >= GEMINI_RETRIES:
+        return None
+    if status == 503 and attempt >= int(os.environ.get("GEMINI_503_RETRIES", GEMINI_RETRIES)):
         return None
     try:
         details = json.loads(body).get("error", {}).get("details", [])
@@ -1056,3 +1063,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/lib/vivify_core.py | Gemini give-up errors are one line and keep the quota hit (quota=<id>:<value>) instead of a 200-char cut of pretty-printed JSON
 # llm: claude-opus-5-5 | 2026-10-18 | repos/vivify-operators/lib/vivify_core.py | usage log: one JSON line per LLM call, same shape for every backend (tokens in/out/cache, thinking, cost, seconds, ok); claude worker reads --output-format json; VIVIFY_USAGE_LOG, VIVIFY_RUN_TAG
 # llm: claude-opus-5-5 | 2026-10-23 | repos/vivify-operators/lib/vivify_core.py | Gemini read timeout configurable via GEMINI_TIMEOUT (default 120s unchanged); long judging packets timed out at 120s and the timed-out calls still spent free quota
+# llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/lib/vivify_core.py | GEMINI_503_RETRIES caps 503 retries separately (default unchanged); retried 503s spend the free daily quota
