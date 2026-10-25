@@ -159,21 +159,33 @@ def parse_key(text):
 #   clef:clef        options offered in label order (X, Y)
 #   clef:clef@swap   options offered in reverse order, to measure option-order bias
 #   clef:clef@rep    the same call as clef:clef again, to measure determinism
+#   clef:clef@json   the state as labelled JSON fields (case_record, reading_X, ...)
 # clef-flash works in place of clef. Reads CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_API_TOKEN.
 CLEF_URL = "https://api.cloudflare.com/client/v4/accounts/{account}/ai/run/@cf/cloudflare/{model}"
 
 
-def clef_request(packet, labels, swap=False):
+def clef_request(packet, labels, swap=False, structured=False):
     """The Clef body for one packet: the blind-test framing and question go in the
-    instructions, the case record and both readings in the state, one choice question."""
+    instructions, the case record and both readings in the state, one choice question.
+
+    structured=True (@json) passes the state as labelled JSON fields instead of one
+    flat string, keeping the packet's reading order: Cloudflare's suggestion for the
+    two calibration misses, which both picked the reading placed first."""
     head, rest = packet.split("=== THE CASE", 1)
     state = "=== THE CASE" + (rest[:-len(CLOSING)] if rest.endswith(CLOSING) else rest)
+    if structured:
+        parts = re.split(r"\n*=== READING ([A-Z]) ===\n*", state)
+        record = parts[0].split("===\n", 1)[1].strip()
+        state = {"case_record": record}
+        for label, text in zip(parts[1::2], parts[2::2]):
+            state[f"reading_{label}"] = text.strip()
     framing = head.split("Below are the case record")[0].strip()
     question = next(l for l in head.splitlines() if l.startswith("1. "))[3:]
     order = list(reversed(labels)) if swap else list(labels)
     return {"model": None, "state": state,
             "questions": {"pick": {"type": "choice", "instructions": framing + "\n\n" + question,
-                                   "criteria": {l: f"Reading {l}" for l in order}}}}
+                                   "criteria": {l: (f"reading_{l}" if structured else f"Reading {l}")
+                                                for l in order}}}}
 
 
 def call_clef(packet, model_id, labels):
@@ -185,7 +197,7 @@ def call_clef(packet, model_id, labels):
     key, account = os.environ.get("CLOUDFLARE_API_TOKEN"), os.environ.get("CLOUDFLARE_ACCOUNT_ID")
     if not key or not account:
         raise LLMUnavailable("CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID not set — source the sealed keys.env first")
-    body = clef_request(packet, labels, swap=(variant == "swap"))
+    body = clef_request(packet, labels, swap=(variant == "swap"), structured=(variant == "json"))
     body["model"] = model
     req = urllib.request.Request(CLEF_URL.format(account=account, model=model), method="POST",
                                  data=json.dumps(body).encode(),
@@ -328,3 +340,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-24 | repos/vivify-operators/experiments/round_trip/judge.py | added experiment v6 (case identity, X/Y, no web pattern to match)
 # llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/experiments/round_trip/judge.py | GEMINI_503_RETRIES=1, so an overloaded Gemini gives up early and keeps the quota
 # llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/experiments/round_trip/judge.py | clef: judges (Cloudflare decision model): one choice question per packet, per-option probabilities in the verdict, @swap (reversed option order) and @rep (repeat) variants
+# llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/experiments/round_trip/judge.py | clef @json variant: state as labelled JSON fields (Cloudflare's suggestion for the position-sensitive misses)

@@ -81,6 +81,10 @@ check("clef: @swap reverses the options",
 check("clef: state holds record + readings, not the PICK lines",
       b["state"].startswith("=== THE CASE") and "PICK:" not in b["state"] and "=== READING K ===" in b["state"])
 check("clef: the question is in the instructions", q["instructions"].endswith("J or K?"))
+bj = judge.clef_request(judge.packets("v4")["SK"], ("J", "K"), structured=True)
+check("clef @json: labelled fields in the packet's reading order",
+      list(bj["state"]) == ["case_record", "reading_K", "reading_J"] and not bj["state"]["case_record"].startswith("==="))
+check("clef @json: criteria name the fields", bj["questions"]["pick"]["criteria"] == {"J": "reading_J", "K": "reading_K"})
 
 
 class FakeResp:
@@ -135,3 +139,4 @@ sys.exit(1 if failures else 0)
 # llm: claude-opus-5-5 | 2026-10-23 | repos/vivify-operators/tests/test_judge.py | fallback parse and 429 retry checks
 # llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/tests/test_judge.py | skip an experiment whose readings are not committed yet (blind run in progress), so a fresh clone passes
 # llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/tests/test_judge.py | clef request shape, @swap, mocked reply parse
+# llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/tests/test_judge.py | clef @json structured-state checks
