@@ -8,6 +8,7 @@
 - score refuses, with the key unread, while any verdict is missing
 - a per-minute 429 is retried; a per-day quota is not
 - clef: the request splits framing/question from record/readings, @swap reverses options, the reply parses
+- multi: one record against every reading, two orders per record, a records-identified pattern
 - the fallback parse reads a bold pick on the answer-1 line, and not a restated question
 
 No real LLM calls.
@@ -38,11 +39,11 @@ for exp, spec in judge.EXPERIMENTS.items():
         print(f"  skip {exp}: readings not committed yet (blind experiment in progress)")
         continue
     ps = judge.packets(exp)
-    want = {"shuffle": 2, "identity": 4}[spec["kind"]]
+    want = {"shuffle": 2, "identity": 4, "multi": 2 * len(spec.get("records", ()))}[spec["kind"]]
     check(f"{exp}: {want} packets", len(ps) == want, sorted(ps))
     check(f"{exp}: packets end with the closing lines", all(p.endswith(judge.CLOSING) for p in ps.values()))
     check(f"{exp}: no key words in packets",
-          not any(w in p for p in ps.values() for w in ("= real", "= shuffled", "= sutton", "= washington")))
+          not any(w in p for p in ps.values() for w in ("= real", "= shuffled", "= sutton", "= washington", "= cotton", "= brown")))
 
 check("parse: plain", judge.parse_verdict("...\nPICK: K\nCONFIDENCE: 96%\n", ("J", "K")) == ("K", 96))
 check("parse: bold, last line wins",
@@ -109,6 +110,24 @@ urllib.request.urlopen = lambda req, timeout=None: FakeResp(json.dumps({"result"
 reply = judge.call_judge(judge.packets("v5B")["WJ"], "clef:clef", labels=("J", "K"))
 urllib.request.urlopen = real_open
 check("clef: verdict parses like a chat verdict", judge.parse_verdict(reply, ("J", "K")) == ("K", 96), reply)
+import tempfile
+with tempfile.TemporaryDirectory() as tmp:
+    for l in ("F", "G", "H"):
+        Path(tmp, f"reading_{l}.md").write_text(f"reading text {l}\n")
+    judge.EXPERIMENTS["_multi_test"] = {"dir": tmp, "key": "", "kind": "multi",
+                                        "labels": ("F", "G", "H"), "records": ("S", "W"), "expected": None}
+    mp = judge.packets("_multi_test")
+    check("multi: two orders per record", sorted(mp) == ["Sa", "Sb", "Wa", "Wb"], sorted(mp))
+    def order(t):
+        return sorted(("F", "G", "H"), key=lambda l: t.index(f"=== READING {l} ==="))
+    check("multi: 'b' reverses 'a', records rotate",
+          order(mp["Sa"]) == ["F", "G", "H"] and order(mp["Sb"]) == ["H", "G", "F"] and order(mp["Wa"]) == ["G", "H", "F"])
+    check("multi: the question lists every label", "F, G or H?" in mp["Sa"] and mp["Sa"].endswith(judge.CLOSING))
+    rows = [{"pid": "Sa", "pick": "F", "correct": True}, {"pid": "Sb", "pick": "F", "correct": True},
+            {"pid": "Wa", "pick": "F", "correct": False}, {"pid": "Wb", "pick": "G", "correct": True}]
+    check("multi: a record counts only if both orders are right; order effect flagged",
+          judge.pattern("_multi_test", rows) == "1/2 records, order moved a pick", judge.pattern("_multi_test", rows))
+    del judge.EXPERIMENTS["_multi_test"]
 check("key", judge.parse_key("J = sutton K = washington\n") == {"J": "sutton", "K": "washington"})
 
 
@@ -140,3 +159,5 @@ sys.exit(1 if failures else 0)
 # llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/tests/test_judge.py | skip an experiment whose readings are not committed yet (blind run in progress), so a fresh clone passes
 # llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/tests/test_judge.py | clef request shape, @swap, mocked reply parse
 # llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/tests/test_judge.py | clef @json structured-state checks
+# llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/tests/test_judge.py | multi-reading packet checks on temporary readings
+# llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/tests/test_judge.py | packet-count check knows the multi kind; cotton/brown added to the key-word guard

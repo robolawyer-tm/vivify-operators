@@ -532,6 +532,42 @@
         "round_trip loss test 2026-07-13"
       ],
       "_operator": "act_position_operator.py"
+    },
+    "account_production": {
+      "mode": "manufactured",
+      "supplied_by": "the_target",
+      "shaped_by": "institution",
+      "mode_signals": [
+        "confession (from Washington, shaped by police): Only on the fourth attempt at a rehearsed confession did authorities accept Washington's statement and have it recorded in writing with Washington's signature",
+        "crime-scene identification (from Washington, shaped by police): taken there three times in one afternoon by the police, who in the end had to help him pick out Williams' apartment",
+        "amended forensic report (from forensic analyst, shaped by institution): an amended forensic report was prepared (without additional testing being conducted) that said testing for the rare protein was 'inconclusive'",
+        "competency testimony (from State's psychologist, shaped by nobody): only the State's psychologist testified, claiming that Washington was competent when his statement was given",
+        "victim description (from Rebecca Lynn Williams, shaped by nobody): She could only describe her attacker as a Black man acting alone"
+      ],
+      "rationale": "The conviction rested chiefly on Washington's confession. Police shaped it through repeated rehearsal until it was acceptable, steered him to the crime scene, and altered a forensic report without new testing to remove exculpatory evidence.",
+      "confidence": 0.9,
+      "_model": "claude-opus-5-5",
+      "_votes": {
+        "n": 3,
+        "agreed": 3,
+        "unanimous": true,
+        "distribution": {
+          "supplied_by": {
+            "the_target": 3
+          },
+          "mode": {
+            "manufactured": 3
+          },
+          "shaped_by": {
+            "institution": 3
+          }
+        },
+        "quarantined": 0
+      },
+      "_src": [
+        "residue test 2026-10-17"
+      ],
+      "_operator": "account_production_operator.py"
     }
   },
   "conflict": {

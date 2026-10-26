@@ -46,8 +46,13 @@ from vivify_core import llm_call_model, LLMUnavailable, _write_usage
 JUDGES = ("gemini:gemini-3.8-flash", "groq:openai/gpt-oss-120b")
 
 FIELD = REPO / "inferences" / "field"
-CASES = {"W": ("washington", "earl-washington-jr", FIELD / "inf_a3d99808.json"),
-         "S": ("sutton", "josiah-sutton", FIELD / "inf_285ae7ab.json")}
+# record code: (case, slug, inference file, source shown in the packet header)
+CASES = {"W": ("washington", "earl-washington-jr", FIELD / "inf_a3d99808.json", "Innocence Project"),
+         "S": ("sutton", "josiah-sutton", FIELD / "inf_285ae7ab.json", "Innocence Project"),
+         "C": ("cotton", "ronald-cotton", FIELD / "inf_f39647fd.json", "Innocence Project"),
+         # Brown is read from the private field (NRE text kept out of the public repo)
+         "B": ("brown", "anthony-t-brown", Path.home() / "private_field" / "field" / "inf_10247710.json",
+               "National Registry of Exonerations")}
 
 # expected = what the web judges gave on 2026-10-22
 #   real       every pick is the real reading
@@ -64,6 +69,9 @@ EXPERIMENTS = {
             "labels": ("J", "K"), "expected": "switch"},
     "v6":  {"dir": "v6_identity", "key": "v6_identity/KEY.txt", "kind": "identity",
             "labels": ("X", "Y"), "expected": None},
+    # many readings per packet: one record against all four readings, two orders per record
+    "v7":  {"dir": "v7_identity", "key": "v7_identity/KEY.txt", "kind": "multi",
+            "labels": ("F", "G", "H", "L"), "records": ("S", "W", "C", "B"), "expected": None},
 }
 
 SHUFFLE_INTRO = (
@@ -81,6 +89,14 @@ IDENTITY_INTRO = (
     "of a different real case of the same broad kind.\n\n"
     "Below are the case record and both readings.\n\n"
     "Answer:\n1. Which reading was written from THIS case's descriptors: {a} or {b}?\n")
+MULTI_INTRO = (
+    "You are judging a blind test. A system reduced real cases to coded descriptors "
+    "(no text, no names). {n} readings, {labels}, were then written by a model. Each reading was "
+    "written from the descriptors of ONE case, and the model never saw any case record. One reading "
+    "was written from the descriptors of the case below. The others were written from the descriptors "
+    "of different real cases of the same broad kind.\n\n"
+    "Below are the case record and all {n} readings.\n\n"
+    "Answer:\n1. Which reading was written from THIS case's descriptors: {choices}?\n")
 COMMON = (
     "2. Your confidence, from 50% (a guess) to 100% (certain).\n"
     "3. Your reasons in 3 to 5 bullets. Point to specific places in the case record where each "
@@ -92,15 +108,37 @@ CLOSING = ("\nEnd your answer with exactly these two lines:\n"
 
 
 def record(case):
-    _, _, path = CASES[case]
+    path = CASES[case][2]
     paras = [p.strip() for p in json.loads(path.read_text())["raw_text"].split("\n\n") if p.strip()]
     return "\n\n".join(paras)
+
+
+def multi_packets(exp):
+    """{packet id: text} for one record against every reading. Ids are the record code
+    then the order: 'a' rotates the labels by the record's position, 'b' reverses that
+    order, so each reading appears in a different place across the records."""
+    spec = EXPERIMENTS[exp]
+    labels = list(spec["labels"])
+    exp_dir = HERE / spec["dir"]
+    reading = {l: (exp_dir / f"reading_{l}.md").read_text().rstrip("\n") for l in labels}
+    intro = MULTI_INTRO.format(n=len(labels), labels=", ".join(labels),
+                               choices=", ".join(labels[:-1]) + " or " + labels[-1]) + COMMON
+    out = {}
+    for i, case in enumerate(spec["records"]):
+        rotated = labels[i % len(labels):] + labels[:i % len(labels)]
+        for tag, order in (("a", rotated), ("b", rotated[::-1])):
+            body = "".join(f"\n\n=== READING {l} ===\n\n{reading[l]}" for l in order)
+            out[case + tag] = (intro + f"=== THE CASE ({CASES[case][3]}, {CASES[case][1]}) ===\n\n"
+                               + record(case) + body + "\n" + CLOSING)
+    return out
 
 
 def packets(exp):
     """{packet id: text}. Shuffle ids are the first label (M, N); identity ids are the
     record then the first label (WJ, WK, SJ, SK), as on the judging pages."""
     spec = EXPERIMENTS[exp]
+    if spec["kind"] == "multi":
+        return multi_packets(exp)
     a, b = spec["labels"]
     exp_dir = HERE / spec["dir"]
     reading = {l: (exp_dir / f"reading_{l}.md").read_text().rstrip("\n") for l in (a, b)}
@@ -271,6 +309,11 @@ def pattern(exp, rows):
     spec = EXPERIMENTS[exp]
     if spec["kind"] == "shuffle":
         return "real" if all(r["correct"] for r in rows) else "mixed"
+    if spec["kind"] == "multi":                  # a record counts only if every order picked right
+        right = {c for c in spec["records"]
+                 if all(r["correct"] for r in rows if r["pid"][0] == c)}
+        stable = all(len({r["pick"] for r in rows if r["pid"][0] == c}) == 1 for c in spec["records"])
+        return f"{len(right)}/{len(spec['records'])} records{'' if stable else ', order moved a pick'}"
     by_record = {}
     for r in rows:
         by_record.setdefault(r["pid"][0], set()).add(r["pick"])
@@ -341,3 +384,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/experiments/round_trip/judge.py | GEMINI_503_RETRIES=1, so an overloaded Gemini gives up early and keeps the quota
 # llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/experiments/round_trip/judge.py | clef: judges (Cloudflare decision model): one choice question per packet, per-option probabilities in the verdict, @swap (reversed option order) and @rep (repeat) variants
 # llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/experiments/round_trip/judge.py | clef @json variant: state as labelled JSON fields (Cloudflare's suggestion for the position-sensitive misses)
+# llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/experiments/round_trip/judge.py | multi kind (one record against every reading, two orders per record) for the four-case v7; CASES gains Cotton, Brown (private field) and a per-case source label

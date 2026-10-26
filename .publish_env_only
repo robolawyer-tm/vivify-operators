@@ -12,8 +12,6 @@ experiments/round_trip/shuffled_*
 experiments/round_trip/regen_shuffled.md
 experiments/round_trip/control_real_input.json
 experiments/round_trip/regen_control_real.md
-# v6 case-identity run, still blind (2026-10-25): KEY.txt, the readings and the
-# case-named regen files. Remove this line once v6 is judged and committed.
-experiments/round_trip/v6_identity/
 # llm: claude-opus-5-5 | 2026-09-29 | repos/vivify-operators/.publish_env_only | excluded the untracked blind round-trip files (key, blind texts, shuffled/control inputs) from publish_repos
 # llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/.publish_env_only | excluded the blind v6_identity run (key, readings, case-named regen files) until it is judged
+# llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/.publish_env_only | removed the v6_identity exclusion: v6 is judged and committed (v7 stays out by being untracked)

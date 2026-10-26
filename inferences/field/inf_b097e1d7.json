@@ -383,6 +383,42 @@
         "round_trip loss test 2026-07-13"
       ],
       "_operator": "act_position_operator.py"
+    },
+    "account_production": {
+      "mode": "mistaken",
+      "supplied_by": "outside_party",
+      "shaped_by": "nobody",
+      "mode_signals": [
+        "Victim's eyewitness identification (from Jennifer Thompson, shaped by nobody shown): \"She identified him from the photographic array... Shown a live lineup afterward, Thompson identified Cotton again.\"",
+        "Second victim's later identification (from the second victim, shaped by nobody shown): \"By then both women identified him as their attacker.\"",
+        "Weak physical corroboration (from police, shaped by nobody shown): \"police found tennis shoes with foam insoles at his home\" alongside \"foam rubber at Thompson's apartment\"",
+        "Contrary evidence kept from the jury (from the second victim and Bobby Poole, excluded by the court): \"evidence of that identification was kept from the jury\"; \"The court refused to allow the jury to hear it.\"",
+        "DNA testing later contradicting the identifications (from the Burlington Police Department's evidence, shaped by nobody): \"The testing excluded Ronald Cotton and matched Bobby Poole\""
+      ],
+      "rationale": "Both convictions rested mainly on Thompson's sincere but wrong eyewitness identification, and the text shows no one coaching or steering her, so the account is an honest error by an outside witness.",
+      "confidence": 0.8,
+      "_model": "claude-opus-5-5",
+      "_votes": {
+        "n": 3,
+        "agreed": 3,
+        "unanimous": true,
+        "distribution": {
+          "shaped_by": {
+            "nobody": 3
+          },
+          "supplied_by": {
+            "outside_party": 3
+          },
+          "mode": {
+            "mistaken": 3
+          }
+        },
+        "quarantined": 0
+      },
+      "_src": [
+        "residue test 2026-10-17"
+      ],
+      "_operator": "account_production_operator.py"
     }
   },
   "conflict": {

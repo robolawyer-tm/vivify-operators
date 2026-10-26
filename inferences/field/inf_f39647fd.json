@@ -491,6 +491,44 @@
         "round_trip loss test 2026-07-13"
       ],
       "_operator": "act_position_operator.py"
+    },
+    "account_production": {
+      "mode": "mistaken",
+      "supplied_by": "outside_party",
+      "shaped_by": "nobody",
+      "mode_signals": [
+        "Victim's photo lineup identification (from Jennifer Thompson-Cannino, shaped by nobody shown): \"At first glance, Ms. Thompson-Cannino said that 'it is between number four and number five.' After viewing the lineup a second time and asking the participants to repeat certain phrases, she identified number five \u2014 Mr. Cotton \u2014 as her attacker.\"",
+        "Prior mugshot exposure before the lineup (from police procedure, shaped by nobody shown): \"Police then showed her mugshots of numerous men, including 22-year-old Ronald Cotton... Afterwards, police created a photographic lineup that included Mr. Cotton.\"",
+        "Repeated live lineup and trial identification (from Jennifer Thompson-Cannino, shaped by nobody shown): \"She again identified Mr. Cotton as her attacker.\" / \"Ms. Thompson-Cannino testified and identified him as her attacker.\"",
+        "Second victim's later identification (from the second victim, shaped by nobody shown): \"This time, the second woman also identified Mr. Cotton as her attacker, saying she had been too afraid to identify him right after the crime.\"",
+        "Physical items described as similar (from police/prosecution, shaped by nobody): \"a flashlight found in Mr. Cotton's home that resembled the one used by the assailant, and rubber from his shoe that was similar to the piece of foam rubber\"",
+        "Victims' rejection of the alternate suspect (from both victims, shaped by nobody): \"Ms. Thompson-Cannino and the other woman both contended that he was not their attacker.\"",
+        "DNA exclusion and match to Poole (from the DNA testing, shaped by nobody): \"The results indicated that Mr. Cotton was not the source of the DNA... confirmed a match with Bobbie Poole.\""
+      ],
+      "rationale": "The convictions rest chiefly on Thompson-Cannino's sincere but erroneous eyewitness identification; the text shows sequential mugshot and lineup exposure but no police agent steering or altering it, and the 'similar' physical items are only supporting pieces.",
+      "confidence": 0.75,
+      "_model": "claude-opus-5-5",
+      "_votes": {
+        "n": 3,
+        "agreed": 3,
+        "unanimous": true,
+        "distribution": {
+          "shaped_by": {
+            "nobody": 3
+          },
+          "supplied_by": {
+            "outside_party": 3
+          },
+          "mode": {
+            "mistaken": 3
+          }
+        },
+        "quarantined": 0
+      },
+      "_src": [
+        "residue test 2026-10-17"
+      ],
+      "_operator": "account_production_operator.py"
     }
   },
   "conflict": {

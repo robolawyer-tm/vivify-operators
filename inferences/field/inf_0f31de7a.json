@@ -423,6 +423,42 @@
         "round_trip loss test 2026-07-13"
       ],
       "_operator": "act_position_operator.py"
+    },
+    "account_production": {
+      "mode": "mistaken",
+      "supplied_by": "outside_party",
+      "shaped_by": "nobody",
+      "mode_signals": [
+        "Eyewitness identification (from Jennifer Thompson, shaped by nobody): \"She identified him from the photographic array\"; \"the two women who identified Ronald Cotton believed what they said. The certainty they carried into the courtroom was real. It was also wrong.\"",
+        "Repeated procedures reinforcing the memory (from Thompson, procedures run by police but not steered): \"Shown a live lineup afterward, Thompson picked Cotton again, and her confidence in the identification grew with each procedure that confirmed the one before it\"; \"The identification procedures were conducted in the ordinary way\"",
+        "Apparent corroboration by two witnesses (from Thompson and the second victim, shaped by nobody): \"What the trials recorded as two independent eyewitnesses converging on one suspect was one mistaken recognition, confirmed and amplified by the procedures meant to test it\"",
+        "Weak physical corroboration (from police, shaped by nobody): \"police found tennis shoes with foam insoles at his home\"",
+        "Exclusion of contrary evidence (from the court, shaped by the court): \"evidence of that identification was kept from the jury\"; \"The court refused to allow the jury to hear it\""
+      ],
+      "rationale": "The convictions rested on a victim's sincere but wrong eyewitness identification, and the text says the procedures were ordinary and no one fabricated or coerced anything, so honest error, not institutional shaping, is the core.",
+      "confidence": 0.85,
+      "_model": "claude-opus-5-5",
+      "_votes": {
+        "n": 3,
+        "agreed": 3,
+        "unanimous": true,
+        "distribution": {
+          "supplied_by": {
+            "outside_party": 3
+          },
+          "mode": {
+            "mistaken": 3
+          },
+          "shaped_by": {
+            "nobody": 3
+          }
+        },
+        "quarantined": 0
+      },
+      "_src": [
+        "residue test 2026-10-17"
+      ],
+      "_operator": "account_production_operator.py"
     }
   },
   "conflict": {
