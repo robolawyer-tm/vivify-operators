@@ -72,6 +72,9 @@ EXPERIMENTS = {
     # many readings per packet: one record against all four readings, two orders per record
     "v7":  {"dir": "v7_identity", "key": "v7_identity/KEY.txt", "kind": "multi",
             "labels": ("F", "G", "H", "L"), "records": ("S", "W", "C", "B"), "expected": None},
+    # v7 with each account value's definition passed to the decoder beside the value
+    "v8":  {"dir": "v8_identity", "key": "v8_identity/KEY.txt", "kind": "multi",
+            "labels": ("P", "Q", "R", "T"), "records": ("S", "W", "C", "B"), "expected": None},
 }
 
 SHUFFLE_INTRO = (
@@ -385,3 +388,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/experiments/round_trip/judge.py | clef: judges (Cloudflare decision model): one choice question per packet, per-option probabilities in the verdict, @swap (reversed option order) and @rep (repeat) variants
 # llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/experiments/round_trip/judge.py | clef @json variant: state as labelled JSON fields (Cloudflare's suggestion for the position-sensitive misses)
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/experiments/round_trip/judge.py | multi kind (one record against every reading, two orders per record) for the four-case v7; CASES gains Cotton, Brown (private field) and a per-case source label
+# llm: claude-opus-5-5 | 2026-10-27 | repos/vivify-operators/experiments/round_trip/judge.py | v8 experiment: v7's four cases, account values decoded with their definitions
