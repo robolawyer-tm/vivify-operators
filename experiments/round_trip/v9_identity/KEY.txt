@@ -1,0 +1,1 @@
+D = cotton E = sutton U = washington V = brown
