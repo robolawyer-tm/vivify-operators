@@ -1,0 +1,135 @@
+[
+  {
+    "values": {
+      "how_it_was_made": "mistaken",
+      "supplied_by": "outside_party",
+      "shaped_by": "nobody"
+    },
+    "votes": {
+      "how_it_was_made": {
+        "mistaken": 3
+      },
+      "supplied_by": {
+        "outside_party": 3
+      },
+      "shaped_by": {
+        "nobody": 3
+      }
+    },
+    "n_draws": 3
+  },
+  {
+    "values": {
+      "how_it_was_made": "unmarked",
+      "supplied_by": "none",
+      "shaped_by": "none"
+    },
+    "votes": {
+      "how_it_was_made": {
+        "unmarked": 3
+      },
+      "supplied_by": {
+        "none": 3
+      },
+      "shaped_by": {
+        "none": 3
+      }
+    },
+    "n_draws": 3
+  },
+  {
+    "values": {
+      "how_it_was_made": "mistaken",
+      "supplied_by": "outside_party",
+      "shaped_by": "nobody"
+    },
+    "votes": {
+      "how_it_was_made": {
+        "mistaken": 3
+      },
+      "supplied_by": {
+        "outside_party": 3
+      },
+      "shaped_by": {
+        "nobody": 3
+      }
+    },
+    "n_draws": 3
+  },
+  {
+    "values": {
+      "how_it_was_made": "mistaken",
+      "supplied_by": "outside_party",
+      "shaped_by": "nobody"
+    },
+    "votes": {
+      "how_it_was_made": {
+        "mistaken": 3
+      },
+      "supplied_by": {
+        "outside_party": 3
+      },
+      "shaped_by": {
+        "nobody": 3
+      }
+    },
+    "n_draws": 3
+  },
+  {
+    "values": {
+      "how_it_was_made": "inflated",
+      "supplied_by": "institution",
+      "shaped_by": "nobody"
+    },
+    "votes": {
+      "how_it_was_made": {
+        "inflated": 3
+      },
+      "supplied_by": {
+        "institution": 3
+      },
+      "shaped_by": {
+        "nobody": 3
+      }
+    },
+    "n_draws": 3
+  },
+  {
+    "values": {
+      "how_it_was_made": "mistaken",
+      "supplied_by": "outside_party",
+      "shaped_by": "nobody"
+    },
+    "votes": {
+      "how_it_was_made": {
+        "mistaken": 3
+      },
+      "supplied_by": {
+        "outside_party": 3
+      },
+      "shaped_by": {
+        "nobody": 3
+      }
+    },
+    "n_draws": 3
+  },
+  {
+    "values": {
+      "how_it_was_made": "unmarked",
+      "supplied_by": "none",
+      "shaped_by": "none"
+    },
+    "votes": {
+      "how_it_was_made": {
+        "unmarked": 3
+      },
+      "supplied_by": {
+        "none": 3
+      },
+      "shaped_by": {
+        "none": 3
+      }
+    },
+    "n_draws": 3
+  }
+]

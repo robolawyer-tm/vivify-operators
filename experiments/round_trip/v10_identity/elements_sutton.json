@@ -1,0 +1,97 @@
+[
+  {
+    "values": {
+      "how_it_was_made": "inflated",
+      "supplied_by": "institution",
+      "shaped_by": "nobody"
+    },
+    "votes": {
+      "how_it_was_made": {
+        "inflated": 3
+      },
+      "supplied_by": {
+        "institution": 3
+      },
+      "shaped_by": {
+        "nobody": 3
+      }
+    },
+    "n_draws": 3
+  },
+  {
+    "values": {
+      "how_it_was_made": "mistaken",
+      "supplied_by": "institution",
+      "shaped_by": "nobody"
+    },
+    "votes": {
+      "how_it_was_made": {
+        "mistaken": 3
+      },
+      "supplied_by": {
+        "institution": 3
+      },
+      "shaped_by": {
+        "nobody": 3
+      }
+    },
+    "n_draws": 3
+  },
+  {
+    "values": {
+      "how_it_was_made": "mistaken",
+      "supplied_by": "institution",
+      "shaped_by": "nobody"
+    },
+    "votes": {
+      "how_it_was_made": {
+        "mistaken": 3
+      },
+      "supplied_by": {
+        "institution": 3
+      },
+      "shaped_by": {
+        "nobody": 3
+      }
+    },
+    "n_draws": 3
+  },
+  {
+    "values": {
+      "how_it_was_made": "manufactured",
+      "supplied_by": "institution",
+      "shaped_by": "institution"
+    },
+    "votes": {
+      "how_it_was_made": {
+        "manufactured": 3
+      },
+      "supplied_by": {
+        "institution": 3
+      },
+      "shaped_by": {
+        "institution": 3
+      }
+    },
+    "n_draws": 3
+  },
+  {
+    "values": {
+      "how_it_was_made": "mistaken",
+      "supplied_by": "outside_party",
+      "shaped_by": "nobody"
+    },
+    "votes": {
+      "how_it_was_made": {
+        "mistaken": 3
+      },
+      "supplied_by": {
+        "outside_party": 3
+      },
+      "shaped_by": {
+        "nobody": 3
+      }
+    },
+    "n_draws": 3
+  }
+]

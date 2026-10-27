@@ -81,6 +81,9 @@ EXPERIMENTS = {
     # v8 with Brown's telling selected like the others (record N)
     "v9":  {"dir": "v9_identity", "key": "v9_identity/KEY.txt", "kind": "multi",
             "labels": ("D", "E", "U", "V"), "records": ("S", "W", "C", "N"), "expected": None},
+    # v9 plus every account element, coded into the three account values
+    "v10": {"dir": "v10_identity", "key": "v10_identity/KEY.txt", "kind": "multi",
+            "labels": ("K", "M", "X", "Z"), "records": ("S", "W", "C", "N"), "expected": None},
 }
 
 SHUFFLE_INTRO = (
@@ -396,3 +399,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/experiments/round_trip/judge.py | multi kind (one record against every reading, two orders per record) for the four-case v7; CASES gains Cotton, Brown (private field) and a per-case source label
 # llm: claude-opus-5-5 | 2026-10-27 | repos/vivify-operators/experiments/round_trip/judge.py | v8 experiment: v7's four cases, account values decoded with their definitions
 # llm: claude-opus-5-5 | 2026-10-27 | repos/vivify-operators/experiments/round_trip/judge.py | v9 experiment and record N: Brown's NRE text selected under the telling standard
+# llm: claude-opus-5-5 | 2026-10-27 | repos/vivify-operators/experiments/round_trip/judge.py | v10 experiment: v9 plus every account element

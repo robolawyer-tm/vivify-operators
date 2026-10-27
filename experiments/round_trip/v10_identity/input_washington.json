@@ -1,0 +1,131 @@
+{
+  "logos": {
+    "act_type": {
+      "value": "assertive",
+      "authority_mismatch": false,
+      "confidence": 0.93
+    },
+    "cooperative": {
+      "status": "honored",
+      "maxim_violated": null,
+      "confidence": 0.82
+    },
+    "transmission": {
+      "value": "archive",
+      "confidence": 0.8
+    },
+    "resonance": {
+      "value": "illusion",
+      "confidence": 0.72
+    },
+    "authority": {
+      "value": "sovereign",
+      "confidence": 0.8
+    },
+    "utility": {
+      "value": "narrative",
+      "secondary": "instruction",
+      "confidence": 0.85
+    },
+    "social_field": {
+      "grid": 0.85,
+      "group": 0.6,
+      "quadrant": "hierarchical",
+      "confidence": 0.7
+    },
+    "structural": {
+      "layer": "institution",
+      "scale": "institution",
+      "_coerced": null,
+      "density": "bureaucratic",
+      "persistence": "institutional",
+      "authority": "system",
+      "memory_channel": "institutional",
+      "language_mode": "contractual",
+      "overlays": [
+        "society"
+      ],
+      "confidence": 0.7
+    },
+    "account_the_institution_relied_on": {
+      "how_it_was_made": {
+        "value": "manufactured",
+        "means": "the institution's own agents build or alter the account: coaching or rehearsing a statement, steering a witness or suspect, rewriting a report, claiming a step was done that was not"
+      },
+      "supplied_by": {
+        "value": "the_target",
+        "means": "the person or group the account is acted on against"
+      },
+      "shaped_by": {
+        "value": "institution",
+        "means": "the institution's own agents formed, steered or altered it"
+      }
+    },
+    "elements_in_the_account": [
+      {
+        "how_it_was_made": {
+          "value": "manufactured",
+          "means": "the institution's own agents build or alter the account: coaching or rehearsing a statement, steering a witness or suspect, rewriting a report, claiming a step was done that was not"
+        },
+        "supplied_by": {
+          "value": "the_target",
+          "means": "the person or group the account is acted on against"
+        },
+        "shaped_by": {
+          "value": "institution",
+          "means": "the institution's own agents formed, steered or altered it"
+        }
+      },
+      {
+        "how_it_was_made": {
+          "value": "manufactured",
+          "means": "the institution's own agents build or alter the account: coaching or rehearsing a statement, steering a witness or suspect, rewriting a report, claiming a step was done that was not"
+        },
+        "supplied_by": {
+          "value": "the_target",
+          "means": "the person or group the account is acted on against"
+        },
+        "shaped_by": {
+          "value": "institution",
+          "means": "the institution's own agents formed, steered or altered it"
+        }
+      },
+      {
+        "how_it_was_made": {
+          "value": "manufactured",
+          "means": "the institution's own agents build or alter the account: coaching or rehearsing a statement, steering a witness or suspect, rewriting a report, claiming a step was done that was not"
+        },
+        "supplied_by": {
+          "value": "institution",
+          "means": "the institution's own staff, officials or experts"
+        },
+        "shaped_by": {
+          "value": "institution",
+          "means": "the institution's own agents formed, steered or altered it"
+        }
+      },
+      {
+        "how_it_was_made": {
+          "value": "inflated",
+          "means": "a real but weak element is stated as stronger than it is: a figure, an expert's claim, or several weak pieces stacked into apparent certainty"
+        },
+        "supplied_by": {
+          "value": "institution",
+          "means": "the institution's own staff, officials or experts"
+        },
+        "shaped_by": {
+          "value": "nobody",
+          "means": "it was relied on much as its supplier gave it"
+        }
+      }
+    ]
+  },
+  "conflict": {
+    "schema": "entangled",
+    "behavior": "suppression",
+    "terrain": "fringe",
+    "window": "rationalizing",
+    "escalation_phase": "exponential",
+    "confidence": 0.9
+  }
+}

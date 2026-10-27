@@ -1,0 +1,43 @@
+## 1. The Reading
+
+This is a wrongful-conviction case built on a false confession, recorded in an official document. My best picture is that a police and prosecutorial apparatus extracted a statement from a suspect, polished it, propped it up with an altered internal record and an overstated forensic opinion, and secured a conviction. The text that encodes it is most likely a later official account that lays this out plainly: an appellate judgment, an innocence-commission review, or a formal inquiry report.
+
+**The actors.** The target is a single suspect, or a small group of co-suspects, from the margins of society. The "fringe" terrain points to someone easy to disbelieve and slow to be defended: poor, cognitively vulnerable, a young person, a migrant, or someone already known to police.
+
+Against them stands a hierarchical, rule-bound institution with sovereign authority. That means a criminal-justice chain of investigators, interrogators, prosecutors, and a state forensic lab. Its authority rests on the state, not on persuasion.
+
+**What happened structurally.** The case against the target rests on four pieces.
+
+1. **Two statements from the target's own mouth.** Investigators coached, steered or rewrote them. I read this as two interrogation sessions, or a confession followed by a "re-enactment" or a later reaffirmation. This is what makes the case cruel: the evidence used against the person is formally their own voice.
+2. **An institutional record that claims something happened that did not.** This might be a rewritten interrogation log, a falsely documented Miranda or caution warning, or a report stating that a lead was checked or a procedure followed when it was not.
+3. **A forensic or expert claim stated more strongly than it can bear.** Examples are hair or fibre comparison, bite marks, a statistical match, or a pathologist's timeline. Nobody fabricated it, but it was accepted as delivered and stacked onto the confession to manufacture certainty.
+
+**How the conflict was shaped.** The conflict is entangled. The suspect's account, the police record and the expert's inflation hold each other up, so pulling one thread threatens the whole case. That is why the institution's behaviour is suppression rather than correction: exculpatory material is withheld, recantations are dismissed, and doubting voices are sidelined.
+
+The "rationalizing" window describes the institution's posture once questions arise. Officials explain away the inconsistencies by calling the recantation manipulation and the procedural gaps clerical. "Exponential" escalation fits how these cases move. Once the confession exists, every later step (charging, plea pressure, trial, appeal denials) builds on it with gathering momentum.
+
+**How it felt.** For the target, it likely felt surreal and isolating. They were contradicted by their own signature, with no social standing to make anyone listen.
+
+Inside the institution, it probably did not feel like fraud. It felt like closing a case the officers were sure of, with the paperwork "tidied up." The illusion resonance names this exactly: the official story looked coherent and authoritative to judges, jurors and the public precisely because it was internally consistent and archived in contractual, bureaucratic language.
+
+**Resolution.** Two coordinates pull in different directions. The account itself honours the cooperative principle and is narrative with an instructional secondary purpose, while the conflict codes show active suppression. I read this as two layers.
+
+- **The underlying events:** suppression and illusion.
+- **The text itself:** a straightforward, truthful archival narrative that exposes those events and draws lessons from them, such as reforms to recording interrogations or to how forensic testimony is handled.
+
+So the most plausible arc is that the conviction stood for years and was later unravelled through review, ending in exoneration or a quashed conviction. That repair was likely partial. It came late, with years already lost, and individual accountability was probably limited because the institution's rationalizations were themselves archived as procedure.
+
+## 2. The Residue
+
+The coordinates cannot tell me:
+
+- **Identity and setting:** the country, era, legal system, the crime alleged, or names of anyone involved.
+- **Coercion specifics:** whether the statements came from threats, deception, sleep deprivation, promises of leniency, or feeding non-public details. I also cannot tell whether "two statements" means two people or two sessions.
+- **The target's vulnerability:** what exactly made them marginal, and their age, mental capacity or legal representation.
+- **Which expert evidence was inflated,** and by how much.
+- **Actual guilt or innocence:** the codes describe manufactured evidence, not factual innocence. The outcome is my inference, not encoded.
+- **Timeline and stakes:** how long the injustice lasted and the sentence imposed (prison, death sentence).
+- **Who uncovered it:** a journalist, an innocence project, DNA testing, or a whistleblower.
+- **Accountability:** whether any official was disciplined or prosecuted, and whether compensation or reform followed.
+- **The text's genre and voice:** whether it is a court ruling, a commission report, a training case study or a memoir, and its emotional tone.
+- **Other people involved:** victims, families and the community, entirely absent from the encoding.
