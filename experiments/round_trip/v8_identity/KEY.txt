@@ -1,0 +1,1 @@
+P = brown Q = cotton R = washington T = sutton

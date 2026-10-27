@@ -1,0 +1,32 @@
+## 1. The Reading
+
+This looks like **a national government putting a formal finding on the international record and standing behind it while doubts start to gather.**
+
+**The actors and the act.** The speaker is a sovereign authority, most plausibly a state government or one of its top organs (a ministry, an intelligence or statistical agency speaking for the state, or a head of government). The act is assertive: *this is the case.* It is delivered in formalized language into a durable, archival, global channel. Think of an official white paper, a formal statement to an international body, or a published national assessment that becomes part of the permanent record other states and institutions cite. The setting is strongly hierarchical: clear ranks, clear procedures, and a group that feels bound together, such as officialdom, an alliance, or the national "we."
+
+I'm choosing between a **security or intelligence assessment** and an **official economic or statistical figure**. The secondary "currency" function pushes me slightly toward a claim that was meant to be *spent*: used as leverage in diplomacy, to justify a policy, to secure funding or allied support, or to move markets. Narrative is the primary use, so the claim's main job is to anchor a story about what is happening and why the state's course is right.
+
+**What went wrong structurally.** The account rests on something real but weak. The state's own analysts or officials took a genuine but thin piece of evidence and presented it as firmer than it was. That might be a single figure, one expert judgement, or several tentative indicators stacked into apparent certainty. Nobody downstream reshaped it. Senior leadership took it more or less as supplied and put sovereign weight behind it. This is not an obvious lie. The communication follows the forms of honest assertion, and in a narrow sense it is cooperative: it says something clear, relevant and sourced. The distortion is in the confidence level, not in invented facts. That makes it hard to challenge, because every component can be defended.
+
+**The shape of the conflict.** The resonance is friction rather than acceptance or open rupture. Other governments, independent experts, journalists or opposition figures notice the claim is stronger than its basis and start pushing back. But the conflict is early. The dispute has been triggered, but it has no settled terms. The institution's characteristic move is **rationalizing**: re-explaining the methodology, stressing that the analysts were credible, recasting caveats as footnotes. The terrain is **drifting**. There is no sharp front line, no single forum, and no decisive test. Instead there is a slow migration of what the claim is taken to mean, as defenders soften it and critics enlarge their doubts.
+
+**How it felt inside.** For the officials, it probably felt like ordinary professional work. The analysts did their job, leadership relied on its own experts, and the hierarchy worked as designed. Early friction is likely read as partisan or uninformed, which makes rationalizing feel like explaining, not retreating. For outside skeptics, it feels frustrating: they are arguing against an official, archived, sovereign statement with diffuse evidence and little standing. For third parties, such as allied governments or market actors relying on the figure, there is a quiet unease. They have already started spending the claim.
+
+**Likely trajectory.** Because the claim is archived and durable, it will not simply disappear. Most plausibly it does not resolve cleanly in the near term. The institution keeps defending it in ever more qualified terms while decisions built on it go ahead. Correction, if it comes, probably arrives later and from outside, through an inquiry, a revised dataset or events on the ground. By then, both the original inflated version and the institution's justifications sit in the record as evidence of how the weak element was promoted.
+
+## 2. The Residue
+
+The coordinates cannot tell me:
+
+- **Who** the state or institution is, or which country or era.
+- **The domain** of the claim: security, economic, public health, environmental, legal or historical.
+- **The actual content** of the assertion and the specific weak element that was inflated.
+- **How much** it was inflated, and whether the inflation was deliberate, careless, or the result of institutional pressure toward certainty.
+- **Which experts or officials** supplied it, and what they privately believed.
+- **What internal deliberation** happened, if any, before leadership adopted it.
+- **Who the critics are**, how strong their counter-evidence is, and how loud the friction actually is.
+- **What the claim was spent on**: which policy, deal, budget or alliance decision it underwrote.
+- **The stakes and the harms**: who was affected by relying on it, and how badly.
+- **The timeline**, and whether the conflict later escalated, was investigated or faded.
+- **Whether the claim turned out to be true anyway**, despite being overstated.
+- **The emotional and rhetorical texture** of the original text: its tone, its hedges or lack of them, and its specific wording.
