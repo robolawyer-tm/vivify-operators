@@ -128,8 +128,8 @@ def encode(logos, conflict):
 
 def load_case(name, spec):
     """(record text, encoding) for one case."""
-    if "store" in spec:
-        inf = read_json(STORE / spec["store"])
+    if "store" in spec or "file" in spec:
+        inf = read_json(Path(spec["file"]) if "file" in spec else STORE / spec["store"])
         return inf["raw_text"], encode(inf["logos"], inf["conflict"])
     from run_replay import cumulative_text
     case = REPLAY / spec["replay"]
@@ -169,10 +169,30 @@ def add_account_production(name, encoding, named=False, positions=False):
     return encoding
 
 
-def run_case(name, spec, out=HERE, with_ap=False, named=False, positions=False, domain=None):
+def add_bond(spec, encoding):
+    """The bond coordinates and each event's structure, from the inference's logos.bond.
+
+    Coordinates only, as for every other dimension: the events' `what` and `words` and
+    the bond signals carry record text and would leak it to the blind decoder, so they
+    are left out. `between` (roles only) is kept: it is the bond's identity."""
+    b = read_json(Path(spec["file"]) if "file" in spec else STORE / spec["store"])["logos"]["bond"]
+    encoding["logos"]["bond_the_events_land_on"] = {
+        "bonds": [{k: x.get(k) for k in ("id", "between", "standing")} for x in b.get("bonds", [])],
+        "main_bond": b.get("main_bond"),
+        "between": b.get("between"), "standing": b["standing"], "hazard": b.get("hazard"),
+        "main_change": {"effect": b.get("effect"), "made_by": b.get("made_by"),
+                        "registered_in_the_reasoning": b.get("registered")},
+        "events_in_order": [{k: e.get(k) for k in ("order", "bonds", "made_by", "reported_by", "effect", "registered")}
+                            for e in b.get("events", [])]}
+    return encoding
+
+
+def run_case(name, spec, out=HERE, with_ap=False, named=False, positions=False, domain=None, with_bond=False):
     record, encoding = load_case(name, spec)
     if with_ap:
         encoding = add_account_production(name, encoding, named, positions)
+    if with_bond:
+        encoding = add_bond(spec, encoding)
     out.mkdir(parents=True, exist_ok=True)
     write_json(out / f"{name}_encoding.json", encoding)
     decoder = DECODER_PROMPT.read_text()
@@ -204,6 +224,10 @@ def run_match():
 def main():
     ap = argparse.ArgumentParser(description="residue reading: what the coordinates drop")
     ap.add_argument("--cases", help="comma-separated subset of " + ",".join(CASES))
+    ap.add_argument("--file", action="append", metavar="NAME=PATH", default=[],
+                    help="a case from an inference file outside the store (e.g. ~/private_field/family); use with --out")
+    ap.add_argument("--with-bond", action="store_true",
+                    help="add logos.bond (coordinates and event structure, no event text) to each encoding")
     ap.add_argument("--match-only", action="store_true")
     ap.add_argument("--out", help="write case files here instead (a re-run arm); no match step")
     ap.add_argument("--with-account-production", action="store_true",
@@ -215,10 +239,14 @@ def main():
                     help="with --with-account-production: named label plus supplied_by and shaped_by")
     args = ap.parse_args()
     out = Path(args.out) if args.out else HERE
+    for f in args.file:
+        name, path = f.split("=", 1)
+        CASES[name] = {"file": str(Path(path).expanduser())}
     if not args.match_only:
-        names = args.cases.split(",") if args.cases else list(CASES)
+        names = args.cases.split(",") if args.cases else ([f.split("=", 1)[0] for f in args.file] or list(CASES))
         for name in names:
-            run_case(name, CASES[name], out, args.with_account_production, args.named, args.positions, args.domain)
+            run_case(name, CASES[name], out, args.with_account_production, args.named, args.positions, args.domain,
+                     args.with_bond)
     if not args.out and (args.match_only or not args.cases):
         run_match()
 
@@ -231,3 +259,6 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/residue.py | --named: label the mode as the account the institution relied on (try 1 was read as describing the text itself)
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/experiments/residue/residue.py | --positions: named label plus supplied_by and shaped_by (acceptance try 3)
 # llm: claude-opus-5-5 | 2026-10-18 | repos/vivify-operators/experiments/residue/residue.py | --domain: one line naming the domain before the coordinates, so structure can be tested apart from domain (acceptance try 4)
+# llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/experiments/residue/residue.py | --file NAME=PATH: residue on an inference outside the store (the family field), with --out
+# llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/experiments/residue/residue.py | --with-bond: bond coordinates + event structure (no event text) in the encoding, for the bond acceptance test
+# llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/experiments/residue/residue.py | --with-bond also carries every bond (id, roles, standing) and which bonds each event touched

@@ -326,6 +326,36 @@
     "rationale"
    ],
    "nullable": []
+  },
+  "bond": {
+   "enums": {
+    "standing": [
+     "unmarked",
+     "secure",
+     "strained",
+     "ruptured"
+    ],
+    "hazard": [
+     "none",
+     "alleged",
+     "established"
+    ]
+   },
+   "floats": {
+    "confidence": [
+     0.0,
+     1.0
+    ]
+   },
+   "lists": [
+    "bond_signals",
+    "events"
+   ],
+   "free_text": [
+    "rationale",
+    "between"
+   ],
+   "nullable": []
   }
  }
 }
