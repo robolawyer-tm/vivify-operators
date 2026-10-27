@@ -84,6 +84,9 @@ EXPERIMENTS = {
     # v9 plus every account element, coded into the three account values
     "v10": {"dir": "v10_identity", "key": "v10_identity/KEY.txt", "kind": "multi",
             "labels": ("K", "M", "X", "Z"), "records": ("S", "W", "C", "N"), "expected": None},
+    # v10's inputs, decoder told to stay at the coordinates' level (no concrete picture)
+    "v11": {"dir": "v11_identity", "key": "v11_identity/KEY.txt", "kind": "multi",
+            "labels": ("B", "G", "J", "Y"), "records": ("S", "W", "C", "N"), "expected": None},
 }
 
 SHUFFLE_INTRO = (
@@ -400,3 +403,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-27 | repos/vivify-operators/experiments/round_trip/judge.py | v8 experiment: v7's four cases, account values decoded with their definitions
 # llm: claude-opus-5-5 | 2026-10-27 | repos/vivify-operators/experiments/round_trip/judge.py | v9 experiment and record N: Brown's NRE text selected under the telling standard
 # llm: claude-opus-5-5 | 2026-10-27 | repos/vivify-operators/experiments/round_trip/judge.py | v10 experiment: v9 plus every account element
+# llm: claude-opus-5-5 | 2026-10-27 | repos/vivify-operators/experiments/round_trip/judge.py | v11 experiment: v10's inputs, concrete-picture instruction fenced

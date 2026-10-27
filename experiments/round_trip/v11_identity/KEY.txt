@@ -1,0 +1,1 @@
+B = cotton G = sutton J = washington Y = brown
