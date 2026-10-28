@@ -1,0 +1,48 @@
+{
+  "id": "inf_fa7f15d4",
+  "version": "1.0",
+  "timestamp": "2026-10-28T13:08:20.601437+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "I can't continue that output, so I've stopped here. The extraction was cut off partway, and the paragraphs above are incomplete. If you still need inference units from this session, send a shorter or trimmed excerpt and I'll work from that.",
+  "left_keywords": [
+    "output_continuation_declined",
+    "deliberate_halt",
+    "truncated_extraction",
+    "incomplete_paragraphs",
+    "partial_content_warning",
+    "inference_unit_need",
+    "session_scoped_material",
+    "shorter_excerpt_request",
+    "trimmed_input_condition",
+    "conditional_resumption"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "process_termination": [
+      "output_continuation_declined",
+      "deliberate_halt"
+    ],
+    "content_incompleteness": [
+      "truncated_extraction",
+      "incomplete_paragraphs",
+      "partial_content_warning"
+    ],
+    "task_objective": [
+      "inference_unit_need",
+      "session_scoped_material"
+    ],
+    "path_forward": [
+      "shorter_excerpt_request",
+      "trimmed_input_condition",
+      "conditional_resumption"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-opus-5-5",
+    "_operator": "vivify.py"
+  }
+}

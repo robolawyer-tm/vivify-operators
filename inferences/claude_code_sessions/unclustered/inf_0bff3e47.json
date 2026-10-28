@@ -1,0 +1,54 @@
+{
+  "id": "inf_0bff3e47",
+  "version": "1.0",
+  "timestamp": "2026-10-27T21:10:29.404269+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "The session tested Gemini as an alternative instrument worker alongside a lean worker variant, with parity runs on the same Sutton pipeline steps. Plain Gemini calls worked. Grounded Gemini search failed on a Google billing quota error, but nothing currently routes to search, so this had no present cost impact. The user recalled an earlier \"too many requests\" rate-limiting problem with the same provider, and that history shaped how the Gemini worker was handled. The decision about how to divide work across providers was recorded as a \"worker cost split\" idea in the capture inbox.",
+  "left_keywords": [
+    "alternative_worker_evaluation",
+    "parity_testing",
+    "lean_worker_variant",
+    "plain_call_success",
+    "grounded_search_failure",
+    "billing_quota_block",
+    "unrouted_capability",
+    "zero_present_cost_impact",
+    "rate_limit_history",
+    "provider_reliability_memory",
+    "worker_cost_split",
+    "deferred_decision_capture"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "worker_evaluation": [
+      "alternative_worker_evaluation",
+      "parity_testing",
+      "lean_worker_variant"
+    ],
+    "capability_outcomes": [
+      "plain_call_success",
+      "grounded_search_failure",
+      "billing_quota_block"
+    ],
+    "contained_impact": [
+      "unrouted_capability",
+      "zero_present_cost_impact"
+    ],
+    "provider_trust_history": [
+      "rate_limit_history",
+      "provider_reliability_memory"
+    ],
+    "workload_allocation_planning": [
+      "worker_cost_split",
+      "deferred_decision_capture"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-opus-5-5",
+    "_operator": "vivify.py"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "inf_7c1bfbf4",
+  "version": "1.0",
+  "timestamp": "2026-10-27T21:10:22.116434+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "The blind test exposed a contamination risk from decoder self-commentary. One shuffled-condition decoder noticed that its own input was internally inconsistent: the conflict block described a sovereign institution, while the logos block described a small low-grid group. It suggested it might be the shuffled condition. One judge treated this remark only as minor corroboration and based its verdict on fit to the case. Another judge treated the self-commentary as the decisive feature and reasoned its way to the wrong pick. This showed that meta-remarks in decoded readings can leak the test condition and steer judges. In response, the session built a second version of the decoder prompt and regenerated the shuffled input. It also ran a judge pass with the order reversed (Q first) to control for position bias. These steps keep verdicts grounded in semantic and structural fit rather than in rhetoric or leaked hints.",
+  "left_keywords": [
+    "blind_test_contamination",
+    "decoder_self_commentary",
+    "input_inconsistency_detection",
+    "condition_leakage",
+    "judge_steering",
+    "divergent_judge_weighting",
+    "misattributed_decisiveness",
+    "prompt_revision",
+    "input_regeneration",
+    "position_bias_control",
+    "semantic_structural_fit",
+    "rhetoric_resistance"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "contamination_mechanism": [
+      "blind_test_contamination",
+      "decoder_self_commentary",
+      "input_inconsistency_detection",
+      "condition_leakage"
+    ],
+    "judge_vulnerability": [
+      "judge_steering",
+      "divergent_judge_weighting",
+      "misattributed_decisiveness"
+    ],
+    "methodological_correction": [
+      "prompt_revision",
+      "input_regeneration",
+      "position_bias_control"
+    ],
+    "verdict_grounding": [
+      "semantic_structural_fit",
+      "rhetoric_resistance"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-opus-5-5",
+    "_operator": "vivify.py"
+  }
+}

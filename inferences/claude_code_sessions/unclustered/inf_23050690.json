@@ -1,0 +1,52 @@
+{
+  "id": "inf_23050690",
+  "version": "1.0",
+  "timestamp": "2026-10-27T21:10:42.476952+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "Work then turned to the \"research facility,\" the instrument's web research and provider layer. After fixing a web research bug, the session built a provider probe tool. It snapshots the status of available models from each provider into a committed providers file, scrubs API keys from the output, and flags any model missing since the previous run as removed. The purpose is to give the project a durable, diffable record of provider availability, so that silent model deprecations or removals are caught rather than discovered through failures.",
+  "left_keywords": [
+    "research_infrastructure",
+    "provider_layer",
+    "bug_remediation",
+    "provider_probe_tool",
+    "availability_snapshot",
+    "credential_scrubbing",
+    "removal_detection",
+    "run_over_run_comparison",
+    "durable_record",
+    "diffable_history",
+    "silent_deprecation",
+    "proactive_detection"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "research_facility_buildout": [
+      "research_infrastructure",
+      "provider_layer",
+      "bug_remediation"
+    ],
+    "provider_probing": [
+      "provider_probe_tool",
+      "availability_snapshot",
+      "credential_scrubbing"
+    ],
+    "change_tracking": [
+      "removal_detection",
+      "run_over_run_comparison",
+      "diffable_history"
+    ],
+    "durable_observability": [
+      "durable_record",
+      "silent_deprecation",
+      "proactive_detection"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-opus-5-5",
+    "_operator": "vivify.py"
+  }
+}

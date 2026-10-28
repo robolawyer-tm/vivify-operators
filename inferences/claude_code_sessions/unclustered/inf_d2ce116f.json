@@ -1,0 +1,58 @@
+{
+  "id": "inf_d2ce116f",
+  "version": "1.0",
+  "timestamp": "2026-10-27T21:10:14.084859+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "The session confirmed a milestone with a blind round-trip test of the vivify instrument. The test checks whether coded coordinates carry real meaning. Two readings are decoded, one from a case's real coordinates and one from shuffled coordinates. An independent judge then decides which reading better fits the case record. The test case was the Josiah Sutton wrongful conviction, involving the Houston Police Department crime lab and the Harris County courts. Judges consistently chose the real-coordinate reading. It described a sovereign, high-grid, rule-bound institution defining the official account against a marginal party. It captured an \"illusion\" of cooperative, procedurally normal evidence, such as the misleading 1 in 694,000 DNA statistic and the erroneous Sample #1 report. It also predicted that an authoritative record would later be reopened by journalists and inquiries as evidence against the institution. The shuffled reading described a small voluntary association, esoteric fellowship or latent internal dispute, and judges found it had no counterpart in a criminal prosecution.",
+  "left_keywords": [
+    "blind_roundtrip_validation",
+    "coordinate_meaning_test",
+    "shuffled_control_contrast",
+    "independent_judging",
+    "wrongful_conviction_case",
+    "forensic_lab_failure",
+    "misleading_dna_statistic",
+    "procedural_normality_illusion",
+    "sovereign_rulebound_institution",
+    "official_account_control",
+    "marginal_party_asymmetry",
+    "record_reopening_prediction",
+    "external_scrutiny_reversal",
+    "voluntary_association_mismatch"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "instrument_validation": [
+      "blind_roundtrip_validation",
+      "coordinate_meaning_test",
+      "independent_judging"
+    ],
+    "control_discrimination": [
+      "shuffled_control_contrast",
+      "voluntary_association_mismatch"
+    ],
+    "institutional_power_asymmetry": [
+      "sovereign_rulebound_institution",
+      "official_account_control",
+      "marginal_party_asymmetry"
+    ],
+    "false_evidentiary_surface": [
+      "procedural_normality_illusion",
+      "misleading_dna_statistic",
+      "forensic_lab_failure",
+      "wrongful_conviction_case"
+    ],
+    "record_reversal_trajectory": [
+      "record_reopening_prediction",
+      "external_scrutiny_reversal"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-opus-5-5",
+    "_operator": "vivify.py"
+  }
+}

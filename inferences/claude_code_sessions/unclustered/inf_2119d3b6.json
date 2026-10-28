@@ -1,0 +1,48 @@
+{
+  "id": "inf_2119d3b6",
+  "version": "1.0",
+  "timestamp": "2026-10-27T21:10:56.097445+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "A separate infrastructure need came up: allowing SSH logins into the main machine from a Windows laptop running WSL. The default sshd configuration disables password and keyboard-interactive authentication. The user noted that the sshd_config.d drop-in location is a directory, so overrides must be written as separate files inside it. The goal is to enable remote access from the WSL environment, building on earlier notes about a Windows-WSL connection on a nonstandard port.",
+  "left_keywords": [
+    "remote_access_need",
+    "cross_platform_bridge",
+    "wsl_origin_client",
+    "default_auth_lockdown",
+    "password_auth_disabled",
+    "interactive_auth_disabled",
+    "dropin_directory_structure",
+    "modular_config_override",
+    "nonstandard_port_continuity",
+    "prior_notes_buildup"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "access_goal": [
+      "remote_access_need",
+      "cross_platform_bridge",
+      "wsl_origin_client"
+    ],
+    "security_defaults": [
+      "default_auth_lockdown",
+      "password_auth_disabled",
+      "interactive_auth_disabled"
+    ],
+    "configuration_mechanics": [
+      "dropin_directory_structure",
+      "modular_config_override"
+    ],
+    "continuity_context": [
+      "nonstandard_port_continuity",
+      "prior_notes_buildup"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-opus-5-5",
+    "_operator": "vivify.py"
+  }
+}

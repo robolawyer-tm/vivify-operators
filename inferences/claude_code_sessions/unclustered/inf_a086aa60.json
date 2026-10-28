@@ -1,0 +1,50 @@
+{
+  "id": "inf_a086aa60",
+  "version": "1.0",
+  "timestamp": "2026-10-27T21:10:35.896269+00:00",
+  "source": "claude_session",
+  "case_id": null,
+  "raw_text": "During wrapup, the session decided that the lean and Gemini workers were internal changes to how the instrument makes its calls, not an outward milestone. No public announcement was drafted for them. The blind round-trip test was treated as the day's outward-facing result, and a draft for it was already queued. This keeps internal infrastructure changes separate from externally reportable research findings.",
+  "left_keywords": [
+    "internal_infrastructure_change",
+    "worker_backend_swap",
+    "call_mechanism_revision",
+    "non_milestone_classification",
+    "announcement_withheld",
+    "outward_facing_result",
+    "blind_round_trip_validation",
+    "queued_draft_disclosure",
+    "internal_external_boundary",
+    "reportable_research_finding",
+    "wrapup_decision"
+  ],
+  "right_keywords": [],
+  "clumps": {
+    "infrastructure_internals": [
+      "internal_infrastructure_change",
+      "worker_backend_swap",
+      "call_mechanism_revision"
+    ],
+    "milestone_judgment": [
+      "non_milestone_classification",
+      "announcement_withheld",
+      "wrapup_decision"
+    ],
+    "public_result": [
+      "outward_facing_result",
+      "blind_round_trip_validation",
+      "queued_draft_disclosure"
+    ],
+    "communication_boundary": [
+      "internal_external_boundary",
+      "reportable_research_finding"
+    ]
+  },
+  "category_paths": [],
+  "tension_score": null,
+  "guardrail_actions": {},
+  "left_pass": {
+    "_model": "claude-opus-5-5",
+    "_operator": "vivify.py"
+  }
+}
