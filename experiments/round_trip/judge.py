@@ -46,6 +46,7 @@ from vivify_core import llm_call_model, LLMUnavailable, _write_usage
 JUDGES = ("gemini:gemini-3.8-flash", "groq:openai/gpt-oss-120b")
 
 FIELD = REPO / "inferences" / "field"
+FAMILY = Path.home() / "private_field" / "family" / "unclustered"
 # record code: (case, slug, inference file, source shown in the packet header)
 CASES = {"W": ("washington", "earl-washington-jr", FIELD / "inf_a3d99808.json", "Innocence Project"),
          "S": ("sutton", "josiah-sutton", FIELD / "inf_285ae7ab.json", "Innocence Project"),
@@ -55,7 +56,12 @@ CASES = {"W": ("washington", "earl-washington-jr", FIELD / "inf_a3d99808.json", 
                "National Registry of Exonerations"),
          # Brown again, the NRE text selected to the Innocence Project level under CASE_TELLING_STANDARD.md
          "N": ("brown", "anthony-t-brown", Path.home() / "private_field" / "field" / "inf_539d6902.json",
-               "National Registry of Exonerations")}
+               "National Registry of Exonerations"),
+         # the four unseen PA family cases (bond's unseen exam, 2026-10-28), private field
+         "R": ("carrero", "carrero-v-lopez", FAMILY / "inf_7911d19a.json", "CourtListener"),
+         "E": ("weliver", "weliver-v-ortiz", FAMILY / "inf_9a742020.json", "CourtListener"),
+         "T": ("ss_v_tj", "s-s-v-t-j", FAMILY / "inf_f3ceffac.json", "CourtListener"),
+         "G": ("in_re_gms", "in-re-g-m-s", FAMILY / "inf_03b28608.json", "CourtListener")}
 
 # expected = what the web judges gave on 2026-10-22
 #   real       every pick is the real reading
@@ -87,6 +93,18 @@ EXPERIMENTS = {
     # v10's inputs, decoder told to stay at the coordinates' level (no concrete picture)
     "v11": {"dir": "v11_identity", "key": "v11_identity/KEY.txt", "kind": "multi",
             "labels": ("B", "G", "J", "Y"), "records": ("S", "W", "C", "N"), "expected": None},
+    # v10's recipe on the four unseen PA family cases; readings and verdicts stay in the private field
+    "fam1": {"dir": str(Path.home() / "private_field" / "family" / "identity"),
+             "key": str(Path.home() / "private_field" / "family" / "identity" / "KEY.txt"), "kind": "multi",
+             "labels": ("A", "D", "H", "Q"), "records": ("R", "E", "T", "G"), "expected": None},
+    # fam1 plus bond (residue.py's add_bond: coordinates and event structure, no signal text)
+    "fam2": {"dir": str(Path.home() / "private_field" / "family" / "identity_bond"),
+             "key": str(Path.home() / "private_field" / "family" / "identity_bond" / "KEY.txt"), "kind": "multi",
+             "labels": ("F", "J", "P", "V"), "records": ("R", "E", "T", "G"), "expected": None},
+    # fam2 with ages and places stripped from bond's `between` (fam2's 4/4 rode on them)
+    "fam3": {"dir": str(Path.home() / "private_field" / "family" / "identity_roles"),
+             "key": str(Path.home() / "private_field" / "family" / "identity_roles" / "KEY.txt"), "kind": "multi",
+             "labels": ("L", "N", "U", "W"), "records": ("R", "E", "T", "G"), "expected": None},
 }
 
 SHUFFLE_INTRO = (
@@ -404,3 +422,6 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-27 | repos/vivify-operators/experiments/round_trip/judge.py | v9 experiment and record N: Brown's NRE text selected under the telling standard
 # llm: claude-opus-5-5 | 2026-10-27 | repos/vivify-operators/experiments/round_trip/judge.py | v10 experiment: v9 plus every account element
 # llm: claude-opus-5-5 | 2026-10-27 | repos/vivify-operators/experiments/round_trip/judge.py | v11 experiment: v10's inputs, concrete-picture instruction fenced
+# llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/experiments/round_trip/judge.py | fam1 experiment: v10's identity recipe on the four unseen PA family cases (records R/E/T/G from the private family field)
+# llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/experiments/round_trip/judge.py | fam2 experiment: fam1 with bond in the decoder input
+# llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/experiments/round_trip/judge.py | fam3 experiment: fam2 with ages and places stripped from bond roles
