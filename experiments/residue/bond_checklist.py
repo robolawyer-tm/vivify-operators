@@ -14,6 +14,7 @@ partly = 0.5, no = 0 (the ap_checklist prompt, unchanged).
 Usage:
     python3 bond_checklist.py --items ~/private_field/family/residue \
         --arms ~/private_field/family/rerun/baseline_domain ~/private_field/family/rerun/bond_domain [--seed N]
+        [--checklist FILE]   # {"<case>": [item numbers]}, for cases other than the first four
 Writes checklist[_sN].json beside the arms' parent folder.
 """
 
@@ -35,12 +36,14 @@ def main():
     ap.add_argument("--items", required=True, help="folder holding the original <case>_residue.json files")
     ap.add_argument("--arms", nargs="+", required=True, help="one folder per arm, each with <case>_reading.md")
     ap.add_argument("--seed", type=int)
+    ap.add_argument("--checklist", help="JSON {case: [item numbers]}; default the first four cases' list")
     args = ap.parse_args()
     items_dir = Path(args.items).expanduser()
     arm_dirs = {Path(a).expanduser().name: Path(a).expanduser() for a in args.arms}
     rng = random.Random(20261026 if args.seed is None else args.seed)
-    out = {"checklist": CHECKLIST, "by_case": {}, "totals": {a: 0.0 for a in arm_dirs}, "max_per_arm": 0}
-    for case, nums in CHECKLIST.items():
+    checklist = read_json(Path(args.checklist).expanduser()) if args.checklist else CHECKLIST
+    out = {"checklist": checklist, "by_case": {}, "totals": {a: 0.0 for a in arm_dirs}, "max_per_arm": 0}
+    for case, nums in checklist.items():
         items = {it["id"]: it for it in read_json(items_dir / f"{case}_residue.json")["items"]}
         facts = [items[f"{case}-{n:02d}"] for n in nums]
         arms = list(arm_dirs)
@@ -68,3 +71,4 @@ if __name__ == "__main__":
     main()
 
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/experiments/residue/bond_checklist.py | created — fixed-checklist recall of the 12 family-relationship items per arm, shuffled and labelled, ap_checklist prompt reused
+# llm: claude-opus-5-5 | 2026-10-27 | repos/vivify-operators/experiments/residue/bond_checklist.py | --checklist FILE, so unseen cases bring their own item list

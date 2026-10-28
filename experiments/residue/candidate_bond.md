@@ -136,3 +136,28 @@ A new coordinate, `bond`, would record the parent–child and family bonds a tex
 <!-- llm: claude-opus-5-5 | 2026-10-27 | repos/vivify-operators/experiments/residue/candidate_bond.md | demand check, build notes, acceptance result (v2 5.83/12 vs baseline 1.0, two decodes, three draws), recommendation -->
 
 **Decision (2026-10-27):** ACCEPTED by John.
+
+## Unseen exam (2026-10-28)
+
+On four family cases bond had never seen, bond recovers 6.33 of 9 family-relationship items against 0.58 for the baseline.
+
+- Cases: a seeded draw (20261027) from the CourtListener candidates, mirroring the first mix: Carrero v. Lopez (relocation), Weliver v. Ortiz and S.S. v. T.J. (modification), In re G.M.S. (termination, three children).
+- Recipe unchanged: 11 operators plus bond, residue items, two blind topic sorts, checklist = items primary D in both (9 items), four domain-held arms, three judge draws.
+- Nothing was tuned on these cases: the operator, prompts and checklist rule are the accepted ones (2dde376), and the items came from the blind sorts.
+
+| Arm | Draw 0 | Draw 2 | Draw 3 | Mean |
+|---|---|---|---|---|
+| baseline, decode 1 | 0.5 | 1 | 0.5 | 0.67 |
+| baseline, decode 2 | 0.5 | 0.5 | 0.5 | 0.5 |
+| bond, decode 1 | 6 | 6.5 | 6.5 | 6.33 |
+| bond, decode 2 | 6 | 6.5 | 6.5 | 6.33 |
+
+- The share recovered is higher than in-sample (70% of items vs 49%), so the gain was not fitted to the first four cases.
+- Recovered by bond in every mark: the parties' private two-sided dispute, the family's sequence of prior orders, the transfer of parenthood from mother to grandparents, and every tie severed across the family.
+- Partly recovered: the court's stated rationale (the children's stability), the separation-and-distance source of friction, and who held the child before the order.
+- Missed most: S.S. v. T.J.'s long-running, escalated dispute (timing and maturity), which is a conflict-phase loss, not a bond loss.
+- Caveats: still one court (Pennsylvania Superior Court) and one model family for coding, decoding and judging; nine items.
+- Cost (John's meter): coding about 10% of a usage window per case; the whole run reached the limit with light use in a second terminal, then finished after the reset.
+- Provenance: after the reset two resumed copies of run_unseen.sh ran at once (01:42 and 01:42:47 UTC) and both wrote the missing in_re_gms and ss_v_tj readings and all three draws. The table is the checklist*.json files on disk (written last, 01:47–01:48 UTC); the logged totals of the racing copies differ by at most 0.5 per arm, and the result does not depend on which copy won.
+<!-- llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/experiments/residue/candidate_bond.md | unseen exam: 6.25/9 vs 0.42 on four unseen family cases -->
+<!-- llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/experiments/residue/candidate_bond.md | table and totals corrected to the checklist files on disk (6.33 vs 0.58); provenance of the two racing resumed runs -->
