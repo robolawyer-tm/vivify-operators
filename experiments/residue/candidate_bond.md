@@ -161,3 +161,29 @@ On four family cases bond had never seen, bond recovers 6.33 of 9 family-relatio
 - Provenance: after the reset two resumed copies of run_unseen.sh ran at once (01:42 and 01:42:47 UTC) and both wrote the missing in_re_gms and ss_v_tj readings and all three draws. The table is the checklist*.json files on disk (written last, 01:47–01:48 UTC); the logged totals of the racing copies differ by at most 0.5 per arm, and the result does not depend on which copy won.
 <!-- llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/experiments/residue/candidate_bond.md | unseen exam: 6.25/9 vs 0.42 on four unseen family cases -->
 <!-- llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/experiments/residue/candidate_bond.md | table and totals corrected to the checklist files on disk (6.33 vs 0.58); provenance of the two racing resumed runs -->
+
+## Step 3: via (2026-10-28)
+
+`via` records how each event reached the bond, and it recovers the item the unseen exam still missed: ss_v_tj-14, the friction that comes from distance after a move.
+
+- Diagnosis: the coder had the relocation in its event text ("court permits mother to relocate with the children to South Carolina"), but the blind decoder saw only `reduced, made by institution` and invented a parent cutting contact.
+- Values, read off the `what` lines of all 8 family cases' events: distance | schedule | placement | status | conduct | other.
+- Voted per event from the event list alone, without the case text, so a stored inference takes it with `bond_operator.py --via-only` and the accepted coding stays unchanged; run() now does it as step 3.
+- Backfill on the four unseen cases: nearly every event unanimous 3/3; ss_v_tj's main event is distance.
+- Judged in the same prompts as bond without via, checklist of 9, three draws:
+
+| Arm | Draw 0 | Draw 2 | Draw 3 | Mean |
+|---|---|---|---|---|
+| bond, decode 1 | 6 | 5.5 | 5 | 5.5 |
+| bond, decode 2 | 6 | 5 | 5.5 | 5.5 |
+| bond + via, decode 1 | 7 | 8 | 7.5 | 7.5 |
+| bond + via, decode 2 | 6.5 | 6.5 | 6.5 | 6.5 |
+
+- ss_v_tj-14 moved from partly/no/no in both decodes to yes/yes/yes and yes/partly/partly; weliver-02 and weliver-07 (both distance) also rose; only carrero-13 lost one draw.
+- bond without via scores 5.5 here against 6.33 in the exam: the judge marks a reading lower beside a better one, so only same-prompt comparisons count.
+- The two via decodes differ by a point, more than bond's decodes did; a third decode would show whether that is noise.
+- In-sample for via: it was designed after seeing ss_v_tj-14, so these four cases no longer test it. The second unseen exam (four new cases, seed 20261028, ~/private_field/family/unseen2/) is via's real test.
+- Files: ~/private_field/family/unseen/run_via.sh, judged in unseen/via_judge/ (the exam's own checklist files are unchanged, md5 checked).
+- Regression on the first four cases (12 items, same-prompt with the accepted bond v2 arms): bond + via 4.83 (decodes 5.0, 4.67) vs bond 4.58 (4.67, 4.5), so nothing lost. ecs_v_mcs-08, the geography item bond had "still missed" at acceptance, rose from no in all 6 marks to partly in all 6; ss_v_kf-06 (the parents' bargaining positions, a conflict item) fell from partly ×3 to no/partly/no in both decodes. The judge was harsher in this run (bond v2 4.58 vs 5.83 at acceptance), again a same-prompt effect. Files: ~/private_field/family/rerun/run_via_insample.sh, rerun/via_judge/.
+<!-- llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/experiments/residue/candidate_bond.md | step 3 via: diagnosis, values, result on the unseen four (7.0 vs 5.5 same-prompt), in-sample caveat -->
+<!-- llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/experiments/residue/candidate_bond.md | via regression on the first four: 4.83 vs 4.58, ecs_v_mcs-08 recovered partly -->

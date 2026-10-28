@@ -42,6 +42,12 @@ sorts (cm_v_mm-06/07/08/15, ecs_v_mcs-02/08, in_re_ejc-03/06/09/10, ss_v_kf-03/0
 - made_by `members` = family members acting together (two parents' own arrangement
   included): in the first run a parents' informal arrangement came out `others`
 - shape (hub | mesh | dyad) is deferred to its own step, so each change is measured alone
+- Step 3, via: HOW each event reached the bond (distance | schedule | placement | status |
+  conduct | other), voted per event from the event list alone, not the text. The decoder
+  saw "reduced, made by institution" and could not tell a relocation from a cut in
+  contact: ss_v_tj-14 (the friction comes from distance after a move) stayed partly
+  recovered in every draw of the unseen exam (2026-10-28). The values are the mechanisms
+  the 8 family cases' events show, read off their `what` lines.
 
 _src: vivify-operators residue test on the family field (2026-10-26)
 """
@@ -129,6 +135,7 @@ EVENT_ENUMS = {
     "reported_by": ("institution", "member", "others", "unclear"),
     "effect":      ("preserved", "reduced", "severed", "restored"),
     "registered":  ("weighed", "mentioned", "absent"),
+    "via":         ("distance", "schedule", "placement", "status", "conduct", "other"),
 }
 # How much an event changes the bond, for choosing the main event: a cut or a return
 # counts more than continuity; ties go to the EARLIER event, the original change the
@@ -145,11 +152,12 @@ def events(raw: list) -> list:
     for e in raw or []:
         if isinstance(e, str):
             e = {"what": e}
-        rec = {k: e.get(k) for k in ("order", "bonds", "what", "made_by", "reported_by", "effect", "registered", "words")}
+        rec = {k: e.get(k) for k in ("order", "bonds", "what", "made_by", "reported_by", "effect", "registered", "via", "words")}
         if isinstance(rec["bonds"], str):
             rec["bonds"] = [rec["bonds"]]
-        if "_registered_votes" in e:
-            rec["_registered_votes"] = e["_registered_votes"]
+        for k in ("_registered_votes", "_via_votes"):
+            if k in e:
+                rec[k] = e[k]
         off = [k for k, allowed in EVENT_ENUMS.items() if rec.get(k) is not None and rec[k] not in allowed]
         if off:
             rec["_off_vocabulary"] = off
@@ -208,42 +216,83 @@ Return ONLY valid JSON: {{"registered": {{"<event number>": "<weighed|mentioned|
 REGISTERED = ("weighed", "mentioned", "absent")
 
 
-def registered_votes(text: str, between: str, evs: list, votes=None) -> list:
-    """Step 2: judge `registered` for each event of the FIXED list, by majority over
-    independent draws, so every event gets its own vote and spread.
+def per_event_votes(prompt: str, operator: str, key: str, allowed: tuple, evs: list, votes=None) -> list:
+    """Judge `key` for each event of the FIXED list, by majority over independent draws,
+    so every event gets its own vote and spread.
 
     A value outside the set is not counted; an event with no majority keeps
-    registered None and its distribution (record, don't forbid)."""
-    if not evs:
-        return evs
+    `key` None and its distribution in _<key>_votes (record, don't forbid)."""
     n = _vote_count() if votes is None else max(1, votes)
-    listing = "\n".join(f"{i}. {e.get('what')} (made by {e.get('made_by')}; {e.get('effect')} "
-                        f"bond {', '.join(e.get('bonds') or []) or '?'})"
-                        for i, e in enumerate(evs, 1))
-    prompt = REGISTERED_PROMPT.format(between=between or "the main bond", events=listing, text=text)
     draws, model = [], None
     for _ in range(n):
         try:
-            r = call_and_validate(prompt, "bond_registered", capability="logos_operator", sensitive=True)
+            r = call_and_validate(prompt, operator, capability="logos_operator", sensitive=True)
         except Exception:
             continue
         model = r.get("_model", model)
-        draws.append(r.get("registered") or {})
+        draws.append(r.get(key) or {})
     for i, e in enumerate(evs, 1):
         dist = {}
         for d in draws:
             v = d.get(str(i), d.get(i))
-            if v in REGISTERED:
+            if v in allowed:
                 dist[v] = dist.get(v, 0) + 1
         top = max(dist.items(), key=lambda kv: kv[1]) if dist else (None, 0)
-        e["registered"] = top[0] if top[1] * 2 > len(draws) else None
-        e["_registered_votes"] = {"n": len(draws), "distribution": dist, "_model": model}
+        e[key] = top[0] if top[1] * 2 > len(draws) else None
+        e[f"_{key}_votes"] = {"n": len(draws), "distribution": dist, "_model": model}
     return evs
 
 
+def registered_votes(text: str, between: str, evs: list, votes=None) -> list:
+    """Step 2: judge `registered` for each event of the fixed list (per_event_votes)."""
+    if not evs:
+        return evs
+    listing = "\n".join(f"{i}. {e.get('what')} (made by {e.get('made_by')}; {e.get('effect')} "
+                        f"bond {', '.join(e.get('bonds') or []) or '?'})"
+                        for i, e in enumerate(evs, 1))
+    prompt = REGISTERED_PROMPT.format(between=between or "the main bond", events=listing, text=text)
+    return per_event_votes(prompt, "bond_registered", "registered", REGISTERED, evs, votes)
+
+
+VIA_PROMPT = """Below is a numbered list of events that affected bonds between people
+(parent and child, siblings, grandparent and grandchild, and the like).
+
+For each event, say how it reached the bond, that is, what about the people's lives
+together it changed:
+  distance  — where people live: someone moves, or is moved, nearer or farther away
+  schedule  — the time or contact people have with each other: custody time, visits,
+              calls, supervision of contact, a bar on contact
+  placement — whose household a child lives in: removal, a foster or kin placement,
+              a return home
+  status    — a legal standing in the relationship: rights granted, ended or confirmed,
+              jurisdiction, an order made or vacated without changing time or place
+  conduct   — something a person did or failed to do within the relationship: kept to
+              or broke an order, used or skipped their time, an act or a report against
+              another member
+  other     — none of these
+
+Judge only from the event as described.
+
+Events:
+{events}
+
+Return ONLY valid JSON: {{"via": {{"<event number>": "<distance|schedule|placement|status|conduct|other>", ...}}}}
+"""
+VIA = EVENT_ENUMS["via"]
+
+
+def via_votes(evs: list, votes=None) -> list:
+    """Step 3: judge `via` for each event of the fixed list, from the event descriptions
+    alone (no text), so a stored inference can take it without re-reading its case."""
+    if not evs:
+        return evs
+    listing = "\n".join(f"{i}. {e.get('what')}" for i, e in enumerate(evs, 1))
+    return per_event_votes(VIA_PROMPT.format(events=listing), "bond_via", "via", VIA, evs, votes)
+
+
 def run(inference: dict) -> dict:
-    """Attach logos.bond coordinates to an inference, in two steps: the bond and its
-    events (voted on standing and hazard), then `registered` per event (voted per event)."""
+    """Attach logos.bond coordinates to an inference, in three steps: the bond and its
+    events (voted on standing and hazard), then `registered` and `via` per event."""
     text = inference.get("raw_text", "")
     if not text:
         return inference
@@ -251,8 +300,21 @@ def run(inference: dict) -> dict:
     result = call_and_vote(PROMPT.format(text=text), "bond",
                            capability="logos_operator", sensitive=True)
     if result.get("standing") != "unmarked":
-        result["events"] = registered_votes(text, result.get("between"), events(result.get("events", [])))
+        result["events"] = via_votes(registered_votes(text, result.get("between"),
+                                                      events(result.get("events", []))))
     return parse(result, inference)
+
+
+def add_via(inference: dict) -> dict:
+    """Step 3 alone on an inference already tagged: `via` per stored event, the main
+    via re-derived. Nothing else in logos.bond changes."""
+    b = inference.get("logos", {}).get("bond")
+    if not b or not b.get("events"):
+        return inference
+    b["events"] = events(via_votes(b["events"]))
+    main = next((e for e in b["events"] if e.get("order") == b.get("main_event")), None)
+    b["via"] = main.get("via") if main else None
+    return inference
 
 
 def parse(result: dict, inference: dict) -> dict:
@@ -268,6 +330,7 @@ def parse(result: dict, inference: dict) -> dict:
         effect, made_by, registered = ("preserved", "none", "unmarked") if evs else ("none", "none", "unmarked")
     else:
         effect, made_by, registered = main["effect"], main.get("made_by"), main.get("registered")
+    via = main.get("via") if main else None
     logos = inference.setdefault("logos", {})
     logos["bond"] = {
         "bonds":        bonds(result.get("bonds", [])),
@@ -277,6 +340,7 @@ def parse(result: dict, inference: dict) -> dict:
         "registered":   registered,
         "effect":       effect,
         "made_by":      made_by,
+        "via":          via,
         "main_event":   main.get("order") if main else None,
         "hazard":       result.get("hazard"),
         "bond_signals": result.get("bond_signals", []),
@@ -297,19 +361,21 @@ if __name__ == "__main__":
     )
     parser.add_argument("file", nargs="?", help="inference JSON file to tag")
     parser.add_argument("--dry-run", action="store_true", help="print result, do not write")
+    parser.add_argument("--via-only", action="store_true",
+                        help="step 3 only: add via to the stored events of an inference already tagged")
     args = parser.parse_args()
 
     path = Path(args.file) if args.file else None
     inference = read_json(path) if path else json.load(sys.stdin)
 
-    tagged = run(inference)
+    tagged = add_via(inference) if args.via_only else run(inference)
 
     if args.dry_run or not path:
         print(json.dumps(tagged, indent=2))
     else:
         write_json(path, tagged)
         b = tagged["logos"]["bond"]
-        print(f"logos.bond tagged: {b['standing']}/{b['registered']}/{b['effect']} by {b['made_by']}/{b['hazard']}")
+        print(f"logos.bond tagged: {b['standing']}/{b['registered']}/{b['effect']} by {b['made_by']} via {b.get('via')}/{b['hazard']}")
 
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/bond_operator.py | created — bond coordinate step 1 (standing|registered|effect|hazard + between, signals), purpose-blind prompt, one value per coordinate; shape deferred
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/bond_operator.py | effect = outcome from any actor's events (not the institution's act); made_by (institution|members|one_member|others) voted; events list with makers
@@ -317,3 +383,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/bond_operator.py | registered asked per event; main effect/made_by/registered derived in code from the event that changed the bond most (main_event); only standing and hazard voted
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/bond_operator.py | ties go to the earlier event; registered moved to step 2: judged per event of the fixed list, majority per event (registered_votes)
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/bond_operator.py | every bond listed (bonds, main_bond) and events name the bonds they touch; made_by members = family members acting together, others = outside the family
+# llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/bond_operator.py | step 3 via (distance|schedule|placement|status|conduct|other) per event from the event list; per_event_votes shared with registered; --via-only backfill

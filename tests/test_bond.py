@@ -94,6 +94,8 @@ orig = bo.call_and_vote
 bo.call_and_vote = lambda prompt, op, **kw: calls.append(op) or {**draw(), "_model": "m", "_votes": {"n": 3}}
 orig_rv = bo.registered_votes
 bo.registered_votes = lambda text, between, evs, votes=None: calls.append("registered") or evs
+orig_vv = bo.via_votes
+bo.via_votes = lambda evs, votes=None: calls.append("via") or evs
 try:
     out = bo.run({"raw_text": "The order ended the father's contact with the child."})
     rec = out["logos"]["bond"]
@@ -106,13 +108,15 @@ try:
     check("parse stores between and signals", rec["between"] == "mother and child aged 7" and len(rec["bond_signals"]) == 1, rec)
     check("parse records provenance",
           rec["_model"] == "m" and rec["_votes"] == {"n": 3} and rec["_operator"] == "bond_operator.py", rec)
-    check("two steps: the bond vocabulary, then registered per event", calls == ["bond", "registered"], calls)
+    check("three steps: the bond vocabulary, then registered and via per event",
+          calls == ["bond", "registered", "via"], calls)
     calls.clear()
     empty = bo.run({"raw_text": ""})
     check("no text: untouched, no call", calls == [] and "logos" not in empty, empty)
 finally:
     bo.call_and_vote = orig
     bo.registered_votes = orig_rv
+    bo.via_votes = orig_vv
 
 ev = bo.events([{"order": 1, "what": "x", "made_by": "court", "effect": "reduced"},
                 "an older plain-string event",
@@ -139,6 +143,45 @@ check("only continuity: effect preserved, no maker", (only_kept["effect"], only_
 nobond = bo.parse({"standing": "unmarked", "hazard": "none", "events": []}, {})["logos"]["bond"]
 check("no bond: effect none, registered unmarked", (nobond["effect"], nobond["registered"]) == ("none", "unmarked"), nobond)
 
+# step 3: via per event, from the event list alone (no text in the prompt)
+seq = iter([{"via": {"1": "distance", "2": "schedule"}},
+            {"via": {"1": "distance", "2": "conduct"}},
+            {"via": {"1": "schedule", "2": "harmful"}}])
+prompts = []
+bo.call_and_validate = lambda prompt, op, **k: prompts.append((prompt, op)) or {**next(seq), "_model": "m"}
+try:
+    evs = bo.via_votes([{"order": 1, "what": "mother relocates with the children"},
+                        {"order": 2, "what": "calls limited to 30 minutes"}], votes=3)
+    check("via: majority per event", evs[0]["via"] == "distance"
+          and evs[0]["_via_votes"]["distribution"] == {"distance": 2, "schedule": 1}, evs[0])
+    check("via: no majority stays None, off-set value not counted",
+          evs[1]["via"] is None and evs[1]["_via_votes"]["distribution"] == {"schedule": 1, "conduct": 1}, evs[1])
+    check("via: prompt lists the events and uses its own validation name",
+          "1. mother relocates with the children" in prompts[0][0] and prompts[0][1] == "bond_via", prompts[0])
+    kept = bo.events(evs)
+    check("events() keeps via and its vote record", kept[0]["via"] == "distance" and "_via_votes" in kept[0], kept[0])
+finally:
+    bo.call_and_validate = orig_cv
+via_prompt = bo.VIA_PROMPT.lower()
+check("via prompt names no harm or purpose",
+      not any(w in via_prompt for w in ("harm", "damage", "suffer", "self-harm", "reform", "wrong")),
+      [w for w in ("harm", "damage", "suffer", "self-harm", "reform", "wrong") if w in via_prompt])
+
+# add_via: step 3 alone on a stored inference; only via changes
+orig_vv = bo.via_votes
+bo.via_votes = lambda evs, votes=None: [{**e, "via": "distance" if e["order"] == 2 else "status"} for e in evs]
+try:
+    stored = {"logos": {"bond": {"standing": "secure", "effect": "reduced", "main_event": 2,
+                                 "events": [{"order": 1, "what": "a", "effect": "preserved"},
+                                            {"order": 2, "what": "b", "effect": "reduced"}]}}}
+    out = bo.add_via(stored)["logos"]["bond"]
+    check("add_via: main via from the main event, events tagged, the rest untouched",
+          out["via"] == "distance" and [e["via"] for e in out["events"]] == ["status", "distance"]
+          and out["effect"] == "reduced" and out["standing"] == "secure", out)
+    check("add_via: no bond, nothing to do", bo.add_via({"logos": {}}) == {"logos": {}})
+finally:
+    bo.via_votes = orig_vv
+
 print()
 if failures:
     print(f"FAILED: {len(failures)} check(s) — {', '.join(failures)}")
@@ -151,3 +194,4 @@ print("All bond checks passed.")
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/tests/test_bond.py | vote on standing+hazard only; main values derived from events (main_event rank and ties, continuity, no bond)
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/tests/test_bond.py | ties to the earlier event; two-step registered: per-event majority, no-majority None, vote record kept, run() makes both calls
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/tests/test_bond.py | every bond listed: bonds() normalisation, main_bond, event bond ids
+# llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/tests/test_bond.py | step 3 via: per-event majority, prompt from events only, add_via backfill, run() makes three calls

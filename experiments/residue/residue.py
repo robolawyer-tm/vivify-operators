@@ -181,8 +181,10 @@ def add_bond(spec, encoding):
         "main_bond": b.get("main_bond"),
         "between": b.get("between"), "standing": b["standing"], "hazard": b.get("hazard"),
         "main_change": {"effect": b.get("effect"), "made_by": b.get("made_by"),
+                        **({"via": b["via"]} if "via" in b else {}),
                         "registered_in_the_reasoning": b.get("registered")},
-        "events_in_order": [{k: e.get(k) for k in ("order", "bonds", "made_by", "reported_by", "effect", "registered")}
+        "events_in_order": [{k: e.get(k) for k in ("order", "bonds", "made_by", "reported_by", "effect", "via", "registered")
+                             if k != "via" or "via" in e}
                             for e in b.get("events", [])]}
     return encoding
 
@@ -262,3 +264,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/experiments/residue/residue.py | --file NAME=PATH: residue on an inference outside the store (the family field), with --out
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/experiments/residue/residue.py | --with-bond: bond coordinates + event structure (no event text) in the encoding, for the bond acceptance test
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/experiments/residue/residue.py | --with-bond also carries every bond (id, roles, standing) and which bonds each event touched
+# llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/experiments/residue/residue.py | --with-bond carries via (per event and main) when the inference has it
