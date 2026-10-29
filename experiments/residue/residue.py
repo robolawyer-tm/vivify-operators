@@ -169,17 +169,31 @@ def add_account_production(name, encoding, named=False, positions=False):
     return encoding
 
 
+# what a role string carries besides the role: ages, birth dates, places (fam2, 2026-10-28:
+# blind judges matched cases on "daughter aged 7" and "in Florida", not on the bonds)
+NOT_ROLE = [r",?\s*\baged? (about )?\d+( and \d+)?", r"\s*\(born[^)]*\)", r",?\s*\bborn (in )?([A-Z][a-z]+ )?\d{4}",
+            r",? an infant", r"\s*\(infant\)", r"\binfant ", r"\s+in [A-Z][A-Za-z]+( [A-Z][A-Za-z]+)*(?![A-Za-z'’])"]
+
+
+def roles_only(text):
+    """A bond's `between` with ages, birth dates and places removed, leaving the roles."""
+    for pat in NOT_ROLE:
+        text = re.sub(pat, "", text or "")
+    return re.sub(r"\(\s*", "(", text).strip()
+
+
 def add_bond(spec, encoding):
     """The bond coordinates and each event's structure, from the inference's logos.bond.
 
     Coordinates only, as for every other dimension: the events' `what` and `words` and
     the bond signals carry record text and would leak it to the blind decoder, so they
-    are left out. `between` (roles only) is kept: it is the bond's identity."""
+    are left out. `between` is kept as roles only (roles_only): it is the bond's identity."""
     b = read_json(Path(spec["file"]) if "file" in spec else STORE / spec["store"])["logos"]["bond"]
     encoding["logos"]["bond_the_events_land_on"] = {
-        "bonds": [{k: x.get(k) for k in ("id", "between", "standing")} for x in b.get("bonds", [])],
+        "bonds": [{"id": x.get("id"), "between": roles_only(x.get("between")), "standing": x.get("standing")}
+                  for x in b.get("bonds", [])],
         "main_bond": b.get("main_bond"),
-        "between": b.get("between"), "standing": b["standing"], "hazard": b.get("hazard"),
+        "between": roles_only(b.get("between")), "standing": b["standing"], "hazard": b.get("hazard"),
         "main_change": {"effect": b.get("effect"), "made_by": b.get("made_by"),
                         **({"via": b["via"]} if "via" in b else {}),
                         "registered_in_the_reasoning": b.get("registered")},
@@ -265,3 +279,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/experiments/residue/residue.py | --with-bond: bond coordinates + event structure (no event text) in the encoding, for the bond acceptance test
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/experiments/residue/residue.py | --with-bond also carries every bond (id, roles, standing) and which bonds each event touched
 # llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/experiments/residue/residue.py | --with-bond carries via (per event and main) when the inference has it
+# llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/experiments/residue/residue.py | add_bond passes roles only: ages, birth dates and places stripped from every between (roles_only), the leak blind judges used in fam2
