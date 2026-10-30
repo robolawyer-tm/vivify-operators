@@ -152,6 +152,9 @@ def claude_worker_mode():
     return mode
 
 
+CLAUDE_ARG_MAX = 100_000    # bytes; longer prompts go on stdin (kernel argv limit 131072)
+
+
 def claude_cmd(prompt, model, *extra):
     """The claude CLI argv for one call, lean unless VIVIFY_CLAUDE_WORKER=full."""
     cmd = ["claude", "-p", prompt, "--model", model, *extra]
@@ -215,11 +218,14 @@ def _claude_transport(prompt, model, params=None):
     the lean worker (claude_cmd) unless VIVIFY_CLAUDE_WORKER=full.
     """
     import subprocess
-    result = subprocess.run(
-        claude_cmd(prompt, model, "--output-format", "json"),
-        capture_output=True,
-        text=True
-    )
+    cmd = claude_cmd(prompt, model, "--output-format", "json")
+    stdin = None
+    if len(prompt.encode()) > CLAUDE_ARG_MAX:
+        # Linux caps one argv string at 128 KB (long opinions hit it); claude -p
+        # with no prompt argument reads the prompt from stdin instead.
+        del cmd[2]                          # the prompt, placed there by claude_cmd
+        stdin = prompt
+    result = subprocess.run(cmd, input=stdin, capture_output=True, text=True)
     if result.returncode != 0:
         raise LLMUnavailable(result.stderr.strip() or f"claude exited {result.returncode}")
     try:
@@ -1064,3 +1070,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-18 | repos/vivify-operators/lib/vivify_core.py | usage log: one JSON line per LLM call, same shape for every backend (tokens in/out/cache, thinking, cost, seconds, ok); claude worker reads --output-format json; VIVIFY_USAGE_LOG, VIVIFY_RUN_TAG
 # llm: claude-opus-5-5 | 2026-10-23 | repos/vivify-operators/lib/vivify_core.py | Gemini read timeout configurable via GEMINI_TIMEOUT (default 120s unchanged); long judging packets timed out at 120s and the timed-out calls still spent free quota
 # llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/lib/vivify_core.py | GEMINI_503_RETRIES caps 503 retries separately (default unchanged); retried 503s spend the free daily quota
+# llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/lib/vivify_core.py | _claude_transport sends prompts over CLAUDE_ARG_MAX on stdin (a 204 KB opinion hit the kernel's 128 KB argv limit)

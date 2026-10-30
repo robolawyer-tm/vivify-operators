@@ -46,10 +46,12 @@ class FakeRun:
     """Records the argv of each subprocess.run and answers like the CLI."""
     def __init__(self, stdout="ok"):
         self.cmds = []
+        self.inputs = []
         self.stdout = stdout
 
     def __call__(self, cmd, **kwargs):
         self.cmds.append(cmd)
+        self.inputs.append(kwargs.get("input"))
         return subprocess.CompletedProcess(cmd, 0, stdout=self.stdout, stderr="")
 
 
@@ -107,8 +109,16 @@ try:
           "--tools" in fake.cmds[-1] and flag_value(fake.cmds[-1], "--output-format") == "json",
           fake.cmds[-1])
 
-    set_mode("full")
     fake.stdout = "ok"
+    long_prompt = "x" * (vivify_core.CLAUDE_ARG_MAX + 1)
+    vivify_core._claude_transport(long_prompt, "claude-opus-5-5")
+    check("long prompt goes on stdin, not argv",
+          fake.inputs[-1] == long_prompt and long_prompt not in fake.cmds[-1]
+          and fake.cmds[-1][:2] == ["claude", "-p"] and "--tools" in fake.cmds[-1], fake.cmds[-1][:4])
+    vivify_core._claude_transport("PROMPT", "claude-opus-5-5")
+    check("short prompt stays in argv", fake.inputs[-1] is None and "PROMPT" in fake.cmds[-1], fake.cmds[-1][:4])
+
+    set_mode("full")
     vivify_core._claude_transport("PROMPT", "claude-opus-5-5")
     check("full mode reaches the transport", "--tools" not in fake.cmds[-1], fake.cmds[-1])
 finally:
@@ -122,3 +132,4 @@ if failures:
 print("All lean-worker checks passed.")
 
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/tests/test_lean_worker.py | created — lean worker is the default claude call, full mode restores the old argv, transport and alias probe both route through claude_cmd (subprocess stubbed, no live calls)
+# llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/tests/test_lean_worker.py | long prompts (> CLAUDE_ARG_MAX) reach claude -p on stdin, short ones stay in argv
