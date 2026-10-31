@@ -47,11 +47,13 @@ class FakeRun:
     def __init__(self, stdout="ok"):
         self.cmds = []
         self.inputs = []
+        self.stdins = []
         self.stdout = stdout
 
     def __call__(self, cmd, **kwargs):
         self.cmds.append(cmd)
         self.inputs.append(kwargs.get("input"))
+        self.stdins.append(kwargs.get("stdin"))
         return subprocess.CompletedProcess(cmd, 0, stdout=self.stdout, stderr="")
 
 
@@ -117,6 +119,7 @@ try:
           and fake.cmds[-1][:2] == ["claude", "-p"] and "--tools" in fake.cmds[-1], fake.cmds[-1][:4])
     vivify_core._claude_transport("PROMPT", "claude-opus-5-5")
     check("short prompt stays in argv", fake.inputs[-1] is None and "PROMPT" in fake.cmds[-1], fake.cmds[-1][:4])
+    check("short prompt closes stdin (no 3 s wait)", fake.stdins[-1] is subprocess.DEVNULL, fake.stdins[-1])
 
     set_mode("full")
     vivify_core._claude_transport("PROMPT", "claude-opus-5-5")
@@ -133,3 +136,4 @@ print("All lean-worker checks passed.")
 
 # llm: claude-opus-5-5 | 2026-10-17 | repos/vivify-operators/tests/test_lean_worker.py | created — lean worker is the default claude call, full mode restores the old argv, transport and alias probe both route through claude_cmd (subprocess stubbed, no live calls)
 # llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/tests/test_lean_worker.py | long prompts (> CLAUDE_ARG_MAX) reach claude -p on stdin, short ones stay in argv
+# llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/tests/test_lean_worker.py | short prompts must close stdin (stdin=DEVNULL)

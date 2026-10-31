@@ -232,7 +232,10 @@ def _claude_transport(prompt, model, params=None):
         # with no prompt argument reads the prompt from stdin instead.
         del cmd[2]                          # the prompt, placed there by claude_cmd
         stdin = prompt
-    result = subprocess.run(cmd, input=stdin, capture_output=True, text=True)
+    # with no prompt to pipe, close stdin: the CLI otherwise waits 3 s for piped input
+    # whenever stdin is not a terminal (background runs), on every call
+    io = {"input": stdin} if stdin is not None else {"stdin": subprocess.DEVNULL}
+    result = subprocess.run(cmd, capture_output=True, text=True, **io)
     if result.returncode != 0:
         raise LLMUnavailable(result.stderr.strip() or f"claude exited {result.returncode}")
     try:
@@ -985,7 +988,7 @@ def _probe_alias(alias):
     import subprocess
     result = subprocess.run(
         claude_cmd("Reply with the single word ok", alias, "--output-format", "json"),
-        capture_output=True, text=True
+        capture_output=True, text=True, stdin=subprocess.DEVNULL
     )
     if result.returncode != 0:
         raise LLMUnavailable(result.stderr.strip() or f"claude exited {result.returncode}")
@@ -1079,3 +1082,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/lib/vivify_core.py | GEMINI_503_RETRIES caps 503 retries separately (default unchanged); retried 503s spend the free daily quota
 # llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/lib/vivify_core.py | _claude_transport sends prompts over CLAUDE_ARG_MAX on stdin (a 204 KB opinion hit the kernel's 128 KB argv limit)
 # llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/lib/vivify_core.py | read_json raises FileNotFoundError on a missing file unless missing_ok=True (a wrong path used to read as {} and get written back)
+# llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/lib/vivify_core.py | claude calls with no piped prompt get stdin=DEVNULL (the CLI waited 3 s for stdin on every non-terminal call)
