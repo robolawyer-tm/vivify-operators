@@ -36,9 +36,11 @@ class FakeCall:
     def __init__(self, script):
         self.script = list(script)
         self.calls = 0
+        self.capabilities = []
 
     def __call__(self, prompt, operator, **kwargs):
         self.calls += 1
+        self.capabilities.append(kwargs.get("capability"))
         step = self.script.pop(0) if self.script else RuntimeError("claude exited 1")
         if isinstance(step, Exception):
             raise step
@@ -69,6 +71,14 @@ try:
     except ShortVotes as err:
         check("short votes raise ShortVotes", "1 of 3" in str(err), str(err))
     check("retries are bounded at 2n attempts", fake.calls == 6, fake.calls)
+
+    bond_operator.call_and_validate = fake = FakeCall([VOTE, VOTE, VOTE])
+    bond_operator.registered_votes("TEXT", "father and son", events(), votes=3)
+    check("registered votes go out as bond_registered", set(fake.capabilities) == {"bond_registered"},
+          fake.capabilities)
+    bond_operator.call_and_validate = fake = FakeCall([{"1": "distance", "2": "placement"}] * 3)
+    bond_operator.via_votes(events(), votes=3)
+    check("via votes stay on logos_operator", set(fake.capabilities) == {"logos_operator"}, fake.capabilities)
 finally:
     bond_operator.call_and_validate = original
 
@@ -79,3 +89,4 @@ if failures:
 print("All bond-vote checks passed.")
 
 # llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/tests/test_bond_votes.py | created — per_event_votes retries failed draws, raises ShortVotes when fewer than n come back (call_and_validate stubbed, no live calls)
+# llm: claude-opus-5-5 | 2026-10-31 | repos/vivify-operators/tests/test_bond_votes.py | registered votes use capability bond_registered, via stays on logos_operator

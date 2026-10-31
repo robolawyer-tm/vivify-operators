@@ -220,7 +220,8 @@ class ShortVotes(RuntimeError):
     """Fewer per-event draws came back than were asked for."""
 
 
-def per_event_votes(prompt: str, operator: str, key: str, allowed: tuple, evs: list, votes=None) -> list:
+def per_event_votes(prompt: str, operator: str, key: str, allowed: tuple, evs: list, votes=None,
+                    capability: str = "logos_operator") -> list:
     """Judge `key` for each event of the FIXED list, by majority over independent draws,
     so every event gets its own vote and spread.
 
@@ -235,7 +236,7 @@ def per_event_votes(prompt: str, operator: str, key: str, allowed: tuple, evs: l
         if len(draws) == n:
             break
         try:
-            r = call_and_validate(prompt, operator, capability="logos_operator", sensitive=True)
+            r = call_and_validate(prompt, operator, capability=capability, sensitive=True)
         except Exception as err:
             last_err = err
             continue
@@ -263,7 +264,10 @@ def registered_votes(text: str, between: str, evs: list, votes=None) -> list:
                         f"bond {', '.join(e.get('bonds') or []) or '?'})"
                         for i, e in enumerate(evs, 1))
     prompt = REGISTERED_PROMPT.format(between=between or "the main bond", events=listing, text=text)
-    return per_event_votes(prompt, "bond_registered", "registered", REGISTERED, evs, votes)
+    # own capability, so a run can route only these votes to another model
+    # (VIVIFY_MODEL_OVERRIDE=bond_registered=<model>); event finding stays on logos_operator
+    return per_event_votes(prompt, "bond_registered", "registered", REGISTERED, evs, votes,
+                           capability="bond_registered")
 
 
 VIA_PROMPT = """Below is a numbered list of events that affected bonds between people
@@ -397,3 +401,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/bond_operator.py | every bond listed (bonds, main_bond) and events name the bonds they touch; made_by members = family members acting together, others = outside the family
 # llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/bond_operator.py | step 3 via (distance|schedule|placement|status|conduct|other) per event from the event list; per_event_votes shared with registered; --via-only backfill
 # llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/bond_operator.py | per_event_votes retries failed draws and raises ShortVotes instead of saving events with missing votes
+# llm: claude-opus-5-5 | 2026-10-31 | repos/vivify-operators/bond_operator.py | registered votes use their own capability (bond_registered) so they can be routed to another model; event finding and via unchanged
