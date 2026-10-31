@@ -61,7 +61,12 @@ CASES = {"W": ("washington", "earl-washington-jr", FIELD / "inf_a3d99808.json", 
          "R": ("carrero", "carrero-v-lopez", FAMILY / "inf_7911d19a.json", "CourtListener"),
          "E": ("weliver", "weliver-v-ortiz", FAMILY / "inf_9a742020.json", "CourtListener"),
          "T": ("ss_v_tj", "s-s-v-t-j", FAMILY / "inf_f3ceffac.json", "CourtListener"),
-         "G": ("in_re_gms", "in-re-g-m-s", FAMILY / "inf_03b28608.json", "CourtListener")}
+         "G": ("in_re_gms", "in-re-g-m-s", FAMILY / "inf_03b28608.json", "CourtListener"),
+         # four SAME-COMPOSITION families (one daughter, one son, two parents; gate step 3, 2026-10-31)
+         "D": ("rel_4713932", "rel-4713932", Path.home() / "private_field" / "family" / "evidence" / "records" / "rel_4713932.json", "CourtListener"),
+         "K": ("rel_5346567", "rel-5346567", Path.home() / "private_field" / "family" / "evidence" / "records" / "rel_5346567.json", "CourtListener"),
+         "M": ("ca_2022onca72", "2022-onca-72", Path.home() / "private_field" / "family" / "canada" / "a2aj" / "records" / "ca_2022onca72.json", "A2AJ"),
+         "Z": ("ca_2021onca513", "2021-onca-513", Path.home() / "private_field" / "family" / "canada" / "a2aj" / "records" / "ca_2021onca513.json", "A2AJ")}
 
 # expected = what the web judges gave on 2026-10-22
 #   real       every pick is the real reading
@@ -105,6 +110,11 @@ EXPERIMENTS = {
     "fam3": {"dir": str(Path.home() / "private_field" / "family" / "identity_roles"),
              "key": str(Path.home() / "private_field" / "family" / "identity_roles" / "KEY.txt"), "kind": "multi",
              "labels": ("L", "N", "U", "W"), "records": ("R", "E", "T", "G"), "expected": None},
+    # same-composition families, BOND ONLY in the decoder input (roles only): can bond alone
+    # tell apart four families whose make-up is identical? (gate step 3)
+    "fam4": {"dir": str(Path.home() / "private_field" / "family" / "identity_same"),
+             "key": str(Path.home() / "private_field" / "family" / "identity_same" / "KEY.txt"), "kind": "multi",
+             "labels": ("H", "J", "P", "V"), "records": ("D", "K", "M", "Z"), "expected": None},
 }
 
 SHUFFLE_INTRO = (
@@ -425,3 +435,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/experiments/round_trip/judge.py | fam1 experiment: v10's identity recipe on the four unseen PA family cases (records R/E/T/G from the private family field)
 # llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/experiments/round_trip/judge.py | fam2 experiment: fam1 with bond in the decoder input
 # llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/experiments/round_trip/judge.py | fam3 experiment: fam2 with ages and places stripped from bond roles
+# llm: claude-opus-5-5 | 2026-10-31 | repos/vivify-operators/experiments/round_trip/judge.py | fam4 experiment: four same-composition families (one daughter, one son), bond only in the decoder input
