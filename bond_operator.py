@@ -216,21 +216,33 @@ Return ONLY valid JSON: {{"registered": {{"<event number>": "<weighed|mentioned|
 REGISTERED = ("weighed", "mentioned", "absent")
 
 
+class ShortVotes(RuntimeError):
+    """Fewer per-event draws came back than were asked for."""
+
+
 def per_event_votes(prompt: str, operator: str, key: str, allowed: tuple, evs: list, votes=None) -> list:
     """Judge `key` for each event of the FIXED list, by majority over independent draws,
     so every event gets its own vote and spread.
 
     A value outside the set is not counted; an event with no majority keeps
-    `key` None and its distribution in _<key>_votes (record, don't forbid)."""
+    `key` None and its distribution in _<key>_votes (record, don't forbid).
+    A failed draw is retried, up to n extra attempts; if fewer than n draws come
+    back, ShortVotes is raised so no record is written with missing votes (a usage
+    limit once saved five records whose events had 0 of 3 votes)."""
     n = _vote_count() if votes is None else max(1, votes)
-    draws, model = [], None
-    for _ in range(n):
+    draws, model, last_err = [], None, None
+    for _ in range(2 * n):
+        if len(draws) == n:
+            break
         try:
             r = call_and_validate(prompt, operator, capability="logos_operator", sensitive=True)
-        except Exception:
+        except Exception as err:
+            last_err = err
             continue
         model = r.get("_model", model)
         draws.append(r.get(key) or {})
+    if len(draws) < n:
+        raise ShortVotes(f"{operator}: {len(draws)} of {n} draws came back ({last_err})")
     for i, e in enumerate(evs, 1):
         dist = {}
         for d in draws:
@@ -384,3 +396,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/bond_operator.py | ties go to the earlier event; registered moved to step 2: judged per event of the fixed list, majority per event (registered_votes)
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/bond_operator.py | every bond listed (bonds, main_bond) and events name the bonds they touch; made_by members = family members acting together, others = outside the family
 # llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/bond_operator.py | step 3 via (distance|schedule|placement|status|conduct|other) per event from the event list; per_event_votes shared with registered; --via-only backfill
+# llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/bond_operator.py | per_event_votes retries failed draws and raises ShortVotes instead of saving events with missing votes
