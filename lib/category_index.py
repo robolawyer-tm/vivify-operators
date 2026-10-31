@@ -22,7 +22,7 @@ def write_categories(index_file, tree, path_to_ids):
     - Preserves existing keywords / cooccurrence stats; only categories is replaced
     - Creates index.json if it does not exist
     """
-    index = read_json(index_file)
+    index = read_json(index_file, missing_ok=True)
     if not index:
         index = {
             "version": "3.0", "total_inferences": 0,
@@ -69,7 +69,7 @@ def materialize_to_filesystem(inferences_dir, link=True, dry_run=False):
     - Returns list of created destination paths
     """
     inferences_dir = Path(inferences_dir)
-    index = read_json(inferences_dir / "index.json")
+    index = read_json(inferences_dir / "index.json", missing_ok=True)
     paths = (index.get("categories") or {}).get("paths", {})
     created = []
 
@@ -99,3 +99,4 @@ def materialize_to_filesystem(inferences_dir, link=True, dry_run=False):
 
 # llm: claude-opus-4-8 | 2026-06-26 | repos/vivify-inferences/lib/category_index.py | created — index-based categorization: write/query category tree in index.json, flat storage; optional materialize back to f/s
 # llm: claude-opus-4-8 | 2026-06-28 | repos/vivify-operators/lib/category_index.py | ported from vivify-inferences — index-based categorization helpers for the real-data runtime
+# llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/lib/category_index.py | read_json(..., missing_ok=True) where a missing file means empty (read_json now raises by default)

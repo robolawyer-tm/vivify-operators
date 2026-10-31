@@ -78,14 +78,14 @@ def build(inferences_dir=None, recategorize=True, voices=False, dry_run=False):
     # index, not in the store — so a rebuild without --voices used to drop every one of
     # them, and the fear of that blocked routine index rebuilds. Carry forward whatever
     # the existing index holds unless this run is regenerating them.
-    previous = (read_json(inferences_dir / "index.json").get("domains") or {})
+    previous = (read_json(inferences_dir / "index.json", missing_ok=True).get("domains") or {})
 
     domain_blocks = {}
     for name in domains:
         ddir = inferences_dir / name
         if recategorize and not dry_run:
             categorize_all(ddir)
-        cats = (read_json(ddir / "index.json").get("categories") or {})
+        cats = (read_json(ddir / "index.json", missing_ok=True).get("categories") or {})
         block = {
             # rglob for the same reason as discover_domains — a direct glob reported
             # claude_code_sessions as 0 inferences when it holds 53.
@@ -187,7 +187,7 @@ def emit_jsonld(inferences_dir=None, out_path=None, dry_run=False):
     - Returns the JSON-LD dict
     """
     inferences_dir = Path(inferences_dir or INFERENCES_DIR)
-    index = read_json(inferences_dir / "index.json")
+    index = read_json(inferences_dir / "index.json", missing_ok=True)
     jsonld = to_jsonld(index)
     out_path = Path(out_path or (inferences_dir / JSONLD_FILE.name))
     write_json(out_path, jsonld, dry_run=dry_run)
@@ -241,3 +241,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5 | 2026-09-06 | repos/vivify-operators/build_index.py | discover_domains + per-domain count now rglob, not glob — nested seed/sub domains (logos, pillars, claude_code_sessions) were invisible to domain discovery and counted as 0, so the index and the published discovery surface advertised a corpus of 2 legal inferences and no sessions
 
 # llm: claude-opus-5 | 2026-09-13 | repos/vivify-operators/build_index.py | build() carries forward existing domains[*].voice when --voices is not passed — a voice is stored nowhere else, so a plain rebuild used to drop every one and the fear of that blocked routine index rebuilds
+# llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/build_index.py | read_json(..., missing_ok=True) where a missing file means empty (read_json now raises by default)

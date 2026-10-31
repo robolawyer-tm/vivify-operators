@@ -166,7 +166,7 @@ def update_synonyms(mapping):
     - Existing entries win on conflict (earlier rulings stand)
     - Returns count of new entries added
     """
-    data = read_json(SYNONYMS_FILE) or {}
+    data = read_json(SYNONYMS_FILE, missing_ok=True) or {}
     synonyms = data.get("synonyms", {})
     added = 0
     for variant, canonical in mapping.items():
@@ -222,3 +222,4 @@ if __name__ == "__main__":
 
 # llm: claude-fable-5 | 2026-07-07 | repos/vivify-inferences/converge.py | created — left-keyword vocabulary convergence: token-overlap + LLM merge groups, propose/apply two-step
 # llm: claude-fable-5 | 2026-07-14 | repos/vivify-operators/converge.py | ported to vivify-operators: LLM via llm_call(keyword_normalization) + privacy-gate --sensitive; --apply now merges mapping into config/synonyms.json for go-forward normalization
+# llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/converge.py | read_json(..., missing_ok=True) where a missing file means empty (read_json now raises by default)

@@ -63,7 +63,7 @@ def _update_index(inference):
     - Increments co-occurrence counts for all keyword pairs
     - Creates index.json if it does not exist
     """
-    index = read_json(INDEX_FILE)
+    index = read_json(INDEX_FILE, missing_ok=True)
     if not index:
         index = {"version": "1.0", "total_inferences": 0, "keywords": {}, "cooccurrence": {}}
 
@@ -122,7 +122,7 @@ def create_app():
     @app.route("/index", methods=["GET"])
     def index():
         """Return the master keyword co-occurrence index."""
-        return jsonify(read_json(INDEX_FILE))
+        return jsonify(read_json(INDEX_FILE, missing_ok=True))
 
     return app
 
@@ -162,3 +162,4 @@ if __name__ == "__main__":
 
 # llm: claude-sonnet-4-6 | 2026-04-15 | repos/vivify-inferences/server.py | created — FABRIC server component, gleaned from secret-server/web_server.py
 # llm: claude-opus-4-8 | 2026-06-28 | repos/vivify-operators/server.py | ported from vivify-inferences — store_inference writes flat by domain (inferences/{domain}/{id}.json)
+# llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/server.py | read_json(..., missing_ok=True) where a missing file means empty (read_json now raises by default)

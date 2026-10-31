@@ -257,7 +257,7 @@ def reify_synthesize(inf_a, inf_b, dry_run=False):
 
 def reify_voice(category, inferences_dir="inferences", dry_run=False):
     """Generate text that speaks for an entire category, read from the index."""
-    index = read_json(Path(inferences_dir) / "index.json")
+    index = read_json(Path(inferences_dir) / "index.json", missing_ok=True)
     ids = ids_for_path(index, category)
     if not ids:
         raise ValueError(f"No inferences indexed under category: {category}")
@@ -389,3 +389,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5 | 2026-09-19 | repos/vivify-operators/reify.py | the prompt described tension as left/right keyword divergence and told the model to lean into that gap — dead since the 2026-07-13 rewire, and this is an executable instruction, not a doc; now sends predicted/confirmed with their real meaning, withholds calibration_delta as an instrument fact, and makes unmeasured explicit instead of readable as low
 # llm: claude-opus-5-5 | 2026-10-07 | repos/vivify-operators/reify.py | PREAMBLE_RULE added to all three prompts (single, synthesize, voice + domain voice): a 2-4 sentence plain-language opener for a subject expert new to the process, saying what the passage is and how it was made; blocks unchanged; docstring updated
 # llm: claude-opus-5-5 | 2026-10-07 | repos/vivify-operators/reify.py | GROUNDING_RULE added to all three prompts via _shared_rules(): blocks may not invent particulars (descriptions, numbers, names, dates, documents, places, scenes) the record lacks — first live Sutton run invented several that contradicted the case
+# llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/reify.py | read_json(..., missing_ok=True) where a missing file means empty (read_json now raises by default)

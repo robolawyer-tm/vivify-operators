@@ -63,7 +63,7 @@ def established_vocabulary(inferences_dir="inferences", min_count=2, cap=150):
     - Sorted most-established first, capped to keep the prompt lean
     - Empty list when the index is missing — anchoring degrades to nothing
     """
-    index = read_json(Path(inferences_dir) / "index.json")
+    index = read_json(Path(inferences_dir) / "index.json", missing_ok=True)
     if not index:
         return []
     kws = [(k, n) for k, n in index.get("keywords", {}).items() if n >= min_count]
@@ -216,3 +216,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5 | 2026-08-13 | repos/vivify-operators/vivify.py | left pass ported from the anthropic SDK to the shared llm_call_model transport (no API key on the box; the SDK path also bypassed the privacy gate); returns + records left_pass._model
 # llm: claude-opus-5-5 | 2026-09-29 | repos/vivify-operators/vivify.py | privacy-gate exemption: CLAUDE_ORIGIN_SOURCES (claude_session) is non-sensitive only when routed to the claude backend
 # llm: claude-opus-5-5 | 2026-10-11 | repos/vivify-operators/vivify.py | grounding rule in KEYWORDS_PROMPT: keywords may interpret but must not assert facts the text lacks (person attributes, unstated events) — the Sutton replay left pass minted racial_identification_risk though the record never gives the witness's race, and reify then asserted it
+# llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/vivify.py | read_json(..., missing_ok=True) where a missing file means empty (read_json now raises by default)

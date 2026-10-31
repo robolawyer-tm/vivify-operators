@@ -60,7 +60,7 @@ def validated_sources():
       the contamination guard keeping research material out of the gradient
     - Missing config = empty set = nothing confirms (fail-closed)
     """
-    data = read_json(BASELINE_SOURCES_FILE)
+    data = read_json(BASELINE_SOURCES_FILE, missing_ok=True)
     return set(data.get("validated", [])) if data else set()
 
 WORD_NUMBERS = {
@@ -393,3 +393,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5 | 2026-08-13 | repos/vivify-operators/tension_score.py | gradient() prefers an explicit canonical telling over earliest-timestamp, and warns when arrival order silently decided a multi-telling case
 
 # llm: claude-opus-5 | 2026-09-15 | repos/vivify-operators/tension_score.py | docstring example cited "1 in 16" — a figure that only ever existed in a composed telling; the source record says 1 in 15, so the worked result moves 5.6 -> 5.7
+# llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/tension_score.py | read_json(..., missing_ok=True) where a missing file means empty (read_json now raises by default)

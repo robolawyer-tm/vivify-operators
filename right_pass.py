@@ -92,7 +92,7 @@ def load_synonyms():
     - Returns a flat dict mapping variant → canonical
     - Returns empty dict if file missing
     """
-    data = read_json(SYNONYMS_FILE)
+    data = read_json(SYNONYMS_FILE, missing_ok=True)
     return data.get("synonyms", {})
 
 
@@ -306,3 +306,4 @@ if __name__ == "__main__":
 # llm: claude-sonnet-4-6 | 2026-04-15 | repos/vivify-inferences/right_pass.py | created — right keyword extraction and left keyword synonym normalization
 # llm: claude-fable-5 | 2026-07-13 | repos/vivify-operators/right_pass.py | replaced static-keyword stub with real content extraction: right_facts + claimed-vs-actual discrepancies via llm_call(fact_extraction), quote-grounding gate, stub purge; spec from experiments/round_trip loss test residue
 # llm: claude-opus-5 | 2026-08-13 | repos/vivify-operators/right_pass.py | extract_facts returns the model it used; apply_right_pass records inference["right_pass"]._model — provenance for the confirmed-tension ground-truth channel
+# llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/right_pass.py | read_json(..., missing_ok=True) where a missing file means empty (read_json now raises by default)

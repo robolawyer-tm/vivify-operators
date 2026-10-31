@@ -76,15 +76,22 @@ def add_dry_run_arg(parser):
     )
 
 
-def read_json(path):
+def read_json(path, missing_ok=False):
     """Read a JSON file and return as a plain dict.
 
-    - Returns empty dict if file does not exist
+    - Raises FileNotFoundError if the file does not exist, unless missing_ok
+      (then returns an empty dict: indexes, synonyms and other files a fresh
+      store may not have yet)
     - Raises JSONDecodeError if file is malformed
+
+    The old default ({} for any missing file) let an operator given a wrong path
+    tag an empty record and write it out as a new file (recall test, 2026-10-30).
     """
     path = Path(path)
     if not path.exists():
-        return {}
+        if missing_ok:
+            return {}
+        raise FileNotFoundError(f"no such JSON file: {path}")
     with open(path) as f:
         return json.load(f)
 
@@ -1071,3 +1078,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-23 | repos/vivify-operators/lib/vivify_core.py | Gemini read timeout configurable via GEMINI_TIMEOUT (default 120s unchanged); long judging packets timed out at 120s and the timed-out calls still spent free quota
 # llm: claude-opus-5-5 | 2026-10-25 | repos/vivify-operators/lib/vivify_core.py | GEMINI_503_RETRIES caps 503 retries separately (default unchanged); retried 503s spend the free daily quota
 # llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/lib/vivify_core.py | _claude_transport sends prompts over CLAUDE_ARG_MAX on stdin (a 204 KB opinion hit the kernel's 128 KB argv limit)
+# llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/lib/vivify_core.py | read_json raises FileNotFoundError on a missing file unless missing_ok=True (a wrong path used to read as {} and get written back)
