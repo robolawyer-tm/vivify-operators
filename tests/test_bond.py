@@ -182,6 +182,31 @@ try:
 finally:
     bo.via_votes = orig_vv
 
+# step 4: effect per tie; the old effect is withheld, a tie can differ within an event
+seen = {}
+orig_cv = bo.call_and_validate
+def fake_tie(prompt, operator, capability=None, sensitive=False):
+    seen["prompt"] = prompt
+    return {"effect": {"1": "reduced", "2": "restored", "3": "unstated"}, "_model": "m"}
+bo.call_and_validate = fake_tie
+try:
+    inf = {"raw_text": "T", "logos": {"bond": {"effect": "reduced", "bonds": [
+        {"id": "B1", "between": "mother and son"}, {"id": "B2", "between": "father and son"}],
+        "events": [{"order": 1, "what": "custody moved", "effect": "SECRET", "bonds": ["B1", "B2", "B9"]},
+                   {"order": 2, "what": "appeal dismissed", "effect": "preserved", "bonds": ["B1"]}]}}}
+    out = bo.add_ties(inf, votes=3)["logos"]["bond"]
+    e1, e2 = out["events"]
+    check("add_ties: a tie gets its own effect, an unknown bond id gets none",
+          e1["tie_effects"] == {"B1": "reduced", "B2": "restored"} and e2["tie_effects"] == {"B1": "unstated"}, out)
+    check("add_ties: old event effect kept and withheld from the prompt",
+          e1["effect"] == "SECRET" and "SECRET" not in seen["prompt"] and "mother and son" in seen["prompt"], seen)
+    check("add_ties: votes kept per tie", e1["_tie_votes"]["B2"]["distribution"] == {"restored": 3}, e1)
+    check("events() keeps tie_effects", bo.events(out["events"])[0]["tie_effects"]["B2"] == "restored")
+    check("tie prompt names no harm or purpose",
+          not any(w in bo.TIE_PROMPT.lower() for w in ("harm", "damage", "suffer", "reform", "wrong")))
+finally:
+    bo.call_and_validate = orig_cv
+
 print()
 if failures:
     print(f"FAILED: {len(failures)} check(s) — {', '.join(failures)}")
@@ -195,3 +220,4 @@ print("All bond checks passed.")
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/tests/test_bond.py | ties to the earlier event; two-step registered: per-event majority, no-majority None, vote record kept, run() makes both calls
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/tests/test_bond.py | every bond listed: bonds() normalisation, main_bond, event bond ids
 # llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/tests/test_bond.py | step 3 via: per-event majority, prompt from events only, add_via backfill, run() makes three calls
+# llm: claude-opus-5-5 | 2026-11-01 | repos/vivify-operators/tests/test_bond.py | step 4: per-tie effect, old effect withheld, votes kept

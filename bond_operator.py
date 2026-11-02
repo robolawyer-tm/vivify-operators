@@ -48,6 +48,10 @@ sorts (cm_v_mm-06/07/08/15, ecs_v_mcs-02/08, in_re_ejc-03/06/09/10, ss_v_kf-03/0
   contact: ss_v_tj-14 (the friction comes from distance after a move) stayed partly
   recovered in every draw of the unseen exam (2026-10-28). The values are the mechanisms
   the 8 family cases' events show, read off their `what` lines.
+- Step 4, tie_effects: what each event did to each tie it touched, voted from the text
+  with the old effect withheld. One effect per event marked both parents alike in a custody
+  swap: 21 of 42 hand-checked "no" answers (2026-11-01). The event's own `effect` stays as
+  read in step 1, so older counts can be compared; `unstated` = no sign on this tie.
 
 _src: vivify-operators residue test on the family field (2026-10-26)
 """
@@ -155,7 +159,7 @@ def events(raw: list) -> list:
         rec = {k: e.get(k) for k in ("order", "bonds", "what", "made_by", "reported_by", "effect", "registered", "via", "words")}
         if isinstance(rec["bonds"], str):
             rec["bonds"] = [rec["bonds"]]
-        for k in ("_registered_votes", "_via_votes"):
+        for k in ("_registered_votes", "_via_votes", "tie_effects", "_tie_votes"):
             if k in e:
                 rec[k] = e[k]
         off = [k for k, allowed in EVENT_ENUMS.items() if rec.get(k) is not None and rec[k] not in allowed]
@@ -306,9 +310,60 @@ def via_votes(evs: list, votes=None) -> list:
     return per_event_votes(VIA_PROMPT.format(events=listing), "bond_via", "via", VIA, evs, votes)
 
 
+TIE_PROMPT = """Below is a text and a numbered list of lines. Each line names one event in
+the text and one relationship between people that the event touched.
+
+For each line, say what that event did to the contact or care within THAT relationship alone:
+  preserved — contact or care continues as it was
+  reduced   — contact or care is cut back, but continues
+  severed   — contact or the legal tie is ended
+  restored  — contact or care is given back or increased
+  unstated  — the text gives no sign of any effect on this relationship
+
+One event can differ line by line: a child moved from one parent's home to the other's
+reduces one relationship and restores the other, and an order about one child may leave
+another child's relationships alone. Judge what happened in fact, not what an order aimed
+at: an order counts as taking effect unless the text shows that it did not.
+
+Lines:
+{lines}
+
+Text:
+{text}
+
+Return ONLY valid JSON: {{"effect": {{"<line number>": "<preserved|reduced|severed|restored|unstated>", ...}}}}
+"""
+TIE_EFFECT = ("preserved", "reduced", "severed", "restored", "unstated")
+
+
+def tie_votes(text: str, ties: list, evs: list, votes=None) -> list:
+    """Step 4: judge the effect on each (event, tie) line by majority (per_event_votes).
+    No majority leaves that tie None, its distribution kept in _tie_votes."""
+    between = {t.get("id"): t.get("between") for t in ties}
+    lines = [{"event": e, "bond": i} for e in evs for i in e.get("bonds") or [] if i in between]
+    if not lines:
+        return evs
+    listing = "\n".join(f"{n}. Event: {x['event'].get('what')} | Relationship: {between[x['bond']]}"
+                        for n, x in enumerate(lines, 1))
+    per_event_votes(TIE_PROMPT.format(lines=listing, text=text), "bond_tie", "effect", TIE_EFFECT, lines, votes)
+    for x in lines:
+        x["event"].setdefault("tie_effects", {})[x["bond"]] = x["effect"]
+        x["event"].setdefault("_tie_votes", {})[x["bond"]] = x["_effect_votes"]
+    return evs
+
+
+def add_ties(inference: dict, votes=None) -> dict:
+    """Step 4 alone on an inference already tagged. Nothing else in logos.bond changes."""
+    b = inference.get("logos", {}).get("bond")
+    if b and b.get("events"):
+        tie_votes(inference.get("raw_text", ""), b.get("bonds") or [], b["events"], votes)
+    return inference
+
+
 def run(inference: dict) -> dict:
-    """Attach logos.bond coordinates to an inference, in three steps: the bond and its
-    events (voted on standing and hazard), then `registered` and `via` per event."""
+    """Attach logos.bond coordinates to an inference, in four steps: the bond and its
+    events (voted on standing and hazard), `registered` and `via` per event, then the
+    effect per event and tie."""
     text = inference.get("raw_text", "")
     if not text:
         return inference
@@ -316,8 +371,9 @@ def run(inference: dict) -> dict:
     result = call_and_vote(PROMPT.format(text=text), "bond",
                            capability="logos_operator", sensitive=True)
     if result.get("standing") != "unmarked":
-        result["events"] = via_votes(registered_votes(text, result.get("between"),
-                                                      events(result.get("events", []))))
+        result["events"] = tie_votes(text, result.get("bonds") or [],
+                                     via_votes(registered_votes(text, result.get("between"),
+                                                                events(result.get("events", [])))))
     return parse(result, inference)
 
 
@@ -379,12 +435,14 @@ if __name__ == "__main__":
     parser.add_argument("--dry-run", action="store_true", help="print result, do not write")
     parser.add_argument("--via-only", action="store_true",
                         help="step 3 only: add via to the stored events of an inference already tagged")
+    parser.add_argument("--ties-only", action="store_true",
+                        help="step 4 only: add effect per tie to the stored events of an inference already tagged")
     args = parser.parse_args()
 
     path = Path(args.file) if args.file else None
     inference = read_json(path) if path else json.load(sys.stdin)
 
-    tagged = add_via(inference) if args.via_only else run(inference)
+    tagged = add_via(inference) if args.via_only else add_ties(inference) if args.ties_only else run(inference)
 
     if args.dry_run or not path:
         print(json.dumps(tagged, indent=2))
@@ -402,3 +460,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/bond_operator.py | step 3 via (distance|schedule|placement|status|conduct|other) per event from the event list; per_event_votes shared with registered; --via-only backfill
 # llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/bond_operator.py | per_event_votes retries failed draws and raises ShortVotes instead of saving events with missing votes
 # llm: claude-opus-5-5 | 2026-10-31 | repos/vivify-operators/bond_operator.py | registered votes use their own capability (bond_registered) so they can be routed to another model; event finding and via unchanged
+# llm: claude-opus-5-5 | 2026-11-01 | repos/vivify-operators/bond_operator.py | step 4 tie_effects: effect voted per event and tie from the text, old effect withheld, unstated added; --ties-only backfill
