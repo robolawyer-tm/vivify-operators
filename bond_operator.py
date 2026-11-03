@@ -179,6 +179,9 @@ def bonds(raw: list) -> list:
         if not isinstance(b, dict):
             continue
         rec = {k: b.get(k) for k in ("id", "between", "standing")}
+        for k in ("registered", "_registered_votes"):
+            if k in b:
+                rec[k] = b[k]
         if rec["standing"] is not None and rec["standing"] not in BOND_STANDING:
             rec["_off_vocabulary"] = ["standing"]
         out.append(rec)
@@ -360,10 +363,48 @@ def add_ties(inference: dict, votes=None) -> dict:
     return inference
 
 
+TIE_REGISTERED_PROMPT = """Below is a text and a numbered list of relationships between people.
+
+For each relationship, say whether the reasoning the text records for its decisions takes
+that relationship into account. Reasoning a court reports from an earlier decision counts:
+  weighed   — the reasoning names the relationship and gives it weight, or sets it against something else
+  mentioned — the reasoning names it but gives it no weight
+  absent    — the reasoning does not take it up; appearing only in the facts counts as absent
+
+Judge only from the reasoning in the text, not from the relationship's importance.
+
+Relationships:
+{ties}
+
+Text:
+{text}
+
+Return ONLY valid JSON: {{"registered": {{"<relationship number>": "<weighed|mentioned|absent>", ...}}}}
+"""
+
+
+def tie_registered_votes(text: str, ties: list, votes=None) -> list:
+    """Step 5: judge `registered` for each tie itself, so a relationship the reasoning
+    weighs is seen even when no event touches it (per_event_votes)."""
+    if ties:
+        listing = "\n".join(f"{i}. {t.get('between')}" for i, t in enumerate(ties, 1))
+        per_event_votes(TIE_REGISTERED_PROMPT.format(ties=listing, text=text), "bond_registered",
+                        "registered", REGISTERED, ties, votes, capability="bond_registered")
+    return ties
+
+
+def add_tie_registered(inference: dict, votes=None) -> dict:
+    """Step 5 alone on an inference already tagged. Nothing else in logos.bond changes."""
+    b = inference.get("logos", {}).get("bond")
+    if b and b.get("bonds"):
+        tie_registered_votes(inference.get("raw_text", ""), b["bonds"], votes)
+    return inference
+
+
 def run(inference: dict) -> dict:
-    """Attach logos.bond coordinates to an inference, in four steps: the bond and its
-    events (voted on standing and hazard), `registered` and `via` per event, then the
-    effect per event and tie."""
+    """Attach logos.bond coordinates to an inference, in five steps: the bond and its
+    events (voted on standing and hazard), `registered` and `via` per event, the
+    effect per event and tie, then `registered` per tie."""
     text = inference.get("raw_text", "")
     if not text:
         return inference
@@ -374,6 +415,7 @@ def run(inference: dict) -> dict:
         result["events"] = tie_votes(text, result.get("bonds") or [],
                                      via_votes(registered_votes(text, result.get("between"),
                                                                 events(result.get("events", [])))))
+        tie_registered_votes(text, result.get("bonds") or [])
     return parse(result, inference)
 
 
@@ -437,12 +479,15 @@ if __name__ == "__main__":
                         help="step 3 only: add via to the stored events of an inference already tagged")
     parser.add_argument("--ties-only", action="store_true",
                         help="step 4 only: add effect per tie to the stored events of an inference already tagged")
+    parser.add_argument("--tie-registered-only", action="store_true",
+                        help="step 5 only: add registered per tie to an inference already tagged")
     args = parser.parse_args()
 
     path = Path(args.file) if args.file else None
     inference = read_json(path) if path else json.load(sys.stdin)
 
-    tagged = add_via(inference) if args.via_only else add_ties(inference) if args.ties_only else run(inference)
+    tagged = (add_via(inference) if args.via_only else add_ties(inference) if args.ties_only
+              else add_tie_registered(inference) if args.tie_registered_only else run(inference))
 
     if args.dry_run or not path:
         print(json.dumps(tagged, indent=2))
@@ -461,3 +506,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/bond_operator.py | per_event_votes retries failed draws and raises ShortVotes instead of saving events with missing votes
 # llm: claude-opus-5-5 | 2026-10-31 | repos/vivify-operators/bond_operator.py | registered votes use their own capability (bond_registered) so they can be routed to another model; event finding and via unchanged
 # llm: claude-opus-5-5 | 2026-11-01 | repos/vivify-operators/bond_operator.py | step 4 tie_effects: effect voted per event and tie from the text, old effect withheld, unstated added; --ties-only backfill
+# llm: claude-opus-5-5 | 2026-11-02 | repos/vivify-operators/bond_operator.py | step 5: registered voted per tie, so a tie weighed with no event is seen; --tie-registered-only backfill

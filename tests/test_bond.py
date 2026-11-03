@@ -207,6 +207,28 @@ try:
 finally:
     bo.call_and_validate = orig_cv
 
+# step 5: registered per tie, seen even with no event; events untouched
+seen5 = {}
+def fake_tie_reg(prompt, operator, capability=None, sensitive=False):
+    seen5.update(prompt=prompt, capability=capability)
+    return {"registered": {"1": "weighed", "2": "absent"}, "_model": "m"}
+bo.call_and_validate = fake_tie_reg
+try:
+    inf = {"raw_text": "T", "logos": {"bond": {"bonds": [
+        {"id": "B1", "between": "boy and step-sibling"}, {"id": "B2", "between": "father and boy"}],
+        "events": [{"order": 1, "what": "moved", "registered": "absent", "bonds": ["B2"]}]}}}
+    out = bo.add_tie_registered(inf, votes=3)["logos"]["bond"]
+    check("add_tie_registered: a tie with no event gets a value", out["bonds"][0]["registered"] == "weighed", out)
+    check("add_tie_registered: votes kept per tie", out["bonds"][0]["_registered_votes"]["distribution"] == {"weighed": 3}, out)
+    check("add_tie_registered: event registered unchanged", out["events"][0]["registered"] == "absent", out)
+    check("add_tie_registered: event text withheld from the prompt", "moved" not in seen5["prompt"], seen5)
+    check("add_tie_registered: uses the registered capability", seen5["capability"] == "bond_registered", seen5)
+    check("bonds() keeps tie registered", bo.bonds(out["bonds"])[0]["registered"] == "weighed")
+    check("tie registered prompt names no harm or purpose",
+          not any(w in bo.TIE_REGISTERED_PROMPT.lower() for w in ("harm", "blind", "reform")))
+finally:
+    bo.call_and_validate = orig_cv
+
 print()
 if failures:
     print(f"FAILED: {len(failures)} check(s) — {', '.join(failures)}")
@@ -221,3 +243,4 @@ print("All bond checks passed.")
 # llm: claude-opus-5-5 | 2026-10-26 | repos/vivify-operators/tests/test_bond.py | every bond listed: bonds() normalisation, main_bond, event bond ids
 # llm: claude-opus-5-5 | 2026-10-28 | repos/vivify-operators/tests/test_bond.py | step 3 via: per-event majority, prompt from events only, add_via backfill, run() makes three calls
 # llm: claude-opus-5-5 | 2026-11-01 | repos/vivify-operators/tests/test_bond.py | step 4: per-tie effect, old effect withheld, votes kept
+# llm: claude-opus-5-5 | 2026-11-02 | repos/vivify-operators/tests/test_bond.py | step 5: registered per tie
