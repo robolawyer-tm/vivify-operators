@@ -419,6 +419,24 @@ def run(inference: dict) -> dict:
     return parse(result, inference)
 
 
+def run_f_ties(inference: dict) -> dict:
+    """Steps 1 and 5 only, for the F follow-up run (followup/CELL_READER_RULE.md): the
+    bond, its ties and events (voted), then `registered` per tie. Steps 2-4 (event
+    registered, via, tie effect) are skipped; step 5 reads only the text and the tie
+    list, so per-tie registered is the same judgement a full run makes. Events are kept
+    as found, without their per-event votes; logos.bond._steps records what ran."""
+    text = inference.get("raw_text", "")
+    if not text:
+        return inference
+    result = call_and_vote(PROMPT.format(text=text), "bond",
+                           capability="logos_operator", sensitive=True)
+    if result.get("standing") != "unmarked":
+        tie_registered_votes(text, result.get("bonds") or [])
+    parse(result, inference)
+    inference["logos"]["bond"]["_steps"] = [1, 5]
+    return inference
+
+
 def add_via(inference: dict) -> dict:
     """Step 3 alone on an inference already tagged: `via` per stored event, the main
     via re-derived. Nothing else in logos.bond changes."""
@@ -481,13 +499,16 @@ if __name__ == "__main__":
                         help="step 4 only: add effect per tie to the stored events of an inference already tagged")
     parser.add_argument("--tie-registered-only", action="store_true",
                         help="step 5 only: add registered per tie to an inference already tagged")
+    parser.add_argument("--f-ties", action="store_true",
+                        help="steps 1 and 5 only (ties, then registered per tie) on an untagged inference; F follow-up run")
     args = parser.parse_args()
 
     path = Path(args.file) if args.file else None
     inference = read_json(path) if path else json.load(sys.stdin)
 
     tagged = (add_via(inference) if args.via_only else add_ties(inference) if args.ties_only
-              else add_tie_registered(inference) if args.tie_registered_only else run(inference))
+              else add_tie_registered(inference) if args.tie_registered_only
+              else run_f_ties(inference) if args.f_ties else run(inference))
 
     if args.dry_run or not path:
         print(json.dumps(tagged, indent=2))
@@ -507,3 +528,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-31 | repos/vivify-operators/bond_operator.py | registered votes use their own capability (bond_registered) so they can be routed to another model; event finding and via unchanged
 # llm: claude-opus-5-5 | 2026-11-01 | repos/vivify-operators/bond_operator.py | step 4 tie_effects: effect voted per event and tie from the text, old effect withheld, unstated added; --ties-only backfill
 # llm: claude-opus-5-5 | 2026-11-02 | repos/vivify-operators/bond_operator.py | step 5: registered voted per tie, so a tie weighed with no event is seen; --tie-registered-only backfill
+# llm: claude-opus-5-5 | 2026-11-06 | repos/vivify-operators/bond_operator.py | --f-ties: steps 1 and 5 only (ties + per-tie registered) for the F follow-up run
