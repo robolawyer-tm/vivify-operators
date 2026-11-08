@@ -105,6 +105,15 @@ class LLMUnavailable(RuntimeError):
     """
 
 
+class BudgetExceeded(LLMUnavailable):
+    """The run's spend cap is reached — refused before any send.
+
+    - Set by VIVIFY_BUDGET_USD (cap) and VIVIFY_BUDGET_SINCE (ISO time the cap counts from)
+    - Spend = sum of cost_usd in the usage log at or after SINCE, across all processes
+    - A subclass of LLMUnavailable, so batch callers abort the way they do on quota loss
+    """
+
+
 class PrivacyGateError(RuntimeError):
     """A sensitivity-tagged call was routed to a non-local backend while the
     privacy gate is on — data would leave the box. Blocked before any send.
@@ -191,6 +200,42 @@ def usage_log_path():
 def _note_usage(**fields):
     """Called by a transport with what its provider reported (missing = unknown)."""
     _last_usage.update({k: v for k, v in fields.items() if v is not None})
+
+
+def budget_spent(since, path=None):
+    """Sum of logged cost_usd at or after `since` (ISO string); unparseable lines skipped."""
+    from datetime import datetime
+    path = path or usage_log_path()
+    if path is None or not Path(path).exists():
+        return 0.0
+    t0 = datetime.fromisoformat(since)
+    spent = 0.0
+    for line in Path(path).read_text().splitlines():
+        try:
+            r = json.loads(line)
+            at = datetime.fromisoformat(r["at"])
+            if (at.tzinfo is None) != (t0.tzinfo is None):
+                at = at.replace(tzinfo=None) if t0.tzinfo is None else at
+            if at >= t0:
+                spent += r.get("cost_usd") or 0
+        except (ValueError, KeyError, TypeError):
+            continue
+    return spent
+
+
+def _check_budget():
+    """Raise BudgetExceeded when VIVIFY_BUDGET_USD is set and logged spend since
+    VIVIFY_BUDGET_SINCE has reached it. Unset cap = no check."""
+    import os
+    cap = os.environ.get("VIVIFY_BUDGET_USD")
+    if not cap:
+        return
+    since = os.environ.get("VIVIFY_BUDGET_SINCE")
+    if not since:
+        raise BudgetExceeded("VIVIFY_BUDGET_USD is set but VIVIFY_BUDGET_SINCE is not")
+    spent = budget_spent(since)
+    if spent >= float(cap):
+        raise BudgetExceeded(f"budget reached: ${spent:.2f} spent since {since}, cap ${float(cap):.2f}")
 
 
 def _write_usage(backend, model, seconds, prompt_chars, ok, error=None):
@@ -639,6 +684,7 @@ def llm_call_model(prompt, model_id, params=None, sensitive=False):
     import time
     backend, model = split_backend(model_id)
     _enforce_privacy_gate(backend, sensitive)
+    _check_budget()
     _last_usage.clear()
     t = time.time()
     try:
@@ -1083,3 +1129,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/lib/vivify_core.py | _claude_transport sends prompts over CLAUDE_ARG_MAX on stdin (a 204 KB opinion hit the kernel's 128 KB argv limit)
 # llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/lib/vivify_core.py | read_json raises FileNotFoundError on a missing file unless missing_ok=True (a wrong path used to read as {} and get written back)
 # llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/lib/vivify_core.py | claude calls with no piped prompt get stdin=DEVNULL (the CLI waited 3 s for stdin on every non-terminal call)
+# llm: claude-opus-5-5 | 2026-11-07 | repos/vivify-operators/lib/vivify_core.py | spend cap: VIVIFY_BUDGET_USD + VIVIFY_BUDGET_SINCE refuse calls (BudgetExceeded) once logged cost_usd reaches the cap
