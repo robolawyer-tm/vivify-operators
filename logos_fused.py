@@ -27,6 +27,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent / "lib"))
 from vivify_core import (read_json, write_json, llm_call_model, resolve_model,
+                         collect_draws, mark_votes,
                          extract_json, validate_coordinates,
                          CoordinateValidationError, LLMUnavailable,
                          categorical_signature, modal_choice, _vote_count)
@@ -205,28 +206,22 @@ def _fused_vote(prompt, retries=2, votes=None):
     carry the fix: the 2026-09-03 legal re-read that found 4 flipped and 6 split
     coordinates was measuring blocks this function produced.
 
-    A draw that fails validation after its own retries is dropped and the vote
-    proceeds on the survivors; only if every draw fails does the error propagate.
+    A draw that fails validation after its own retries is replaced by a fresh one;
+    if replacements run out the vote proceeds on the survivors, marked `short` and
+    never `unanimous`; only if every draw fails does the error propagate.
     """
     votes = _vote_count() if votes is None else max(1, votes)
     if votes == 1:
         return _fused_call(prompt, retries=retries)
 
-    draws, last_err = [], None
-    for _ in range(votes):
-        try:
-            draws.append(_fused_call(prompt, retries=retries))
-        except (CoordinateValidationError, json.JSONDecodeError) as e:
-            last_err = e
-    if not draws:
-        raise last_err
+    draws, failed = collect_draws(lambda: _fused_call(prompt, retries=retries), votes)
 
     winner = {}
     for key, _mod in LOGOS_DIMS:
         blocks = [d[key] for d in draws]
         idx, record = modal_choice(
             blocks, lambda b, k=key: categorical_signature(b, k, CONFIG))
-        record["quarantined"] = votes - len(draws)
+        mark_votes(record, votes, failed)
         winner[key] = dict(blocks[idx])
         winner[key]["_votes"] = record
     return winner
@@ -299,3 +294,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5 | 2026-09-03 | repos/vivify-operators/logos_fused.py | repeat-and-vote on the fused path: _fused_vote() takes VIVIFY_VOTES draws and keeps the modal block PER DIMENSION (the 8 dims are independent, so one wobble must not discard the others' agreement); each block carries its _votes spread
 # llm: claude-opus-5-5 | 2026-10-22 | repos/vivify-operators/logos_fused.py | social_field asks for two levels (events in grid/group/quadrant, the telling in telling_*); the new fields are required in the fused block via coordinates.json
 # llm: claude-opus-5-5 | 2026-10-22 | repos/vivify-operators/logos_fused.py | transmission asks for two levels (events in transmission, the text itself in telling_transmission); required in the fused block via coordinates.json
+# llm: claude-fable-5-2 | 2026-11-16 | repos/vivify-operators/logos_fused.py | _fused_vote replaces failed draws and marks a short vote (shared collect_draws / mark_votes)

@@ -841,6 +841,24 @@ def validate_coordinates(result, operator, config_dir="config"):
             if isinstance(el, str) and len(el) > max_len:
                 fail(field, f"list element exceeds {max_len} chars")
 
+    # enum_maps: {item number: value} answers, one per listed item (bond sub-passes).
+    # The gate checks SHAPE and SIZE: a dict of short scalar answers. A value outside
+    # the allowed set is not rejected here — the per-item vote leaves it uncounted and
+    # the spread shows it (record, don't forbid); the allowed set is declared so the
+    # config stays the one place the vocabulary is written down.
+    for field, allowed in op_spec.get("enum_maps", {}).items():
+        if field not in result or result[field] is None:
+            continue
+        val = result[field]
+        if not isinstance(val, dict):
+            fail(field, "not a map of item number to value")
+        cap = max(len(str(a)) for a in allowed) + 20
+        for k, v in val.items():
+            if v is not None and not isinstance(v, str):
+                fail(field, f"item {k!r} is not a string or null")
+            if len(str(k)) > 8 or (isinstance(v, str) and len(v) > cap):
+                fail(field, f"item {k!r} exceeds the size cap (injection guard)")
+
     return result
 
 
@@ -903,6 +921,43 @@ def modal_choice(draws, signature_of):
                              "distribution": distribution}
 
 
+def collect_draws(draw, votes):
+    """Take `votes` usable draws, replacing a failed draw with a fresh one.
+
+    - A draw that fails validation or parsing (after its own retries) is replaced,
+      up to `votes` extra attempts in all — the bond operator's rule, now shared
+    - Returns (draws, failed): the usable draws and how many attempts were lost
+    - Raises the last error only if no draw at all came back
+    - votes == 1 takes a single attempt, as before
+    """
+    draws, last_err, failed = [], None, 0
+    for _ in range(votes if votes == 1 else 2 * votes):
+        if len(draws) == votes:
+            break
+        try:
+            draws.append(draw())
+        except (CoordinateValidationError, json.JSONDecodeError) as e:
+            last_err, failed = e, failed + 1
+    if not draws:
+        raise last_err
+    return draws, failed
+
+
+def mark_votes(record, asked, failed):
+    """Stamp a vote record with what was asked for and what was lost.
+
+    - `asked`: the number of draws the vote wanted; `quarantined`: failed attempts
+    - If fewer than `asked` survived even after replacements, the record is `short`
+      and can NOT read as unanimous: 1 of 1 is not the same finding as 3 of 3
+    """
+    record["asked"] = asked
+    record["quarantined"] = failed
+    if record.get("n", 0) < asked:
+        record["short"] = True
+        record["unanimous"] = False
+    return record
+
+
 def call_and_vote(prompt, operator, capability="default", sensitive=False,
                   params=None, retries=2, config_dir="config", votes=None):
     """Take several independent draws and store the modal one, with the spread.
@@ -914,9 +969,10 @@ def call_and_vote(prompt, operator, capability="default", sensitive=False,
     within a single session, all between legal enum values that no gate can reject.
 
     - votes defaults to VIVIFY_VOTES (3); votes=1 is exactly call_and_validate.
-    - A draw that fails validation after its own retries is dropped, not fatal —
-      the vote proceeds on the draws that survived. Only if EVERY draw fails does
-      the last error propagate, so the caller still quarantines as before.
+    - A draw that fails validation after its own retries is replaced by a fresh one
+      (collect_draws). If replacements run out the vote proceeds on the survivors,
+      marked `short` and never `unanimous`. Only if EVERY draw fails does the last
+      error propagate, so the caller still quarantines as before.
     - The winner carries `_votes`: n, agreed, unanimous, and the per-field
       distribution. A coordinate is now stored WITH its spread, so a later reader
       can see whether it was 3/3 or 2/1 rather than inferring stability from a
@@ -927,19 +983,13 @@ def call_and_vote(prompt, operator, capability="default", sensitive=False,
         return call_and_validate(prompt, operator, capability, sensitive,
                                  params, retries, config_dir)
 
-    draws, last_err = [], None
-    for _ in range(votes):
-        try:
-            draws.append(call_and_validate(prompt, operator, capability, sensitive,
-                                           params, retries, config_dir))
-        except (CoordinateValidationError, json.JSONDecodeError) as e:
-            last_err = e
-    if not draws:
-        raise last_err
+    draws, failed = collect_draws(
+        lambda: call_and_validate(prompt, operator, capability, sensitive,
+                                  params, retries, config_dir), votes)
 
     idx, record = modal_choice(
         draws, lambda d: categorical_signature(d, operator, config_dir))
-    record["quarantined"] = votes - len(draws)
+    mark_votes(record, votes, failed)
     winner = draws[idx]
     winner["_votes"] = record
     return winner
@@ -1130,3 +1180,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/lib/vivify_core.py | read_json raises FileNotFoundError on a missing file unless missing_ok=True (a wrong path used to read as {} and get written back)
 # llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/lib/vivify_core.py | claude calls with no piped prompt get stdin=DEVNULL (the CLI waited 3 s for stdin on every non-terminal call)
 # llm: claude-opus-5-5 | 2026-11-07 | repos/vivify-operators/lib/vivify_core.py | spend cap: VIVIFY_BUDGET_USD + VIVIFY_BUDGET_SINCE refuse calls (BudgetExceeded) once logged cost_usd reaches the cap
+# llm: claude-fable-5-2 | 2026-11-16 | repos/vivify-operators/lib/vivify_core.py | collect_draws + mark_votes: a failed draw is replaced, a vote left short is marked `short` and never `unanimous` (was: 1 of 1 stored as unanimous); validate_coordinates gains the enum_maps kind so the bond sub-passes are gated on shape and size

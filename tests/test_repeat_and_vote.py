@@ -109,8 +109,24 @@ def test_failed_draw_is_dropped_not_fatal():
                                               config_dir=CONFIG, votes=3))
     assert r["act_type"] == "assertive"
     assert r["_votes"]["quarantined"] >= 1, r["_votes"]
+    # the lost draw was replaced: the vote is still a full 3, so it is not short
+    assert r["_votes"]["n"] == 3 and r["_votes"]["asked"] == 3, r["_votes"]
+    assert "short" not in r["_votes"] and r["_votes"]["unanimous"] is True, r["_votes"]
     print(f"  ok   invalid draw dropped, vote survived "
           f"({r['_votes']['n']} usable, {r['_votes']['quarantined']} quarantined)")
+
+
+def test_short_vote_is_never_unanimous():
+    """One draw survives and every replacement fails: stored, but marked short."""
+    fake, _ = _script(['{"act_type": "assertive"}',
+                       '{"act_type": "NOT_AN_ENUM"}'])     # repeats for every later call
+    r = _with_llm(fake, lambda: call_and_vote("p", "act_type",
+                                              capability="logos_operator",
+                                              config_dir=CONFIG, votes=3))
+    v = r["_votes"]
+    assert v["n"] == 1 and v["asked"] == 3 and v["quarantined"] == 5, v
+    assert v["short"] is True and v["unanimous"] is False, v
+    print(f"  ok   1 of 3 asked is stored as short, not unanimous ({v['quarantined']} attempts lost)")
 
 
 def test_all_draws_failing_still_raises():
@@ -192,6 +208,7 @@ if __name__ == "__main__":
     test_unanimous_is_flagged()
     test_winner_is_a_real_draw_not_an_assembly()
     test_failed_draw_is_dropped_not_fatal()
+    test_short_vote_is_never_unanimous()
     test_all_draws_failing_still_raises()
     test_votes_1_is_single_draw()
     test_env_controls_vote_count()
@@ -200,3 +217,4 @@ if __name__ == "__main__":
     print("\nAll repeat-and-vote checks passed.")
 
 # llm: claude-opus-5 | 2026-09-05 | repos/vivify-operators/tests/test_repeat_and_vote.py | created — guards repeat-and-vote (modal draw not field-wise assembly, spread recorded, failed draws dropped, votes=1 unchanged) and the newly gated structural.scale, including that the gate CANNOT catch the flip voting exists for
+# llm: claude-fable-5-2 | 2026-11-16 | repos/vivify-operators/tests/test_repeat_and_vote.py | a failed draw is replaced (vote stays full); a vote left short is marked short and never unanimous

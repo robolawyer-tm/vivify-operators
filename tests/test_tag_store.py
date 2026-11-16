@@ -118,6 +118,44 @@ def test_content_error_recorded_not_fatal():
         assert inf["_tagged"]["complete"] is False
 
 
+def _run_main(store, *args):
+    argv, sys.argv = sys.argv, ["tag_store.py", "--dir", str(store), *args]
+    try:
+        ts.main()
+        return 0
+    except SystemExit as e:
+        return e.code
+    finally:
+        sys.argv = argv
+
+
+def test_limit_counts_what_it_never_reached():
+    """--limit 1 on three untagged inferences: the manifest must show 2 incomplete."""
+    with tempfile.TemporaryDirectory() as d:
+        store = Path(d)
+        for n in (1, 2, 3):
+            _write(store / f"inf_{n}.json")
+        calls = []
+        _patch(_stub_logos(calls), _stub_conflict(calls))
+        _run_main(store, "--limit", "1")
+        m = read_json(store / ts.MANIFEST_NAME)
+        assert m["total"] == 3 and m["complete"] == 1 and m["incomplete"] == 2, m
+        assert {r["status"] for r in m["incomplete_ids"]} == {"not reached"}, m
+
+
+def test_outage_counts_the_failed_and_the_unreached():
+    """LLM outage on the first inference: exit 3 and a manifest that says 3 incomplete."""
+    with tempfile.TemporaryDirectory() as d:
+        store = Path(d)
+        for n in (1, 2, 3):
+            _write(store / f"inf_{n}.json")
+        calls = []
+        _patch(_stub_logos(calls), _stub_conflict(calls, fail=LLMUnavailable("quota")))
+        assert _run_main(store) == 3
+        m = read_json(store / ts.MANIFEST_NAME)
+        assert m["total"] == 3 and m["incomplete"] == 3, m
+
+
 def test_manifest_counts():
     """Manifest separates complete vs incomplete across the store."""
     with tempfile.TemporaryDirectory() as d:
@@ -147,3 +185,4 @@ if __name__ == "__main__":
     sys.exit(1 if failed else 0)
 
 # llm: claude-opus-4-8 | 2026-06-24 | repos/vivify-operators/tests/test_tag_store.py | new: proves tag_store resume (skips logos call when only conflict missing), skip-if-complete, fail-fast on LLMUnavailable with progress preserved, content-error recorded-not-fatal, manifest counts
+# llm: claude-fable-5-2 | 2026-11-16 | repos/vivify-operators/tests/test_tag_store.py | a run stopped by --limit or an LLM outage writes a manifest that counts the inferences it never reached

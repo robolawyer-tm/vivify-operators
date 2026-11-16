@@ -116,6 +116,23 @@ def iter_inferences(store, include_private):
         yield path
 
 
+def unvisited_rows(paths):
+    """Manifest rows for inferences a stopped run never reached (--limit, LLM outage).
+
+    - Already-complete ones count as skipped, exactly as a full run would count them
+    - The rest are 'not reached', which the manifest counts as incomplete
+    - No LLM call: this only reads what is on disk
+    """
+    rows = []
+    for path in paths:
+        try:
+            done = is_complete(read_json(path) or {})
+        except Exception:
+            done = False
+        rows.append({"id": path.stem, "status": "skipped" if done else "not reached"})
+    return rows
+
+
 def write_manifest(store, rows):
     """Write the completeness manifest the cross_scale pass reads before running."""
     complete = [r["id"] for r in rows if r["status"] == "complete"]
@@ -149,13 +166,16 @@ def main():
         sys.exit(1)
 
     rows, fresh = [], 0
-    for path in iter_inferences(store, args.include_private):
+    paths = list(iter_inferences(store, args.include_private))
+    for pos, path in enumerate(paths):
         inf_id = path.stem
         try:
             status = tag_one(path, force=args.force)
         except LLMUnavailable as e:
             # fail-fast: everything tagged so far is on disk; record the partial manifest and stop.
-            write_manifest(store, rows)
+            # The inference that failed and every one after it are counted, so an
+            # interrupted run can never write a manifest that reads as a complete store.
+            write_manifest(store, rows + unvisited_rows(paths[pos:]))
             print(f"\nLLM unavailable (quota/auth?): {e}", file=sys.stderr)
             print(f"Aborted after {fresh} freshly tagged. Progress saved — re-run to resume. Exit 3.",
                   file=sys.stderr)
@@ -172,6 +192,7 @@ def main():
 
         if args.limit and fresh >= args.limit:
             print(f"\nReached --limit {args.limit}; stopping (resume later to continue).")
+            rows += unvisited_rows(paths[pos + 1:])
             break
 
     manifest = write_manifest(store, rows)
@@ -187,3 +208,4 @@ if __name__ == "__main__":
 
 # llm: claude-opus-4-8 | 2026-06-24 | repos/vivify-operators/tag_store.py | created — resumable store-level tagging driver: fused logos + conflict per inference, skip-if-complete (and skip logos alone if only conflict missing), write-after-each-substep, fail-fast exit 3 on LLMUnavailable, per-inference content errors recorded not fatal, completeness manifest for cross_scale
 # llm: claude-opus-4-8 | 2026-06-29 | repos/vivify-operators/tag_store.py | logos_complete() now scopes its error check to the 8 managed dimensions, so a vestigial error from a retired dim (narrative) no longer marks a fully-fused inference incomplete
+# llm: claude-fable-5-2 | 2026-11-16 | repos/vivify-operators/tag_store.py | a run stopped by --limit or an LLM outage now counts the inferences it never reached (unvisited_rows), so the manifest no longer reads incomplete: 0 for a partly tagged store

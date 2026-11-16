@@ -82,6 +82,31 @@ try:
 finally:
     bond_operator.call_and_validate = original
 
+# the three sub-pass names are in config/coordinates.json, so the gate applies to them
+import json
+from vivify_core import validate_coordinates, CoordinateValidationError
+CONFIG = str(ROOT / "config")
+ops = json.load(open(ROOT / "config" / "coordinates.json"))["operators"]
+check("config carries the registered vocabulary", ops["bond_registered"]["enum_maps"]["registered"] == list(REGISTERED))
+check("config carries the via vocabulary", ops["bond_via"]["enum_maps"]["via"] == list(bond_operator.VIA))
+check("config carries the tie-effect vocabulary", ops["bond_tie"]["enum_maps"]["effect"] == list(bond_operator.TIE_EFFECT))
+
+
+def rejected(result, operator):
+    try:
+        validate_coordinates(result, operator, CONFIG)
+        return False
+    except CoordinateValidationError:
+        return True
+
+
+check("a well-formed answer passes the gate", not rejected({"registered": {"1": "weighed", "2": "absent"}}, "bond_registered"))
+check("a list where a map is expected is rejected", rejected({"registered": ["weighed", "absent"]}, "bond_registered"))
+check("a paragraph smuggled in as a value is rejected", rejected({"via": {"1": "distance " * 40}}, "bond_via"))
+check("a nested object as a value is rejected", rejected({"effect": {"1": {"x": "severed"}}}, "bond_tie"))
+check("an off-vocabulary word passes the gate (the vote leaves it uncounted)",
+      not rejected({"registered": {"1": "noted"}}, "bond_registered"))
+
 print()
 if failures:
     print(f"FAILED: {len(failures)} check(s) — {', '.join(failures)}")
@@ -90,3 +115,4 @@ print("All bond-vote checks passed.")
 
 # llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/tests/test_bond_votes.py | created — per_event_votes retries failed draws, raises ShortVotes when fewer than n come back (call_and_validate stubbed, no live calls)
 # llm: claude-opus-5-5 | 2026-10-31 | repos/vivify-operators/tests/test_bond_votes.py | registered votes use capability bond_registered, via stays on logos_operator
+# llm: claude-fable-5-2 | 2026-11-16 | repos/vivify-operators/tests/test_bond_votes.py | bond sub-pass names are in coordinates.json and gated on shape and size (enum_maps); vocabulary in config must equal the code's constants

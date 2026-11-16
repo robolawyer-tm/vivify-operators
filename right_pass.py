@@ -22,6 +22,7 @@ the source text; ungrounded facts are dropped (fail-closed on hallucination).
 
 import re
 import sys
+import unicodedata
 import json
 import fileinput
 from pathlib import Path
@@ -119,11 +120,25 @@ def _snake(name):
 
 
 def _grounded(quote, raw_text):
-    """True if quote appears verbatim in raw_text (case- and whitespace-insensitive)."""
+    """True if quote appears verbatim in raw_text (case-, whitespace- and glyph-insensitive)."""
     if not quote:
         return False
-    flat = lambda s: " ".join(str(s).lower().split())
-    return flat(quote) in flat(raw_text)
+    return _norm_quote(quote) in _norm_quote(raw_text)
+
+
+_QUOTE_GLYPHS = str.maketrans({"\u2018": "'", "\u2019": "'", "\u2032": "'", "\u201c": '"', "\u201d": '"',
+                               "\u2033": '"', "\u2212": "-", "\u2013": "-", "\u2014": "-"})
+
+
+def _norm_quote(s):
+    """Fold the glyph differences a model introduces when it copies a quote.
+
+    - Same job as claim_check._norm (NFKC, dashes, whitespace, case), plus curly
+      quotes and primes, so a quote is not dropped as ungrounded over punctuation
+    - Nothing else is loosened: the words still have to appear in the text, in order
+    """
+    s = unicodedata.normalize("NFKC", str(s or "").translate(_QUOTE_GLYPHS))   # glyphs first: NFKC splits a double prime
+    return " ".join(s.lower().split())
 
 
 def extract_facts(raw_text, sensitive=False, config_dir="config"):
@@ -307,3 +322,4 @@ if __name__ == "__main__":
 # llm: claude-fable-5 | 2026-07-13 | repos/vivify-operators/right_pass.py | replaced static-keyword stub with real content extraction: right_facts + claimed-vs-actual discrepancies via llm_call(fact_extraction), quote-grounding gate, stub purge; spec from experiments/round_trip loss test residue
 # llm: claude-opus-5 | 2026-08-13 | repos/vivify-operators/right_pass.py | extract_facts returns the model it used; apply_right_pass records inference["right_pass"]._model — provenance for the confirmed-tension ground-truth channel
 # llm: claude-opus-5-5 | 2026-10-30 | repos/vivify-operators/right_pass.py | read_json(..., missing_ok=True) where a missing file means empty (read_json now raises by default)
+# llm: claude-fable-5-2 | 2026-11-16 | repos/vivify-operators/right_pass.py | _grounded folds Unicode forms, dashes, curly quotes and primes before comparing (was: lowercase + whitespace only, so a quote the model re-punctuated was dropped as ungrounded)

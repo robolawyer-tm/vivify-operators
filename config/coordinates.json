@@ -356,6 +356,38 @@
     "between"
    ],
    "nullable": []
+  },
+  "bond_registered": {
+   "enum_maps": {
+    "registered": [
+     "weighed",
+     "mentioned",
+     "absent"
+    ]
+   }
+  },
+  "bond_via": {
+   "enum_maps": {
+    "via": [
+     "distance",
+     "schedule",
+     "placement",
+     "status",
+     "conduct",
+     "other"
+    ]
+   }
+  },
+  "bond_tie": {
+   "enum_maps": {
+    "effect": [
+     "preserved",
+     "reduced",
+     "severed",
+     "restored",
+     "unstated"
+    ]
+   }
   }
  }
 }

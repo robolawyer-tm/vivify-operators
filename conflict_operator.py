@@ -18,6 +18,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent / "lib"))
 from vivify_core import (read_json, write_json, call_and_validate, modal_choice,
+                         collect_draws, mark_votes,
                          categorical_signature, _vote_count,
                          CoordinateValidationError, LLMUnavailable)
 
@@ -59,15 +60,9 @@ def vote_per_dimension(prompt, retries=2, votes=None):
     each coordinate.
     """
     votes = _vote_count() if votes is None else max(1, votes)
-    draws, last_err = [], None
-    for _ in range(votes):
-        try:
-            draws.append(call_and_validate(prompt, "conflict", "conflict_operator",
-                                           True, None, retries, CONFIG))
-        except (CoordinateValidationError, json.JSONDecodeError) as e:
-            last_err = e
-    if not draws:
-        raise last_err
+    draws, failed = collect_draws(
+        lambda: call_and_validate(prompt, "conflict", "conflict_operator",
+                                  True, None, retries, CONFIG), votes)
 
     primary_idx, record = modal_choice(
         draws, lambda d: categorical_signature(d, "conflict", CONFIG))
@@ -93,7 +88,10 @@ def vote_per_dimension(prompt, retries=2, votes=None):
 
     record["distribution"] = {**record.get("distribution", {}), **distribution}
     record["by_dim"] = by_dim
-    record["quarantined"] = votes - len(draws)
+    mark_votes(record, votes, failed)
+    if record.get("short"):          # a short vote is not unanimous on any coordinate
+        for dim in by_dim.values():
+            dim["unanimous"] = False
     return merged, record
 
 PROMPT = """You are reading logos coordinates already attached to an inference and
@@ -362,3 +360,4 @@ if __name__ == "__main__":
 # llm: claude-opus-5-5 | 2026-10-16 | repos/vivify-operators/conflict_operator.py | counter_force read IN REVERSE (John): find the force (coercion, extraction, twisting) first; a bare denial is positioning; signals name force <- reverser
 # llm: claude-opus-5-5 | 2026-10-16 | repos/vivify-operators/conflict_operator.py | counter_force_signals name who applies the force as well as who reverses it; self-reversal is recorded, not forbidden
 # llm: claude-opus-5-5 | 2026-10-16 | repos/vivify-operators/conflict_operator.py | counter_force records ON WHOM a force falls; only reversals for whoever the window bears on set the value (Sutton 3-4 read a co-defendant's clearance as taken_up)
+# llm: claude-fable-5-2 | 2026-11-16 | repos/vivify-operators/conflict_operator.py | vote_per_dimension replaces failed draws and marks a short vote (shared collect_draws / mark_votes)
